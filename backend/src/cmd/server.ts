@@ -18,6 +18,7 @@ router.post('/power-consumption', (ctx: any) => {
     ctx.body = powerConsumption;
   }
 );
+
 router.get('/power-consumption', (ctx: any) => {
     ctx.body = store.getAll();
   }
