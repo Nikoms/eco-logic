@@ -15,9 +15,11 @@
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0",
     "vue-router": "^3.0.1",
+    "vuetify": "^1.4.3",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "@mdi/font": "^3.3.92",
     "@types/jest": "^23.1.4",
     "@vue/cli-plugin-babel": "^3.0.3",
     "@vue/cli-plugin-e2e-cypress": "^3.0.3",
@@ -30,9 +32,13 @@
     "lint-staged": "^8.1.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
     "ts-jest": "^23.0.0",
     "typescript": "^3.0.0",
-    "vue-template-compiler": "^2.5.21"
+    "vue-cli-plugin-vuetify": "^0.4.6",
+    "vue-template-compiler": "^2.5.21",
+    "vuetify-loader": "^1.0.5"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"

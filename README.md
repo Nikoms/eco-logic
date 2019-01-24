@@ -10,3 +10,8 @@ Frontend:
 cd frontend
 yarn serve
 ``` 
+
+
+Links :
+
+- https://vuetifyjs.com/en/components/lists
