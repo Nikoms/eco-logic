@@ -6,6 +6,10 @@
                 <span class="font-weight-light">MATERIAL DESIGN</span>
             </v-toolbar-title>
             <v-spacer></v-spacer>
+            <v-toolbar-items>
+                <v-btn flat><router-link :to="{ name: 'power-consumption'}">Power Consumption</router-link></v-btn>
+                <v-btn flat><router-link :to="{ name: 'water-consumption'}">Water Consumption</router-link></v-btn>
+            </v-toolbar-items>
             <v-btn
                     flat
                     href="https://github.com/vuetifyjs/vuetify/releases/latest"
@@ -16,20 +20,15 @@
         </v-toolbar>
 
         <v-content>
-            <AddPowerConsumption/>
-            <ListPowerConsumption/>
+            <router-view/>
         </v-content>
     </v-app>
 </template>
 
 <script>
-    import AddPowerConsumption from '@/components/power-consumption/add.vue'; // @ is an alias to /src
-    import ListPowerConsumption from '@/components/power-consumption/list.vue'; // @ is an alias to /src
-
     export default {
         name: 'App',
         components: {
-            AddPowerConsumption, ListPowerConsumption,
         },
         data() {
             return {
