@@ -19,8 +19,8 @@ export class AddPowerConsumptionHandler {
 
   }
 
-  handle(request: AddPowerConsumption) {
-    this.powerConsumptionStore.add(request.powerConsumption);
+  async handle(request: AddPowerConsumption) {
+    await this.powerConsumptionStore.add(request.powerConsumption);
     return request.powerConsumption;
   }
 }
