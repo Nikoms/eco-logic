@@ -32,6 +32,10 @@
       { text: 'Date', value: 'date' },
     ];
 
+    async mounted() {
+      this.consumptions = await handle(new GetAllPowerConsumptions());
+    }
+
     async refresh() {
       this.consumptions = [];
       this.consumptions = await handle(new GetAllPowerConsumptions());
