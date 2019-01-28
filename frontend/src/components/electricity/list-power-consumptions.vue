@@ -21,7 +21,7 @@
   import { GetAllPowerConsumptions } from '../../../../application/src/interactor/electricity/GetAllPowerConsumptions';
 
   @Component
-  export default class ListPowerConsumption extends Vue {
+  export default class ListPowerConsumptions extends Vue {
     consumptions = [];
     headers = [
       {

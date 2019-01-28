@@ -21,7 +21,7 @@
     consumption: string = '';
 
     async sendMessage() {
-      console.log(await handle(new Add(parseFloat(this.consumption))));
+      await handle(new Add(parseFloat(this.consumption)));
       this.clearMessage();
     }
 

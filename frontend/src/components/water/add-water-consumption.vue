@@ -13,24 +13,15 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
+  import { handle } from '@/handlers';
+  import { AddWaterConsumption as Add } from '../../../../application/src/interactor/water/AddWaterConsumption';
 
   @Component
   export default class AddWaterConsumption extends Vue {
     consumption: string = '';
 
     async sendMessage() {
-      const rawResponse = await fetch('http://localhost:3000/water-consumption', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          'm3': this.consumption,
-          'userId': '1'
-        })
-      });
-      console.log(await rawResponse.json());
+      await handle(new Add(parseFloat(this.consumption)));
 
       this.clearMessage();
     }

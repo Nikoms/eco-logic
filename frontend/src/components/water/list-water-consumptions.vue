@@ -17,22 +17,24 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
+  import { handle } from '@/handlers';
+  import { GetAllWaterConsumptions } from '../../../../application/src/interactor/water/GetAllWaterConsumptions';
 
   @Component
-  export default class ListWaterConsumption extends Vue {
+  export default class ListWaterConsumptions extends Vue {
     consumptions = [];
+    headers = [
+      {
+        text: 'm3',
+        sortable: false,
+        value: 'm3'
+      },
+      { text: 'Date', value: 'date' },
+    ];
 
     async refresh() {
       this.consumptions = [];
-
-      const rawResponse = await fetch('http://localhost:3000/water-consumption', {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        }
-      });
-      this.consumptions = await rawResponse.json();
+      this.consumptions = await handle(new GetAllWaterConsumptions());
 
     }
   }
