@@ -2,10 +2,10 @@
   "compileOnSave": true,
   "compilerOptions": {
     "lib": [
-      "es2017"
+      "esnext"
     ],
-    "target": "es2017",
-    "module": "commonjs",
+    "target": "esnext",
+    "module": "esnext",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
