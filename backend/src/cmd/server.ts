@@ -1,5 +1,12 @@
-import { PowerConsumption } from '../entity/PowerConsumption';
-import { PowerConsumptionStore } from '../store/PowerConsumptionStore';
+import { PowerConsumptionInMemoryRepository } from '../../../infrastructure/src/repository/PowerConsumptionInMemoryRepository';
+import {
+  AddPowerConsumption,
+  AddPowerConsumptionHandler
+} from '../../../application/src/interactor/electricity/AddPowerConsumption';
+import {
+  GetAllPowerConsumptions,
+  GetAllPowerConsumptionsHandler
+} from '../../../application/src/interactor/electricity/GetAllPowerConsumptions';
 
 const Koa = require('koa');
 const app = new Koa();
@@ -10,17 +17,22 @@ const router = require('koa-router')();
 app.use(cors());
 app.use(koaBody());
 
-const store = new PowerConsumptionStore();
+const store = new PowerConsumptionInMemoryRepository();
+const handlers = new Map<any, any>();
+handlers.set(AddPowerConsumption, new AddPowerConsumptionHandler(store));
+handlers.set(GetAllPowerConsumptions, new GetAllPowerConsumptionsHandler(store));
 
-router.post('/power-consumption', (ctx: any) => {
-    let powerConsumption = PowerConsumption.fromRequest(ctx.request.body);
-    store.add(powerConsumption);
-    ctx.body = powerConsumption;
+const handle = (request: any) => {
+  return handlers.get(request.constructor).handle(request);
+};
+
+router.post('/power-consumption', async (ctx: any) => {
+    ctx.body = await handle(new AddPowerConsumption(ctx.request.body.kWh));
   }
 );
 
-router.get('/power-consumption', (ctx: any) => {
-    ctx.body = store.getAll();
+router.get('/power-consumption', async (ctx: any) => {
+    ctx.body = await handle(new GetAllPowerConsumptions());
   }
 );
 

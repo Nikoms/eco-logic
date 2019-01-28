@@ -17,6 +17,8 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
+  import { handle } from '@/handlers';
+  import { GetAllPowerConsumptions } from '../../../../application/src/interactor/electricity/GetAllPowerConsumptions';
 
   @Component
   export default class ListPowerConsumption extends Vue {
@@ -32,15 +34,7 @@
 
     async refresh() {
       this.consumptions = [];
-
-      const rawResponse = await fetch('http://localhost:3000/power-consumption', {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        }
-      });
-      this.consumptions = await rawResponse.json();
+      this.consumptions = await handle(new GetAllPowerConsumptions());
 
     }
   }
