@@ -18,6 +18,15 @@
     "paths": {
       "@/*": [
         "src/*"
+      ],
+      "@eco/application/*": [
+        "../application/src"
+      ],
+      "@eco/infrastructure/*": [
+        "../infrastructure/src"
+      ],
+      "@eco/domain/*": [
+        "../domain/src"
       ]
     },
     "lib": [
