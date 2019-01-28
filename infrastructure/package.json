@@ -1,5 +1,5 @@
 {
-  "name": "@eco/application",
+  "name": "@eco/infrastructure",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,10 +9,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "uuid": "^3.3.2"
-  },
-  "devDependencies": {
-    "@types/uuid": "^3.4.4"
-  }
+  "dependencies": {}
 }

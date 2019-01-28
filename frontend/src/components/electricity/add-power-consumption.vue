@@ -32,8 +32,8 @@
   import { Component, Vue } from 'vue-property-decorator';
   import { AddPowerConsumption as Add } from '../../../../application/src/interactor/electricity/AddPowerConsumption';
   import { handle } from '@/handlers';
-  import { GetElectricMeters } from 'application/src/interactor/electricity/GetElectricMeters';
-  import ElectricMeter from 'domain/src/electricity/entity/ElectricMeter';
+  import { GetElectricMeters } from '../../../../application/src/interactor/electricity/GetElectricMeters';
+  import ElectricMeter from '../../../../domain/src/electricity/entity/ElectricMeter';
 
   @Component
   export default class AddPowerConsumption extends Vue {

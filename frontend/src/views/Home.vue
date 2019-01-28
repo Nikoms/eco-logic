@@ -22,7 +22,7 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import PowerConsumptionCharts from '@/components/electricity/power-consumption-charts.vue';
-  import { InitElectricMeter } from 'application/src/interactor/electricity/InitElectricMeter';
+  import { InitElectricMeter } from '../../../application/src/interactor/electricity/InitElectricMeter';
   import { handle } from '@/handlers';
 
 
