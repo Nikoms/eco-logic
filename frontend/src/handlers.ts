@@ -17,8 +17,14 @@ import {
 import { PowerConsumptionLocalStorageRepository } from '../../infrastructure/src/storage/local-storage/PowerConsumptionLocalStorageRepository';
 import { WaterConsumptionLocalStorageRepository } from '../../infrastructure/src/storage/local-storage/WaterConsumptionLocalStorageRepository';
 import { ElectricMeterLocalStorageRepository } from '../../infrastructure/src/storage/local-storage/ElectricMeterLocalStorageRepository';
-import { InitElectricMeter, InitElectricMeterHandler } from '../../application/src/interactor/electricity/InitElectricMeter';
-import { GetElectricMeters, GetElectricMetersHandler } from '../../application/src/interactor/electricity/GetElectricMeters';
+import {
+  InitElectricMeter,
+  InitElectricMeterHandler
+} from '../../application/src/interactor/electricity/InitElectricMeter';
+import {
+  GetElectricMeters,
+  GetElectricMetersHandler
+} from '../../application/src/interactor/electricity/GetElectricMeters';
 
 const powerStore = new PowerConsumptionLocalStorageRepository(window.localStorage);
 const waterStore = new WaterConsumptionLocalStorageRepository(window.localStorage);
