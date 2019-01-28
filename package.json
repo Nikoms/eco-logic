@@ -4,7 +4,8 @@
   "description": "Backend : ```  cd backend yarn start ```",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd frontend && vue-cli-service build"
   },
   "repository": {
     "type": "git",
