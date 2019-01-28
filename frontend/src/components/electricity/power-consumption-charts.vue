@@ -52,12 +52,12 @@
     ['#f72047', '#ffd200', '#1feaea']
   ];
 
-  @Component()
+  @Component({})
   export default class PowerConsumptionCharts extends Vue {
     gradient = gradients[5];
     average = '123';
-    values = [];
-    labels = [];
+    values: number[] = [];
+    labels: string[] = [];
 
     async mounted() {
       const consumptions = await handle<Promise<PowerConsumption[]>>(new GetAllPowerConsumptions());
