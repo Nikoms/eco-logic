@@ -26,7 +26,7 @@ handlers.set(AddWaterConsumption, new AddWaterConsumptionHandler(waterStore));
 handlers.set(GetAllWaterConsumptions, new GetAllWaterConsumptionsHandler(waterStore));
 
 
-const handle = (request: any) => {
+const handle = <T = any>(request: any): T => {
   return handlers.get(request.constructor).handle(request);
 };
 
