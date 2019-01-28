@@ -20,13 +20,13 @@
         "src/*"
       ],
       "@eco/application/*": [
-        "../application/src"
+        "../application/src/*"
       ],
       "@eco/infrastructure/*": [
-        "../infrastructure/src"
+        "../infrastructure/src/*"
       ],
       "@eco/domain/*": [
-        "../domain/src"
+        "../domain/src/*"
       ]
     },
     "lib": [
