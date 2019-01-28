@@ -1,0 +1,33 @@
+import { WaterConsumption } from '../../../../domain/src/water/entity/WaterConsumption';
+import { WaterConsumptionRepository } from '../../../../domain/src/water/repository/WaterConsumptionRepository';
+import { JsonOf } from '../../../../application/src/type/JsonOf';
+
+export class WaterConsumptionLocalStorageRepository implements WaterConsumptionRepository {
+  private key = 'water-consumptions';
+
+  constructor(private localstorage: Storage) {
+    if (!this.localstorage.getItem(this.key)) {
+      this.saveList([]);
+    }
+  }
+
+  async add(water: WaterConsumption) {
+    const list = this.getList();
+    list.push(water);
+    this.saveList(list);
+  }
+
+  private saveList(list: any[]) {
+    const listAsJson = JSON.stringify(list);
+    this.localstorage.setItem(this.key, listAsJson);
+  }
+
+  private getList(): WaterConsumption[] {
+    const rawList: JsonOf<WaterConsumption>[] = JSON.parse(this.localstorage.getItem(this.key) || '[]');
+    return rawList.map(raw => new WaterConsumption(raw.id, raw.m3, new Date(raw.date)));
+  }
+
+  async getAll() {
+    return this.getList();
+  }
+}

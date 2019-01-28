@@ -1,4 +1,3 @@
-import { PowerConsumptionInMemoryRepository } from '../../infrastructure/src/repository/PowerConsumptionInMemoryRepository';
 import {
   AddPowerConsumption,
   AddPowerConsumptionHandler
@@ -11,14 +10,15 @@ import {
   AddWaterConsumption,
   AddWaterConsumptionHandler
 } from '../../application/src/interactor/water/AddWaterConsumption';
-import { WaterConsumptionInMemoryRepository } from '../../infrastructure/src/repository/WaterConsumptionInMemoryRepository';
 import {
   GetAllWaterConsumptions,
   GetAllWaterConsumptionsHandler
 } from '../../application/src/interactor/water/GetAllWaterConsumptions';
+import { PowerConsumptionLocalStorageRepository } from '../../infrastructure/src/storage/local-storage/PowerConsumptionLocalStorageRepository';
+import { WaterConsumptionLocalStorageRepository } from '../../infrastructure/src/storage/local-storage/WaterConsumptionLocalStorageRepository';
 
-const powerStore = new PowerConsumptionInMemoryRepository();
-const waterStore = new WaterConsumptionInMemoryRepository();
+const powerStore = new PowerConsumptionLocalStorageRepository(window.localStorage);
+const waterStore = new WaterConsumptionLocalStorageRepository(window.localStorage);
 const handlers = new Map<any, any>();
 handlers.set(AddPowerConsumption, new AddPowerConsumptionHandler(powerStore));
 handlers.set(GetAllPowerConsumptions, new GetAllPowerConsumptionsHandler(powerStore));
