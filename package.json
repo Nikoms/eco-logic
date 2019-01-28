@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd frontend && vue-cli-service build"
+    "build": "cd frontend && vue-cli-service build",
+    "deploy-dev": "surge --project ./frontend/dist/ --domain eco-logic-dev.surge.sh"
   },
   "repository": {
     "type": "git",
