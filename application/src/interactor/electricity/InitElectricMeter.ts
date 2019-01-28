@@ -9,15 +9,15 @@ export class InitElectricMeter {
 
 
 export class InitElectricMeterHandler {
-  constructor(private powerConsumptionStore: ElectricMeterRepository) {
+  constructor(private store: ElectricMeterRepository) {
   }
 
   async handle(request: InitElectricMeter) {
     if (request.hasNightMeter) {
-      await this.powerConsumptionStore.add(new ElectricMeter(v4(), 'Day meter'));
-      await this.powerConsumptionStore.add(new ElectricMeter(v4(), 'Night meter'));
+      await this.store.add(new ElectricMeter(v4(), 'Day meter'));
+      await this.store.add(new ElectricMeter(v4(), 'Night meter'));
     } else {
-      await this.powerConsumptionStore.add(new ElectricMeter(v4(), 'Electric meter'));
+      await this.store.add(new ElectricMeter(v4(), 'Electric meter'));
     }
   }
 }

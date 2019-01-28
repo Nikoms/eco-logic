@@ -9,6 +9,7 @@
         >
             <template slot="items" slot-scope="props">
                 <td class="text-xs-right">{{ props.item.kWh }}</td>
+                <td class="text-xs-right">{{ props.item.electricMeter }}</td>
                 <td class="text-xs-right">{{ props.item.date }}</td>
             </template>
         </v-data-table>
@@ -29,6 +30,7 @@
         sortable: false,
         value: 'kWh'
       },
+      { text: 'Meter', value: 'electricMeter', sortable: false },
       { text: 'Date', value: 'date' },
     ];
 

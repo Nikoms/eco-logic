@@ -5,11 +5,11 @@ import { v4 } from 'uuid';
 export class AddPowerConsumption {
   public readonly powerConsumption: PowerConsumption;
 
-  constructor(readonly kWh: number) {
+  constructor(kWh: number, electricMeter: string) {
     if (!kWh) {
       throw new Error('"kWh" empty');
     }
-    this.powerConsumption = new PowerConsumption(v4(), kWh, new Date());
+    this.powerConsumption = new PowerConsumption(v4(), kWh, electricMeter, new Date());
   }
 }
 

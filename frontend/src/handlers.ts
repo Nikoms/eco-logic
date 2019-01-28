@@ -18,6 +18,7 @@ import { PowerConsumptionLocalStorageRepository } from '../../infrastructure/src
 import { WaterConsumptionLocalStorageRepository } from '../../infrastructure/src/storage/local-storage/WaterConsumptionLocalStorageRepository';
 import { ElectricMeterLocalStorageRepository } from '../../infrastructure/src/storage/local-storage/ElectricMeterLocalStorageRepository';
 import { InitElectricMeter, InitElectricMeterHandler } from 'application/src/interactor/electricity/InitElectricMeter';
+import { GetElectricMeters, GetElectricMetersHandler } from 'application/src/interactor/electricity/GetElectricMeters';
 
 const powerStore = new PowerConsumptionLocalStorageRepository(window.localStorage);
 const waterStore = new WaterConsumptionLocalStorageRepository(window.localStorage);
@@ -28,9 +29,10 @@ handlers.set(GetAllPowerConsumptions, new GetAllPowerConsumptionsHandler(powerSt
 handlers.set(AddWaterConsumption, new AddWaterConsumptionHandler(waterStore));
 handlers.set(GetAllWaterConsumptions, new GetAllWaterConsumptionsHandler(waterStore));
 handlers.set(InitElectricMeter, new InitElectricMeterHandler(elestricStore));
+handlers.set(GetElectricMeters, new GetElectricMetersHandler(elestricStore));
 
 
-const handle = <T = any>(request: any): T => {
+const handle = <T = any>(request: any): Promise<T> => {
   return handlers.get(request.constructor).handle(request);
 };
 

@@ -60,7 +60,7 @@
     labels: string[] = [];
 
     async mounted() {
-      const consumptions = await handle<Promise<PowerConsumption[]>>(new GetAllPowerConsumptions());
+      const consumptions = await handle<PowerConsumption[]>(new GetAllPowerConsumptions());
       this.values = consumptions.map(c => c.kWh);
       this.labels = consumptions.map(c => c.date.getDate() + '/' + (c.date.getMonth() + 1));
     }
