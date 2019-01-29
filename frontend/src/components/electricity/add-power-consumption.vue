@@ -1,28 +1,27 @@
 <template>
     <div>
         <v-form v-if="canAdd">
-            <v-container>
-                <v-layout>
-                    <v-flex xs12 md4 v-if="hasMultipleMeters">
-                        <v-select
-                                item-text="name"
-                                item-value="id"
-                                return-object
-                                :value="selectedMeter" :items="meters" label="Electric meter"></v-select>
-                    </v-flex>
+            <v-card>
+                <v-card-text>
+                    <v-select v-if="hasMultipleMeters"
+                              item-text="name"
+                              item-value="id"
+                              return-object
+                              :value="selectedMeter" :items="meters" label="Electric meter"></v-select>
 
-                    <v-flex xs12 md4>
-                        <v-text-field
-                                v-model="consumption"
-                                type="number"
-                                label="Consumption"
-                                suffix="kWh"
-                                :append-outer-icon="consumption ? 'mdi-send' : 'mdi-microphone'"
-                                @click:append-outer="sendMessage"
-                        ></v-text-field>
-                    </v-flex>
-                </v-layout>
-            </v-container>
+                    <v-text-field
+                            v-model="consumption"
+                            type="number"
+                            label="Consumption"
+                            suffix="kWh"
+                    ></v-text-field>
+                </v-card-text>
+
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn flat color="primary" @click="sendMessage">Submit</v-btn>
+                </v-card-actions>
+            </v-card>
         </v-form>
         <v-alert v-else value="true" color="error" icon="warning" outline>{{errorMessage}}</v-alert>
     </div>
@@ -47,6 +46,7 @@
     async sendMessage() {
       await handle(new Add(parseFloat(this.consumption), this.selectedMeter));
       this.clearMessage();
+      this.$emit('added')
     }
 
     async mounted() {

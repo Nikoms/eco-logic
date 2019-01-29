@@ -1,8 +1,26 @@
 <template>
-    <div class="power-consumption">
-        Please add your latest Power Consumption below
-        <AddPowerConsumption/>
-        <ListPowerConsumptions/>
+    <div>
+        <v-fab-transition>
+            <v-btn
+                    style="bottom: 70px"
+                    color="indigo"
+                    key="add"
+                    dark
+                    fab
+                    fixed
+                    bottom
+                    right
+                    @click="dialog = !dialog"
+            >
+                <v-icon>mdi-plus</v-icon>
+            </v-btn>
+        </v-fab-transition>
+
+        <ListPowerConsumptions ref="list"/>
+        <v-dialog v-model="dialog" max-width="600px">
+            <AddPowerConsumption @added="added"/>
+        </v-dialog>
+
     </div>
 </template>
 
@@ -17,5 +35,11 @@
     },
   })
   export default class PowerConsumption extends Vue {
+    dialog = false;
+
+    added() {
+      this.dialog = false;
+      (<any> this.$refs.list).refresh(); // En attendant redux/rematch
+    }
   }
 </script>
