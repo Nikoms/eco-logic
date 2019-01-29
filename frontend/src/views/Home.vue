@@ -1,6 +1,7 @@
 <template>
     <div>
         <PowerConsumptionCharts/>
+        <Chart></Chart>
 
         <v-dialog v-model="dialog" max-width="290">
             <v-card>
@@ -24,10 +25,11 @@
   import PowerConsumptionCharts from '@/components/electricity/power-consumption-charts.vue';
   import { InitElectricMeter } from '@eco/application/src/interactor/electricity/InitElectricMeter';
   import { handle } from '@/handlers';
-
+  import Chart from '@/components/Chart.vue';
 
   @Component({
     components: {
+      Chart,
       PowerConsumptionCharts,
     },
   })
