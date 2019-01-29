@@ -6,7 +6,7 @@ import {TravelType} from '@eco/domain/src/traveling/entity/Travel';
             <v-card>
                 <v-card-title>
                     <v-icon large left>mdi-car</v-icon>
-                    <span class="title font-weight-light">Add a car travel</span>
+                    <span class="title font-weight-light">Add a travel</span>
                 </v-card-title>
                 <v-card-text>
                     <v-text-field v-model="km" type="number" label="Distance" ref="distance" suffix="km"></v-text-field>

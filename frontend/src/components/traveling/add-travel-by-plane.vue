@@ -5,7 +5,7 @@ import {TravelType} from '@eco/domain/src/traveling/entity/Travel';
         <v-form>
             <v-card>
                 <v-card-title>
-                    <v-icon large left>mdi-wallet-travel</v-icon>
+                    <v-icon large left>mdi-airplane</v-icon>
                     <span class="title font-weight-light">Add a travel</span>
                 </v-card-title>
                 <v-card-text>
