@@ -28,11 +28,14 @@ import {
 import { CarLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/CarLocalStorageRepository';
 import { AddCar, AddCarHandler } from '@eco/application/src/interactor/travel/AddCar';
 import { GetCars, GetCarsHandler } from '@eco/application/src/interactor/travel/GetCars';
+import { AddTravel, AddTravelHandler } from '@eco/application/src/interactor/travel/AddTravel';
+import { TravelLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/TravelLocalStorageRepository';
 
 const powerStore = new PowerConsumptionLocalStorageRepository(window.localStorage);
 const waterStore = new WaterConsumptionLocalStorageRepository(window.localStorage);
 const elestricStore = new ElectricMeterLocalStorageRepository(window.localStorage);
 const carStore = new CarLocalStorageRepository(window.localStorage);
+const travelStore = new TravelLocalStorageRepository(window.localStorage);
 const handlers = new Map<any, any>();
 handlers.set(AddPowerConsumption, new AddPowerConsumptionHandler(powerStore));
 handlers.set(GetAllPowerConsumptions, new GetAllPowerConsumptionsHandler(powerStore));
@@ -42,6 +45,7 @@ handlers.set(InitElectricMeter, new InitElectricMeterHandler(elestricStore));
 handlers.set(GetElectricMeters, new GetElectricMetersHandler(elestricStore));
 handlers.set(AddCar, new AddCarHandler(carStore));
 handlers.set(GetCars, new GetCarsHandler(carStore));
+handlers.set(AddTravel, new AddTravelHandler(travelStore));
 
 
 const handle = <T = any>(request: any): Promise<T> => {

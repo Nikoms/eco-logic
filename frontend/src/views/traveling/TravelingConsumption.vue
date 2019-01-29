@@ -3,6 +3,12 @@
         <v-dialog v-model="addCarDialog" max-width="600px">
             <AddCar ref="addCarForm" @added="carAdded"/>
         </v-dialog>
+        <v-dialog v-model="addCarTravelDialog" max-width="600px">
+            <AddTravelByCar ref="addTravelByCarFrom" @added="carTravelAdded"/>
+        </v-dialog>
+        <v-dialog v-model="addAirTravelDialog" max-width="600px">
+            <AddTravelByPlane ref="addTravelByPlaneForm" @added="airTravelAdded"/>
+        </v-dialog>
 
         <v-speed-dial
                 style="bottom: 70px"
@@ -18,10 +24,10 @@
                 <v-icon>mdi-plus</v-icon>
                 <v-icon>mdi-close</v-icon>
             </v-btn>
-            <v-btn fab dark small color="green">
+            <v-btn fab dark small color="green" @click="showAddCarTravelDialog">
                 <v-icon>mdi-car</v-icon>
             </v-btn>
-            <v-btn fab dark small color="indigo">
+            <v-btn fab dark small color="indigo" @click="showAddAirTravelDialog">
                 <v-icon>mdi-airplane</v-icon>
             </v-btn>
             <v-btn fab dark small color="red" @click="showAddCarDialog">
@@ -34,22 +40,48 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import AddCar from '@/components/traveling/add-car.vue';
+  import AddTravelByCar from '@/components/traveling/add-travel-by-car.vue';
+  import AddTravelByPlane from '@/components/traveling/add-travel-by-plane.vue';
 
   @Component({
-    components: { AddCar },
+    components: { AddCar, AddTravelByCar, AddTravelByPlane },
   })
   export default class TravelingConsumption extends Vue {
     addCarDialog = false;
+    addCarTravelDialog = false;
+    addAirTravelDialog = false;
     fab = null;
 
     carAdded() {
       this.addCarDialog = false;
     }
 
+    carTravelAdded() {
+      this.addCarTravelDialog = false;
+    }
+
+    airTravelAdded() {
+      this.addAirTravelDialog = false;
+    }
+
     showAddCarDialog() {
       this.addCarDialog = true;
       setImmediate(() => {
         (<any> this.$refs.addCarForm).startEditing();
+      });
+    }
+
+    showAddCarTravelDialog() {
+      this.addCarTravelDialog = true;
+      setImmediate(() => {
+        (<any> this.$refs.addTravelByCarFrom).startEditing();
+      });
+    }
+
+    showAddAirTravelDialog() {
+      this.addAirTravelDialog = true;
+      setImmediate(() => {
+        (<any> this.$refs.addTravelByPlaneForm).startEditing();
       });
     }
   }
