@@ -39,7 +39,7 @@ import {TravelType} from '@eco/domain/src/traveling/entity/Travel';
 
   @Component
   export default class AddTravelByCar extends Vue {
-    car: Car = null;
+    car: Car | null = null;
     km = '';
     description = '';
     cars = [];

@@ -7,9 +7,9 @@ import { TravelRepository } from '@eco/domain/src/traveling/repository/TravelRep
 export class AddTravel {
   public readonly travel: Travel;
 
-  static byCar(car: Car, km: number, description: string) {
-    if(!car){
-      throw new Error('Car is required')
+  static byCar(car: Car | null, km: number, description: string) {
+    if (car === null) {
+      throw new Error('Car is required');
     }
     return new AddTravel(TravelType.car, car.id, km, description);
   }
