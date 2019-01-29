@@ -1,4 +1,4 @@
-export default class ElectricMeter {
+export class ElectricMeter {
   constructor(public readonly id: string, public readonly name: string) {
   }
 }

@@ -18,7 +18,7 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import { handle } from '@/handlers';
-  import { GetAllWaterConsumptions } from '../../../../application/src/interactor/water/GetAllWaterConsumptions';
+  import { GetAllWaterConsumptions } from '@eco/application/src/interactor/water/GetAllWaterConsumptions';
 
   @Component
   export default class ListWaterConsumptions extends Vue {

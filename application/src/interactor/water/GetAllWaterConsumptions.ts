@@ -1,4 +1,4 @@
-import { WaterConsumptionRepository } from '../../../../domain/src/water/repository/WaterConsumptionRepository';
+import { WaterConsumptionRepository } from '@eco/domain/src/water/repository/WaterConsumptionRepository';
 
 export class GetAllWaterConsumptions {
   constructor() {

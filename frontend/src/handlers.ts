@@ -1,30 +1,30 @@
 import {
   AddPowerConsumption,
   AddPowerConsumptionHandler
-} from '../../application/src/interactor/electricity/AddPowerConsumption';
+} from '@eco/application/src/interactor/electricity/AddPowerConsumption';
 import {
   GetAllPowerConsumptions,
   GetAllPowerConsumptionsHandler
-} from '../../application/src/interactor/electricity/GetAllPowerConsumptions';
+} from '@eco/application/src/interactor/electricity/GetAllPowerConsumptions';
 import {
   AddWaterConsumption,
   AddWaterConsumptionHandler
-} from '../../application/src/interactor/water/AddWaterConsumption';
+} from '@eco/application/src/interactor/water/AddWaterConsumption';
 import {
   GetAllWaterConsumptions,
   GetAllWaterConsumptionsHandler
-} from '../../application/src/interactor/water/GetAllWaterConsumptions';
-import { PowerConsumptionLocalStorageRepository } from '../../infrastructure/src/storage/local-storage/PowerConsumptionLocalStorageRepository';
-import { WaterConsumptionLocalStorageRepository } from '../../infrastructure/src/storage/local-storage/WaterConsumptionLocalStorageRepository';
-import { ElectricMeterLocalStorageRepository } from '../../infrastructure/src/storage/local-storage/ElectricMeterLocalStorageRepository';
+} from '@eco/application/src/interactor/water/GetAllWaterConsumptions';
+import { PowerConsumptionLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/PowerConsumptionLocalStorageRepository';
+import { WaterConsumptionLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/WaterConsumptionLocalStorageRepository';
+import { ElectricMeterLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/ElectricMeterLocalStorageRepository';
 import {
   InitElectricMeter,
   InitElectricMeterHandler
-} from '../../application/src/interactor/electricity/InitElectricMeter';
+} from '@eco/application/src/interactor/electricity/InitElectricMeter';
 import {
   GetElectricMeters,
   GetElectricMetersHandler
-} from '../../application/src/interactor/electricity/GetElectricMeters';
+} from '@eco/application/src/interactor/electricity/GetElectricMeters';
 
 const powerStore = new PowerConsumptionLocalStorageRepository(window.localStorage);
 const waterStore = new WaterConsumptionLocalStorageRepository(window.localStorage);

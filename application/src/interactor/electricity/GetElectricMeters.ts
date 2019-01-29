@@ -1,4 +1,4 @@
-import { ElectricMeterRepository } from '../../../../domain/src/electricity/repository/ElectricMeterRepository';
+import { ElectricMeterRepository } from '@eco/domain/src/electricity/repository/ElectricMeterRepository';
 
 export class GetElectricMeters {
   constructor() {

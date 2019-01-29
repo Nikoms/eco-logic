@@ -1,5 +1,5 @@
-import { WaterConsumptionRepository } from '../../../../domain/src/water/repository/WaterConsumptionRepository';
-import { WaterConsumption } from '../../../../domain/src/water/entity/WaterConsumption';
+import { WaterConsumptionRepository } from '@eco/domain/src/water/repository/WaterConsumptionRepository';
+import { WaterConsumption } from '@eco/domain/src/water/entity/WaterConsumption';
 
 export class WaterConsumptionInMemoryRepository implements WaterConsumptionRepository {
   private consumptions: WaterConsumption[] = [];

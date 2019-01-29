@@ -1,6 +1,6 @@
-import ElectricMeter from '../../../../domain/src/electricity/entity/ElectricMeter';
-import { ElectricMeterRepository } from '../../../../domain/src/electricity/repository/ElectricMeterRepository';
-import { JsonOf } from '../../../../application/src/type/JsonOf';
+import { ElectricMeter } from '@eco/domain/src/electricity/entity/ElectricMeter';
+import { ElectricMeterRepository } from '@eco/domain/src/electricity/repository/ElectricMeterRepository';
+import { JsonOf } from '@eco/application/src/type/JsonOf';
 
 export class ElectricMeterLocalStorageRepository implements ElectricMeterRepository {
   private key = 'electric-meters';

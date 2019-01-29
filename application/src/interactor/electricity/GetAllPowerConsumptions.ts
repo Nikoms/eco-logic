@@ -1,4 +1,4 @@
-import { PowerConsumptionRepository } from '../../../../domain/src/electricity/repository/PowerConsumptionRepository';
+import { PowerConsumptionRepository } from '@eco/domain/src/electricity/repository/PowerConsumptionRepository';
 
 export class GetAllPowerConsumptions {
   constructor() {

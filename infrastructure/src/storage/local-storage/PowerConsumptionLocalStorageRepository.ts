@@ -1,6 +1,6 @@
-import { PowerConsumption } from '../../../../domain/src/electricity/entity/PowerConsumption';
-import { PowerConsumptionRepository } from '../../../../domain/src/electricity/repository/PowerConsumptionRepository';
-import { JsonOf } from '../../../../application/src/type/JsonOf';
+import { PowerConsumption } from '@eco/domain/src/electricity/entity/PowerConsumption';
+import { PowerConsumptionRepository } from '@eco/domain/src/electricity/repository/PowerConsumptionRepository';
+import { JsonOf } from '@eco/application/src/type/JsonOf';
 
 export class PowerConsumptionLocalStorageRepository implements PowerConsumptionRepository {
   private key = 'power-consumptions';

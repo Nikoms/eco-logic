@@ -1,5 +1,5 @@
-import { ElectricMeterRepository } from '../../../../domain/src/electricity/repository/ElectricMeterRepository';
-import ElectricMeter from '../../../../domain/src/electricity/entity/ElectricMeter';
+import { ElectricMeterRepository } from '@eco/domain/src/electricity/repository/ElectricMeterRepository';
+import { ElectricMeter } from '@eco/domain/src/electricity/entity/ElectricMeter';
 import { v4 } from 'uuid';
 
 export class InitElectricMeter {

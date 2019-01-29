@@ -1,5 +1,5 @@
-import { PowerConsumption } from '../../../../domain/src/electricity/entity/PowerConsumption';
-import { PowerConsumptionRepository } from '../../../../domain/src/electricity/repository/PowerConsumptionRepository';
+import { PowerConsumption } from '@eco/domain/src/electricity/entity/PowerConsumption';
+import { PowerConsumptionRepository } from '@eco/domain/src/electricity/repository/PowerConsumptionRepository';
 
 export class PowerConsumptionInMemoryRepository implements PowerConsumptionRepository {
   private consumptions: PowerConsumption[] = [];

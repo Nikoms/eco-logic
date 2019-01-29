@@ -40,8 +40,8 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import { handle } from '@/handlers';
-  import { GetAllPowerConsumptions } from '../../../../application/src/interactor/electricity/GetAllPowerConsumptions';
-  import { PowerConsumption } from '../../../../domain/src/electricity/entity/PowerConsumption';
+  import { GetAllPowerConsumptions } from '@eco/application/src/interactor/electricity/GetAllPowerConsumptions';
+  import { PowerConsumption } from '@eco/domain/src/electricity/entity/PowerConsumption';
 
   const gradients = [
     ['#222'],

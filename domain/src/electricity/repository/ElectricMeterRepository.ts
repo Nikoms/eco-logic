@@ -1,4 +1,4 @@
-import ElectricMeter from '../entity/ElectricMeter';
+import { ElectricMeter } from '../entity/ElectricMeter';
 
 export interface ElectricMeterRepository {
   add(electricMeter: ElectricMeter): Promise<void>;

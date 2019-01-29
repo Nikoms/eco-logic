@@ -1,6 +1,6 @@
-import { WaterConsumption } from '../../../../domain/src/water/entity/WaterConsumption';
-import { WaterConsumptionRepository } from '../../../../domain/src/water/repository/WaterConsumptionRepository';
-import { JsonOf } from '../../../../application/src/type/JsonOf';
+import { WaterConsumption } from '@eco/domain/src/water/entity/WaterConsumption';
+import { WaterConsumptionRepository } from '@eco/domain/src/water/repository/WaterConsumptionRepository';
+import { JsonOf } from '@eco/application/src/type/JsonOf';
 
 export class WaterConsumptionLocalStorageRepository implements WaterConsumptionRepository {
   private key = 'water-consumptions';
