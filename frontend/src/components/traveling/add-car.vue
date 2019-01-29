@@ -8,7 +8,7 @@
                 </v-card-title>
                 <v-card-text>
                     <v-text-field v-model="name" label="Name" ref="name"></v-text-field>
-                    <v-text-field v-model="consumption" label="Consumption" suffix="l/100"></v-text-field>
+                    <v-text-field v-model="consumption" type="number" label="Consumption" suffix="l/100"></v-text-field>
                     <v-select v-model="engine" :items="engines" label="Engine"></v-select>
                 </v-card-text>
 
