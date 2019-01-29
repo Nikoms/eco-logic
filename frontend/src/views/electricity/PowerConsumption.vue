@@ -1,20 +1,17 @@
 <template>
     <div>
-        <v-fab-transition>
-            <v-btn
-                    style="bottom: 70px"
-                    color="indigo"
-                    key="add"
-                    dark
-                    fab
-                    fixed
-                    bottom
-                    right
-                    @click="showDialog"
-            >
-                <v-icon>mdi-plus</v-icon>
-            </v-btn>
-        </v-fab-transition>
+        <v-btn
+                style="bottom: 70px"
+                color="indigo"
+                key="add"
+                dark
+                fab
+                fixed
+                bottom
+                right
+                @click="showDialog">
+            <v-icon>mdi-plus</v-icon>
+        </v-btn>
 
         <ListPowerConsumptions ref="list"/>
         <v-dialog v-model="dialog" max-width="600px">
