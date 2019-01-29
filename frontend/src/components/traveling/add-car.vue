@@ -36,7 +36,7 @@
 
     async sendMessage() {
       await handle(new AddCar(this.name, parseFloat(this.consumption), this.engine));
-      this.clearMessage();
+      this.clearForm();
       this.$emit('added');
     }
 
@@ -44,7 +44,7 @@
       (<any> this.$refs.name).focus();
     }
 
-    clearMessage() {
+    clearForm() {
       this.consumption = '';
       this.name = '';
       this.engine = Engine.gasoline;
