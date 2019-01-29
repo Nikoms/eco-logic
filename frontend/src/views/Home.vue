@@ -1,7 +1,7 @@
 <template>
     <div>
         <PowerConsumptionCharts/>
-        <Chart style="height:100px"></Chart>
+        <Chart></Chart>
 
         <v-dialog v-model="dialog" max-width="290">
             <v-card>
