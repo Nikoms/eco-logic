@@ -10,7 +10,7 @@
                     fixed
                     bottom
                     right
-                    @click="dialog = !dialog"
+                    @click="showDialog"
             >
                 <v-icon>mdi-plus</v-icon>
             </v-btn>
@@ -18,7 +18,7 @@
 
         <ListPowerConsumptions ref="list"/>
         <v-dialog v-model="dialog" max-width="600px">
-            <AddPowerConsumption @added="added"/>
+            <AddPowerConsumption ref="form" @added="added"/>
         </v-dialog>
 
     </div>
@@ -36,6 +36,13 @@
   })
   export default class PowerConsumption extends Vue {
     dialog = false;
+
+    showDialog() {
+      this.dialog = true;
+      setImmediate(() => {
+        (<any> this.$refs.form).startEditing();
+      });
+    }
 
     added() {
       this.dialog = false;

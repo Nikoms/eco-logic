@@ -14,6 +14,7 @@
                             type="number"
                             label="Consumption"
                             suffix="kWh"
+                            ref="consumptionField"
                     ></v-text-field>
                 </v-card-text>
 
@@ -46,7 +47,7 @@
     async sendMessage() {
       await handle(new Add(parseFloat(this.consumption), this.selectedMeter));
       this.clearMessage();
-      this.$emit('added')
+      this.$emit('added');
     }
 
     async mounted() {
@@ -59,6 +60,11 @@
         this.errorMessage = 'Please add an electric meter before adding (TODO, but in INIT app)';
       }
     }
+
+    startEditing() {
+      (<any> this.$refs.consumptionField).focus();
+    }
+
 
     clearMessage() {
       this.consumption = '';
