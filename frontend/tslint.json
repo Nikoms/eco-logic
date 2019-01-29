@@ -21,6 +21,19 @@
     "interface-name": false,
     "ordered-imports": false,
     "object-literal-sort-keys": false,
-    "no-consecutive-blank-lines": false
+    "no-consecutive-blank-lines": false,
+    "member-access": false,
+    "arrow-parens": false,
+    "member-ordering": [
+      true,
+      {
+        "order": "fields-first"
+      }
+    ],
+    "array-type": {
+      "options": [
+        "array-simple"
+      ]
+    }
   }
 }

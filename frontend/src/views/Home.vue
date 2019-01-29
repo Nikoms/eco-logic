@@ -28,7 +28,7 @@
 
   @Component({
     components: {
-      PowerConsumptionCharts
+      PowerConsumptionCharts,
     },
   })
   export default class Home extends Vue {
