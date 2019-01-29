@@ -35,5 +35,10 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/water/WaterConsumption.vue'),
     },
+    {
+      path: '/traveling-consumption',
+      name: 'traveling-consumption',
+      component: () => import(/* webpackChunkName: "about" */ './views/traveling/TravelingConsumption.vue'),
+    },
   ],
 });

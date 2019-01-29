@@ -28,6 +28,10 @@
                 <span>Water</span>
                 <v-icon>mdi-water</v-icon>
             </v-btn>
+            <v-btn color="teal" flat :to="{ name: 'traveling-consumption'}">
+                <span>Travel</span>
+                <v-icon>mdi-car</v-icon>
+            </v-btn>
         </v-bottom-nav>
     </v-app>
 </template>
