@@ -30,6 +30,7 @@ import { AddCar, AddCarHandler } from '@eco/application/src/interactor/travel/Ad
 import { GetCars, GetCarsHandler } from '@eco/application/src/interactor/travel/GetCars';
 import { AddTravel, AddTravelHandler } from '@eco/application/src/interactor/travel/AddTravel';
 import { TravelLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/TravelLocalStorageRepository';
+import { GetTravels, GetTravelsHandler } from '@eco/application/src/interactor/travel/GetTravels';
 
 const powerStore = new PowerConsumptionLocalStorageRepository(window.localStorage);
 const waterStore = new WaterConsumptionLocalStorageRepository(window.localStorage);
@@ -46,6 +47,7 @@ handlers.set(GetElectricMeters, new GetElectricMetersHandler(elestricStore));
 handlers.set(AddCar, new AddCarHandler(carStore));
 handlers.set(GetCars, new GetCarsHandler(carStore));
 handlers.set(AddTravel, new AddTravelHandler(travelStore));
+handlers.set(GetTravels, new GetTravelsHandler(travelStore));
 
 
 const handle = <T = any>(request: any): Promise<T> => {

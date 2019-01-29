@@ -1,5 +1,6 @@
 <template>
     <div>
+        <ListTravels ref="travels"></ListTravels>
         <v-dialog v-model="addCarDialog" max-width="600px">
             <AddCar ref="addCarForm" @added="carAdded"/>
         </v-dialog>
@@ -42,9 +43,10 @@
   import AddCar from '@/components/traveling/add-car.vue';
   import AddTravelByCar from '@/components/traveling/add-travel-by-car.vue';
   import AddTravelByPlane from '@/components/traveling/add-travel-by-plane.vue';
+  import ListTravels from '@/components/traveling/list-travels.vue';
 
   @Component({
-    components: { AddCar, AddTravelByCar, AddTravelByPlane },
+    components: { AddCar, AddTravelByCar, AddTravelByPlane, ListTravels },
   })
   export default class TravelingConsumption extends Vue {
     addCarDialog = false;
@@ -54,14 +56,17 @@
 
     carAdded() {
       this.addCarDialog = false;
+      (<any> this.$refs.travels).refresh(); // En attendant redux/rematch
     }
 
     carTravelAdded() {
       this.addCarTravelDialog = false;
+      (<any> this.$refs.travels).refresh(); // En attendant redux/rematch
     }
 
     airTravelAdded() {
       this.addAirTravelDialog = false;
+      (<any> this.$refs.travels).refresh(); // En attendant redux/rematch
     }
 
     showAddCarDialog() {
