@@ -30,7 +30,7 @@
             </v-btn>
             <v-btn color="teal" flat :to="{ name: 'traveling-consumption'}">
                 <span>Travel</span>
-                <v-icon>mdi-car</v-icon>
+                <v-icon>mdi-gas-station</v-icon>
             </v-btn>
         </v-bottom-nav>
     </v-app>

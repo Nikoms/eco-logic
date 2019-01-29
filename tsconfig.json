@@ -30,5 +30,20 @@
   },
   "exclude": [
     "dist"
-  ]
+  ],
+  "baseUrl": ".",
+  "paths": {
+    "@/*": [
+      "frontend/src/*"
+    ],
+    "@eco/application/*": [
+      "application/*"
+    ],
+    "@eco/infrastructure/*": [
+      "infrastructure/*"
+    ],
+    "@eco/domain/*": [
+      "domain/*"
+    ]
+  }
 }
