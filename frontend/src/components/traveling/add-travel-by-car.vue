@@ -53,6 +53,10 @@ import {TravelType} from '@eco/domain/src/traveling/entity/Travel';
     }
 
     async mounted() {
+      await this.init();
+    }
+
+    private async init() {
       this.cars = await handle(new GetCars());
       this.canAdd = this.cars.length > 0;
       if (this.canAdd) {
@@ -63,6 +67,7 @@ import {TravelType} from '@eco/domain/src/traveling/entity/Travel';
     }
 
     startEditing() {
+      this.init();
       (<any> this.$refs.distance).focus();
     }
 
