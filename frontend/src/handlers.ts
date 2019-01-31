@@ -31,12 +31,21 @@ import { GetCars, GetCarsHandler } from '@eco/application/src/interactor/travel/
 import { AddTravel, AddTravelHandler } from '@eco/application/src/interactor/travel/AddTravel';
 import { TravelLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/TravelLocalStorageRepository';
 import { GetTravels, GetTravelsHandler } from '@eco/application/src/interactor/travel/GetTravels';
+import {
+  SaveCurrentOdometer,
+  SaveCurrentOdometerHandler,
+} from '@eco/application/src/interactor/travel/SaveCurrentOdometer';
+import { OdometerLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/OdoMeterLocalStorageRepository';
+import { GetLastOdoMeter, GetLastOdoMeterHandler } from '@eco/application/src/interactor/travel/GetLastOdoMeter';
 
 const powerStore = new PowerConsumptionLocalStorageRepository(window.localStorage);
 const waterStore = new WaterConsumptionLocalStorageRepository(window.localStorage);
 const elestricStore = new ElectricMeterLocalStorageRepository(window.localStorage);
 const carStore = new CarLocalStorageRepository(window.localStorage);
 const travelStore = new TravelLocalStorageRepository(window.localStorage);
+const odometerStore = new OdometerLocalStorageRepository(window.localStorage);
+
+
 const handlers = new Map<any, any>();
 handlers.set(AddPowerConsumption, new AddPowerConsumptionHandler(powerStore));
 handlers.set(GetAllPowerConsumptions, new GetAllPowerConsumptionsHandler(powerStore));
@@ -48,6 +57,8 @@ handlers.set(AddCar, new AddCarHandler(carStore));
 handlers.set(GetCars, new GetCarsHandler(carStore));
 handlers.set(AddTravel, new AddTravelHandler(travelStore));
 handlers.set(GetTravels, new GetTravelsHandler(travelStore));
+handlers.set(SaveCurrentOdometer, new SaveCurrentOdometerHandler(odometerStore));
+handlers.set(GetLastOdoMeter, new GetLastOdoMeterHandler(odometerStore));
 
 
 const handle = <T = any>(request: any): Promise<T> => {

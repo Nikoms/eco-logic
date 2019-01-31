@@ -1,11 +1,12 @@
 <template>
     <div>
+        <ShowOdometers></ShowOdometers>
         <ListTravels ref="travels"></ListTravels>
         <v-dialog v-model="addCarDialog" max-width="600px">
             <AddCar ref="addCarForm" @added="carAdded"/>
         </v-dialog>
-        <v-dialog v-model="addCarTravelDialog" max-width="600px">
-            <AddTravelByCar ref="addTravelByCarFrom" @added="carTravelAdded"/>
+        <v-dialog v-model="saveOdometerDialog" max-width="600px">
+            <SaveOdometer ref="saveOdometerForm" @added="odometerSaved"/>
         </v-dialog>
         <v-dialog v-model="addAirTravelDialog" max-width="600px">
             <AddTravelByPlane ref="addTravelByPlaneForm" @added="airTravelAdded"/>
@@ -25,7 +26,7 @@
                 <v-icon>mdi-plus</v-icon>
                 <v-icon>mdi-close</v-icon>
             </v-btn>
-            <v-btn fab dark small color="green" @click="showAddCarTravelDialog">
+            <v-btn fab dark small color="green" @click="showOdometerDialog">
                 <v-icon>mdi-car</v-icon>
             </v-btn>
             <v-btn fab dark small color="indigo" @click="showAddAirTravelDialog">
@@ -41,16 +42,17 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import AddCar from '@/components/traveling/add-car.vue';
-  import AddTravelByCar from '@/components/traveling/add-travel-by-car.vue';
   import AddTravelByPlane from '@/components/traveling/add-travel-by-plane.vue';
   import ListTravels from '@/components/traveling/list-travels.vue';
+  import SaveOdometer from '@/components/traveling/save-odometer.vue';
+  import ShowOdometers from '@/components/traveling/show-odometers.vue';
 
   @Component({
-    components: { AddCar, AddTravelByCar, AddTravelByPlane, ListTravels },
+    components: { ShowOdometers, AddCar, SaveOdometer, AddTravelByPlane, ListTravels },
   })
   export default class TravelingConsumption extends Vue {
     addCarDialog = false;
-    addCarTravelDialog = false;
+    saveOdometerDialog = false;
     addAirTravelDialog = false;
     fab = null;
 
@@ -59,8 +61,8 @@
       (<any> this.$refs.travels).refresh(); // En attendant redux/rematch
     }
 
-    carTravelAdded() {
-      this.addCarTravelDialog = false;
+    odometerSaved() {
+      this.saveOdometerDialog = false;
       (<any> this.$refs.travels).refresh(); // En attendant redux/rematch
     }
 
@@ -76,10 +78,10 @@
       });
     }
 
-    showAddCarTravelDialog() {
-      this.addCarTravelDialog = true;
+    showOdometerDialog() {
+      this.saveOdometerDialog = true;
       setImmediate(() => {
-        (<any> this.$refs.addTravelByCarFrom).startEditing();
+        (<any> this.$refs.saveOdometerForm).startEditing();
       });
     }
 

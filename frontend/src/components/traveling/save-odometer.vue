@@ -4,10 +4,10 @@
             <v-card>
                 <v-card-title>
                     <v-icon large left>mdi-car</v-icon>
-                    <span class="title font-weight-light">Add a travel</span>
+                    <span class="title font-weight-light">Save your current odometer</span>
                 </v-card-title>
                 <v-card-text>
-                    <v-text-field v-model="km" type="number" label="Distance" ref="distance" suffix="km"></v-text-field>
+                    <v-text-field v-model="km" type="number" label="What's on your counter?" ref="km" suffix="km"></v-text-field>
                     <v-select v-model="car"
                               :items="cars"
                               label="Select your car"
@@ -15,12 +15,11 @@
                               item-value="id"
                               return-object
                     ></v-select>
-                    <v-text-field v-model="description" label="Description"></v-text-field>
                 </v-card-text>
 
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn flat color="primary" @click="addTravel">Add a travel</v-btn>
+                    <v-btn flat color="primary" @click="saveOdometer">Save</v-btn>
                 </v-card-actions>
             </v-card>
         </v-form>
@@ -31,21 +30,23 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import { handle } from '@/handlers';
-  import { AddTravel } from '@eco/application/src/interactor/travel/AddTravel';
   import { GetCars } from '@eco/application/src/interactor/travel/GetCars';
   import { Car } from '@eco/domain/src/traveling/entity/Car';
+  import { SaveCurrentOdometer } from '@eco/application/src/interactor/travel/SaveCurrentOdometer';
 
   @Component
-  export default class AddTravelByCar extends Vue {
+  export default class SaveOdometer extends Vue {
     car: Car | null = null;
     km = '';
-    description = '';
     cars = [];
     private canAdd: boolean = false;
     private errorMessage: string = '';
 
-    async addTravel() {
-      await handle(AddTravel.byCar(this.car, parseFloat(this.km), this.description));
+    async saveOdometer() {
+      if (this.car === null) {
+        throw new Error('no car selected');
+      }
+      await handle(new SaveCurrentOdometer(parseFloat(this.km), this.car));
       this.clearForm();
       this.$emit('added');
     }
@@ -66,13 +67,12 @@
 
     startEditing() {
       this.init();
-      (<any> this.$refs.distance).focus();
+      (<any> this.$refs.km).focus();
     }
 
     clearForm() {
       this.km = '';
       this.car = null;
-      this.description = '';
     }
   }
 </script>
