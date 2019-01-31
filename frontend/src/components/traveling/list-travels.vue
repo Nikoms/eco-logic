@@ -1,4 +1,3 @@
-import {TravelType} from '@eco/domain/src/traveling/entity/Travel';
 <template>
     <v-data-table
             :headers="headers"

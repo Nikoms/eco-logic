@@ -1,5 +1,3 @@
-import {TravelType} from '@eco/domain/src/traveling/entity/Travel';
-import {TravelType} from '@eco/domain/src/traveling/entity/Travel';
 <template>
     <div>
         <v-form v-if="canAdd">
