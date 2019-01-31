@@ -3,18 +3,12 @@
         <v-form v-if="canAdd">
             <v-card>
                 <v-card-text>
-                    <v-select v-if="hasMultipleMeters"
-                              item-text="name"
-                              item-value="id"
-                              return-object
-                              v-model="selectedMeter" :items="meters" label="Electric meter"></v-select>
-
-                    <v-text-field
-                            v-model="consumption"
-                            type="number"
-                            label="Consumption"
-                            suffix="kWh"
-                            ref="consumptionField"
+                    <v-text-field v-for="(formMeter, index) in formMeters" :key="formMeter.id"
+                                  v-model="formMeters[index].consumption"
+                                  type="number"
+                                  :label="formMeter.meter.name"
+                                  suffix="kWh"
+                                  ref="consumptionField"
                     ></v-text-field>
                 </v-card-text>
 
@@ -37,41 +31,40 @@
 
   @Component
   export default class AddPowerConsumption extends Vue {
-    consumption = '';
+    formMeters: { meter: ElectricMeter, consumption: string }[] = [];
     meters: ElectricMeter[] = [];
-    selectedMeter?: ElectricMeter;
     hasMultipleMeters = false;
     canAdd = false;
     errorMessage = '';
 
     async saveConsumption() {
-      if(this.selectedMeter){
-        await handle(new Add(parseFloat(this.consumption), this.selectedMeter));
-        this.clearForm();
-        this.$emit('added');
+      for (const formMeter of this.formMeters) {
+        if (formMeter.consumption.trim().length > 0) {
+          await handle(new Add(parseFloat(formMeter.consumption), formMeter.meter));
+        }
       }
+      this.clearForm();
+      this.$emit('added');
     }
 
     async mounted() {
       this.meters = await handle<ElectricMeter[]>(new GetElectricMeters());
+      this.clearForm();
       this.hasMultipleMeters = this.meters.length > 1;
       this.canAdd = this.meters.length > 0;
-      if (this.canAdd) {
-        this.selectedMeter = this.meters[0];
-      } else {
+      if (!this.canAdd) {
         this.errorMessage = 'Please add an electric meter before adding (TODO, but in INIT app)';
       }
     }
 
     startEditing() {
       if (this.canAdd) {
-        (<any> this.$refs.consumptionField).focus();
+        (this.$refs['consumptionField'] as any)[0].focus();
       }
     }
 
-
     clearForm() {
-      this.consumption = '';
+      this.formMeters = this.meters.map(meter => ({ meter, consumption: '' }));
     }
   }
 </script>
