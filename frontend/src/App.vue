@@ -12,7 +12,7 @@
             <router-view/>
         </v-content>
 
-        <v-bottom-nav
+        <v-bottom-nav app
                 :value="true"
                 fixed
                 shift
