@@ -7,7 +7,7 @@
                               item-text="name"
                               item-value="id"
                               return-object
-                              :value="selectedMeter" :items="meters" label="Electric meter"></v-select>
+                              v-model="selectedMeter" :items="meters" label="Electric meter"></v-select>
 
                     <v-text-field
                             v-model="consumption"
@@ -20,7 +20,7 @@
 
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn flat color="primary" @click="sendMessage">Submit</v-btn>
+                    <v-btn flat color="primary" @click="saveConsumption">Save consumption</v-btn>
                 </v-card-actions>
             </v-card>
         </v-form>
@@ -39,15 +39,17 @@
   export default class AddPowerConsumption extends Vue {
     consumption = '';
     meters: ElectricMeter[] = [];
-    selectedMeter = '';
+    selectedMeter?: ElectricMeter;
     hasMultipleMeters = false;
     canAdd = false;
     errorMessage = '';
 
-    async sendMessage() {
-      await handle(new Add(parseFloat(this.consumption), this.selectedMeter));
-      this.clearMessage();
-      this.$emit('added');
+    async saveConsumption() {
+      if(this.selectedMeter){
+        await handle(new Add(parseFloat(this.consumption), this.selectedMeter));
+        this.clearForm();
+        this.$emit('added');
+      }
     }
 
     async mounted() {
@@ -55,7 +57,7 @@
       this.hasMultipleMeters = this.meters.length > 1;
       this.canAdd = this.meters.length > 0;
       if (this.canAdd) {
-        this.selectedMeter = this.meters[0].id;
+        this.selectedMeter = this.meters[0];
       } else {
         this.errorMessage = 'Please add an electric meter before adding (TODO, but in INIT app)';
       }
@@ -68,7 +70,7 @@
     }
 
 
-    clearMessage() {
+    clearForm() {
       this.consumption = '';
     }
   }
