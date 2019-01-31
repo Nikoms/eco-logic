@@ -1,4 +1,4 @@
-import { OdometerRepository } from '@eco/domain/src/traveling/repository/OdoMeterRepository';
+import { OdometerRepository } from '@eco/domain/src/traveling/repository/OdometerRepository';
 
 export class GetLastOdoMeter {
 
