@@ -14,8 +14,9 @@
 
         <v-bottom-nav
                 :value="true"
-                absolute
-                color="transparent">
+                fixed
+                shift
+                >
             <v-btn color="teal" flat :to="{ name: 'home'}">
                 <span>Home</span>
                 <v-icon>mdi-home</v-icon>
