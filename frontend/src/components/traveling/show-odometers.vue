@@ -23,7 +23,7 @@
 
   @Component
   export default class ShowOdometers extends Vue {
-    odometers = [];
+    odometers: any[] = [];
     headers = [
       { text: 'Car', sortable: false },
       { text: 'km', sortable: false },
@@ -40,7 +40,11 @@
       for (const car of cars) {
         const lastOdometer = await handle<Odometer | undefined>(new GetLastOdoMeter(car.id));
         if (lastOdometer) {
-          this.odometers.push({ carName: car.name, km: lastOdometer.km + ' km', date: lastOdometer.date.toISOString() });
+          this.odometers.push({
+            carName: car.name,
+            km: lastOdometer.km + ' km',
+            date: lastOdometer.date.toISOString(),
+          });
         } else {
           this.odometers.push({ carName: car.name, km: '-', date: '-' });
         }
