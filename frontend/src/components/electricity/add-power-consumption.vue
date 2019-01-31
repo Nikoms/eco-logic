@@ -62,7 +62,9 @@
     }
 
     startEditing() {
-      (<any> this.$refs.consumptionField).focus();
+      if (this.canAdd) {
+        (<any> this.$refs.consumptionField).focus();
+      }
     }
 
 

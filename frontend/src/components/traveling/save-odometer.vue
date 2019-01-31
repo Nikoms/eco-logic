@@ -7,7 +7,8 @@
                     <span class="title font-weight-light">Save your current odometer</span>
                 </v-card-title>
                 <v-card-text>
-                    <v-text-field v-model="km" type="number" label="What's on your counter?" ref="km" suffix="km"></v-text-field>
+                    <v-text-field v-model="km" type="number" label="What's on your counter?" ref="km"
+                                  suffix="km"></v-text-field>
                     <v-select v-model="car"
                               :items="cars"
                               label="Select your car"
@@ -65,9 +66,11 @@
       }
     }
 
-    startEditing() {
-      this.init();
-      (<any> this.$refs.km).focus();
+    async startEditing() {
+      await this.init();
+      if (this.canAdd) {
+        (<any> this.$refs.km).focus();
+      }
     }
 
     clearForm() {
