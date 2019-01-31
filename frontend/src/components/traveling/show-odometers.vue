@@ -19,7 +19,7 @@
   import { GetCars } from '@eco/application/src/interactor/travel/GetCars';
   import { Car } from '@eco/domain/src/traveling/entity/Car';
   import { Odometer } from '@eco/domain/src/traveling/entity/Odometer';
-  import { GetLastOdoMeter } from '@eco/application/src/interactor/travel/GetLastOdoMeter';
+  import { GetLastOdometer } from '@eco/application/src/interactor/travel/GetLastOdometer';
 
   @Component
   export default class ShowOdometers extends Vue {
@@ -38,7 +38,7 @@
       this.odometers = [];
       const cars = await handle<Car[]>(new GetCars());
       for (const car of cars) {
-        const lastOdometer = await handle<Odometer | undefined>(new GetLastOdoMeter(car.id));
+        const lastOdometer = await handle<Odometer | undefined>(new GetLastOdometer(car.id));
         if (lastOdometer) {
           this.odometers.push({
             carName: car.name,

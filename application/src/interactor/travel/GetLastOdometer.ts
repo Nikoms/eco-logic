@@ -1,6 +1,6 @@
 import { OdometerRepository } from '@eco/domain/src/traveling/repository/OdometerRepository';
 
-export class GetLastOdoMeter {
+export class GetLastOdometer {
 
   constructor(public readonly carId: string) {
     if (carId.trim().length === 0) {
@@ -9,11 +9,11 @@ export class GetLastOdoMeter {
   }
 }
 
-export class GetLastOdoMeterHandler {
+export class GetLastOdometerHandler {
   constructor(private store: OdometerRepository) {
   }
 
-  async handle(request: GetLastOdoMeter) {
+  async handle(request: GetLastOdometer) {
     return this.store.getLast(request.carId);
   }
 }

@@ -35,8 +35,8 @@ import {
   SaveCurrentOdometer,
   SaveCurrentOdometerHandler,
 } from '@eco/application/src/interactor/travel/SaveCurrentOdometer';
-import { OdometerLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/OdoMeterLocalStorageRepository';
-import { GetLastOdoMeter, GetLastOdoMeterHandler } from '@eco/application/src/interactor/travel/GetLastOdoMeter';
+import { OdometerLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/OdometerLocalStorageRepository';
+import { GetLastOdometer, GetLastOdometerHandler } from '@eco/application/src/interactor/travel/GetLastOdometer';
 
 const powerStore = new PowerConsumptionLocalStorageRepository(window.localStorage);
 const waterStore = new WaterConsumptionLocalStorageRepository(window.localStorage);
@@ -58,7 +58,7 @@ handlers.set(GetCars, new GetCarsHandler(carStore));
 handlers.set(AddTravel, new AddTravelHandler(travelStore));
 handlers.set(GetTravels, new GetTravelsHandler(travelStore));
 handlers.set(SaveCurrentOdometer, new SaveCurrentOdometerHandler(odometerStore));
-handlers.set(GetLastOdoMeter, new GetLastOdoMeterHandler(odometerStore));
+handlers.set(GetLastOdometer, new GetLastOdometerHandler(odometerStore));
 
 
 const handle = <T = any>(request: any): Promise<T> => {
