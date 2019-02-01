@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
 import Index from './views/Index.vue';
+import Welcome2 from './views/Welcome2.vue';
 
 Vue.use(Router);
 
@@ -18,6 +19,11 @@ export default new Router({
       path: '/home',
       name: 'home',
       component: Home,
+    },
+    {
+      path: '/welcome2',
+      name: 'welcome2',
+      component: Welcome2,
     },
     {
       path: '/power-consumption',
