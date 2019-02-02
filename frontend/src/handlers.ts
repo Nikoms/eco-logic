@@ -17,6 +17,7 @@ import {
 import { PowerConsumptionLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/PowerConsumptionLocalStorageRepository';
 import { WaterConsumptionLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/WaterConsumptionLocalStorageRepository';
 import { ElectricMeterLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/ElectricMeterLocalStorageRepository';
+import { WaterMeterLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/WaterMeterLocalStorageRepository';
 import {
   InitElectricMeter,
   InitElectricMeterHandler,
@@ -25,6 +26,14 @@ import {
   GetElectricMeters,
   GetElectricMetersHandler,
 } from '@eco/application/src/interactor/electricity/GetElectricMeters';
+import {
+  GetWaterMeters,
+  GetWaterMetersHandler,
+} from '@eco/application/src/interactor/water/GetWaterMeters';
+import {
+  InitWaterMeter,
+  InitWaterMeterHandler,
+} from '@eco/application/src/interactor/water/InitWaterMeter';
 import { CarLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/CarLocalStorageRepository';
 import { AddCar, AddCarHandler } from '@eco/application/src/interactor/travel/AddCar';
 import { GetCars, GetCarsHandler } from '@eco/application/src/interactor/travel/GetCars';
@@ -39,8 +48,9 @@ import { OdometerLocalStorageRepository } from '@eco/infrastructure/src/storage/
 import { GetLastOdometer, GetLastOdometerHandler } from '@eco/application/src/interactor/travel/GetLastOdometer';
 
 const powerStore = new PowerConsumptionLocalStorageRepository(window.localStorage);
-const waterStore = new WaterConsumptionLocalStorageRepository(window.localStorage);
+const waterConsumptionStore = new WaterConsumptionLocalStorageRepository(window.localStorage);
 const elestricStore = new ElectricMeterLocalStorageRepository(window.localStorage);
+const waterStore = new WaterMeterLocalStorageRepository(window.localStorage);
 const carStore = new CarLocalStorageRepository(window.localStorage);
 const travelStore = new TravelLocalStorageRepository(window.localStorage);
 const odometerStore = new OdometerLocalStorageRepository(window.localStorage);
@@ -49,10 +59,12 @@ const odometerStore = new OdometerLocalStorageRepository(window.localStorage);
 const handlers = new Map<any, any>();
 handlers.set(AddPowerConsumption, new AddPowerConsumptionHandler(powerStore));
 handlers.set(GetAllPowerConsumptions, new GetAllPowerConsumptionsHandler(powerStore));
-handlers.set(AddWaterConsumption, new AddWaterConsumptionHandler(waterStore));
-handlers.set(GetAllWaterConsumptions, new GetAllWaterConsumptionsHandler(waterStore));
+handlers.set(AddWaterConsumption, new AddWaterConsumptionHandler(waterConsumptionStore));
+handlers.set(GetAllWaterConsumptions, new GetAllWaterConsumptionsHandler(waterConsumptionStore));
 handlers.set(InitElectricMeter, new InitElectricMeterHandler(elestricStore));
+handlers.set(InitWaterMeter, new InitWaterMeterHandler(waterStore));
 handlers.set(GetElectricMeters, new GetElectricMetersHandler(elestricStore));
+handlers.set(GetWaterMeters, new GetWaterMetersHandler(waterStore));
 handlers.set(AddCar, new AddCarHandler(carStore));
 handlers.set(GetCars, new GetCarsHandler(carStore));
 handlers.set(AddTravel, new AddTravelHandler(travelStore));

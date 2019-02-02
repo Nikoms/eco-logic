@@ -1,8 +1,23 @@
 <template>
-    <div class="water-consumption">
-        Please add your latest Water Consumption below
-        <AddWaterConsumption/>
-        <ListWaterConsumptions/>
+    <div>
+        <v-btn
+                style="bottom: 70px"
+                color="indigo"
+                key="add"
+                dark
+                fab
+                fixed
+                bottom
+                right
+                @click="showDialog">
+            <v-icon>mdi-plus</v-icon>
+        </v-btn>
+
+        <ListWaterConsumptions ref="list"/>
+        <v-dialog v-model="dialog" max-width="600px">
+            <AddWaterConsumption ref="form" @added="added"/>
+        </v-dialog>
+
     </div>
 </template>
 
@@ -17,5 +32,18 @@
     },
   })
   export default class WaterConsumption extends Vue {
+    dialog = false;
+
+    showDialog() {
+      this.dialog = true;
+      setImmediate(() => {
+        (<any> this.$refs.form).startEditing();
+      });
+    }
+
+    added() {
+      this.dialog = false;
+      (<any> this.$refs.list).refresh(); // En attendant redux/rematch
+    }
   }
 </script>

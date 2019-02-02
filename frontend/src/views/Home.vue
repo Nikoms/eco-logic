@@ -44,6 +44,8 @@
       this.dialog = false;
       window.localStorage.setItem('electric-meter-is-set', hasDayAndNightMeter.toString());
       await handle(new InitElectricMeter(hasDayAndNightMeter));
+
+      this.$router.push('welcome2');
     }
 
 

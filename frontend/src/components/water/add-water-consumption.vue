@@ -1,33 +1,70 @@
 <template>
-    <div class="hello">
-        <v-text-field
-                v-model="consumption"
-                type="number"
-                label="Consumption"
-                suffix="m3"
-                :append-outer-icon="consumption ? 'mdi-send' : 'mdi-microphone'"
-                @click:append-outer="sendMessage"
-        ></v-text-field>
+    <div>
+        <v-form v-if="canAdd">
+            <v-card>
+                <v-card-text>
+                    <v-text-field v-for="(formMeter, index) in formMeters" :key="formMeter.id"
+                                  v-model="formMeters[index].consumption"
+                                  type="number"
+                                  :label="formMeter.meter.name"
+                                  suffix="m3"
+                                  ref="consumptionField"
+                    ></v-text-field>
+                </v-card-text>
+
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn flat color="primary" @click="saveConsumption">Save consumption</v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-form>
+        <v-alert v-else value="true" color="error" icon="warning" outline>{{errorMessage}}</v-alert>
     </div>
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
-  import { handle } from '@/handlers';
-  import { AddWaterConsumption as Add } from '@eco/application/src/interactor/water/AddWaterConsumption';
+    import { Component, Vue } from 'vue-property-decorator';
+    import { AddWaterConsumption as Add } from '@eco/application/src/interactor/water/AddWaterConsumption';
+    import { handle } from '@/handlers';
+    import { GetWaterMeters } from '@eco/application/src/interactor/water/GetWaterMeters';
+    import { WaterMeter } from '@eco/domain/src/water/entity/WaterMeter';
 
-  @Component
-  export default class AddWaterConsumption extends Vue {
-    consumption: string = '';
+    @Component
+    export default class AddWaterConsumption extends Vue {
+        formMeters: { meter: WaterMeter, consumption: string }[] = [];
+        meters: WaterMeter[] = [];
+        hasMultipleMeters = false;
+        canAdd = false;
+        errorMessage = '';
 
-    async sendMessage() {
-      await handle(new Add(parseFloat(this.consumption)));
+        async saveConsumption() {
+            for (const formMeter of this.formMeters) {
+                if (formMeter.consumption.trim().length > 0) {
+                    await handle(new Add(parseFloat(formMeter.consumption), formMeter.meter));
+                }
+            }
+            this.clearForm();
+            this.$emit('added');
+        }
 
-      this.clearMessage();
+        async mounted() {
+            this.meters = await handle<WaterMeter[]>(new GetWaterMeters());
+            this.clearForm();
+            this.hasMultipleMeters = this.meters.length > 1;
+            this.canAdd = this.meters.length > 0;
+            if (!this.canAdd) {
+                this.errorMessage = 'Please add a water meter before adding (TODO, but in INIT app)';
+            }
+        }
+
+        startEditing() {
+            if (this.canAdd) {
+                (this.$refs['consumptionField'] as any)[0].focus();
+            }
+        }
+
+        clearForm() {
+            this.formMeters = this.meters.map(meter => ({ meter, consumption: '' }));
+        }
     }
-
-    clearMessage() {
-      this.consumption = '';
-    }
-  }
 </script>
