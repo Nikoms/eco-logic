@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ShowOdometers></ShowOdometers>
+        <ShowOdometers ref="odometers"></ShowOdometers>
         <ListTravels ref="travels"></ListTravels>
         <v-dialog v-model="addCarDialog" max-width="600px">
             <AddCar ref="addCarForm" @added="carAdded"/>
@@ -63,32 +63,32 @@
 
     odometerSaved() {
       this.saveOdometerDialog = false;
-      (<any> this.$refs.travels).refresh(); // En attendant redux/rematch
+      (this.$refs.odometers as ShowOdometers).refresh(); // En attendant redux/rematch
     }
 
     airTravelAdded() {
       this.addAirTravelDialog = false;
-      (<any> this.$refs.travels).refresh(); // En attendant redux/rematch
+      (this.$refs.travels as ListTravels).refresh(); // En attendant redux/rematch
     }
 
     showAddCarDialog() {
       this.addCarDialog = true;
       setImmediate(() => {
-        (<any> this.$refs.addCarForm).startEditing();
+        (this.$refs.addCarForm as AddCar).startEditing();
       });
     }
 
     showOdometerDialog() {
       this.saveOdometerDialog = true;
       setImmediate(() => {
-        (<any> this.$refs.saveOdometerForm).startEditing();
+        (this.$refs.saveOdometerForm as SaveOdometer).startEditing();
       });
     }
 
     showAddAirTravelDialog() {
       this.addAirTravelDialog = true;
       setImmediate(() => {
-        (<any> this.$refs.addTravelByPlaneForm).startEditing();
+        (this.$refs.addTravelByPlaneForm as AddTravelByPlane).startEditing();
       });
     }
   }
