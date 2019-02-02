@@ -1,7 +1,8 @@
 # TODO
+- Utiliser https://www.chartjs.org/samples/latest/charts/bar/stacked.html pour les graphes des consommations (un par consommation).
 - Faire une "interaction" get odometers qui fait un mix de car+odometer, plutot que de faire ca dans le fichier vue
-- A chaque ajout d'un travel (ou tout ce qui a un impacte), rajouter une ligne de co2 (tout reste reste à faire). Il faut biensur parfois prendre compte de l'historiquqe des "consumptions"
-- Graphique du le base du co2
+- A chaque ajout d'un travel (ou tout ce qui a un impact), rajouter une ligne de co2 (tout reste reste à faire). Il faut biensur parfois prendre compte de l'historiquqe des "consumptions" (utilisation de l'event dispatcher)
+- Graphique sur base du co2 (avec https://www.chartjs.org/samples/latest/charts/bar/stacked.html)
 - Donner l'adresse de sa maison et de son bureau
 - Utiliser le GPS pour détecter que le mec à bouger. D'abord, on peut commencer par un truc simple avec un bouton "find me" et qui dit qu'il est à x km de sa maison
 - Ajouter les transports en commun
