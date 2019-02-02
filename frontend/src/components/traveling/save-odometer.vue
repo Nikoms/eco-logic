@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-form v-if="haveAtLeastOneCar">
+        <v-form v-if="haveAtLeastOneCar" @submit.prevent="saveOdometer">
             <v-card>
                 <v-card-title>
                     <v-icon large left>mdi-car</v-icon>
@@ -19,7 +19,7 @@
 
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn flat color="primary" @click="saveOdometer">Save</v-btn>
+                    <v-btn type="submit" flat color="primary" @click="saveOdometer">Save</v-btn>
                 </v-card-actions>
             </v-card>
         </v-form>

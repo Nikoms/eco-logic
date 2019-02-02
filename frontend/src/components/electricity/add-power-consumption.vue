@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-form v-if="canAdd">
+        <v-form v-if="canAdd" @submit.prevent="saveConsumption">
             <v-card>
                 <v-card-text>
                     <v-text-field v-for="(formMeter, index) in formMeters" :key="formMeter.id"
@@ -14,7 +14,7 @@
 
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn flat color="primary" @click="saveConsumption">Save consumption</v-btn>
+                    <v-btn type="submit" flat color="primary" @click="saveConsumption">Save consumption</v-btn>
                 </v-card-actions>
             </v-card>
         </v-form>
