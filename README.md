@@ -1,5 +1,4 @@
 # TODO
-- Water consumption
 - Faire une "interaction" get odometers qui fait un mix de car+odometer, plutot que de faire ca dans le fichier vue
 - A chaque ajout d'un travel (ou tout ce qui a un impacte), rajouter une ligne de co2 (tout reste reste à faire). Il faut biensur parfois prendre compte de l'historiquqe des "consumptions"
 - Graphique du le base du co2
