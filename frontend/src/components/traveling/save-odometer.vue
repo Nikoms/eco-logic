@@ -7,15 +7,14 @@
                     <span class="title font-weight-light">Save your current odometer</span>
                 </v-card-title>
                 <v-card-text>
-                    <v-text-field v-model="km" type="number" label="What's on your counter?" ref="km"
-                                  suffix="km"></v-text-field>
-                    <v-select v-model="car"
-                              :items="cars"
-                              label="Select your car"
-                              item-text="name"
-                              item-value="id"
-                              return-object
-                    ></v-select>
+                    <v-text-field v-for="(odometer, index) in odometers" :key="odometer.car.id"
+                                  v-model="odometers[index].km"
+                                  type="number"
+                                  :label="odometer.car.name"
+                                  suffix="km"
+                                  ref="odometer"
+                                  :placeholder="odometers[index].last"
+                    ></v-text-field>
                 </v-card-text>
 
                 <v-card-actions>
@@ -34,20 +33,24 @@
   import { GetCars } from '@eco/application/src/interactor/travel/GetCars';
   import { Car } from '@eco/domain/src/traveling/entity/Car';
   import { SaveCurrentOdometer } from '@eco/application/src/interactor/travel/SaveCurrentOdometer';
+  import { GetLastOdometer } from '@eco/application/src/interactor/travel/GetLastOdometer';
+  import { Odometer } from '@eco/domain/src/traveling/entity/Odometer';
 
   @Component
   export default class SaveOdometer extends Vue {
+    odometers: { car: Car, km: string, last: string }[] = [];
     car: Car | null = null;
-    km = '';
-    cars = [];
+    cars: Car[] = [];
     private haveAtLeastOneCar: boolean = false;
     private errorMessage: string = '';
 
     async saveOdometer() {
-      if (this.car === null) {
-        throw new Error('no car selected');
+
+      for (const odometer of this.odometers) {
+        if (odometer.km.trim().length > 0) {
+          await handle(new SaveCurrentOdometer(parseFloat(odometer.km), odometer.car));
+        }
       }
-      await handle(new SaveCurrentOdometer(parseFloat(this.km), this.car));
       this.clearForm();
       this.$emit('added');
     }
@@ -58,6 +61,7 @@
 
     private async init() {
       this.cars = await handle(new GetCars());
+      await this.clearForm();
       this.haveAtLeastOneCar = this.cars.length > 0;
       if (this.haveAtLeastOneCar) {
         this.car = this.cars[0];
@@ -69,13 +73,16 @@
     async startEditing() {
       await this.init();
       if (this.haveAtLeastOneCar) {
-        (<any> this.$refs.km).focus();
+        (this.$refs['odometer'] as any)[0].focus();
       }
     }
 
-    clearForm() {
-      this.km = '';
-      this.car = null;
+    async clearForm() {
+      this.odometers = [];
+      for (const car of this.cars) {
+        const last = await handle<Odometer>(new GetLastOdometer(car.id));
+        this.odometers.push({ car, km: '', last: last ? `${last.km}` : '' });
+      }
     }
   }
 </script>
