@@ -7,10 +7,6 @@ export class SaveCurrentOdometer {
   public readonly odometer: Odometer;
 
   constructor(km: number, car: Car) {
-    if (!km) {
-      throw new Error('km is required');
-    }
-
     this.odometer = new Odometer(v4(), car.id, km, new Date());
   }
 }
