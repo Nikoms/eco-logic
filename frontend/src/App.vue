@@ -15,7 +15,6 @@
         <v-bottom-nav app
                 :value="true"
                 fixed
-                shift
                 >
             <v-btn color="teal" flat :to="{ name: 'home'}">
                 <span>Home</span>
