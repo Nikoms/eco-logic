@@ -2,6 +2,7 @@ import { PowerConsumptionRepository } from '@eco/domain/src/electricity/reposito
 import { PowerConsumption } from '@eco/domain/src/electricity/entity/PowerConsumption';
 import { v4 } from 'uuid';
 import { ElectricMeter } from '@eco/domain/src/electricity/entity/ElectricMeter';
+import { EventDispatcher } from '../../event/EventDispatcher';
 
 export class AddPowerConsumption {
   public readonly powerConsumption: PowerConsumption;
@@ -16,12 +17,13 @@ export class AddPowerConsumption {
 
 
 export class AddPowerConsumptionHandler {
-  constructor(private powerConsumptionStore: PowerConsumptionRepository) {
+  constructor(private powerConsumptionStore: PowerConsumptionRepository, private eventDispatcher: EventDispatcher) {
 
   }
 
   async handle(request: AddPowerConsumption) {
     await this.powerConsumptionStore.add(request.powerConsumption);
+    this.eventDispatcher.emit('consumptionAdded', request.powerConsumption);
     return request.powerConsumption;
   }
 }

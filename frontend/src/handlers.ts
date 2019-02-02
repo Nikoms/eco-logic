@@ -26,14 +26,8 @@ import {
   GetElectricMeters,
   GetElectricMetersHandler,
 } from '@eco/application/src/interactor/electricity/GetElectricMeters';
-import {
-  GetWaterMeters,
-  GetWaterMetersHandler,
-} from '@eco/application/src/interactor/water/GetWaterMeters';
-import {
-  InitWaterMeter,
-  InitWaterMeterHandler,
-} from '@eco/application/src/interactor/water/InitWaterMeter';
+import { GetWaterMeters, GetWaterMetersHandler } from '@eco/application/src/interactor/water/GetWaterMeters';
+import { InitWaterMeter, InitWaterMeterHandler } from '@eco/application/src/interactor/water/InitWaterMeter';
 import { CarLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/CarLocalStorageRepository';
 import { AddCar, AddCarHandler } from '@eco/application/src/interactor/travel/AddCar';
 import { GetCars, GetCarsHandler } from '@eco/application/src/interactor/travel/GetCars';
@@ -46,6 +40,7 @@ import {
 } from '@eco/application/src/interactor/travel/SaveCurrentOdometer';
 import { OdometerLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/OdometerLocalStorageRepository';
 import { GetLastOdometer, GetLastOdometerHandler } from '@eco/application/src/interactor/travel/GetLastOdometer';
+import { EventTargetEventDispatcher } from '@eco/infrastructure/src/event/EventDispatcher';
 
 const powerStore = new PowerConsumptionLocalStorageRepository(window.localStorage);
 const waterConsumptionStore = new WaterConsumptionLocalStorageRepository(window.localStorage);
@@ -55,9 +50,10 @@ const carStore = new CarLocalStorageRepository(window.localStorage);
 const travelStore = new TravelLocalStorageRepository(window.localStorage);
 const odometerStore = new OdometerLocalStorageRepository(window.localStorage);
 
+const eventDispatcher = new EventTargetEventDispatcher();
 
 const handlers = new Map<any, any>();
-handlers.set(AddPowerConsumption, new AddPowerConsumptionHandler(powerStore));
+handlers.set(AddPowerConsumption, new AddPowerConsumptionHandler(powerStore, eventDispatcher));
 handlers.set(GetAllPowerConsumptions, new GetAllPowerConsumptionsHandler(powerStore));
 handlers.set(AddWaterConsumption, new AddWaterConsumptionHandler(waterConsumptionStore));
 handlers.set(GetAllWaterConsumptions, new GetAllWaterConsumptionsHandler(waterConsumptionStore));
