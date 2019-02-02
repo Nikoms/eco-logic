@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-form v-if="canAdd">
+        <v-form v-if="haveAtLeastOneCar">
             <v-card>
                 <v-card-title>
                     <v-icon large left>mdi-car</v-icon>
@@ -40,7 +40,7 @@
     car: Car | null = null;
     km = '';
     cars = [];
-    private canAdd: boolean = false;
+    private haveAtLeastOneCar: boolean = false;
     private errorMessage: string = '';
 
     async saveOdometer() {
@@ -58,8 +58,8 @@
 
     private async init() {
       this.cars = await handle(new GetCars());
-      this.canAdd = this.cars.length > 0;
-      if (this.canAdd) {
+      this.haveAtLeastOneCar = this.cars.length > 0;
+      if (this.haveAtLeastOneCar) {
         this.car = this.cars[0];
       } else {
         this.errorMessage = 'Please add a car before adding a travel';
@@ -68,7 +68,7 @@
 
     async startEditing() {
       await this.init();
-      if (this.canAdd) {
+      if (this.haveAtLeastOneCar) {
         (<any> this.$refs.km).focus();
       }
     }
