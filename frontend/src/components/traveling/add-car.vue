@@ -41,7 +41,7 @@
     }
 
     startEditing() {
-      (<any> this.$refs.name).focus();
+      (this.$refs.name as any).focus();
     }
 
     clearForm() {

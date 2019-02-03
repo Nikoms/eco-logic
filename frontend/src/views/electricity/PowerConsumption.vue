@@ -37,13 +37,13 @@
     showDialog() {
       this.dialog = true;
       setImmediate(() => {
-        (<any> this.$refs.form).startEditing();
+        (this.$refs.form as any).startEditing();
       });
     }
 
     added() {
       this.dialog = false;
-      (<any> this.$refs.list).refresh(); // En attendant redux/rematch
+      (this.$refs.list as any).refresh(); // En attendant redux/rematch
     }
   }
 </script>

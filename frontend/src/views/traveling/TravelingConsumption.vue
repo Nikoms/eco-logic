@@ -58,7 +58,7 @@
 
     carAdded() {
       this.addCarDialog = false;
-      (<any> this.$refs.travels).refresh(); // En attendant redux/rematch
+      (this.$refs.travels as any).refresh(); // En attendant redux/rematch
     }
 
     odometerSaved() {

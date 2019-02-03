@@ -45,7 +45,7 @@
     }
 
     startEditing() {
-      (<any> this.$refs.distance).focus();
+      (this.$refs.distance as any).focus();
     }
 
     clearForm() {
