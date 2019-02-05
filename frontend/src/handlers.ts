@@ -49,6 +49,7 @@ import {
   GetWorkAddressHandler
 } from "@eco/application/src/interactor/address/GetAddresses";
 import { InitAddresses, InitAddressesHandler } from '@eco/application/src/interactor/address/InitAddresses';
+import {EditAddress, EditAddressHandler} from "@eco/application/src/interactor/address/EditAddress";
 
 const powerStore = new PowerConsumptionLocalStorageRepository(window.localStorage);
 const waterConsumptionStore = new WaterConsumptionLocalStorageRepository(window.localStorage);
@@ -79,6 +80,7 @@ handlers.set(GetLastOdometer, new GetLastOdometerHandler(odometerStore));
 handlers.set(GetHomeAddress, new GetHomeAddressHandler(addressStore));
 handlers.set(GetWorkAddress, new GetWorkAddressHandler(addressStore));
 handlers.set(InitAddresses, new InitAddressesHandler(addressStore));
+handlers.set(EditAddress, new EditAddressHandler(addressStore));
 
 
 const handle = <T = any>(request: any): Promise<T> => {

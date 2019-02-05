@@ -17,6 +17,18 @@ export class AddressLocalStorageRepository implements AddressRepository {
         this.saveList(list);
     }
 
+    async edit(address: Address) {
+        const list = this.getList();
+
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].id === address.id) {
+                list[i].address = address.address;
+            }
+        }
+
+        this.saveList(list);
+    }
+
     private saveList(list: any[]) {
         const listAsJson = JSON.stringify(list);
         this.localstorage.setItem(this.key, listAsJson);

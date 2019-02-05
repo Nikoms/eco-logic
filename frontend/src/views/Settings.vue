@@ -13,6 +13,7 @@
     import { handle } from '@/handlers';
     import { GetHomeAddress, GetWorkAddress } from '@eco/application/src/interactor/address/GetAddresses';
     import { InitAddresses } from "@eco/application/src/interactor/address/InitAddresses";
+    import {EditAddress} from "@eco/application/src/interactor/address/EditAddress";
 
     @Component
     export default class Settings extends Vue {
@@ -20,9 +21,9 @@
         homeAddress = [];
         workAddress = [];
 
-        save() {
-            console.log(this.homeAddress);
-            console.log(this.workAddress);
+        async save() {
+            await handle(new EditAddress(this.homeAddress[0]));
+            await handle(new EditAddress(this.workAddress[0]));
         }
 
         async mounted() {
@@ -35,8 +36,6 @@
         async refresh() {
             this.homeAddress = await handle(new GetHomeAddress());
             this.workAddress = await handle(new GetWorkAddress());
-
-            console.log(this.homeAddress[0]);
         }
 
         private async initAddresses() {
