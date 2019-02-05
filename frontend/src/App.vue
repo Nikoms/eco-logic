@@ -32,6 +32,10 @@
                 <span>Travel</span>
                 <v-icon>mdi-gas-station</v-icon>
             </v-btn>
+            <v-btn color="teal" flat :to="{ name: 'settings'}">
+                <span>Settings</span>
+                <v-icon>mdi-settings</v-icon>
+            </v-btn>
         </v-bottom-nav>
     </v-app>
 </template>

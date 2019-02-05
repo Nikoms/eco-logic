@@ -41,6 +41,14 @@ import {
 import { OdometerLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/OdometerLocalStorageRepository';
 import { GetLastOdometer, GetLastOdometerHandler } from '@eco/application/src/interactor/travel/GetLastOdometer';
 import { EventTargetEventDispatcher } from '@eco/infrastructure/src/event/EventDispatcher';
+import { AddressLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/AddressLocalStorageRepository';
+import {
+  GetHomeAddress,
+  GetHomeAddressHandler,
+  GetWorkAddress,
+  GetWorkAddressHandler
+} from "@eco/application/src/interactor/address/GetAddresses";
+import { InitAddresses, InitAddressesHandler } from '@eco/application/src/interactor/address/InitAddresses';
 
 const powerStore = new PowerConsumptionLocalStorageRepository(window.localStorage);
 const waterConsumptionStore = new WaterConsumptionLocalStorageRepository(window.localStorage);
@@ -49,6 +57,7 @@ const waterStore = new WaterMeterLocalStorageRepository(window.localStorage);
 const carStore = new CarLocalStorageRepository(window.localStorage);
 const travelStore = new TravelLocalStorageRepository(window.localStorage);
 const odometerStore = new OdometerLocalStorageRepository(window.localStorage);
+const addressStore = new AddressLocalStorageRepository(window.localStorage);
 
 const eventDispatcher = new EventTargetEventDispatcher();
 
@@ -67,6 +76,9 @@ handlers.set(AddTravel, new AddTravelHandler(travelStore));
 handlers.set(GetTravels, new GetTravelsHandler(travelStore));
 handlers.set(SaveCurrentOdometer, new SaveCurrentOdometerHandler(odometerStore));
 handlers.set(GetLastOdometer, new GetLastOdometerHandler(odometerStore));
+handlers.set(GetHomeAddress, new GetHomeAddressHandler(addressStore));
+handlers.set(GetWorkAddress, new GetWorkAddressHandler(addressStore));
+handlers.set(InitAddresses, new InitAddressesHandler(addressStore));
 
 
 const handle = <T = any>(request: any): Promise<T> => {

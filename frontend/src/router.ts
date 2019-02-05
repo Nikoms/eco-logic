@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Home from './views/Home.vue';
 import Index from './views/Index.vue';
 import Welcome2 from './views/Welcome2.vue';
+import Settings from './views/Settings.vue';
 
 Vue.use(Router);
 
@@ -24,6 +25,11 @@ export default new Router({
       path: '/welcome2',
       name: 'welcome2',
       component: Welcome2,
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: Settings,
     },
     {
       path: '/power-consumption',
