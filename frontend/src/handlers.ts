@@ -43,7 +43,8 @@ import { GetLastOdometer, GetLastOdometerHandler } from '@eco/application/src/in
 import { EventTargetEventDispatcher } from '@eco/infrastructure/src/event/EventDispatcher';
 import { CarbonLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/CarbonLocalStorageRepository';
 import { AddCarbon, AddCarbonHandler } from '@eco/application/src/interactor/co2/AddCarbon';
-import { initListeners } from '@eco/application/src/listener/listeners';
+import { getListeners } from '@eco/application/src/listener/listeners';
+import { CarbonImpact } from '@eco/application/src/service/CarbonImpact';
 
 const powerStore = new PowerConsumptionLocalStorageRepository(window.localStorage);
 const waterConsumptionStore = new WaterConsumptionLocalStorageRepository(window.localStorage);
@@ -55,7 +56,8 @@ const odometerStore = new OdometerLocalStorageRepository(window.localStorage);
 const carbonStore = new CarbonLocalStorageRepository(window.localStorage);
 
 const eventDispatcher = new EventTargetEventDispatcher();
-initListeners(eventDispatcher, powerStore);
+const carbonImpact = new CarbonImpact(powerStore);
+getListeners(carbonImpact).forEach(l => eventDispatcher.addListener(l.on, async (e) => handle(await l.do(e))));
 
 const handlers = new Map<any, any>();
 handlers.set(AddPowerConsumption, new AddPowerConsumptionHandler(powerStore, eventDispatcher));
@@ -73,7 +75,6 @@ handlers.set(GetTravels, new GetTravelsHandler(travelStore));
 handlers.set(SaveCurrentOdometer, new SaveCurrentOdometerHandler(odometerStore));
 handlers.set(GetLastOdometer, new GetLastOdometerHandler(odometerStore));
 handlers.set(AddCarbon, new AddCarbonHandler(carbonStore));
-
 
 const handle = <T = any>(request: any): Promise<T> => {
   return handlers.get(request.constructor).handle(request);

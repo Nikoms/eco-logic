@@ -5,8 +5,9 @@ import { CarbonRepository } from '@eco/domain/src/co2/repository/CarbonRepositor
 export class AddCarbon {
   public readonly carbon: Carbon;
 
-  static fromPower(consumptionDifference: number) {
-    return new AddCarbon(consumptionDifference * 100, 'From power...');
+  static fromPower(kWhConsumed: number) {
+    // Example...
+    return new AddCarbon(kWhConsumed * 100, 'From power...');
   }
 
   constructor(kg: number, description: string) {
