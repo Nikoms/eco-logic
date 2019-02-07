@@ -60,7 +60,7 @@ const carbonImpact = new CarbonImpact(powerStore);
 getListeners(carbonImpact).forEach(l => eventDispatcher.addListener(l.on, async (e) => handle(await l.do(e))));
 
 const handlers = new Map<any, any>();
-handlers.set(AddPowerConsumption, new AddPowerConsumptionHandler(powerStore, eventDispatcher));
+handlers.set(AddPowerConsumption, new AddPowerConsumptionHandler(powerStore, carbonStore));
 handlers.set(GetAllPowerConsumptions, new GetAllPowerConsumptionsHandler(powerStore));
 handlers.set(AddWaterConsumption, new AddWaterConsumptionHandler(waterConsumptionStore));
 handlers.set(GetAllWaterConsumptions, new GetAllWaterConsumptionsHandler(waterConsumptionStore));

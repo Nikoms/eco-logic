@@ -3,6 +3,7 @@ import { Events } from '../event/Events';
 import { CarbonImpact } from '../service/CarbonImpact';
 
 export function getListeners(carbonImpact: CarbonImpact) {
+  // Example:
   return [
     {
       on: Events.powerConsumptionAdded,
