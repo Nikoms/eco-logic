@@ -1,4 +1,5 @@
-import { EventDispatcher } from '@eco/application/src/event/EventDispatcher';
+import { EventDispatcher } from '@eco/application/src/port/needed/EventDispatcher';
+import { Event } from '@eco/application/src/event/Event';
 
 export class EventTargetEventDispatcher implements EventDispatcher {
   private listeners: Map<string, Map<any, any>> = new Map();
@@ -6,13 +7,12 @@ export class EventTargetEventDispatcher implements EventDispatcher {
   constructor(private eventTarget = new EventTarget()) {
   }
 
-  addListener(eventName: string, callback: (eventName: string, event: any) => any): any {
+  addListener(eventName: string, callback: (event: any) => any): any {
     if (!this.listeners.has(eventName)) {
       this.listeners.set(eventName, new Map());
     }
-    const myCallback = (event: Event) => {
-      console.log('youpiiie');
-      callback(eventName, (<CustomEvent> event).detail);
+    const myCallback = (event: any) => {
+      callback((<CustomEvent> event).detail);
     };
     this.listeners.get(eventName)!.set(callback, myCallback);
     this.eventTarget.addEventListener(eventName, myCallback);
@@ -24,7 +24,7 @@ export class EventTargetEventDispatcher implements EventDispatcher {
     this.listeners.get(eventName)!.delete(callback);
   }
 
-  emit(eventName: string, event: any): any {
-    this.eventTarget.dispatchEvent(new CustomEvent(eventName, { detail: event }));
+  emit(event: Event): any {
+    this.eventTarget.dispatchEvent(new CustomEvent(event.name, { detail: event }));
   }
 }

@@ -30,4 +30,13 @@ export class PowerConsumptionLocalStorageRepository implements PowerConsumptionR
   async getAll() {
     return this.getList();
   }
+
+  async getConsumptionBefore(id: string): Promise<PowerConsumption | undefined> {
+    const consumptions = this.getList();
+    const index = consumptions.findIndex(c => c.id === id);
+    if (index <= 0) {
+      return;
+    }
+    return consumptions[index - 1];
+  }
 }
