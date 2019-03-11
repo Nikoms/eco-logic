@@ -36,7 +36,7 @@
     engines = [Engine.gasoline, Engine.diesel, Engine.CNG, Engine.LPG];
 
     @Prop()
-    canCancel: boolean;
+    canCancel?: boolean;
 
     async sendMessage() {
       await handle(new AddCar(this.name, parseFloat(this.consumption), this.engine));
