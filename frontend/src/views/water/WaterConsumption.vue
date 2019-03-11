@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="hasMeter">
         <v-btn
                 style="bottom: 70px"
                 color="indigo"
@@ -19,20 +19,33 @@
         </v-dialog>
 
     </div>
+    <div v-else>
+        <InitWater @init="waterInitialized"/>
+    </div>
 </template>
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import AddWaterConsumption from '@/components/water/add-water-consumption.vue';
-  import ListWaterConsumptions from '@/components/water/list-water-consumptions.vue'; // @ is an alias to /src
+  import ListWaterConsumptions from '@/components/water/list-water-consumptions.vue';
+  import InitWater from '@/components/water/init-water.vue';
+  import { WaterMeter } from '@eco/domain/src/water/entity/WaterMeter';
+  import { GetWaterMeters } from '@eco/application/src/interactor/water/GetWaterMeters';
+  import { handle } from '@/handlers'; // @ is an alias to /src
 
   @Component({
     components: {
+      InitWater,
       AddWaterConsumption, ListWaterConsumptions,
     },
   })
   export default class WaterConsumption extends Vue {
     dialog = false;
+    hasMeter = false;
+
+    async mounted() {
+      this.hasMeter = (await handle<WaterMeter[]>(new GetWaterMeters())).length > 0;
+    }
 
     showDialog() {
       this.dialog = true;
@@ -44,6 +57,10 @@
     added() {
       this.dialog = false;
       (this.$refs.list as any).refresh(); // En attendant redux/rematch
+    }
+
+    waterInitialized() {
+      this.hasMeter = true;
     }
   }
 </script>
