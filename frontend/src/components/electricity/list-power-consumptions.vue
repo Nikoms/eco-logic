@@ -4,6 +4,7 @@
             :items="consumptions"
             class="elevation-1"
             hide-actions
+            no-data-text="No consumption for the moment. Don't forget to add yours quickly"
     >
         <template slot="items" slot-scope="props">
             <td class="text-xs-right">{{ props.item.kWh }}</td>

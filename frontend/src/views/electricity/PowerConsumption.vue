@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="hasMeter">
         <v-btn
                 style="bottom: 70px"
                 color="indigo"
@@ -17,22 +17,39 @@
         <v-dialog v-model="dialog" max-width="600px">
             <AddPowerConsumption ref="form" @added="added"/>
         </v-dialog>
-
+    </div>
+    <div v-else>
+        <InitPower @init="powerInitialized"/>
     </div>
 </template>
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import AddPowerConsumption from '@/components/electricity/add-power-consumption.vue';
-  import ListPowerConsumptions from '@/components/electricity/list-power-consumptions.vue'; // @ is an alias to /src
+  import ListPowerConsumptions from '@/components/electricity/list-power-consumptions.vue';
+  import InitPower from '@/components/electricity/init-power.vue';
+  import { ElectricMeter } from '@eco/domain/src/electricity/entity/ElectricMeter';
+  import { GetElectricMeters } from '@eco/application/src/interactor/electricity/GetElectricMeters';
+  import { handle } from '@/handlers'; // @ is an alias to /src
 
   @Component({
     components: {
-      AddPowerConsumption, ListPowerConsumptions,
+      InitPower,
+      AddPowerConsumption,
+      ListPowerConsumptions,
     },
   })
   export default class PowerConsumption extends Vue {
     dialog = false;
+    hasMeter = false;
+
+    async mounted() {
+      this.hasMeter = (await handle<ElectricMeter[]>(new GetElectricMeters())).length > 0;
+    }
+
+    powerInitialized() {
+      this.hasMeter = true;
+    }
 
     showDialog() {
       this.dialog = true;
