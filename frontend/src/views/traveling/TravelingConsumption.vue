@@ -2,11 +2,8 @@
     <div>
         <ShowOdometers ref="odometers"></ShowOdometers>
         <ListTravels ref="travels"></ListTravels>
-        <v-dialog v-model="addCarDialog" max-width="600px">
-            <AddCar ref="addCarForm" @added="carAdded"/>
-        </v-dialog>
         <v-dialog v-model="saveOdometerDialog" max-width="600px">
-            <SaveOdometer ref="saveOdometerForm" @added="odometerSaved"/>
+            <SaveOdometer ref="saveOdometerForm" @added="odometerSaved" @cancel="odometerCancelled"/>
         </v-dialog>
         <v-dialog v-model="addAirTravelDialog" max-width="600px">
             <AddTravelByPlane ref="addTravelByPlaneForm" @added="airTravelAdded"/>
@@ -32,9 +29,6 @@
             <v-btn fab dark small color="indigo" @click="showAddAirTravelDialog">
                 <v-icon>mdi-airplane</v-icon>
             </v-btn>
-            <v-btn fab dark small color="red" @click="showAddCarDialog">
-                <v-icon>mdi-settings</v-icon>
-            </v-btn>
         </v-speed-dial>
     </div>
 </template>
@@ -51,31 +45,22 @@
     components: { ShowOdometers, AddCar, SaveOdometer, AddTravelByPlane, ListTravels },
   })
   export default class TravelingConsumption extends Vue {
-    addCarDialog = false;
     saveOdometerDialog = false;
     addAirTravelDialog = false;
     fab = null;
-
-    carAdded() {
-      this.addCarDialog = false;
-      (this.$refs.travels as any).refresh(); // En attendant redux/rematch
-    }
 
     odometerSaved() {
       this.saveOdometerDialog = false;
       (this.$refs.odometers as ShowOdometers).refresh(); // En attendant redux/rematch
     }
 
+    odometerCancelled() {
+      this.saveOdometerDialog = false;
+    }
+
     airTravelAdded() {
       this.addAirTravelDialog = false;
       (this.$refs.travels as ListTravels).refresh(); // En attendant redux/rematch
-    }
-
-    showAddCarDialog() {
-      this.addCarDialog = true;
-      setImmediate(() => {
-        (this.$refs.addCarForm as AddCar).startEditing();
-      });
     }
 
     showOdometerDialog() {

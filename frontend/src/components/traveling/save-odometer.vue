@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-form v-if="haveAtLeastOneCar" @submit.prevent="saveOdometer">
+        <v-form v-if="!showAddCar && cars.length > 0" @submit.prevent="saveOdometer">
             <v-card>
                 <v-card-title>
                     <v-icon large left>mdi-car</v-icon>
@@ -15,15 +15,20 @@
                                   ref="odometer"
                                   :placeholder="odometers[index].last"
                     ></v-text-field>
+                    <a href="#" v-on:click.prevent="addNewCar()">Add another car...</a>
+
                 </v-card-text>
 
                 <v-card-actions>
                     <v-spacer></v-spacer>
+                    <v-btn type="submit" flat color="secondary" @click="cancel">Cancel</v-btn>
                     <v-btn type="submit" flat color="primary" @click="saveOdometer">Save</v-btn>
                 </v-card-actions>
             </v-card>
         </v-form>
-        <v-alert v-else value="true" color="error" icon="warning" outline>{{errorMessage}}</v-alert>
+        <div v-else>
+            <AddCar @added="carAdded" @cancel="carCancel" :canCancel="cars.length > 0"/>
+        </div>
     </div>
 </template>
 
@@ -35,17 +40,17 @@
   import { SaveCurrentOdometer } from '@eco/application/src/interactor/travel/SaveCurrentOdometer';
   import { GetLastOdometer } from '@eco/application/src/interactor/travel/GetLastOdometer';
   import { Odometer } from '@eco/domain/src/traveling/entity/Odometer';
+  import AddCar from '@/components/traveling/add-car.vue';
 
-  @Component
+  @Component({
+    components: { AddCar },
+  })
   export default class SaveOdometer extends Vue {
     odometers: { car: Car, km: string, last: string }[] = [];
-    car: Car | null = null;
     cars: Car[] = [];
-    private haveAtLeastOneCar: boolean = false;
-    private errorMessage: string = '';
+    private showAddCar: boolean = false;
 
     async saveOdometer() {
-
       for (const odometer of this.odometers) {
         if (odometer.km.trim().length > 0) {
           await handle(new SaveCurrentOdometer(parseFloat(odometer.km), odometer.car));
@@ -55,24 +60,35 @@
       this.$emit('added');
     }
 
+    cancel() {
+      this.$emit('cancel');
+    }
+
+    carAdded() {
+      this.init();
+    }
+
+    carCancel() {
+      this.showAddCar = false;
+    }
+
     async mounted() {
       await this.init();
+    }
+
+    addNewCar() {
+      this.showAddCar = true;
     }
 
     private async init() {
       this.cars = await handle(new GetCars());
       await this.clearForm();
-      this.haveAtLeastOneCar = this.cars.length > 0;
-      if (this.haveAtLeastOneCar) {
-        this.car = this.cars[0];
-      } else {
-        this.errorMessage = 'Please add a car before adding a travel';
-      }
+      this.showAddCar = this.cars.length === 0;
     }
 
     async startEditing() {
       await this.init();
-      if (this.haveAtLeastOneCar) {
+      if (!this.showAddCar) {
         (this.$refs['odometer'] as any)[0].focus();
       }
     }

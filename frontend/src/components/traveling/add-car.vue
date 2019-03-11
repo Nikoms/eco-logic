@@ -14,6 +14,7 @@
 
                 <v-card-actions>
                     <v-spacer></v-spacer>
+                    <v-btn flat color="secondary" @click="cancel" v-if="canCancel">Cancel</v-btn>
                     <v-btn flat color="primary" @click="sendMessage">Add a car</v-btn>
                 </v-card-actions>
             </v-card>
@@ -22,7 +23,7 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
+  import { Component, Prop, Vue } from 'vue-property-decorator';
   import { handle } from '@/handlers';
   import { AddCar } from '@eco/application/src/interactor/travel/AddCar';
   import { Engine } from '@eco/domain/src/traveling/entity/Car';
@@ -34,10 +35,17 @@
     engine = Engine.gasoline;
     engines = [Engine.gasoline, Engine.diesel, Engine.CNG, Engine.LPG];
 
+    @Prop()
+    canCancel;
+
     async sendMessage() {
       await handle(new AddCar(this.name, parseFloat(this.consumption), this.engine));
       this.clearForm();
       this.$emit('added');
+    }
+
+    cancel() {
+      this.$emit('cancel');
     }
 
     startEditing() {
