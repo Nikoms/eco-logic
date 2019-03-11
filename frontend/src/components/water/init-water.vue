@@ -18,7 +18,7 @@
   import { InitWaterMeter } from '@eco/application/src/interactor/water/InitWaterMeter';
   import { handle } from '@/handlers';
 
-  @Component()
+  @Component({})
   export default class InitWater extends Vue {
     async initWaterMeter(hasColdAndHotMeter: boolean) {
       await handle(new InitWaterMeter(hasColdAndHotMeter));

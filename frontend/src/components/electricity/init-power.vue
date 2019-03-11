@@ -18,7 +18,7 @@
   import { InitElectricMeter } from '@eco/application/src/interactor/electricity/InitElectricMeter';
   import { handle } from '@/handlers';
 
-  @Component()
+  @Component({})
   export default class InitPower extends Vue {
 
     async initElectricMeter(hasDayAndNightMeter: boolean) {
