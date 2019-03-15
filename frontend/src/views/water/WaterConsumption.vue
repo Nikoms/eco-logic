@@ -29,9 +29,9 @@
   import AddWaterConsumption from '@/components/water/add-water-consumption.vue';
   import ListWaterConsumptions from '@/components/water/list-water-consumptions.vue';
   import InitWater from '@/components/water/init-water.vue';
-  import { WaterMeter } from '@eco/domain/src/water/entity/WaterMeter';
-  import { GetWaterMeters } from '@eco/application/src/interactor/water/GetWaterMeters';
-  import { handle } from '@/handlers'; // @ is an alias to /src
+  import { handle } from '@/handlers';
+  import { WaterMeter } from '@eco/water/src/entity/WaterMeter';
+  import { GetWaterMeters } from '@eco/water/src/interactor/GetWaterMeters'; // @ is an alias to /src
 
   @Component({
     components: {

@@ -19,10 +19,13 @@
   },
   "homepage": "https://github.com/Nikoms/eco-logic#readme",
   "workspaces": [
-    "application",
-    "frontend",
-    "domain",
-    "infrastructure"
+    "co2",
+    "data",
+    "electricity",
+    "infrastructure",
+    "shared-kernel",
+    "travel",
+    "water"
   ],
   "private": true
 }

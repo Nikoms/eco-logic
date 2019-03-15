@@ -24,10 +24,10 @@
 
 <script lang="ts">
     import { Component, Vue } from 'vue-property-decorator';
-    import { AddWaterConsumption as Add } from '@eco/application/src/interactor/water/AddWaterConsumption';
     import { handle } from '@/handlers';
-    import { GetWaterMeters } from '@eco/application/src/interactor/water/GetWaterMeters';
-    import { WaterMeter } from '@eco/domain/src/water/entity/WaterMeter';
+    import { WaterMeter } from '@eco/water/src/entity/WaterMeter';
+    import { GetWaterMeters } from '@eco/water/src/interactor/GetWaterMeters';
+    import { AddWaterConsumption as Add} from '@eco/water/src/interactor/AddWaterConsumption';
 
     @Component
     export default class AddWaterConsumption extends Vue {

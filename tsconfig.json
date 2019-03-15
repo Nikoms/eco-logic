@@ -42,8 +42,20 @@
     "@eco/infrastructure/*": [
       "infrastructure/*"
     ],
-    "@eco/domain/*": [
-      "domain/*"
+    "@eco/co2/*": [
+      "co2/src/*"
+    ],
+    "@eco/electricity/*": [
+      "electricity/src/*"
+    ],
+    "@eco/travel/*": [
+      "travel/src/*"
+    ],
+    "@eco/water/*": [
+      "water/src/*"
+    ],
+    "@eco/shared-kernel/*": [
+      "shared-kernel/src/*"
     ]
   }
 }

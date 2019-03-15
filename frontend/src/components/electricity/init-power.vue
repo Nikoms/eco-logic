@@ -15,8 +15,8 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { InitElectricMeter } from '@eco/application/src/interactor/electricity/InitElectricMeter';
   import { handle } from '@/handlers';
+  import { InitElectricMeter } from '@eco/electricity/src/interactor/InitElectricMeter';
 
   @Component({})
   export default class InitPower extends Vue {

@@ -35,12 +35,12 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import { handle } from '@/handlers';
-  import { GetCars } from '@eco/application/src/interactor/travel/GetCars';
-  import { Car } from '@eco/domain/src/traveling/entity/Car';
-  import { SaveCurrentOdometer } from '@eco/application/src/interactor/travel/SaveCurrentOdometer';
-  import { GetLastOdometer } from '@eco/application/src/interactor/travel/GetLastOdometer';
-  import { Odometer } from '@eco/domain/src/traveling/entity/Odometer';
   import AddCar from '@/components/traveling/add-car.vue';
+  import { Car } from '@eco/travel/src/entity/Car';
+  import { SaveCurrentOdometer } from '@eco/travel/src/interactor/SaveCurrentOdometer';
+  import { GetCars } from '@eco/travel/src/interactor/GetCars';
+  import { Odometer } from '@eco/travel/src/entity/Odometer';
+  import { GetLastOdometer } from '@eco/travel/src/interactor/GetLastOdometer';
 
   @Component({
     components: { AddCar },

@@ -15,8 +15,8 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { InitWaterMeter } from '@eco/application/src/interactor/water/InitWaterMeter';
   import { handle } from '@/handlers';
+  import { InitWaterMeter } from '@eco/water/src/interactor/InitWaterMeter';
 
   @Component({})
   export default class InitWater extends Vue {

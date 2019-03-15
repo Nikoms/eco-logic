@@ -28,9 +28,9 @@
   import AddPowerConsumption from '@/components/electricity/add-power-consumption.vue';
   import ListPowerConsumptions from '@/components/electricity/list-power-consumptions.vue';
   import InitPower from '@/components/electricity/init-power.vue';
-  import { ElectricMeter } from '@eco/domain/src/electricity/entity/ElectricMeter';
-  import { GetElectricMeters } from '@eco/application/src/interactor/electricity/GetElectricMeters';
-  import { handle } from '@/handlers'; // @ is an alias to /src
+  import { handle } from '@/handlers';
+  import { ElectricMeter } from '@eco/electricity/src/entity/ElectricMeter';
+  import { GetElectricMeters } from '@eco/electricity/src/interactor/GetElectricMeters'; // @ is an alias to /src
 
   @Component({
     components: {

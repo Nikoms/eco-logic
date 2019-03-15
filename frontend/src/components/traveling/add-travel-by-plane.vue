@@ -27,8 +27,8 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import { handle } from '@/handlers';
-  import { AddTravel } from '@eco/application/src/interactor/travel/AddTravel';
-  import { TravelType } from '@eco/domain/src/traveling/entity/Travel';
+  import { TravelType } from '@eco/travel/src/entity/Travel';
+  import { AddTravel } from '@eco/travel/src/interactor/AddTravel';
 
   @Component
   export default class AddTravelByPlane extends Vue {

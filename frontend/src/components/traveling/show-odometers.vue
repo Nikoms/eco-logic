@@ -16,10 +16,10 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import { handle } from '@/handlers';
-  import { GetCars } from '@eco/application/src/interactor/travel/GetCars';
-  import { Car } from '@eco/domain/src/traveling/entity/Car';
-  import { Odometer } from '@eco/domain/src/traveling/entity/Odometer';
-  import { GetLastOdometer } from '@eco/application/src/interactor/travel/GetLastOdometer';
+  import { Car } from '@eco/travel/src/entity/Car';
+  import { GetCars } from '@eco/travel/src/interactor/GetCars';
+  import { Odometer } from '@eco/travel/src/entity/Odometer';
+  import { GetLastOdometer } from '@eco/travel/src/interactor/GetLastOdometer';
 
   @Component
   export default class ShowOdometers extends Vue {

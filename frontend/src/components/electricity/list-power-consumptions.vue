@@ -17,7 +17,7 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import { handle } from '@/handlers';
-  import { GetAllPowerConsumptions } from '@eco/application/src/interactor/electricity/GetAllPowerConsumptions';
+  import { GetAllPowerConsumptions } from '@eco/electricity/src/interactor/GetAllPowerConsumptions';
 
   @Component
   export default class ListPowerConsumptions extends Vue {

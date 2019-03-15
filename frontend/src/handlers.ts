@@ -1,50 +1,34 @@
-import {
-  AddPowerConsumption,
-  AddPowerConsumptionHandler,
-} from '@eco/application/src/interactor/electricity/AddPowerConsumption';
+import { PowerConsumptionLocalStorageRepository } from '../../data/src/local-storage/PowerConsumptionLocalStorageRepository';
+import { WaterConsumptionLocalStorageRepository } from '../../data/src/local-storage/WaterConsumptionLocalStorageRepository';
+import { ElectricMeterLocalStorageRepository } from '../../data/src/local-storage/ElectricMeterLocalStorageRepository';
+import { WaterMeterLocalStorageRepository } from '../../data/src/local-storage/WaterMeterLocalStorageRepository';
+import { CarLocalStorageRepository } from '../../data/src/local-storage/CarLocalStorageRepository';
+import { TravelLocalStorageRepository } from '../../data/src/local-storage/TravelLocalStorageRepository';
+import { OdometerLocalStorageRepository } from '../../data/src/local-storage/OdometerLocalStorageRepository';
+import { CarbonLocalStorageRepository } from '../../data/src/local-storage/CarbonLocalStorageRepository';
+import AddPowerConsumption from '@/components/electricity/add-power-consumption.vue';
+import { AddPowerConsumptionHandler } from '@eco/electricity/src/interactor/AddPowerConsumption';
 import {
   GetAllPowerConsumptions,
   GetAllPowerConsumptionsHandler,
-} from '@eco/application/src/interactor/electricity/GetAllPowerConsumptions';
-import {
-  AddWaterConsumption,
-  AddWaterConsumptionHandler,
-} from '@eco/application/src/interactor/water/AddWaterConsumption';
+} from '@eco/electricity/src/interactor/GetAllPowerConsumptions';
+import { AddWaterConsumption, AddWaterConsumptionHandler } from '@eco/water/src/interactor/AddWaterConsumption';
 import {
   GetAllWaterConsumptions,
   GetAllWaterConsumptionsHandler,
-} from '@eco/application/src/interactor/water/GetAllWaterConsumptions';
-import { PowerConsumptionLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/PowerConsumptionLocalStorageRepository';
-import { WaterConsumptionLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/WaterConsumptionLocalStorageRepository';
-import { ElectricMeterLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/ElectricMeterLocalStorageRepository';
-import { WaterMeterLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/WaterMeterLocalStorageRepository';
-import {
-  InitElectricMeter,
-  InitElectricMeterHandler,
-} from '@eco/application/src/interactor/electricity/InitElectricMeter';
-import {
-  GetElectricMeters,
-  GetElectricMetersHandler,
-} from '@eco/application/src/interactor/electricity/GetElectricMeters';
-import { GetWaterMeters, GetWaterMetersHandler } from '@eco/application/src/interactor/water/GetWaterMeters';
-import { InitWaterMeter, InitWaterMeterHandler } from '@eco/application/src/interactor/water/InitWaterMeter';
-import { CarLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/CarLocalStorageRepository';
-import { AddCar, AddCarHandler } from '@eco/application/src/interactor/travel/AddCar';
-import { GetCars, GetCarsHandler } from '@eco/application/src/interactor/travel/GetCars';
-import { AddTravel, AddTravelHandler } from '@eco/application/src/interactor/travel/AddTravel';
-import { TravelLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/TravelLocalStorageRepository';
-import { GetTravels, GetTravelsHandler } from '@eco/application/src/interactor/travel/GetTravels';
-import {
-  SaveCurrentOdometer,
-  SaveCurrentOdometerHandler,
-} from '@eco/application/src/interactor/travel/SaveCurrentOdometer';
-import { OdometerLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/OdometerLocalStorageRepository';
-import { GetLastOdometer, GetLastOdometerHandler } from '@eco/application/src/interactor/travel/GetLastOdometer';
-import { EventTargetEventDispatcher } from '@eco/infrastructure/src/event/EventDispatcher';
-import { CarbonLocalStorageRepository } from '@eco/infrastructure/src/storage/local-storage/CarbonLocalStorageRepository';
-import { AddCarbon, AddCarbonHandler } from '@eco/application/src/interactor/co2/AddCarbon';
-import { getListeners } from '@eco/application/src/listener/listeners';
-import { CarbonImpact } from '@eco/application/src/service/CarbonImpact';
+} from '@eco/water/src/interactor/GetAllWaterConsumptions';
+import { InitElectricMeter, InitElectricMeterHandler } from '@eco/electricity/src/interactor/InitElectricMeter';
+import { InitWaterMeter, InitWaterMeterHandler } from '@eco/water/src/interactor/InitWaterMeter';
+import { GetElectricMeters, GetElectricMetersHandler } from '@eco/electricity/src/interactor/GetElectricMeters';
+import { GetCars, GetCarsHandler } from '@eco/travel/src/interactor/GetCars';
+import { AddCar, AddCarHandler } from '@eco/travel/src/interactor/AddCar';
+import { AddTravel, AddTravelHandler } from '@eco/travel/src/interactor/AddTravel';
+import { GetTravels, GetTravelsHandler } from '@eco/travel/src/interactor/GetTravels';
+import { GetLastOdometer, GetLastOdometerHandler } from '@eco/travel/src/interactor/GetLastOdometer';
+import { AddCarbon, AddCarbonHandler } from '@eco/co2/src/interactor/AddCarbon';
+import { SaveCurrentOdometer, SaveCurrentOdometerHandler } from '@eco/travel/src/interactor/SaveCurrentOdometer';
+import { GetWaterMeters, GetWaterMetersHandler } from '@eco/water/src/interactor/GetWaterMeters';
+
 
 const powerStore = new PowerConsumptionLocalStorageRepository(window.localStorage);
 const waterConsumptionStore = new WaterConsumptionLocalStorageRepository(window.localStorage);
@@ -54,10 +38,6 @@ const carStore = new CarLocalStorageRepository(window.localStorage);
 const travelStore = new TravelLocalStorageRepository(window.localStorage);
 const odometerStore = new OdometerLocalStorageRepository(window.localStorage);
 const carbonStore = new CarbonLocalStorageRepository(window.localStorage);
-
-const eventDispatcher = new EventTargetEventDispatcher();
-const carbonImpact = new CarbonImpact(powerStore);
-getListeners(carbonImpact).forEach(l => eventDispatcher.addListener(l.on, async (e) => handle(await l.do(e))));
 
 const handlers = new Map<any, any>();
 handlers.set(AddPowerConsumption, new AddPowerConsumptionHandler(powerStore, carbonStore));

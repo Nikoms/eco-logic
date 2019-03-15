@@ -25,8 +25,8 @@
 <script lang="ts">
   import { Component, Prop, Vue } from 'vue-property-decorator';
   import { handle } from '@/handlers';
-  import { AddCar } from '@eco/application/src/interactor/travel/AddCar';
-  import { Engine } from '@eco/domain/src/traveling/entity/Car';
+  import { Engine } from '@eco/travel/src/entity/Car';
+  import { AddCar } from '@eco/travel/src/interactor/AddCar';
 
   @Component
   export default class AddCarComponent extends Vue {
