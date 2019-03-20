@@ -28,7 +28,7 @@
   import AddPowerConsumption from '@/components/electricity/add-power-consumption.vue';
   import ListPowerConsumptions from '@/components/electricity/list-power-consumptions.vue';
   import InitPower from '@/components/electricity/init-power.vue';
-  import { handle } from '@/handlers';
+  import { handle } from '@eco/infrastructure/src/handlers';
   import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
   import { GetElectricMeters } from '@eco/core-electricity/src/interactor/GetElectricMeters'; // @ is an alias to /src
 

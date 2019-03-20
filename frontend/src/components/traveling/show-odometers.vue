@@ -15,7 +15,7 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { handle } from '@/handlers';
+  import { handle } from '@eco/infrastructure/src/handlers';
   import { Car } from '@eco/core-travel/src/entity/Car';
   import { GetCars } from '@eco/core-travel/src/interactor/GetCars';
   import { Odometer } from '@eco/core-travel/src/entity/Odometer';

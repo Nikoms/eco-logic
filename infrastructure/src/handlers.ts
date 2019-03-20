@@ -1,13 +1,7 @@
-import { PowerConsumptionLocalStorageRepository } from '@eco/infrastructure/src/local-storage/PowerConsumptionLocalStorageRepository';
-import { WaterConsumptionLocalStorageRepository } from '@eco/infrastructure/src/local-storage/WaterConsumptionLocalStorageRepository';
-import { ElectricMeterLocalStorageRepository } from '@eco/infrastructure/src/local-storage/ElectricMeterLocalStorageRepository';
-import { WaterMeterLocalStorageRepository } from '@eco/infrastructure/src/local-storage/WaterMeterLocalStorageRepository';
-import { CarLocalStorageRepository } from '@eco/infrastructure/src/local-storage/CarLocalStorageRepository';
-import { TravelLocalStorageRepository } from '@eco/infrastructure/src/local-storage/TravelLocalStorageRepository';
-import { OdometerLocalStorageRepository } from '@eco/infrastructure/src/local-storage/OdometerLocalStorageRepository';
-import { CarbonLocalStorageRepository } from '@eco/infrastructure/src/local-storage/CarbonLocalStorageRepository';
-import AddPowerConsumption from '@/components/electricity/add-power-consumption.vue';
-import { AddPowerConsumptionHandler } from '@eco/core-electricity/src/interactor/AddPowerConsumption';
+import {
+  AddPowerConsumption,
+  AddPowerConsumptionHandler,
+} from '@eco/core-electricity/src/interactor/AddPowerConsumption';
 import {
   GetAllPowerConsumptions,
   GetAllPowerConsumptionsHandler,
@@ -28,36 +22,44 @@ import { GetLastOdometer, GetLastOdometerHandler } from '@eco/core-travel/src/in
 import { AddCarbon, AddCarbonHandler } from '@eco/core-co2/src/interactor/AddCarbon';
 import { SaveCurrentOdometer, SaveCurrentOdometerHandler } from '@eco/core-travel/src/interactor/SaveCurrentOdometer';
 import { GetWaterMeters, GetWaterMetersHandler } from '@eco/core-water/src/interactor/GetWaterMeters';
-
-
-const powerStore = new PowerConsumptionLocalStorageRepository(window.localStorage);
-const waterConsumptionStore = new WaterConsumptionLocalStorageRepository(window.localStorage);
-const elestricStore = new ElectricMeterLocalStorageRepository(window.localStorage);
-const waterStore = new WaterMeterLocalStorageRepository(window.localStorage);
-const carStore = new CarLocalStorageRepository(window.localStorage);
-const travelStore = new TravelLocalStorageRepository(window.localStorage);
-const odometerStore = new OdometerLocalStorageRepository(window.localStorage);
-const carbonStore = new CarbonLocalStorageRepository(window.localStorage);
+import {
+  carbonStore,
+  carStore,
+  electricStore,
+  eventDispatcher,
+  odometerStore,
+  powerStore,
+  travelStore,
+  waterConsumptionStore,
+  waterStore,
+} from '@eco/infrastructure/src/di';
+import { listeners } from '@eco/core-co2/src/listeners';
 
 const handlers = new Map<any, any>();
 handlers.set(AddPowerConsumption, new AddPowerConsumptionHandler(powerStore, carbonStore));
 handlers.set(GetAllPowerConsumptions, new GetAllPowerConsumptionsHandler(powerStore));
 handlers.set(AddWaterConsumption, new AddWaterConsumptionHandler(waterConsumptionStore));
 handlers.set(GetAllWaterConsumptions, new GetAllWaterConsumptionsHandler(waterConsumptionStore));
-handlers.set(InitElectricMeter, new InitElectricMeterHandler(elestricStore));
+handlers.set(InitElectricMeter, new InitElectricMeterHandler(electricStore));
 handlers.set(InitWaterMeter, new InitWaterMeterHandler(waterStore));
-handlers.set(GetElectricMeters, new GetElectricMetersHandler(elestricStore));
+handlers.set(GetElectricMeters, new GetElectricMetersHandler(electricStore));
 handlers.set(GetWaterMeters, new GetWaterMetersHandler(waterStore));
 handlers.set(AddCar, new AddCarHandler(carStore));
 handlers.set(GetCars, new GetCarsHandler(carStore));
 handlers.set(AddTravel, new AddTravelHandler(travelStore));
 handlers.set(GetTravels, new GetTravelsHandler(travelStore));
-handlers.set(SaveCurrentOdometer, new SaveCurrentOdometerHandler(odometerStore));
+handlers.set(SaveCurrentOdometer, new SaveCurrentOdometerHandler(odometerStore, carStore, eventDispatcher));
 handlers.set(GetLastOdometer, new GetLastOdometerHandler(odometerStore));
 handlers.set(AddCarbon, new AddCarbonHandler(carbonStore));
 
 const handle = <T = any>(request: any): Promise<T> => {
   return handlers.get(request.constructor).handle(request);
 };
+
+for (const key in listeners) {
+  if (listeners.hasOwnProperty(key)) {
+    listeners[key].map(transformEventToAction => eventDispatcher.addListener(key, (event) => handle(transformEventToAction(event))));
+  }
+}
 
 export { handle };

@@ -39,7 +39,7 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { handle } from '@/handlers';
+  import { handle } from '@eco/infrastructure/src/handlers';
   import { PowerConsumption } from '@eco/core-electricity/src/entity/PowerConsumption';
   import { GetAllPowerConsumptions } from '@eco/core-electricity/src/interactor/GetAllPowerConsumptions';
 

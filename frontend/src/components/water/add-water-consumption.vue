@@ -24,7 +24,7 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { handle } from '@/handlers';
+  import { handle } from '@eco/infrastructure/src/handlers';
   import { WaterMeter } from '@eco/core-water/src/entity/WaterMeter';
   import { GetWaterMeters } from '@eco/core-water/src/interactor/GetWaterMeters';
   import { AddWaterConsumption as Add } from '@eco/core-water/src/interactor/AddWaterConsumption';

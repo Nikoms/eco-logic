@@ -26,7 +26,7 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { handle } from '@/handlers';
+  import { handle } from '@eco/infrastructure/src/handlers';
   import { TravelType } from '@eco/core-travel/src/entity/Travel';
   import { AddTravel } from '@eco/core-travel/src/interactor/AddTravel';
 

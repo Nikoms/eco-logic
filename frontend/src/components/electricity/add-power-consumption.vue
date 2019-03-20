@@ -24,10 +24,10 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { handle } from '@/handlers';
   import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
   import { GetElectricMeters } from '@eco/core-electricity/src/interactor/GetElectricMeters';
   import { AddPowerConsumption as Add } from '@eco/core-electricity/src/interactor/AddPowerConsumption';
+  import { handle } from '@eco/infrastructure/src/handlers';
 
   @Component
   export default class AddPowerConsumption extends Vue {

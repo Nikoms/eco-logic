@@ -17,6 +17,14 @@ export class CarLocalStorageRepository implements CarRepository {
     this.saveList(list);
   }
 
+  async getAll() {
+    return this.getList();
+  }
+
+  async getCar(carId: string): Promise<Car | undefined> {
+    return this.getList().find(c => c.id === carId);
+  }
+
   private saveList(list: any[]) {
     const listAsJson = JSON.stringify(list);
     this.localstorage.setItem(this.key, listAsJson);
@@ -25,9 +33,5 @@ export class CarLocalStorageRepository implements CarRepository {
   private getList(): Car[] {
     const rawList: JsonOf<Car>[] = JSON.parse(this.localstorage.getItem(this.key) || '[]');
     return rawList.map(raw => new Car(raw.id, raw.name, raw.consumption, raw.engine as Engine));
-  }
-
-  async getAll() {
-    return this.getList();
   }
 }
