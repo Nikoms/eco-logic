@@ -2,6 +2,7 @@ import v4 from 'uuid';
 import { Carbon } from '../entity/Carbon';
 import { CarbonRepository } from '../repository/CarbonRepository';
 import { OdometerUpdated } from '@eco/core-travel/src/event/OdometerUpdated';
+import { Engine } from '@eco/core-travel/src/entity/Car';
 
 export class AddCarbon {
   public readonly carbon: Carbon;
@@ -11,9 +12,26 @@ export class AddCarbon {
   }
 
   static fromOdometerEvent(event: OdometerUpdated) {
-    const co2 = Math.round(event.car.consumption * 0.02807 * event.kmTraveled);
+    const multiplier = AddCarbon.getMultiplier(event.car.engine);
+    const co2 = Math.round(event.car.consumption * multiplier * event.kmTraveled);
     const description = `${event.kmTraveled} km with the car "${event.car.name}" = ${co2} kg CO2`;
     return new AddCarbon(co2, description);
+  }
+
+  private static getMultiplier(engine: Engine) {
+    let multiplier = 0;
+    switch (engine) {
+      case Engine.gasoline:
+        multiplier = 0.02807;
+        break;
+      case Engine.diesel:
+        multiplier = 0.03167;
+        break;
+      case Engine.LPG:
+        multiplier = 0.01862;
+        break;
+    }
+    return multiplier;
   }
 }
 
