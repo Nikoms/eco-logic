@@ -32,10 +32,10 @@ export class AddPowerConsumptionHandler {
       throw new Error('No electric meter');
     }
 
-    const consumptionBefore = await this.powerConsumptionStore.getLastConsumption();
+    const lastConsumption = await this.powerConsumptionStore.getLastConsumption();
     await this.powerConsumptionStore.add(request.powerConsumption);
 
-    const lastKwh = consumptionBefore && consumptionBefore.kWh || 0;
+    const lastKwh = lastConsumption && lastConsumption.kWh || 0;
     const kWhConsumed = request.powerConsumption.kWh - lastKwh;
     this.eventDispatcher.emit(new PowerUpdated(
       request.powerConsumption.id,
