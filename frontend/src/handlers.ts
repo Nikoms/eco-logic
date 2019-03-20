@@ -28,7 +28,6 @@ import { GetLastOdometer, GetLastOdometerHandler } from '@eco/core-travel/src/in
 import { AddCarbon, AddCarbonHandler } from '@eco/core-co2/src/interactor/AddCarbon';
 import { SaveCurrentOdometer, SaveCurrentOdometerHandler } from '@eco/core-travel/src/interactor/SaveCurrentOdometer';
 import { GetWaterMeters, GetWaterMetersHandler } from '@eco/core-water/src/interactor/GetWaterMeters';
-import { EventTargetEventDispatcher } from '@eco/infrastructure/src/event/EventDispatcher';
 
 
 const powerStore = new PowerConsumptionLocalStorageRepository(window.localStorage);
