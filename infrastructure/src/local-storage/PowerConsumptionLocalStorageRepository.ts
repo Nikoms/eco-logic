@@ -24,7 +24,7 @@ export class PowerConsumptionLocalStorageRepository implements PowerConsumptionR
 
   private getList(): PowerConsumption[] {
     const rawList: JsonOf<PowerConsumption>[] = JSON.parse(this.localstorage.getItem(this.key) || '[]');
-    return rawList.map(raw => new PowerConsumption(raw.id, raw.kWh, raw.electricMeter, new Date(raw.date)));
+    return rawList.map(raw => new PowerConsumption(raw.id, raw.kWh, raw.electricMeterId, new Date(raw.date)));
   }
 
   async getAll() {

@@ -1,9 +1,9 @@
 import { Event } from '@eco/core-shared-kernel/src/event/Event';
-import { Events } from './Events';
+import { TravelEvents } from './TravelEvents';
 import { Car } from '../entity/Car';
 
 export class OdometerUpdated implements Event {
-  name = Events.odometerUpdated;
+  name = TravelEvents.odometerUpdated;
 
   constructor(
     public readonly odometerId: string,

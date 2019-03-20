@@ -1,3 +1,3 @@
-export enum Events {
+export enum TravelEvents {
   odometerUpdated = 'OdometerUpdated',
 }

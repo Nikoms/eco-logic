@@ -3,6 +3,7 @@ import { Carbon } from '../entity/Carbon';
 import { CarbonRepository } from '../repository/CarbonRepository';
 import { OdometerUpdated } from '@eco/core-travel/src/event/OdometerUpdated';
 import { Engine } from '@eco/core-travel/src/entity/Car';
+import { PowerUpdated } from '@eco/core-electricity/src/event/PowerUpdated';
 
 export class AddCarbon {
   public readonly carbon: Carbon;
@@ -11,14 +12,20 @@ export class AddCarbon {
     this.carbon = new Carbon(v4(), kg, description, new Date());
   }
 
+  static fromPowerEvent(event: PowerUpdated) {
+    const co2 = Math.round(event.kWhConsumed * 0.226);
+    const description = `${event.kWhConsumed} kWh with the counter "${event.electricMeter.name}" = ${co2} kg CO2`;
+    return new AddCarbon(co2, description);
+  }
+
   static fromOdometerEvent(event: OdometerUpdated) {
-    const multiplier = AddCarbon.getMultiplier(event.car.engine);
+    const multiplier = AddCarbon.getCarEngineMultiplier(event.car.engine);
     const co2 = Math.round(event.car.consumption * multiplier * event.kmTraveled);
     const description = `${event.kmTraveled} km with the car "${event.car.name}" = ${co2} kg CO2`;
     return new AddCarbon(co2, description);
   }
 
-  private static getMultiplier(engine: Engine) {
+  private static getCarEngineMultiplier(engine: Engine) {
     let multiplier = 0;
     switch (engine) {
       case Engine.gasoline:

@@ -1,8 +1,10 @@
-import { Events } from '@eco/core-travel/src/event/Events';
 import { AddCarbon } from './interactor/AddCarbon';
+import { TravelEvents } from '@eco/core-travel/src/event/TravelEvents';
+import { ElectricityEvents } from '@eco/core-electricity/src/event/ElectricityEvents';
 
 const co2Listeners: { [action: string]: ((event: any) => any)[] } = {
-  [`${Events.odometerUpdated}`]: [AddCarbon.fromOdometerEvent],
+  [`${TravelEvents.odometerUpdated}`]: [AddCarbon.fromOdometerEvent],
+  [`${ElectricityEvents.powerUpdated}`]: [AddCarbon.fromPowerEvent],
 };
 
 export { co2Listeners };

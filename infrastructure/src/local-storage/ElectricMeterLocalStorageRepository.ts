@@ -17,6 +17,14 @@ export class ElectricMeterLocalStorageRepository implements ElectricMeterReposit
     this.saveList(list);
   }
 
+  async getElectricMeter(electricMeterId: string): Promise<ElectricMeter | undefined> {
+    return this.getList().find(m => m.id === electricMeterId);
+  }
+
+  async getAll() {
+    return this.getList();
+  }
+
   private saveList(list: any[]) {
     const listAsJson = JSON.stringify(list);
     this.localstorage.setItem(this.key, listAsJson);
@@ -27,7 +35,4 @@ export class ElectricMeterLocalStorageRepository implements ElectricMeterReposit
     return rawList.map(raw => new ElectricMeter(raw.id, raw.name));
   }
 
-  async getAll() {
-    return this.getList();
-  }
 }

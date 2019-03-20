@@ -36,7 +36,7 @@ import {
 import { co2Listeners } from '@eco/core-co2/src/co2Listeners';
 
 const handlers = new Map<any, any>();
-handlers.set(AddPowerConsumption, new AddPowerConsumptionHandler(powerStore, carbonStore));
+handlers.set(AddPowerConsumption, new AddPowerConsumptionHandler(powerStore, electricStore, eventDispatcher));
 handlers.set(GetAllPowerConsumptions, new GetAllPowerConsumptionsHandler(powerStore));
 handlers.set(AddWaterConsumption, new AddWaterConsumptionHandler(waterConsumptionStore));
 handlers.set(GetAllWaterConsumptions, new GetAllWaterConsumptionsHandler(waterConsumptionStore));

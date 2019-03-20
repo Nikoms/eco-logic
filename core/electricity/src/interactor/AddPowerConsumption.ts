@@ -2,8 +2,9 @@ import { v4 } from 'uuid';
 import { PowerConsumption } from '../entity/PowerConsumption';
 import { ElectricMeter } from '../entity/ElectricMeter';
 import { PowerConsumptionRepository } from '../repository/PowerConsumptionRepository';
-import { CarbonRepository } from '@eco/core-co2/src/repository/CarbonRepository';
-import { Carbon } from '@eco/core-co2/src/entity/Carbon';
+import { EventDispatcher } from '@eco/core-shared-kernel/src/event/EventDispatcher';
+import { PowerUpdated } from '../event/PowerUpdated';
+import { ElectricMeterRepository } from '../repository/ElectricMeterRepository';
 
 export class AddPowerConsumption {
   public readonly powerConsumption: PowerConsumption;
@@ -18,18 +19,31 @@ export class AddPowerConsumption {
 
 
 export class AddPowerConsumptionHandler {
-  constructor(
-    private powerConsumptionStore: PowerConsumptionRepository,
-    private carbonStore: CarbonRepository) {
+  constructor(private powerConsumptionStore: PowerConsumptionRepository,
+              private electricMeters: ElectricMeterRepository,
+              private eventDispatcher: EventDispatcher) {
+
   }
 
   async handle(request: AddPowerConsumption) {
-    await this.powerConsumptionStore.add(request.powerConsumption);
+    const electricMeter = await this.electricMeters.getElectricMeter(request.powerConsumption.electricMeterId);
 
+    if (electricMeter === undefined) {
+      throw new Error('No electric meter');
+    }
+
+    await this.powerConsumptionStore.add(request.powerConsumption);
     const consumptionBefore = await this.powerConsumptionStore.getConsumptionBefore(request.powerConsumption.id);
-    const kWhConsumed = consumptionBefore ? request.powerConsumption.kWh - consumptionBefore.kWh : 0;
-    const carbonConsumed = new Carbon(v4(), kWhConsumed * 100, 'From power...', new Date());
-    await this.carbonStore.add(carbonConsumed);
+
+
+    const lastKwh = consumptionBefore && consumptionBefore.kWh || 0;
+    const kWhConsumed = request.powerConsumption.kWh - lastKwh;
+    this.eventDispatcher.emit(new PowerUpdated(
+      request.powerConsumption.id,
+      kWhConsumed,
+      request.powerConsumption.kWh,
+      electricMeter,
+    ));
 
     return request.powerConsumption;
   }
