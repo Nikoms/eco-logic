@@ -1,5 +1,5 @@
-import { EventDispatcher } from '../../../shared-kernel/src/event/EventDispatcher';
-import { Event } from '../../../shared-kernel/src/event/Event';
+import { EventDispatcher } from '@eco/core-shared-kernel/src/event/EventDispatcher';
+import { Event } from '@eco/core-shared-kernel/src/event/Event';
 
 export class EventTargetEventDispatcher implements EventDispatcher {
   private listeners: Map<string, Map<any, any>> = new Map();
@@ -12,7 +12,7 @@ export class EventTargetEventDispatcher implements EventDispatcher {
       this.listeners.set(eventName, new Map());
     }
     const myCallback = (event: any) => {
-      callback((<CustomEvent> event).detail);
+      callback((event as CustomEvent).detail);
     };
     this.listeners.get(eventName)!.set(callback, myCallback);
     this.eventTarget.addEventListener(eventName, myCallback);

@@ -19,13 +19,11 @@
   },
   "homepage": "https://github.com/Nikoms/eco-logic#readme",
   "workspaces": [
-    "co2",
-    "data",
-    "electricity",
-    "infrastructure",
-    "shared-kernel",
-    "travel",
-    "water"
+    "core/*",
+    "infrastructure"
   ],
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "tslint": "^5.14.0"
+  }
 }

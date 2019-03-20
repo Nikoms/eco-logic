@@ -36,26 +36,23 @@
     "@/*": [
       "frontend/src/*"
     ],
-    "@eco/application/*": [
-      "application/*"
-    ],
     "@eco/infrastructure/*": [
       "infrastructure/*"
     ],
-    "@eco/co2/*": [
-      "co2/src/*"
+    "@eco/core-co2/*": [
+      "core/co2/src/*"
     ],
-    "@eco/electricity/*": [
-      "electricity/src/*"
+    "@eco/core-electricity/*": [
+      "core/electricity/src/*"
     ],
-    "@eco/travel/*": [
-      "travel/src/*"
+    "@eco/core-water/*": [
+      "core/water/src/*"
     ],
-    "@eco/water/*": [
-      "water/src/*"
+    "@eco/core-travel/*": [
+      "core/travel/src/*"
     ],
-    "@eco/shared-kernel/*": [
-      "shared-kernel/src/*"
+    "@eco/core-shared-kernel/*": [
+      "core/shared-kernel/src/*"
     ]
   }
 }

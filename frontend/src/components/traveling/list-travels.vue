@@ -19,8 +19,8 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import { handle } from '@/handlers';
-  import { Travel, TravelType } from '@eco/travel/src/entity/Travel';
-  import { GetTravels } from '@eco/travel/src/interactor/GetTravels';
+  import { Travel, TravelType } from '@eco/core-travel/src/entity/Travel';
+  import { GetTravels } from '@eco/core-travel/src/interactor/GetTravels';
 
   @Component
   export default class ListTravels extends Vue {
