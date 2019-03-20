@@ -89,7 +89,7 @@
     async startEditing() {
       await this.init();
       if (!this.showAddCar) {
-        (this.$refs['odometer'] as any)[0].focus();
+        (this.$refs.odometer as any)[0].focus();
       }
     }
 

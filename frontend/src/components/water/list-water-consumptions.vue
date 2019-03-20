@@ -26,7 +26,7 @@
       {
         text: 'm3',
         sortable: false,
-        value: 'm3'
+        value: 'm3',
       },
       { text: 'Meter', value: 'waterMeter', sortable: false },
       { text: 'Date', value: 'date' },

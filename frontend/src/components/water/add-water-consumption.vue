@@ -23,48 +23,48 @@
 </template>
 
 <script lang="ts">
-    import { Component, Vue } from 'vue-property-decorator';
-    import { handle } from '@/handlers';
-    import { WaterMeter } from '@eco/core-water/src/entity/WaterMeter';
-    import { GetWaterMeters } from '@eco/core-water/src/interactor/GetWaterMeters';
-    import { AddWaterConsumption as Add} from '@eco/core-water/src/interactor/AddWaterConsumption';
+  import { Component, Vue } from 'vue-property-decorator';
+  import { handle } from '@/handlers';
+  import { WaterMeter } from '@eco/core-water/src/entity/WaterMeter';
+  import { GetWaterMeters } from '@eco/core-water/src/interactor/GetWaterMeters';
+  import { AddWaterConsumption as Add } from '@eco/core-water/src/interactor/AddWaterConsumption';
 
-    @Component
-    export default class AddWaterConsumption extends Vue {
-        formMeters: { meter: WaterMeter, consumption: string }[] = [];
-        meters: WaterMeter[] = [];
-        hasMultipleMeters = false;
-        canAdd = false;
-        errorMessage = '';
+  @Component
+  export default class AddWaterConsumption extends Vue {
+    formMeters: { meter: WaterMeter, consumption: string }[] = [];
+    meters: WaterMeter[] = [];
+    hasMultipleMeters = false;
+    canAdd = false;
+    errorMessage = '';
 
-        async saveConsumption() {
-            for (const formMeter of this.formMeters) {
-                if (formMeter.consumption.trim().length > 0) {
-                    await handle(new Add(parseFloat(formMeter.consumption), formMeter.meter));
-                }
-            }
-            this.clearForm();
-            this.$emit('added');
+    async saveConsumption() {
+      for (const formMeter of this.formMeters) {
+        if (formMeter.consumption.trim().length > 0) {
+          await handle(new Add(parseFloat(formMeter.consumption), formMeter.meter));
         }
-
-        async mounted() {
-            this.meters = await handle<WaterMeter[]>(new GetWaterMeters());
-            this.clearForm();
-            this.hasMultipleMeters = this.meters.length > 1;
-            this.canAdd = this.meters.length > 0;
-            if (!this.canAdd) {
-                this.errorMessage = 'Please add a water meter before adding (TODO, but in INIT app)';
-            }
-        }
-
-        startEditing() {
-            if (this.canAdd) {
-                (this.$refs['consumptionField'] as any)[0].focus();
-            }
-        }
-
-        clearForm() {
-            this.formMeters = this.meters.map(meter => ({ meter, consumption: '' }));
-        }
+      }
+      this.clearForm();
+      this.$emit('added');
     }
+
+    async mounted() {
+      this.meters = await handle<WaterMeter[]>(new GetWaterMeters());
+      this.clearForm();
+      this.hasMultipleMeters = this.meters.length > 1;
+      this.canAdd = this.meters.length > 0;
+      if (!this.canAdd) {
+        this.errorMessage = 'Please add a water meter before adding (TODO, but in INIT app)';
+      }
+    }
+
+    startEditing() {
+      if (this.canAdd) {
+        (this.$refs.consumptionField as any)[0].focus();
+      }
+    }
+
+    clearForm() {
+      this.formMeters = this.meters.map(meter => ({ meter, consumption: '' }));
+    }
+  }
 </script>

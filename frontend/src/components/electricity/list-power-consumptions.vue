@@ -26,7 +26,7 @@
       {
         text: 'kWh',
         sortable: false,
-        value: 'kWh'
+        value: 'kWh',
       },
       { text: 'Meter', value: 'electricMeter', sortable: false },
       { text: 'Date', value: 'date' },

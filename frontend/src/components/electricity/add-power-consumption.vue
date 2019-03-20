@@ -59,7 +59,7 @@
 
     startEditing() {
       if (this.canAdd) {
-        (this.$refs['consumptionField'] as any)[0].focus();
+        (this.$refs.consumptionField as any)[0].focus();
       }
     }
 

@@ -57,8 +57,6 @@ handlers.set(SaveCurrentOdometer, new SaveCurrentOdometerHandler(odometerStore))
 handlers.set(GetLastOdometer, new GetLastOdometerHandler(odometerStore));
 handlers.set(AddCarbon, new AddCarbonHandler(carbonStore));
 
-new EventTargetEventDispatcher();
-
 const handle = <T = any>(request: any): Promise<T> => {
   return handlers.get(request.constructor).handle(request);
 };
