@@ -17,6 +17,18 @@ export class PowerConsumptionLocalStorageRepository implements PowerConsumptionR
     this.saveList(list);
   }
 
+  async getAll() {
+    return this.getList();
+  }
+
+  async getLastConsumption(): Promise<PowerConsumption | undefined> {
+    const consumptions = this.getList();
+    if (consumptions.length === 0) {
+      return undefined;
+    }
+    return consumptions[consumptions.length - 1];
+  }
+
   private saveList(list: any[]) {
     const listAsJson = JSON.stringify(list);
     this.localstorage.setItem(this.key, listAsJson);
@@ -25,18 +37,5 @@ export class PowerConsumptionLocalStorageRepository implements PowerConsumptionR
   private getList(): PowerConsumption[] {
     const rawList: JsonOf<PowerConsumption>[] = JSON.parse(this.localstorage.getItem(this.key) || '[]');
     return rawList.map(raw => new PowerConsumption(raw.id, raw.kWh, raw.electricMeterId, new Date(raw.date)));
-  }
-
-  async getAll() {
-    return this.getList();
-  }
-
-  async getConsumptionBefore(id: string): Promise<PowerConsumption | undefined> {
-    const consumptions = this.getList();
-    const index = consumptions.findIndex(c => c.id === id);
-    if (index <= 0) {
-      return;
-    }
-    return consumptions[index - 1];
   }
 }

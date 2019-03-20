@@ -5,5 +5,5 @@ export interface PowerConsumptionRepository {
 
   getAll(): Promise<PowerConsumption[]>;
 
-  getConsumptionBefore(id: string): Promise<PowerConsumption | undefined>;
+  getLastConsumption(): Promise<PowerConsumption | undefined>;
 }
