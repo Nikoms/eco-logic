@@ -33,7 +33,7 @@ import {
   waterConsumptionStore,
   waterStore,
 } from '@eco/infrastructure/src/di';
-import { listeners } from '@eco/core-co2/src/listeners';
+import { co2Listeners } from '@eco/core-co2/src/co2Listeners';
 
 const handlers = new Map<any, any>();
 handlers.set(AddPowerConsumption, new AddPowerConsumptionHandler(powerStore, carbonStore));
@@ -56,9 +56,9 @@ const handle = <T = any>(request: any): Promise<T> => {
   return handlers.get(request.constructor).handle(request);
 };
 
-for (const key in listeners) {
-  if (listeners.hasOwnProperty(key)) {
-    listeners[key].map(transformEventToAction => eventDispatcher.addListener(key, (event) => handle(transformEventToAction(event))));
+for (const key in co2Listeners) {
+  if (co2Listeners.hasOwnProperty(key)) {
+    co2Listeners[key].map(transformEventToAction => eventDispatcher.addListener(key, (event) => handle(transformEventToAction(event))));
   }
 }
 
