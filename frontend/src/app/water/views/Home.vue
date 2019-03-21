@@ -26,9 +26,9 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import AddWaterConsumption from '@/components/water/add-water-consumption.vue';
-  import ListWaterConsumptions from '@/components/water/list-water-consumptions.vue';
-  import InitWater from '@/components/water/init-water.vue';
+  import AddWaterConsumption from '@/app/water/components/add-water-consumption.vue';
+  import ListWaterConsumptions from '@/app/water/components/list-water-consumptions.vue';
+  import InitWater from '@/app/water/components/init-water.vue';
   import { handle } from '@eco/infrastructure/src/handlers';
   import { WaterMeter } from '@eco/core-water/src/entity/WaterMeter';
   import { GetWaterMeters } from '@eco/core-water/src/interactor/GetWaterMeters'; // @ is an alias to /src

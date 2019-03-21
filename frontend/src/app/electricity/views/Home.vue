@@ -25,9 +25,9 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import AddPowerConsumption from '@/components/electricity/add-power-consumption.vue';
-  import ListPowerConsumptions from '@/components/electricity/list-power-consumptions.vue';
-  import InitPower from '@/components/electricity/init-power.vue';
+  import AddPowerConsumption from '@/app/electricity/components/add-power-consumption.vue';
+  import ListPowerConsumptions from '@/app/electricity/components/list-power-consumptions.vue';
+  import InitPower from '@/app/electricity/components/init-power.vue';
   import { handle } from '@eco/infrastructure/src/handlers';
   import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
   import { GetElectricMeters } from '@eco/core-electricity/src/interactor/GetElectricMeters'; // @ is an alias to /src

@@ -35,7 +35,7 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import { handle } from '@eco/infrastructure/src/handlers';
-  import AddCar from '@/components/traveling/add-car.vue';
+  import AddCar from '@/app/traveling/components/add-car.vue';
   import { Car } from '@eco/core-travel/src/entity/Car';
   import { SaveCurrentOdometer } from '@eco/core-travel/src/interactor/SaveCurrentOdometer';
   import { GetCars } from '@eco/core-travel/src/interactor/GetCars';

@@ -35,11 +35,11 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import AddCar from '@/components/traveling/add-car.vue';
-  import AddTravelByPlane from '@/components/traveling/add-travel-by-plane.vue';
-  import ListTravels from '@/components/traveling/list-travels.vue';
-  import SaveOdometer from '@/components/traveling/save-odometer.vue';
-  import ShowOdometers from '@/components/traveling/show-odometers.vue';
+  import AddCar from '@/app/traveling/components/add-car.vue';
+  import AddTravelByPlane from '@/app/traveling/components/add-travel-by-plane.vue';
+  import ListTravels from '@/app/traveling/components/list-travels.vue';
+  import SaveOdometer from '@/app/traveling/components/save-odometer.vue';
+  import ShowOdometers from '@/app/traveling/components/show-odometers.vue';
 
   @Component({
     components: { ShowOdometers, AddCar, SaveOdometer, AddTravelByPlane, ListTravels },

@@ -7,8 +7,8 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import PowerConsumptionCharts from '@/components/electricity/power-consumption-charts.vue';
-  import Chart from '@/components/Chart.vue';
+  import PowerConsumptionCharts from '@/app/electricity/components/power-consumption-charts.vue';
+  import Chart from '@/app/common/components/chart/Chart.vue';
 
   @Component({
     components: {
