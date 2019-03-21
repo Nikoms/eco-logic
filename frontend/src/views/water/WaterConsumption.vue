@@ -50,13 +50,13 @@
     showDialog() {
       this.dialog = true;
       setImmediate(() => {
-        (this.$refs.form as any).startEditing();
+        (this.$refs.form as AddWaterConsumption).startEditing();
       });
     }
 
     added() {
       this.dialog = false;
-      (this.$refs.list as any).refresh(); // En attendant redux/rematch
+      (this.$refs.list as ListWaterConsumptions).refresh(); // En attendant redux/rematch
     }
 
     waterInitialized() {
