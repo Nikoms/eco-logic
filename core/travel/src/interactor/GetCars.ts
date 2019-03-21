@@ -6,10 +6,10 @@ export class GetCars {
 }
 
 export class GetCarsHandler {
-  constructor(private store: CarRepository) {
+  constructor(private cars: CarRepository) {
   }
 
   handle() {
-    return this.store.getAll();
+    return this.cars.getAll();
   }
 }

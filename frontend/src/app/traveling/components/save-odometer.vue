@@ -37,10 +37,8 @@
   import { handle } from '@eco/infrastructure/src/handlers';
   import AddCar from '@/app/traveling/components/add-car.vue';
   import { Car } from '@eco/core-travel/src/entity/Car';
-  import { SaveCurrentOdometer } from '@eco/core-travel/src/interactor/SaveCurrentOdometer';
   import { GetCars } from '@eco/core-travel/src/interactor/GetCars';
-  import { Odometer } from '@eco/core-travel/src/entity/Odometer';
-  import { GetLastOdometer } from '@eco/core-travel/src/interactor/GetLastOdometer';
+  import { UpdateOdometer } from '@eco/core-travel/src/interactor/UpdateOdometer';
 
   @Component({
     components: { AddCar },
@@ -53,7 +51,7 @@
     async saveOdometer() {
       for (const odometer of this.odometers) {
         if (odometer.km.trim().length > 0) {
-          await handle(new SaveCurrentOdometer(parseFloat(odometer.km), odometer.car));
+          await handle(new UpdateOdometer(parseFloat(odometer.km), odometer.car));
         }
       }
       this.clearForm();
@@ -96,8 +94,7 @@
     async clearForm() {
       this.odometers = [];
       for (const car of this.cars) {
-        const last = await handle<Odometer>(new GetLastOdometer(car.id));
-        this.odometers.push({ car, km: '', last: last ? `${last.km}` : '' });
+        this.odometers.push({ car, km: '', last: `${car.km}` });
       }
     }
   }

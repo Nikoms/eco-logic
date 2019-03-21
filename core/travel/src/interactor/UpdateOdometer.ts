@@ -6,7 +6,7 @@ import { EventDispatcher } from '@eco/core-shared-kernel/src/event/EventDispatch
 import { OdometerUpdated } from '../event/OdometerUpdated';
 import { CarRepository } from '../repository/CarRepository';
 
-export class SaveCurrentOdometer {
+export class UpdateOdometer {
   public readonly odometer: Odometer;
 
   constructor(km: number, car: Car) {
@@ -14,23 +14,21 @@ export class SaveCurrentOdometer {
   }
 }
 
-export class SaveCurrentOdometerHandler {
+export class UpdateOdometerHandler {
   constructor(private odometers: OdometerRepository, private cars: CarRepository, private eventDispatcher: EventDispatcher) {
 
   }
 
-  async handle(request: SaveCurrentOdometer) {
+  async handle(request: UpdateOdometer) {
     const car = await this.cars.getCar(request.odometer.carId);
     if (car === undefined) {
       throw new Error('Unknown car');
     }
-    const last = await this.odometers.getLast(request.odometer.carId);
-    const lastKm = last && last.km || 0;
-    if (lastKm > request.odometer.km) {
-      throw new Error('You can not set a lower km. The last one was: ' + lastKm);
-    }
+    const lastKm = car.km;
+    car.updateKm(request.odometer.km);
     await this.odometers.add(request.odometer);
-    const kmTraveled = request.odometer.km - lastKm;
+    await this.cars.update(car);
+    const kmTraveled = car.km - lastKm;
     this.eventDispatcher.emit(new OdometerUpdated(request.odometer.id, kmTraveled, car, request.odometer.date));
     return request.odometer;
   }

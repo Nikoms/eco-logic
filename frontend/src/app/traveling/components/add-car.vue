@@ -10,6 +10,7 @@
                     <v-text-field v-model="name" label="Name" ref="name"></v-text-field>
                     <v-text-field v-model="consumption" type="number" label="Consumption" suffix="l/100"></v-text-field>
                     <v-select v-model="engine" :items="engines" label="Engine"></v-select>
+                    <v-text-field v-model="km" label="Km initial"></v-text-field>
                 </v-card-text>
 
                 <v-card-actions>
@@ -32,6 +33,7 @@
   export default class AddCarComponent extends Vue {
     name = '';
     consumption = '';
+    km = '0';
     engine = Engine.gasoline;
     engines = [Engine.gasoline, Engine.diesel, Engine.CNG, Engine.LPG];
 
@@ -39,7 +41,7 @@
     canCancel?: boolean;
 
     async sendMessage() {
-      await handle(new AddCar(this.name, parseFloat(this.consumption), this.engine));
+      await handle(new AddCar(this.name, parseFloat(this.consumption), this.engine, parseFloat(this.km)));
       this.clearForm();
       this.$emit('added');
     }
@@ -55,6 +57,7 @@
     clearForm() {
       this.consumption = '';
       this.name = '';
+      this.km = '0';
       this.engine = Engine.gasoline;
     }
   }

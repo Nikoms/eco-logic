@@ -39,7 +39,7 @@
   import AddTravelByPlane from '@/app/traveling/components/add-travel-by-plane.vue';
   import ListTravels from '@/app/traveling/components/list-travels.vue';
   import SaveOdometer from '@/app/traveling/components/save-odometer.vue';
-  import ShowOdometers from '@/app/traveling/components/show-odometers.vue';
+  import ShowOdometers from '@/app/traveling/components/list-cars.vue';
 
   @Component({
     components: { ShowOdometers, AddCar, SaveOdometer, AddTravelByPlane, ListTravels },

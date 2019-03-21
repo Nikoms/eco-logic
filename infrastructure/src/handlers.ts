@@ -18,9 +18,8 @@ import { GetCars, GetCarsHandler } from '@eco/core-travel/src/interactor/GetCars
 import { AddCar, AddCarHandler } from '@eco/core-travel/src/interactor/AddCar';
 import { AddTravel, AddTravelHandler } from '@eco/core-travel/src/interactor/AddTravel';
 import { GetTravels, GetTravelsHandler } from '@eco/core-travel/src/interactor/GetTravels';
-import { GetLastOdometer, GetLastOdometerHandler } from '@eco/core-travel/src/interactor/GetLastOdometer';
 import { AddCarbon, AddCarbonHandler } from '@eco/core-co2/src/interactor/AddCarbon';
-import { SaveCurrentOdometer, SaveCurrentOdometerHandler } from '@eco/core-travel/src/interactor/SaveCurrentOdometer';
+import { UpdateOdometer, UpdateOdometerHandler } from '@eco/core-travel/src/interactor/UpdateOdometer';
 import { GetWaterMeters, GetWaterMetersHandler } from '@eco/core-water/src/interactor/GetWaterMeters';
 import {
   carbonStore,
@@ -48,8 +47,7 @@ handlers.set(AddCar, new AddCarHandler(carStore));
 handlers.set(GetCars, new GetCarsHandler(carStore));
 handlers.set(AddTravel, new AddTravelHandler(travelStore));
 handlers.set(GetTravels, new GetTravelsHandler(travelStore));
-handlers.set(SaveCurrentOdometer, new SaveCurrentOdometerHandler(odometerStore, carStore, eventDispatcher));
-handlers.set(GetLastOdometer, new GetLastOdometerHandler(odometerStore));
+handlers.set(UpdateOdometer, new UpdateOdometerHandler(odometerStore, carStore, eventDispatcher));
 handlers.set(AddCarbon, new AddCarbonHandler(carbonStore));
 
 const handle = <T = any>(request: any): Promise<T> => {
