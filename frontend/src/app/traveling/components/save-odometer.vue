@@ -1,21 +1,19 @@
 <template>
     <div>
-        <v-form v-if="!showAddCar && cars.length > 0" @submit.prevent="saveOdometer">
+        <v-form v-if="car" @submit.prevent="saveOdometer">
             <v-card>
                 <v-card-title>
                     <v-icon large left>mdi-car</v-icon>
                     <span class="title font-weight-light">Save your current odometer</span>
                 </v-card-title>
                 <v-card-text>
-                    <v-text-field v-for="(odometer, index) in odometers" :key="odometer.car.id"
-                                  v-model="odometers[index].km"
+                    <v-text-field v-model="km"
                                   type="number"
-                                  :label="odometer.car.name"
+                                  :label="carName"
                                   suffix="km"
-                                  ref="odometer"
-                                  :placeholder="odometers[index].last"
+                                  ref="carField"
+                                  :placeholder="lastKm"
                     ></v-text-field>
-                    <a href="#" v-on:click.prevent="addNewCar()">Add another car...</a>
 
                 </v-card-text>
 
@@ -26,35 +24,32 @@
                 </v-card-actions>
             </v-card>
         </v-form>
-        <div v-else>
-            <AddCar @added="carAdded" @cancel="carCancel" :canCancel="cars.length > 0"/>
-        </div>
     </div>
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
+  import { Component, Prop, Vue } from 'vue-property-decorator';
   import { handle } from '@eco/infrastructure/src/handlers';
   import AddCar from '@/app/traveling/components/add-car.vue';
   import { Car } from '@eco/core-travel/src/entity/Car';
-  import { GetCars } from '@eco/core-travel/src/interactor/GetCars';
   import { UpdateOdometer } from '@eco/core-travel/src/interactor/UpdateOdometer';
 
   @Component({
     components: { AddCar },
   })
   export default class SaveOdometer extends Vue {
-    odometers: { car: Car, km: string, last: string }[] = [];
-    cars: Car[] = [];
-    private showAddCar: boolean = false;
+
+    @Prop()
+    car?: Car;
+
+    km = '';
+    lastKm = '';
+    carName = '';
 
     async saveOdometer() {
-      for (const odometer of this.odometers) {
-        if (odometer.km.trim().length > 0) {
-          await handle(new UpdateOdometer(parseFloat(odometer.km), odometer.car));
-        }
+      if (this.km.trim().length > 0) {
+        await handle(new UpdateOdometer(parseFloat(this.km), this.car));
       }
-      this.clearForm();
       this.$emit('added');
     }
 
@@ -62,40 +57,22 @@
       this.$emit('cancel');
     }
 
-    carAdded() {
-      this.init();
-    }
-
-    carCancel() {
-      this.showAddCar = false;
-    }
-
     async mounted() {
       await this.init();
     }
 
-    addNewCar() {
-      this.showAddCar = true;
-    }
 
     private async init() {
-      this.cars = await handle(new GetCars());
-      await this.clearForm();
-      this.showAddCar = this.cars.length === 0;
+      if (this.car) {
+        this.km = '';
+        this.carName = `${this.car.name}`;
+        this.lastKm = `${this.car.km}`;
+      }
     }
 
     async startEditing() {
       await this.init();
-      if (!this.showAddCar) {
-        (this.$refs.odometer as any)[0].focus();
-      }
-    }
-
-    async clearForm() {
-      this.odometers = [];
-      for (const car of this.cars) {
-        this.odometers.push({ car, km: '', last: `${car.km}` });
-      }
+      (this.$refs.carField as any).focus();
     }
   }
 </script>
