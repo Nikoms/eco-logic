@@ -21,5 +21,5 @@ type JsonScalarType<T> =
 type JsonObjectType<Base> = {
   [Key in keyof Base]: JsonScalarType<Base[Key]>;
 };
-
-export type JsonOf<T> = JsonObjectType<ExcludeType<T, () => any>>;
+// tslint:disable-next-line
+export type JsonOf<T> = JsonObjectType<ExcludeType<T, Function>>;
