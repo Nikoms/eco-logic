@@ -1,7 +1,7 @@
-import { Travel } from '../entity/Travel';
+import { PlaneTravel } from '../entity/PlaneTravel';
 
 export interface TravelRepository {
-  add(travel: Travel): Promise<void>;
+  add(travel: PlaneTravel): Promise<void>;
 
-  getAll(): Promise<Travel[]>;
+  getAll(): Promise<PlaneTravel[]>;
 }

@@ -47,10 +47,10 @@
     carName = '';
 
     async saveOdometer() {
-      if (this.km.trim().length > 0) {
+      if (this.car && this.km.trim().length > 0) {
         await handle(new UpdateOdometer(parseFloat(this.km), this.car));
+        this.$emit('added');
       }
-      this.$emit('added');
     }
 
     cancel() {

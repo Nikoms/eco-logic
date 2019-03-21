@@ -16,8 +16,11 @@ import { InitWaterMeter, InitWaterMeterHandler } from '@eco/core-water/src/inter
 import { GetElectricMeters, GetElectricMetersHandler } from '@eco/core-electricity/src/interactor/GetElectricMeters';
 import { GetCars, GetCarsHandler } from '@eco/core-travel/src/interactor/GetCars';
 import { AddCar, AddCarHandler } from '@eco/core-travel/src/interactor/AddCar';
-import { AddTravel, AddTravelHandler } from '@eco/core-travel/src/interactor/AddTravel';
-import { GetTravels, GetTravelsHandler } from '@eco/core-travel/src/interactor/GetTravels';
+import {
+  AddPlaneTravel,
+  AddPlaneTravelHandler,
+} from '@eco/core-travel/src/interactor/AddPlaneTravel';
+import { GetPlaneTravels, GetPlaneTravelsHandler } from '@eco/core-travel/src/interactor/GetPlaneTravels';
 import { AddCarbon, AddCarbonHandler } from '@eco/core-co2/src/interactor/AddCarbon';
 import { UpdateOdometer, UpdateOdometerHandler } from '@eco/core-travel/src/interactor/UpdateOdometer';
 import { GetWaterMeters, GetWaterMetersHandler } from '@eco/core-water/src/interactor/GetWaterMeters';
@@ -45,8 +48,8 @@ handlers.set(GetElectricMeters, new GetElectricMetersHandler(electricStore));
 handlers.set(GetWaterMeters, new GetWaterMetersHandler(waterStore));
 handlers.set(AddCar, new AddCarHandler(carStore));
 handlers.set(GetCars, new GetCarsHandler(carStore));
-handlers.set(AddTravel, new AddTravelHandler(travelStore));
-handlers.set(GetTravels, new GetTravelsHandler(travelStore));
+handlers.set(AddPlaneTravel, new AddPlaneTravelHandler(travelStore, eventDispatcher));
+handlers.set(GetPlaneTravels, new GetPlaneTravelsHandler(travelStore));
 handlers.set(UpdateOdometer, new UpdateOdometerHandler(odometerStore, carStore, eventDispatcher));
 handlers.set(AddCarbon, new AddCarbonHandler(carbonStore));
 

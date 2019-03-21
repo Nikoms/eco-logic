@@ -8,8 +8,8 @@
                 </v-card-title>
                 <v-card-text>
                     <v-text-field v-model="km" type="number" label="Distance" ref="distance" suffix="km"></v-text-field>
-                    <v-select v-model="planeId"
-                              :items="planes"
+                    <v-select v-model="seatId"
+                              :items="seats"
                               label="Select your seat class"
                     ></v-select>
                     <v-text-field v-model="description" label="Description"></v-text-field>
@@ -27,19 +27,19 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import { handle } from '@eco/infrastructure/src/handlers';
-  import { TravelType } from '@eco/core-travel/src/entity/Travel';
-  import { AddTravel } from '@eco/core-travel/src/interactor/AddTravel';
+  import { Seat } from '@eco/core-travel/src/entity/PlaneTravel';
+  import { AddPlaneTravel } from '@eco/core-travel/src/interactor/AddPlaneTravel';
 
   @Component
   export default class AddTravelByPlane extends Vue {
-    planes = ['Economy class', 'Business class', 'First class'];
-    planeId = this.planes[0];
+    seats = [Seat.economyClass, Seat.businessClass, Seat.firstClass];
+    seatId = this.seats[0];
     km = '';
     description = '';
 
     async addTravel() {
 
-      await handle(new AddTravel(TravelType.plane, this.planeId, parseFloat(this.km), this.description));
+      await handle(new AddPlaneTravel(this.seatId, parseFloat(this.km), this.description));
       this.clearForm();
       this.$emit('added');
     }
@@ -51,7 +51,7 @@
     clearForm() {
       this.km = '';
       this.description = '';
-      this.planeId = this.planes[0];
+      this.seatId = this.seats[0];
     }
   }
 </script>

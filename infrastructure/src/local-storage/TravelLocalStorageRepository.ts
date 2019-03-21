@@ -1,6 +1,6 @@
 import { JsonOf } from './type/JsonOf';
 import { TravelRepository } from '@eco/core-travel/src/repository/TravelRepository';
-import { Travel, TravelType } from '@eco/core-travel/src/entity/Travel';
+import { PlaneTravel, Seat } from '@eco/core-travel/src/entity/PlaneTravel';
 
 export class TravelLocalStorageRepository implements TravelRepository {
   private key = 'travels';
@@ -11,10 +11,14 @@ export class TravelLocalStorageRepository implements TravelRepository {
     }
   }
 
-  async add(powerConsumption: Travel) {
+  async add(powerConsumption: PlaneTravel) {
     const list = this.getList();
     list.push(powerConsumption);
     this.saveList(list);
+  }
+
+  async getAll() {
+    return this.getList().reverse();
   }
 
   private saveList(list: any[]) {
@@ -22,12 +26,8 @@ export class TravelLocalStorageRepository implements TravelRepository {
     this.localstorage.setItem(this.key, listAsJson);
   }
 
-  private getList(): Travel[] {
-    const rawList: JsonOf<Travel>[] = JSON.parse(this.localstorage.getItem(this.key) || '[]');
-    return rawList.map(raw => new Travel(raw.id, raw.type as TravelType, raw.typeId, raw.km, raw.description, new Date(raw.date)));
-  }
-
-  async getAll() {
-    return this.getList();
+  private getList(): PlaneTravel[] {
+    const rawList: JsonOf<PlaneTravel>[] = JSON.parse(this.localstorage.getItem(this.key) || '[]');
+    return rawList.map(raw => new PlaneTravel(raw.id, raw.seat as Seat, raw.km, raw.description, new Date(raw.date)));
   }
 }

@@ -4,6 +4,7 @@ import { ElectricityEvents } from '@eco/core-electricity/src/event/ElectricityEv
 
 const co2Listeners: { [action: string]: ((event: any) => any)[] } = {
   [`${TravelEvents.odometerUpdated}`]: [AddCarbon.fromOdometerEvent],
+  [`${TravelEvents.planeTravelAdded}`]: [AddCarbon.fromNewPlaneTravelEvent],
   [`${ElectricityEvents.powerUpdated}`]: [AddCarbon.fromPowerEvent],
 };
 

@@ -31,7 +31,7 @@
   })
   export default class ListCars extends Vue {
     odometers: Car[] = [];
-    selectedCar: Car = null;
+    selectedCar: Car | null = null;
     showDialog = false;
 
     async mounted() {

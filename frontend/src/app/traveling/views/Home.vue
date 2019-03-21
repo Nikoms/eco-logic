@@ -1,7 +1,7 @@
 <template>
     <div>
         <ShowOdometers ref="odometers"></ShowOdometers>
-        <ListTravels ref="travels"></ListTravels>
+        <ListPlaneTravels ref="travels"></ListPlaneTravels>
         <v-dialog v-model="addCarDialog" max-width="600px">
             <AddCar ref="addCarForm" @added="carSaved" @cancel="carCancelled"/>
         </v-dialog>
@@ -37,12 +37,12 @@
   import { Component, Vue } from 'vue-property-decorator';
   import AddCar from '@/app/traveling/components/add-car.vue';
   import AddTravelByPlane from '@/app/traveling/components/add-travel-by-plane.vue';
-  import ListTravels from '@/app/traveling/components/list-travels.vue';
+  import ListPlaneTravels from '@/app/traveling/components/list-plane-travels.vue';
   import SaveOdometer from '@/app/traveling/components/save-odometer.vue';
   import ShowOdometers from '@/app/traveling/components/list-cars.vue';
 
   @Component({
-    components: { ShowOdometers, AddCar, SaveOdometer, AddTravelByPlane, ListTravels },
+    components: { ShowOdometers, AddCar, SaveOdometer, AddTravelByPlane, ListPlaneTravels },
   })
 
   export default class TravelingConsumption extends Vue {
@@ -61,7 +61,7 @@
 
     airTravelAdded() {
       this.addAirTravelDialog = false;
-      (this.$refs.travels as ListTravels).refresh(); // En attendant redux/rematch
+      (this.$refs.travels as ListPlaneTravels).refresh(); // En attendant redux/rematch
     }
 
     showAddCarDialog() {

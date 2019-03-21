@@ -1,11 +1,11 @@
 import { TravelRepository } from '../repository/TravelRepository';
 
-export class GetTravels {
+export class GetPlaneTravels {
   constructor() {
   }
 }
 
-export class GetTravelsHandler {
+export class GetPlaneTravelsHandler {
   constructor(private store: TravelRepository) {
   }
 
