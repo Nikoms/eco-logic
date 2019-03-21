@@ -19,15 +19,15 @@
                 direction="top"
                 transition="slide-y-reverse-transition"
         >
-            <v-btn slot="activator" v-model="fab" color="blue darken-2" dark fab>
+            <v-btn slot="activator" v-model="fab" color="blue darken-1" dark fab>
                 <v-icon>mdi-plus</v-icon>
                 <v-icon>mdi-close</v-icon>
             </v-btn>
-            <v-btn fab dark small color="green" @click="showAddCarDialog">
-                <v-icon>mdi-car</v-icon>
-            </v-btn>
-            <v-btn fab dark small color="indigo" @click="showAddAirTravelDialog">
+            <v-btn fab dark small color="green" @click="showAddAirTravelDialog">
                 <v-icon>mdi-airplane</v-icon>
+            </v-btn>
+            <v-btn fab dark small color="blue" @click="showAddCarDialog">
+                <v-icon>mdi-car</v-icon>
             </v-btn>
         </v-speed-dial>
     </div>
