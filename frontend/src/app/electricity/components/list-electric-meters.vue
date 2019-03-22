@@ -41,7 +41,6 @@
 
     async refresh() {
       this.meters = await handle(new GetElectricMeters());
-      console.log(this.meters);
     }
 
     showDialogForMeter(electricMeter: ElectricMeter) {
