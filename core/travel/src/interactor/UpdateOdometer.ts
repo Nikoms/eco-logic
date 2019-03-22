@@ -5,6 +5,7 @@ import { Odometer } from '../entity/Odometer';
 import { EventDispatcher } from '@eco/core-shared-kernel/src/event/EventDispatcher';
 import { OdometerUpdated } from '../event/OdometerUpdated';
 import { CarRepository } from '../repository/CarRepository';
+import { DateRange } from '@eco/core-shared-kernel/src/model/DateRange';
 
 export class UpdateOdometer {
   public readonly odometer: Odometer;
@@ -25,11 +26,13 @@ export class UpdateOdometerHandler {
       throw new Error('Unknown car');
     }
     const lastKm = car.km;
+    const lastDate = car.lastKmUpdate;
     car.updateKm(request.odometer.km);
     await this.odometers.add(request.odometer);
     await this.cars.update(car);
     const kmTraveled = car.km - lastKm;
-    this.eventDispatcher.emit(new OdometerUpdated(request.odometer.id, kmTraveled, car, request.odometer.date));
+    const periodOfTime = new DateRange(lastDate, car.lastKmUpdate);
+    this.eventDispatcher.emit(new OdometerUpdated(request.odometer.id, kmTraveled, periodOfTime, car, request.odometer.date));
     return request.odometer;
   }
 }
