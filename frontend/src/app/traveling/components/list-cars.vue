@@ -1,21 +1,16 @@
 <template>
     <div>
-        <v-data-iterator :items="odometers" hide-actions>
+        <v-data-iterator :items="cars" hide-actions>
             <template v-slot:item="props">
                 <v-card class="mx-auto mb-3 mt-3" color="#26c6da" dark max-width="400"
-                        @click="showDialogForCar(props.item)">
+                        @click="careSelected(props.item)">
                     <v-card-title>
-                        <v-icon large left>mdi-car</v-icon>
-                        <span class="title font-weight-light">{{ props.item.name }}</span>
+                        <v-flex class="text-xs-left title">{{ props.item.name }}</v-flex>
+                        <span class="title font-weight-light text-xs-right">{{ props.item.km }} Km</span>
                     </v-card-title>
-                    <v-card-text class="headline font-weight-bold text-xs-right">{{ props.item.km }} Km</v-card-text>
                 </v-card>
             </template>
         </v-data-iterator>
-
-        <v-dialog v-model="showDialog" max-width="600px">
-            <SaveOdometer ref="form" @added="odometerSaved" @cancel="hideDialog()" :car="selectedCar"/>
-        </v-dialog>
     </div>
 </template>
 
@@ -30,33 +25,18 @@
     components: { SaveOdometer },
   })
   export default class ListCars extends Vue {
-    odometers: Car[] = [];
-    selectedCar: Car | null = null;
-    showDialog = false;
+    cars: Car[] = [];
 
     async mounted() {
       await this.refresh();
     }
 
     async refresh() {
-      this.odometers = await handle<Car[]>(new GetCars());
+      this.cars = await handle<Car[]>(new GetCars());
     }
 
-    odometerSaved() {
-      this.showDialog = false;
-      this.refresh(); // En attendant redux/rematch
-    }
-
-    showDialogForCar(car: Car) {
-      this.selectedCar = car;
-      setImmediate(() => {
-        (this.$refs.form as SaveOdometer).startEditing();
-      });
-      this.showDialog = true;
-    }
-
-    hideDialog() {
-      this.showDialog = false;
+    careSelected(car: Car) {
+      this.$emit('selected', car);
     }
   }
 </script>

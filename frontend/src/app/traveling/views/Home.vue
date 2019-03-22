@@ -1,35 +1,34 @@
 <template>
     <div>
-        <ShowOdometers ref="odometers"></ShowOdometers>
-        <ListPlaneTravels ref="travels"></ListPlaneTravels>
-        <v-dialog v-model="addCarDialog" max-width="600px">
-            <AddCar ref="addCarForm" @added="carSaved" @cancel="carCancelled"/>
+        <v-dialog v-model="odometerDialog" max-width="600px">
+            <SaveOdometer ref="odoMeterForm" @added="odometerAdded" @cancel="hideOdometerDialog" :car="selectedCar"/>
         </v-dialog>
+        <v-card class="mx-auto mb-3 mt-3" color="#ff8000" dark max-width="400">
+            <v-card-title>
+                <v-icon large left>mdi-car</v-icon>
+                <span class="title">Cars</span>
+                <v-spacer></v-spacer>
+                <v-btn flat icon @click="showAddCarDialog"><v-icon>mdi-plus</v-icon></v-btn>
+            </v-card-title>
+        </v-card>
+        <ListCars ref="cars" @selected="carSelected"></ListCars>
+
+        <v-card class="mx-auto mb-3 mt-3" color="#ff8000" dark max-width="400">
+            <v-card-title>
+                <v-icon large left>mdi-airplane mdi-rotate-45</v-icon>
+                <span class="title">Plane travels</span>
+                <v-spacer></v-spacer>
+                <v-btn flat icon @click="showAddAirTravelDialog"><v-icon>mdi-plus</v-icon></v-btn>
+            </v-card-title>
+        </v-card>
+        <ListPlaneTravels ref="travels"></ListPlaneTravels>
         <v-dialog v-model="addAirTravelDialog" max-width="600px">
             <AddTravelByPlane ref="addTravelByPlaneForm" @added="airTravelAdded"/>
         </v-dialog>
 
-        <v-speed-dial
-                style="bottom: 70px"
-                v-model="fab"
-                fab
-                fixed
-                bottom
-                right
-                direction="top"
-                transition="slide-y-reverse-transition"
-        >
-            <v-btn slot="activator" v-model="fab" color="blue darken-1" dark fab>
-                <v-icon>mdi-plus</v-icon>
-                <v-icon>mdi-close</v-icon>
-            </v-btn>
-            <v-btn fab dark small color="green" @click="showAddAirTravelDialog">
-                <v-icon>mdi-airplane</v-icon>
-            </v-btn>
-            <v-btn fab dark small color="blue" @click="showAddCarDialog">
-                <v-icon>mdi-car</v-icon>
-            </v-btn>
-        </v-speed-dial>
+        <v-dialog v-model="addCarDialog" max-width="600px">
+            <AddCar ref="addCarForm" @added="carSaved" @cancel="carCancelled"/>
+        </v-dialog>
     </div>
 </template>
 
@@ -39,20 +38,39 @@
   import AddTravelByPlane from '@/app/traveling/components/add-travel-by-plane.vue';
   import ListPlaneTravels from '@/app/traveling/components/list-plane-travels.vue';
   import SaveOdometer from '@/app/traveling/components/save-odometer.vue';
-  import ShowOdometers from '@/app/traveling/components/list-cars.vue';
+  import ListCars from '@/app/traveling/components/list-cars.vue';
+  import { Car } from '@eco/core-travel/src/entity/Car';
 
   @Component({
-    components: { ShowOdometers, AddCar, SaveOdometer, AddTravelByPlane, ListPlaneTravels },
+    components: { ListCars, AddCar, SaveOdometer, AddTravelByPlane, ListPlaneTravels },
   })
 
   export default class TravelingConsumption extends Vue {
     addCarDialog = false;
     addAirTravelDialog = false;
-    fab = null;
+    odometerDialog = false;
+    selectedCar: Car | null = null;
+
+    odometerAdded() {
+      this.odometerDialog = false;
+      (this.$refs.cars as ListCars).refresh(); // En attendant redux/rematch
+    }
+
+    carSelected(car: Car) {
+      this.selectedCar = car;
+      setImmediate(() => {
+        (this.$refs.odoMeterForm as SaveOdometer).startEditing();
+      });
+      this.odometerDialog = true;
+    }
+
+    hideOdometerDialog() {
+      this.odometerDialog = false;
+    }
 
     carSaved() {
       this.addCarDialog = false;
-      (this.$refs.odometers as ShowOdometers).refresh(); // En attendant redux/rematch
+      (this.$refs.cars as ListCars).refresh(); // En attendant redux/rematch
     }
 
     carCancelled() {

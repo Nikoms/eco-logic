@@ -19,7 +19,7 @@
 
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn type="submit" flat color="secondary" @click="cancel">Cancel</v-btn>
+                    <v-btn flat color="secondary" @click="cancel">Cancel</v-btn>
                     <v-btn type="submit" flat color="primary" @click="saveOdometer">Save</v-btn>
                 </v-card-actions>
             </v-card>
@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-  import { Component, Prop, Vue } from 'vue-property-decorator';
+  import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
   import { handle } from '@eco/infrastructure/src/handlers';
   import AddCar from '@/app/traveling/components/add-car.vue';
   import { Car } from '@eco/core-travel/src/entity/Car';
@@ -57,21 +57,28 @@
       this.$emit('cancel');
     }
 
-    async mounted() {
-      await this.init();
+    @Watch('car')
+    onPropertyChanged(car: Car) {
+      this.initForm(car);
+    }
+
+    private initForm(car: Car) {
+      this.km = '';
+      this.carName = `${car.name}`;
+      this.lastKm = `${car.km}`;
     }
 
 
-    private async init() {
+    async mounted() {
+
+      // This is necessary for DEV ONLY. The "hot refresh", "this.electricMeter" is set, but the form has been empty.
+      // Vue.js does NOT trigger the watcher => form is empty
       if (this.car) {
-        this.km = '';
-        this.carName = `${this.car.name}`;
-        this.lastKm = `${this.car.km}`;
+        this.initForm(this.car);
       }
     }
 
     async startEditing() {
-      await this.init();
       (this.$refs.carField as any).focus();
     }
   }
