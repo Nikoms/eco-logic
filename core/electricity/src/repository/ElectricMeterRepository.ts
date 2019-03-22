@@ -6,4 +6,6 @@ export interface ElectricMeterRepository {
   getAll(): Promise<ElectricMeter[]>;
 
   getElectricMeter(electricMeterId: string): Promise<ElectricMeter | undefined>;
+
+  update(electricMeter: ElectricMeter): Promise<void>;
 }

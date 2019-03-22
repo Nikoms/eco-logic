@@ -14,10 +14,10 @@ export class InitElectricMeterHandler {
 
   async handle(request: InitElectricMeter) {
     if (request.hasNightMeter) {
-      await this.store.add(new ElectricMeter(v4(), 'Day meter'));
-      await this.store.add(new ElectricMeter(v4(), 'Night meter'));
+      await this.store.add(new ElectricMeter(v4(), 'Day meter', 0, new Date()));
+      await this.store.add(new ElectricMeter(v4(), 'Night meter', 0, new Date()));
     } else {
-      await this.store.add(new ElectricMeter(v4(), 'Electric meter'));
+      await this.store.add(new ElectricMeter(v4(), 'Electric meter', 0, new Date()));
     }
   }
 }

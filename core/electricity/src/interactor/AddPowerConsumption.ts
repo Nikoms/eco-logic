@@ -9,9 +9,9 @@ import { ElectricMeterRepository } from '../repository/ElectricMeterRepository';
 export class AddPowerConsumption {
   public readonly powerConsumption: PowerConsumption;
 
-  constructor(kWh: number, electricMeter: ElectricMeter) {
-    if (!kWh) {
-      throw new Error('"kWh" empty');
+  constructor(public readonly kWh: number, public readonly electricMeter: ElectricMeter) {
+    if (!electricMeter) {
+      throw new Error('electric meter unknown');
     }
     this.powerConsumption = new PowerConsumption(v4(), kWh, electricMeter.id, new Date());
   }
@@ -19,29 +19,26 @@ export class AddPowerConsumption {
 
 
 export class AddPowerConsumptionHandler {
-  constructor(private powerConsumptionStore: PowerConsumptionRepository,
+  constructor(private powerConsumptions: PowerConsumptionRepository,
               private electricMeters: ElectricMeterRepository,
               private eventDispatcher: EventDispatcher) {
 
   }
 
   async handle(request: AddPowerConsumption) {
-    const electricMeter = await this.electricMeters.getElectricMeter(request.powerConsumption.electricMeterId);
+    const lastKwh = request.electricMeter && request.electricMeter.kWh || 0;
+    request.electricMeter.updateKwh(request.kWh);
 
-    if (electricMeter === undefined) {
-      throw new Error('No electric meter');
-    }
+    await this.electricMeters.update(request.electricMeter);
+    await this.powerConsumptions.add(request.powerConsumption);
 
-    const lastConsumption = await this.powerConsumptionStore.getLastConsumption();
-    await this.powerConsumptionStore.add(request.powerConsumption);
-
-    const lastKwh = lastConsumption && lastConsumption.kWh || 0;
     const kWhConsumed = request.powerConsumption.kWh - lastKwh;
+
     this.eventDispatcher.emit(new PowerUpdated(
       request.powerConsumption.id,
       kWhConsumed,
       request.powerConsumption.kWh,
-      electricMeter,
+      request.electricMeter,
     ));
 
     return request.powerConsumption;

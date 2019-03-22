@@ -7,8 +7,8 @@
 
         <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="blue darken-4" flat="flat" @click="initElectricMeter(true)">Day-night</v-btn>
-            <v-btn color="blue darken-4" flat="flat" @click="initElectricMeter(false)">Standard</v-btn>
+            <v-btn color="blue darken-2" flat="flat" @click="initElectricMeter(true)">Two meters: Day-night</v-btn>
+            <v-btn color="blue darken-4" flat="flat" @click="initElectricMeter(false)">One meter</v-btn>
         </v-card-actions>
     </v-card>
 </template>
