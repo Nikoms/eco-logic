@@ -20,7 +20,7 @@
                 <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn flat color="secondary" @click="cancel">Cancel</v-btn>
-                    <v-btn type="submit" flat color="primary" @click="saveOdometer">Save</v-btn>
+                    <v-btn type="submit" flat color="primary">Save</v-btn>
                 </v-card-actions>
             </v-card>
         </v-form>
