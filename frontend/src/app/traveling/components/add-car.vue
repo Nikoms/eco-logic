@@ -25,9 +25,9 @@
 
 <script lang="ts">
   import { Component, Prop, Vue } from 'vue-property-decorator';
-  import { handle } from '@eco/infrastructure/src/handlers';
   import { Engine } from '@eco/core-travel/src/entity/Car';
-  import { AddCar } from '@eco/core-travel/src/interactor/AddCar';
+  import { AddCarRequest } from '@eco/core-travel/src/use-case/AddCar';
+  import { addCar } from '@eco/infrastructure/src/di';
 
   @Component
   export default class AddCarComponent extends Vue {
@@ -41,7 +41,7 @@
     canCancel?: boolean;
 
     async sendMessage() {
-      await handle(new AddCar(this.name, parseFloat(this.consumption), this.engine, parseFloat(this.km)));
+      await addCar.execute(new AddCarRequest(this.name, parseFloat(this.consumption), this.engine, parseFloat(this.km)));
       this.clearForm();
       this.$emit('added');
     }

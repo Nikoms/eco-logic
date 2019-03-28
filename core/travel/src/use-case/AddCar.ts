@@ -2,7 +2,7 @@ import { v4 } from 'uuid';
 import { Car, Engine } from '../entity/Car';
 import { CarRepository } from '../repository/CarRepository';
 
-export class AddCar {
+export class AddCarRequest {
   public readonly car: Car;
 
   constructor(readonly name: string, readonly consumption: number, readonly engine: Engine, readonly km: number) {
@@ -19,12 +19,12 @@ export class AddCar {
   }
 }
 
-export class AddCarHandler {
+export class AddCar {
   constructor(private store: CarRepository) {
 
   }
 
-  async handle(request: AddCar) {
+  async execute(request: AddCarRequest) {
     await this.store.add(request.car);
     return request.car;
   }

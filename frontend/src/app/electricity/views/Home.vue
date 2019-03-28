@@ -19,9 +19,8 @@
   import UpdatePowerConsumption from '@/app/electricity/components/update-power-consumption.vue'; // @ is an alias to /src
   import ListPowerConsumptions from '@/app/electricity/components/list-electric-meters.vue';
   import InitPower from '@/app/electricity/components/init-power.vue';
-  import { handle } from '@eco/infrastructure/src/handlers';
   import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
-  import { GetElectricMeters } from '@eco/core-electricity/src/interactor/GetElectricMeters';
+  import { getElectricMeters } from '@eco/infrastructure/src/di';
 
   @Component({
     components: {
@@ -36,7 +35,7 @@
     selectedMeter: ElectricMeter | null = null;
 
     async mounted() {
-      this.hasMeter = (await handle<ElectricMeter[]>(new GetElectricMeters())).length > 0;
+      this.hasMeter = (await getElectricMeters.execute()).length > 0;
     }
 
     powerInitialized() {

@@ -29,10 +29,10 @@
 
 <script lang="ts">
   import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
-  import { handle } from '@eco/infrastructure/src/handlers';
   import AddCar from '@/app/traveling/components/add-car.vue';
   import { Car } from '@eco/core-travel/src/entity/Car';
-  import { UpdateOdometer } from '@eco/core-travel/src/interactor/UpdateOdometer';
+  import { UpdateOdometerRequest } from '@eco/core-travel/src/use-case/UpdateOdometer';
+  import { updateOdometer } from '@eco/infrastructure/src/di';
 
   @Component({
     components: { AddCar },
@@ -48,7 +48,7 @@
 
     async saveOdometer() {
       if (this.car && this.km.trim().length > 0) {
-        await handle(new UpdateOdometer(parseFloat(this.km), this.car));
+        await updateOdometer.execute(new UpdateOdometerRequest(parseFloat(this.km), this.car));
         this.$emit('added');
       }
     }

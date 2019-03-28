@@ -7,7 +7,7 @@ import { OdometerUpdated } from '../event/OdometerUpdated';
 import { CarRepository } from '../repository/CarRepository';
 import { DateRange } from '@eco/core-shared-kernel/src/model/DateRange';
 
-export class UpdateOdometer {
+export class UpdateOdometerRequest {
   public readonly odometer: Odometer;
 
   constructor(km: number, car: Car) {
@@ -15,12 +15,12 @@ export class UpdateOdometer {
   }
 }
 
-export class UpdateOdometerHandler {
+export class UpdateOdometer {
   constructor(private odometers: OdometerRepository, private cars: CarRepository, private eventDispatcher: EventDispatcher) {
 
   }
 
-  async handle(request: UpdateOdometer) {
+  async execute(request: UpdateOdometerRequest) {
     const car = await this.cars.getCar(request.odometer.carId);
     if (car === undefined) {
       throw new Error('Unknown car');

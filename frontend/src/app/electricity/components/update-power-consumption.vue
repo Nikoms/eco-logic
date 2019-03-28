@@ -23,8 +23,8 @@
 <script lang="ts">
   import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
   import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
-  import { AddPowerConsumption as Add } from '@eco/core-electricity/src/interactor/AddPowerConsumption';
-  import { handle } from '@eco/infrastructure/src/handlers';
+  import { addPowerConsumption } from '@eco/infrastructure/src/di';
+  import { AddPowerConsumptionRequest } from '@eco/core-electricity/src/use-case/AddPowerConsumption';
 
   @Component
   export default class UpdatePowerConsumption extends Vue {
@@ -42,7 +42,7 @@
 
     async saveConsumption() {
       if (this.electricMeter && this.kWh.trim().length > 0) {
-        await handle(new Add(parseFloat(this.kWh), this.electricMeter));
+        await addPowerConsumption.execute(new AddPowerConsumptionRequest(parseFloat(this.kWh), this.electricMeter));
         this.$emit('added');
       }
     }

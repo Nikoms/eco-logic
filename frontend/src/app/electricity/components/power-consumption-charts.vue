@@ -39,9 +39,7 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { handle } from '@eco/infrastructure/src/handlers';
-  import { PowerConsumption } from '@eco/core-electricity/src/entity/PowerConsumption';
-  import { GetAllPowerConsumptions } from '@eco/core-electricity/src/interactor/GetAllPowerConsumptions';
+  import { getAllPowerConsumptions } from '@eco/infrastructure/src/di';
 
   const gradients = [
     ['#222'],
@@ -60,7 +58,7 @@
     labels: string[] = [];
 
     async mounted() {
-      const consumptions = await handle<PowerConsumption[]>(new GetAllPowerConsumptions());
+      const consumptions = await getAllPowerConsumptions.execute();
       this.values = consumptions.map(c => c.kWh);
       this.labels = consumptions.map(c => c.date.getDate() + '/' + (c.date.getMonth() + 1));
     }

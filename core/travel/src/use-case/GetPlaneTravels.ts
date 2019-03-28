@@ -1,15 +1,10 @@
 import { TravelRepository } from '../repository/TravelRepository';
 
 export class GetPlaneTravels {
-  constructor() {
-  }
-}
-
-export class GetPlaneTravelsHandler {
   constructor(private store: TravelRepository) {
   }
 
-  handle() {
+  execute() {
     return this.store.getAll();
   }
 }

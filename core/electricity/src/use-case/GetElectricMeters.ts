@@ -1,16 +1,16 @@
 import { ElectricMeterRepository } from '../repository/ElectricMeterRepository';
 
-export class GetElectricMeters {
+export class GetElectricMetersRequest {
   constructor() {
   }
 }
 
 
-export class GetElectricMetersHandler {
+export class GetElectricMeters {
   constructor(private store: ElectricMeterRepository) {
   }
 
-  handle() {
+  execute() {
     return this.store.getAll();
   }
 }

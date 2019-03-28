@@ -15,14 +15,14 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { handle } from '@eco/infrastructure/src/handlers';
-  import { InitElectricMeter } from '@eco/core-electricity/src/interactor/InitElectricMeter';
+  import { initElectricMeter } from '@eco/infrastructure/src/di';
+  import { InitElectricMeterRequest } from '@eco/core-electricity/src/use-case/InitElectricMeter';
 
   @Component({})
   export default class InitPower extends Vue {
 
     async initElectricMeter(hasDayAndNightMeter: boolean) {
-      await handle(new InitElectricMeter(hasDayAndNightMeter));
+      await initElectricMeter.execute(new InitElectricMeterRequest(hasDayAndNightMeter));
       this.$emit('init');
     }
   }

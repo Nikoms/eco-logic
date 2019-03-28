@@ -1,15 +1,15 @@
 import { CarRepository } from '../repository/CarRepository';
 
-export class GetCars {
+export class GetCarsRequest {
   constructor() {
   }
 }
 
-export class GetCarsHandler {
+export class GetCars {
   constructor(private cars: CarRepository) {
   }
 
-  handle() {
+  execute() {
     return this.cars.getAll();
   }
 }

@@ -1,16 +1,16 @@
 import { PowerConsumptionRepository } from '../repository/PowerConsumptionRepository';
 
-export class GetAllPowerConsumptions {
+export class GetAllPowerConsumptionsRequest {
   constructor() {
   }
 }
 
 
-export class GetAllPowerConsumptionsHandler {
+export class GetAllPowerConsumptions {
   constructor(private powerConsumptionStore: PowerConsumptionRepository) {
   }
 
-  handle() {
+  execute() {
     return this.powerConsumptionStore.getAll();
   }
 }

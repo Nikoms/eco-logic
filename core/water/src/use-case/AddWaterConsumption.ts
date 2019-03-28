@@ -3,7 +3,7 @@ import { WaterConsumption } from '../entity/WaterConsumption';
 import { WaterMeter } from '../entity/WaterMeter';
 import { WaterConsumptionRepository } from '../repository/WaterConsumptionRepository';
 
-export class AddWaterConsumption {
+export class AddWaterConsumptionRequest {
   public readonly waterConsumption: WaterConsumption;
 
   constructor(readonly m3: number, waterMeter: WaterMeter) {
@@ -15,12 +15,12 @@ export class AddWaterConsumption {
 }
 
 
-export class AddWaterConsumptionHandler {
+export class AddWaterConsumption {
   constructor(private waterConsumptionStore: WaterConsumptionRepository) {
 
   }
 
-  async handle(request: AddWaterConsumption) {
+  async execute(request: AddWaterConsumptionRequest) {
     await this.waterConsumptionStore.add(request.waterConsumption);
     return request.waterConsumption;
   }

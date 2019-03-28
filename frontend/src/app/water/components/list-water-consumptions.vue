@@ -16,12 +16,12 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { handle } from '@eco/infrastructure/src/handlers';
-  import { GetAllWaterConsumptions } from '@eco/core-water/src/interactor/GetAllWaterConsumptions';
+  import { getAllWaterConsumptions } from '@eco/infrastructure/src/di';
+  import { WaterConsumption } from '@eco/core-water/src/entity/WaterConsumption';
 
   @Component
   export default class ListWaterConsumptions extends Vue {
-    consumptions = [];
+    consumptions: WaterConsumption[] = [];
     headers = [
       {
         text: 'm3',
@@ -38,7 +38,7 @@
 
     async refresh() {
       this.consumptions = [];
-      this.consumptions = await handle(new GetAllWaterConsumptions());
+      this.consumptions = await getAllWaterConsumptions.execute();
     }
   }
 </script>

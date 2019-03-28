@@ -26,9 +26,9 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { handle } from '@eco/infrastructure/src/handlers';
   import { Seat } from '@eco/core-travel/src/entity/PlaneTravel';
-  import { AddPlaneTravel } from '@eco/core-travel/src/interactor/AddPlaneTravel';
+  import { AddPlaneTravelRequest } from '@eco/core-travel/src/use-case/AddPlaneTravel';
+  import { addPlaneTravel } from '@eco/infrastructure/src/di';
 
   @Component
   export default class AddTravelByPlane extends Vue {
@@ -39,7 +39,7 @@
 
     async addTravel() {
 
-      await handle(new AddPlaneTravel(this.seatId, parseFloat(this.km), this.description));
+      await addPlaneTravel.execute(new AddPlaneTravelRequest(this.seatId, parseFloat(this.km), this.description));
       this.clearForm();
       this.$emit('added');
     }

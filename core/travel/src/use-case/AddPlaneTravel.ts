@@ -4,7 +4,7 @@ import { TravelRepository } from '../repository/TravelRepository';
 import { EventDispatcher } from '@eco/core-shared-kernel/src/event/EventDispatcher';
 import { PlaneTravelAdded } from '../event/PlaneTravelAdded';
 
-export class AddPlaneTravel {
+export class AddPlaneTravelRequest {
   public readonly planeTravel: PlaneTravel;
 
   constructor(readonly seat: Seat, readonly km: number, readonly description: string) {
@@ -19,12 +19,12 @@ export class AddPlaneTravel {
   }
 }
 
-export class AddPlaneTravelHandler {
+export class AddPlaneTravel {
   constructor(private store: TravelRepository, private eventDispatcher: EventDispatcher) {
 
   }
 
-  async handle(request: AddPlaneTravel) {
+  async execute(request: AddPlaneTravelRequest) {
     await this.store.add(request.planeTravel);
     this.eventDispatcher.emit(new PlaneTravelAdded(request.planeTravel));
     return request.planeTravel;

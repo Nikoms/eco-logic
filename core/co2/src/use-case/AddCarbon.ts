@@ -7,7 +7,7 @@ import { PowerUpdated } from '@eco/core-electricity/src/event/PowerUpdated';
 import { PlaneTravelAdded } from '@eco/core-travel/src/event/PlaneTravelAdded';
 import { Seat } from '@eco/core-travel/src/entity/PlaneTravel';
 
-export class AddCarbon {
+export class AddCarbonRequest {
   public readonly carbon: Carbon;
 
   constructor(kg: number, description: string) {
@@ -17,21 +17,21 @@ export class AddCarbon {
   static fromPowerEvent(event: PowerUpdated) {
     const co2 = Math.round(event.kWhConsumed * 0.226);
     const description = `${event.kWhConsumed} kWh with the counter "${event.electricMeter.name}" = ${co2} kg CO2`;
-    return new AddCarbon(co2, description);
+    return new AddCarbonRequest(co2, description);
   }
 
   static fromOdometerEvent(event: OdometerUpdated) {
-    const multiplier = AddCarbon.getCarEngineMultiplier(event.car.engine);
+    const multiplier = AddCarbonRequest.getCarEngineMultiplier(event.car.engine);
     const co2 = Math.round(event.car.consumption * multiplier * event.kmTraveled);
     const description = `${event.kmTraveled} km with the car "${event.car.name}" = ${co2} kg CO2`;
-    return new AddCarbon(co2, description);
+    return new AddCarbonRequest(co2, description);
   }
 
   static fromNewPlaneTravelEvent(event: PlaneTravelAdded) {
-    const multiplier = AddCarbon.getPlaneMultiplier(event.travel.seat);
+    const multiplier = AddCarbonRequest.getPlaneMultiplier(event.travel.seat);
     const co2 = Math.round(event.travel.km * multiplier);
     const description = `${event.travel.km} km by plane = ${co2} kg CO2`;
-    return new AddCarbon(co2, description);
+    return new AddCarbonRequest(co2, description);
   }
 
   private static getPlaneMultiplier(seat: Seat) {
@@ -69,11 +69,11 @@ export class AddCarbon {
   }
 }
 
-export class AddCarbonHandler {
+export class AddCarbon {
   constructor(private store: CarbonRepository) {
   }
 
-  async handle(request: AddCarbon) {
+  async execute(request: AddCarbonRequest) {
     await this.store.add(request.carbon);
 
     return request.carbon;

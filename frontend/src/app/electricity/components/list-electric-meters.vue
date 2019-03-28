@@ -16,24 +16,21 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { handle } from '@eco/infrastructure/src/handlers';
-  import { GetElectricMeters } from '@eco/core-electricity/src/interactor/GetElectricMeters';
   import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
-  import AddPowerConsumption from '@/app/electricity/components/update-power-consumption.vue';
+  import { getElectricMeters } from '@eco/infrastructure/src/di';
 
-  @Component({
-    components: { AddPowerConsumption },
-  })
+  @Component({})
   export default class ListElectricMeters extends Vue {
-    meters = [];
+    meters: ElectricMeter[] = [];
 
     async mounted() {
       await this.refresh();
     }
 
     async refresh() {
-      this.meters = await handle(new GetElectricMeters());
+      this.meters = await getElectricMeters.execute();
     }
+
     electricMeterSelected(electricMeter: ElectricMeter) {
       this.$emit('selected', electricMeter);
     }

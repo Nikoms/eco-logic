@@ -29,9 +29,7 @@
   import AddWaterConsumption from '@/app/water/components/add-water-consumption.vue';
   import ListWaterConsumptions from '@/app/water/components/list-water-consumptions.vue';
   import InitWater from '@/app/water/components/init-water.vue';
-  import { handle } from '@eco/infrastructure/src/handlers';
-  import { WaterMeter } from '@eco/core-water/src/entity/WaterMeter';
-  import { GetWaterMeters } from '@eco/core-water/src/interactor/GetWaterMeters'; // @ is an alias to /src
+  import { getWaterMeters } from '@eco/infrastructure/src/di'; // @ is an alias to /src
 
   @Component({
     components: {
@@ -44,7 +42,7 @@
     hasMeter = false;
 
     async mounted() {
-      this.hasMeter = (await handle<WaterMeter[]>(new GetWaterMeters())).length > 0;
+      this.hasMeter = (await getWaterMeters.execute()).length > 0;
     }
 
     showDialog() {
