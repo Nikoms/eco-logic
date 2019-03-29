@@ -16,8 +16,8 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { getAllWaterConsumptions } from '@eco/infrastructure/src/di';
   import { WaterConsumption } from '@eco/core-water/src/entity/WaterConsumption';
+  import { api } from '../../../../../api/frontend/src/Api';
 
   @Component
   export default class ListWaterConsumptions extends Vue {
@@ -38,7 +38,7 @@
 
     async refresh() {
       this.consumptions = [];
-      this.consumptions = await getAllWaterConsumptions.execute();
+      this.consumptions = await api.getAllWaterConsumptions();
     }
   }
 </script>

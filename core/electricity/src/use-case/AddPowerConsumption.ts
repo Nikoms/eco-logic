@@ -1,6 +1,5 @@
 import { v4 } from 'uuid';
 import { PowerConsumption } from '../entity/PowerConsumption';
-import { ElectricMeter } from '../entity/ElectricMeter';
 import { PowerConsumptionRepository } from '../repository/PowerConsumptionRepository';
 import { EventDispatcher } from '@eco/core-shared-kernel/src/event/EventDispatcher';
 import { PowerUpdated } from '../event/PowerUpdated';
@@ -9,11 +8,8 @@ import { ElectricMeterRepository } from '../repository/ElectricMeterRepository';
 export class AddPowerConsumptionRequest {
   public readonly powerConsumption: PowerConsumption;
 
-  constructor(public readonly kWh: number, public readonly electricMeter: ElectricMeter) {
-    if (!electricMeter) {
-      throw new Error('electric meter unknown');
-    }
-    this.powerConsumption = new PowerConsumption(v4(), kWh, electricMeter.id, new Date());
+  constructor(public readonly kWh: number, public readonly electricMeterId: string) {
+    this.powerConsumption = new PowerConsumption(v4(), kWh, electricMeterId, new Date());
   }
 }
 
@@ -26,10 +22,17 @@ export class AddPowerConsumption {
   }
 
   async execute(request: AddPowerConsumptionRequest) {
-    const lastKwh = request.electricMeter && request.electricMeter.kWh || 0;
-    request.electricMeter.updateKwh(request.kWh);
+    if (!request.electricMeterId) {
+      throw new Error('electric meter unknown');
+    }
+    const electricMeter = await this.electricMeters.getElectricMeter(request.electricMeterId);
+    if (!electricMeter) {
+      throw new Error('electric meter unknown');
+    }
+    const lastKwh = electricMeter && electricMeter.kWh || 0;
+    electricMeter.updateKwh(request.kWh);
 
-    await this.electricMeters.update(request.electricMeter);
+    await this.electricMeters.update(electricMeter);
     await this.powerConsumptions.add(request.powerConsumption);
 
     const kWhConsumed = request.powerConsumption.kWh - lastKwh;
@@ -38,7 +41,7 @@ export class AddPowerConsumption {
       request.powerConsumption.id,
       kWhConsumed,
       request.powerConsumption.kWh,
-      request.electricMeter,
+      electricMeter,
     ));
 
     return request.powerConsumption;

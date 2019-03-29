@@ -31,8 +31,7 @@
   import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
   import AddCar from '@/app/traveling/components/add-car.vue';
   import { Car } from '@eco/core-travel/src/entity/Car';
-  import { UpdateOdometerRequest } from '@eco/core-travel/src/use-case/UpdateOdometer';
-  import { updateOdometer } from '@eco/infrastructure/src/di';
+  import { api } from '../../../../../api/frontend/src/Api';
 
   @Component({
     components: { AddCar },
@@ -48,7 +47,7 @@
 
     async saveOdometer() {
       if (this.car && this.km.trim().length > 0) {
-        await updateOdometer.execute(new UpdateOdometerRequest(parseFloat(this.km), this.car));
+        await api.updateOdometer(this.car.id, parseFloat(this.km));
         this.$emit('added');
       }
     }

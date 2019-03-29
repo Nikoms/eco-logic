@@ -15,13 +15,12 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { InitWaterMeterRequest } from '@eco/core-water/src/use-case/InitWaterMeter';
-  import { initWaterMeter } from '@eco/infrastructure/src/di';
+  import { api } from '../../../../../api/frontend/src/Api';
 
   @Component({})
   export default class InitWater extends Vue {
     async initWaterMeter(hasColdAndHotMeter: boolean) {
-      await initWaterMeter.execute(new InitWaterMeterRequest(hasColdAndHotMeter));
+      await api.initWaterMeter(hasColdAndHotMeter);
       this.$emit('init');
     }
   }

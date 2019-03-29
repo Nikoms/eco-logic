@@ -10,8 +10,8 @@ import { DateRange } from '@eco/core-shared-kernel/src/model/DateRange';
 export class UpdateOdometerRequest {
   public readonly odometer: Odometer;
 
-  constructor(km: number, car: Car) {
-    this.odometer = new Odometer(v4(), car.id, km, new Date());
+  constructor(carId: string, km: number) {
+    this.odometer = new Odometer(v4(), carId, km, new Date());
   }
 }
 

@@ -17,7 +17,7 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
-  import { getElectricMeters } from '@eco/infrastructure/src/di';
+  import { api } from '../../../../../api/frontend/src/Api';
 
   @Component({})
   export default class ListElectricMeters extends Vue {
@@ -28,7 +28,7 @@
     }
 
     async refresh() {
-      this.meters = await getElectricMeters.execute();
+      this.meters = await api.getElectricMeters();
     }
 
     electricMeterSelected(electricMeter: ElectricMeter) {

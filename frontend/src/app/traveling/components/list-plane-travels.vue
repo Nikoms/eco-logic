@@ -16,7 +16,7 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import { PlaneTravel } from '@eco/core-travel/src/entity/PlaneTravel';
-  import { getPlaneTravels } from '@eco/infrastructure/src/di';
+  import { api } from '../../../../../api/frontend/src/Api';
 
   @Component
   export default class ListPlaneTravels extends Vue {
@@ -27,7 +27,8 @@
     }
 
     async refresh() {
-      this.travels = await getPlaneTravels.execute();
+      this.travels = await api.getPlaneTravels();
     }
+
   }
 </script>

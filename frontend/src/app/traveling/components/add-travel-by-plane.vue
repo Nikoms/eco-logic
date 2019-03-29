@@ -8,7 +8,7 @@
                 </v-card-title>
                 <v-card-text>
                     <v-text-field v-model="km" type="number" label="Distance" ref="distance" suffix="km"></v-text-field>
-                    <v-select v-model="seatId"
+                    <v-select v-model="seat"
                               :items="seats"
                               label="Select your seat class"
                     ></v-select>
@@ -27,19 +27,17 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import { Seat } from '@eco/core-travel/src/entity/PlaneTravel';
-  import { AddPlaneTravelRequest } from '@eco/core-travel/src/use-case/AddPlaneTravel';
-  import { addPlaneTravel } from '@eco/infrastructure/src/di';
+  import { api } from '../../../../../api/frontend/src/Api';
 
   @Component
   export default class AddTravelByPlane extends Vue {
     seats = [Seat.economyClass, Seat.businessClass, Seat.firstClass];
-    seatId = this.seats[0];
+    seat = this.seats[0];
     km = '';
     description = '';
 
     async addTravel() {
-
-      await addPlaneTravel.execute(new AddPlaneTravelRequest(this.seatId, parseFloat(this.km), this.description));
+      await api.addPlaneTravel(this.seat, parseFloat(this.km), this.description);
       this.clearForm();
       this.$emit('added');
     }
@@ -51,7 +49,7 @@
     clearForm() {
       this.km = '';
       this.description = '';
-      this.seatId = this.seats[0];
+      this.seat = this.seats[0];
     }
   }
 </script>

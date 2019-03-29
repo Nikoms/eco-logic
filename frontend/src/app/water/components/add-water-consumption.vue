@@ -25,8 +25,7 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import { WaterMeter } from '@eco/core-water/src/entity/WaterMeter';
-  import { AddWaterConsumptionRequest } from '@eco/core-water/src/use-case/AddWaterConsumption';
-  import { addWaterConsumption, getWaterMeters } from '@eco/infrastructure/src/di';
+  import { api } from '../../../../../api/frontend/src/Api';
 
   @Component
   export default class AddWaterConsumption extends Vue {
@@ -39,7 +38,7 @@
     async saveConsumption() {
       for (const formMeter of this.formMeters) {
         if (formMeter.consumption.trim().length > 0) {
-          await addWaterConsumption.execute(new AddWaterConsumptionRequest(parseFloat(formMeter.consumption), formMeter.meter));
+          await api.addWaterConsumption(formMeter.meter.id, parseFloat(formMeter.consumption));
         }
       }
       this.clearForm();
@@ -47,7 +46,7 @@
     }
 
     async mounted() {
-      this.meters = await getWaterMeters.execute();
+      this.meters = await api.getWaterMeters();
       this.clearForm();
       this.hasMultipleMeters = this.meters.length > 1;
       this.canAdd = this.meters.length > 0;

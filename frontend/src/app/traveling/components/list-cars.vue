@@ -18,7 +18,7 @@
   import { Component, Vue } from 'vue-property-decorator';
   import { Car } from '@eco/core-travel/src/entity/Car';
   import SaveOdometer from '@/app/traveling/components/save-odometer.vue';
-  import { getCars } from '@eco/infrastructure/src/di';
+  import { api } from '../../../../../api/frontend/src/Api';
 
   @Component({
     components: { SaveOdometer },
@@ -31,7 +31,7 @@
     }
 
     async refresh() {
-      this.cars = await getCars.execute();
+      this.cars = await api.getCars();
     }
 
     careSelected(car: Car) {
