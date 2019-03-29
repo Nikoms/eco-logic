@@ -14,7 +14,7 @@
             <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn flat color="secondary" @click="cancel">Cancel</v-btn>
-                <v-btn type="submit" flat color="primary" @click="saveConsumption">Update consumption</v-btn>
+                <v-btn type="submit" flat color="primary">Update consumption</v-btn>
             </v-card-actions>
         </v-card>
     </v-form>
