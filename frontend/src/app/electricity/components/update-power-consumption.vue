@@ -1,5 +1,5 @@
 <template>
-    <v-form @submit.prevent="saveConsumption">
+    <v-form @submit.prevent="updateConsumption">
         <v-card>
             <v-card-text>
                 <v-text-field v-model="kWh"
@@ -39,7 +39,7 @@
       this.$emit('cancel');
     }
 
-    async saveConsumption() {
+    async updateConsumption() {
       if (this.electricMeter && this.kWh.trim().length > 0) {
         await api.addPowerConsumption(parseFloat(this.kWh), this.electricMeter.id);
         this.$emit('added');
