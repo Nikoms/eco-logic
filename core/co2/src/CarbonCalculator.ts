@@ -4,7 +4,7 @@ import { PlaneTravelAdded } from '@eco/core-travel/src/event/PlaneTravelAdded';
 import { AddCarbonRequest } from './use-case/AddCarbon';
 import { Seat } from '@eco/core-travel/src/entity/PlaneTravel';
 import { Engine } from '@eco/core-travel/src/entity/Car';
-import { FuelOilWasCommand } from '@eco/fuel-oil/src/event/FuelOilWasCommand';
+import { FuelOilOrdered } from '@eco/fuel-oil/src/event/FuelOilOrdered';
 
 export class CarbonCalculator {
 
@@ -14,8 +14,8 @@ export class CarbonCalculator {
     return new AddCarbonRequest(co2, description);
   }
 
-  fromFuelOil(event: FuelOilWasCommand) {
-    const liters = event.fuelOilCommand.liters;
+  fromFuelOil(event: FuelOilOrdered) {
+    const liters = event.fuelOilOrder.liters;
     const co2 = Math.round(liters * 3.19);
     const description = `${liters} liters command = ${co2} kg CO2`;
     return new AddCarbonRequest(co2, description);

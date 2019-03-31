@@ -25,24 +25,24 @@
             </v-card-title>
         </v-card>
         <v-dialog v-model="addDialog" max-width="600px">
-            <AddFuelOilCommand @added="added" @cancel="cancelled" ref="addForm"/>
+            <AddFuelOilOrder @added="added" @cancel="cancelled" ref="addForm"/>
         </v-dialog>
     </div>
 </template>
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import AddFuelOilCommand from '@/app/fuel-oil/components/add-fuel-oil-command.vue';
+  import AddFuelOilOrder from '@/app/fuel-oil/components/add-fuel-oil-order.vue';
   import { api } from '../../../../../api/frontend/src/Api';
-  import { FuelOilCommand } from '@eco/fuel-oil/src/entity/FuelOilCommand';
+  import { FuelOilOrder } from '@eco/fuel-oil/src/entity/FuelOilOrder';
 
   @Component({
-    components: { AddFuelOilCommand },
+    components: { AddFuelOilOrder },
   })
 
   export default class TravelingConsumption extends Vue {
     addDialog = false;
-    lastCommand: FuelOilCommand | null = null;
+    lastCommand: FuelOilOrder | null = null;
     total: number = 0;
 
     mounted() {
@@ -50,9 +50,9 @@
     }
 
     private async refreshView() {
-      const lastCommand = await api.getLastFuelOilCommand();
+      const lastCommand = await api.getLastFuelOilOrder();
       this.lastCommand = lastCommand || null;
-      this.total = await api.getTotalFuelOilCommand();
+      this.total = await api.getTotalFuelOilOrder();
     }
 
     added() {
@@ -67,7 +67,7 @@
     showAdd() {
       this.addDialog = true;
       setImmediate(() => {
-        (this.$refs.addForm as AddFuelOilCommand).startEditing();
+        (this.$refs.addForm as AddFuelOilOrder).startEditing();
       });
     }
   }

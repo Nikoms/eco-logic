@@ -13,6 +13,6 @@ export const initCo2Listeners = (eventDispatcher: EventDispatcher, addCarbonComm
   on(TravelEvents.odometerUpdated, (e) => addCarbon(carbonCalculator.fromOdometerEvent(e)));
   on(TravelEvents.planeTravelAdded, (e) => addCarbon(carbonCalculator.fromNewPlaneTravelEvent(e)));
   on(ElectricityEvents.powerUpdated, (e) => addCarbon(carbonCalculator.fromPowerEvent(e)));
-  on(FuelOilEvents.fuelOilWasCommand, (e) => addCarbon(carbonCalculator.fromFuelOil(e)));
+  on(FuelOilEvents.fuelOilOrdered, (e) => addCarbon(carbonCalculator.fromFuelOil(e)));
 
 };

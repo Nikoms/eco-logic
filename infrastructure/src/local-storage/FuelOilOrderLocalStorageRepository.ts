@@ -1,8 +1,8 @@
-import { FuelOilCommandRepository } from '@eco/fuel-oil/src/repository/FuelOilCommandRepository';
 import { JsonOf } from './type/JsonOf';
-import { FuelOilCommand } from '@eco/fuel-oil/src/entity/FuelOilCommand';
+import { FuelOilOrder } from '@eco/fuel-oil/src/entity/FuelOilOrder';
+import { FuelOilOrderRepository } from '@eco/fuel-oil/src/repository/FuelOilOrderRepository';
 
-export class FuelOilCommandLocalStorageRepository implements FuelOilCommandRepository {
+export class FuelOilOrderLocalStorageRepository implements FuelOilOrderRepository {
   private key = 'fuel-oil-command';
 
   constructor(private localstorage: Storage) {
@@ -11,9 +11,9 @@ export class FuelOilCommandLocalStorageRepository implements FuelOilCommandRepos
     }
   }
 
-  async add(fuelOilCommand: FuelOilCommand) {
+  async add(fuelOilOrder: FuelOilOrder) {
     const list = this.getList();
-    list.push(fuelOilCommand);
+    list.push(fuelOilOrder);
     this.saveList(list);
   }
 
@@ -32,8 +32,8 @@ export class FuelOilCommandLocalStorageRepository implements FuelOilCommandRepos
     this.localstorage.setItem(this.key, listAsJson);
   }
 
-  private getList(): FuelOilCommand[] {
-    const rawList: JsonOf<FuelOilCommand>[] = JSON.parse(this.localstorage.getItem(this.key) || '[]');
-    return rawList.map(raw => new FuelOilCommand(raw.liters, new Date(raw.date)));
+  private getList(): FuelOilOrder[] {
+    const rawList: JsonOf<FuelOilOrder>[] = JSON.parse(this.localstorage.getItem(this.key) || '[]');
+    return rawList.map(raw => new FuelOilOrder(raw.liters, new Date(raw.date)));
   }
 }

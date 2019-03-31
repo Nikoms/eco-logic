@@ -3,14 +3,14 @@ import {
   addPlaneTravel,
   addPowerConsumption,
   addWaterConsumption,
-  commandFuelOil,
+  orderFuelOil,
   getAllPowerConsumptions,
   getAllWaterConsumptions,
   getCars,
   getElectricMeters,
-  getLastFuelOilCommand,
+  getLastFuelOilOrder,
   getPlaneTravels,
-  getTotalFuelOilCommand,
+  getTotalFuelOilOrder,
   getWaterMeters,
   initElectricMeter,
   initWaterMeter,
@@ -79,16 +79,16 @@ class Api {
     return getAllWaterConsumptions.execute();
   }
 
-  commandFuelOil(liters: number) {
-    return commandFuelOil.execute(liters);
+  orderFuelOil(liters: number) {
+    return orderFuelOil.execute(liters);
   }
 
-  getLastFuelOilCommand() {
-    return getLastFuelOilCommand.execute();
+  getLastFuelOilOrder() {
+    return getLastFuelOilOrder.execute();
   }
 
-  getTotalFuelOilCommand() {
-    return getTotalFuelOilCommand.execute();
+  getTotalFuelOilOrder() {
+    return getTotalFuelOilOrder.execute();
   }
 }
 

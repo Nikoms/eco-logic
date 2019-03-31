@@ -1,3 +1,3 @@
 export enum FuelOilEvents {
-  fuelOilWasCommand = 'fuelOilWasCommand',
+  fuelOilOrdered = 'fuelOilOrdered',
 }

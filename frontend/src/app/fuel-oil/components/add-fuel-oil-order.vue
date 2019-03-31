@@ -25,14 +25,14 @@
   import { api } from '../../../../../api/frontend/src/Api';
 
   @Component({})
-  export default class AddFuelOilCommand extends Vue {
+  export default class AddFuelOilOrder extends Vue {
     liters: string = '';
 
     mounted() {
     }
 
     addCommand() {
-      api.commandFuelOil(parseFloat(this.liters));
+      api.orderFuelOil(parseFloat(this.liters));
       this.liters = '';
       this.$emit('added');
     }
