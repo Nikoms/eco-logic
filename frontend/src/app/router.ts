@@ -14,26 +14,9 @@ export default new Router({
       name: 'home',
       component: Home,
     },
-    {
-      path: '/electricity',
-      name: 'electricity',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './electricity/views/Home.vue'),
-    },
-    {
-      path: '/water',
-      name: 'water',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './water/views/Home.vue'),
-    },
-    {
-      path: '/traveling',
-      name: 'traveling',
-      component: () => import(/* webpackChunkName: "about" */ './traveling/views/Home.vue'),
-    },
+    { path: '/electricity', name: 'electricity', component: () => import('./electricity/views/Home.vue') },
+    { path: '/water', name: 'water', component: () => import('./water/views/Home.vue') },
+    { path: '/traveling', name: 'traveling', component: () => import('./traveling/views/Home.vue') },
+    { path: '/fuel-oil', name: 'fuel-oil', component: () => import('./fuel-oil/views/Home.vue') },
   ],
 });

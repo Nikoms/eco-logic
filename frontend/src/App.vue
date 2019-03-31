@@ -28,6 +28,10 @@
                 <span>Electricity</span>
                 <v-icon>mdi-flash</v-icon>
             </v-btn>
+            <v-btn color="teal" flat :to="{ name: 'fuel-oil'}">
+                <span>Fuel oil</span>
+                <v-icon>mdi-fuel</v-icon>
+            </v-btn>
             <v-btn color="teal" flat :to="{ name: 'water'}">
                 <span>Water</span>
                 <v-icon>mdi-water</v-icon>

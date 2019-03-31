@@ -5,7 +5,6 @@ import { FuelOilCommandRepository } from '../repository/FuelOilCommandRepository
 
 export class CommandFuelOil {
   constructor(private fuelOilCommands: FuelOilCommandRepository, private eventDispatcher: EventDispatcher) {
-    this.fuelOilCommands = fuelOilCommands;
   }
 
   execute(liters: number) {

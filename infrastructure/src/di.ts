@@ -21,6 +21,9 @@ import { InitWaterMeter } from '@eco/core-water/src/use-case/InitWaterMeter';
 import { GetElectricMeters } from '@eco/core-electricity/src/use-case/GetElectricMeters';
 import { InitElectricMeter } from '@eco/core-electricity/src/use-case/InitElectricMeter';
 import { AddCarbon } from '@eco/core-co2/src/use-case/AddCarbon';
+import { FuelOilCommandLocalStorageRepository } from './local-storage/FuelOilCommandLocalStorageRepository';
+import { CommandFuelOil } from '@eco/fuel-oil/src/use-case/CommandFuelOil';
+import { GetLastFuelOilCommand } from '@eco/fuel-oil/src/use-case/GetLastFuelOilCommand';
 
 export const eventDispatcher = new EventTargetEventDispatcher();
 
@@ -32,7 +35,7 @@ const carStore = new CarLocalStorageRepository(window.localStorage);
 const travelStore = new TravelLocalStorageRepository(window.localStorage);
 const odometerStore = new OdometerLocalStorageRepository(window.localStorage);
 const carbonStore = new CarbonLocalStorageRepository(window.localStorage);
-
+const fuelOilStore = new FuelOilCommandLocalStorageRepository(window.localStorage);
 
 export const addPowerConsumption = new AddPowerConsumption(powerStore, electricStore, eventDispatcher);
 export const getAllPowerConsumptions = new GetAllPowerConsumptions(powerStore);
@@ -49,5 +52,8 @@ export const addWaterConsumption = new AddWaterConsumption(waterConsumptionStore
 export const getAllWaterConsumptions = new GetAllWaterConsumptions(waterConsumptionStore);
 export const initWaterMeter = new InitWaterMeter(waterStore);
 export const getWaterMeters = new GetWaterMeters(waterStore);
+
+export const commandFuelOil = new CommandFuelOil(fuelOilStore, eventDispatcher);
+export const getLastFuelOilCommand = new GetLastFuelOilCommand(fuelOilStore);
 
 export const addCarbon = new AddCarbon(carbonStore);
