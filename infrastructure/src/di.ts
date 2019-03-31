@@ -25,6 +25,7 @@ import { FuelOilOrderLocalStorageRepository } from './local-storage/FuelOilOrder
 import { OrderFuelOil } from '@eco/fuel-oil/src/use-case/OrderFuelOil';
 import { GetLastFuelOilOrder } from '@eco/fuel-oil/src/use-case/GetLastFuelOilOrder';
 import { GetTotalFuelOilOrder } from '@eco/fuel-oil/src/use-case/GetTotalFuelOilOrder';
+import { GetCarbons } from '@eco/core-co2/src/use-case/GetCarbons';
 
 export const eventDispatcher = new EventTargetEventDispatcher();
 
@@ -59,3 +60,4 @@ export const getLastFuelOilOrder = new GetLastFuelOilOrder(fuelOilStore);
 export const getTotalFuelOilOrder = new GetTotalFuelOilOrder(fuelOilStore);
 
 export const addCarbon = new AddCarbon(carbonStore);
+export const getCarbons = new GetCarbons(carbonStore);

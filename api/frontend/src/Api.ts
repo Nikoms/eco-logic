@@ -3,9 +3,9 @@ import {
   addPlaneTravel,
   addPowerConsumption,
   addWaterConsumption,
-  orderFuelOil,
   getAllPowerConsumptions,
   getAllWaterConsumptions,
+  getCarbons,
   getCars,
   getElectricMeters,
   getLastFuelOilOrder,
@@ -14,6 +14,7 @@ import {
   getWaterMeters,
   initElectricMeter,
   initWaterMeter,
+  orderFuelOil,
   updateOdometer,
 } from '@eco/infrastructure/src/di';
 import { InitElectricMeterRequest } from '@eco/core-electricity/src/use-case/InitElectricMeter';
@@ -89,6 +90,10 @@ class Api {
 
   getTotalFuelOilOrder() {
     return getTotalFuelOilOrder.execute();
+  }
+
+  getCarbons() {
+    return getCarbons.execute();
   }
 }
 
