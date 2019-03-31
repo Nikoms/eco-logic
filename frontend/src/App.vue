@@ -22,7 +22,7 @@
             </v-btn>
             <v-btn color="teal" flat :to="{ name: 'traveling'}">
                 <span>Travel</span>
-                <v-icon>mdi-gas-station</v-icon>
+                <v-icon>mdi-map-marker-multiple</v-icon>
             </v-btn>
             <v-btn color="teal" flat :to="{ name: 'electricity'}">
                 <span>Electricity</span>
