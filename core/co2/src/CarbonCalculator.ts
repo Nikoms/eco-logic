@@ -4,12 +4,20 @@ import { PlaneTravelAdded } from '@eco/core-travel/src/event/PlaneTravelAdded';
 import { AddCarbonRequest } from './use-case/AddCarbon';
 import { Seat } from '@eco/core-travel/src/entity/PlaneTravel';
 import { Engine } from '@eco/core-travel/src/entity/Car';
+import { FuelOilWasCommand } from '@eco/fuel-oil/src/event/FuelOilWasCommand';
 
 export class CarbonCalculator {
 
   fromPowerEvent(event: PowerUpdated) {
     const co2 = Math.round(event.kWhConsumed * 0.226);
     const description = `${event.kWhConsumed} kWh with the counter "${event.electricMeter.name}" = ${co2} kg CO2`;
+    return new AddCarbonRequest(co2, description);
+  }
+
+  fromFuelOil(event: FuelOilWasCommand) {
+    const liters = event.fuelOilCommand.liters;
+    const co2 = Math.round(liters * 3.19);
+    const description = `${liters} liters command = ${co2} kg CO2`;
     return new AddCarbonRequest(co2, description);
   }
 

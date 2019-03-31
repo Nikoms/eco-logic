@@ -51,6 +51,9 @@
     "@eco/core-travel/*": [
       "core/travel/src/*"
     ],
+    "@eco/core-fuel-oil/*": [
+      "core/fuel-oil/src/*"
+    ],
     "@eco/core-shared-kernel/*": [
       "core/shared-kernel/src/*"
     ]
