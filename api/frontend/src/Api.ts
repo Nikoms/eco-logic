@@ -10,6 +10,7 @@ import {
   getElectricMeters,
   getLastFuelOilCommand,
   getPlaneTravels,
+  getTotalFuelOilCommand,
   getWaterMeters,
   initElectricMeter,
   initWaterMeter,
@@ -84,6 +85,10 @@ class Api {
 
   getLastFuelOilCommand() {
     return getLastFuelOilCommand.execute();
+  }
+
+  getTotalFuelOilCommand() {
+    return getTotalFuelOilCommand.execute();
   }
 }
 

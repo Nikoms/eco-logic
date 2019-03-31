@@ -4,4 +4,6 @@ export interface FuelOilCommandRepository {
   add(fuelOilCommand: FuelOilCommand): Promise<void>;
 
   getLast(): Promise<FuelOilCommand | undefined>;
+
+  getTotal(): number;
 }

@@ -21,6 +21,12 @@ export class FuelOilCommandLocalStorageRepository implements FuelOilCommandRepos
     return this.getList().pop();
   }
 
+  getTotal(): number {
+    return this.getList().reduce((total, command) => {
+      return total + command.liters;
+    }, 0);
+  }
+
   private saveList(list: any[]) {
     const listAsJson = JSON.stringify(list);
     this.localstorage.setItem(this.key, listAsJson);

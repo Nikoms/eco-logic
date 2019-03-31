@@ -24,6 +24,7 @@ import { AddCarbon } from '@eco/core-co2/src/use-case/AddCarbon';
 import { FuelOilCommandLocalStorageRepository } from './local-storage/FuelOilCommandLocalStorageRepository';
 import { CommandFuelOil } from '@eco/fuel-oil/src/use-case/CommandFuelOil';
 import { GetLastFuelOilCommand } from '@eco/fuel-oil/src/use-case/GetLastFuelOilCommand';
+import { GetTotalFuelOilCommand } from '@eco/fuel-oil/src/use-case/GetTotalFuelOilCommand';
 
 export const eventDispatcher = new EventTargetEventDispatcher();
 
@@ -55,5 +56,6 @@ export const getWaterMeters = new GetWaterMeters(waterStore);
 
 export const commandFuelOil = new CommandFuelOil(fuelOilStore, eventDispatcher);
 export const getLastFuelOilCommand = new GetLastFuelOilCommand(fuelOilStore);
+export const getTotalFuelOilCommand = new GetTotalFuelOilCommand(fuelOilStore);
 
 export const addCarbon = new AddCarbon(carbonStore);
