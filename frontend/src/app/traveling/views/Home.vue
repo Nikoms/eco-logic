@@ -64,24 +64,18 @@
   import AddCarView from '@/app/traveling/components/AddCarView.vue';
   import AddFlightView from '@/app/traveling/components/AddFlightView.vue';
   import UpdateOdometerView from '@/app/traveling/components/UpdateOdometerView.vue';
-  import { TravelingPresenter } from '@/app/traveling/TravelingPresenter';
-  import { HomeController } from '@/domain/Traveling/UseCase/Home/HomeController';
-  import { RefreshCars } from '@/domain/Traveling/RefreshCars';
-  import { RefreshFlights } from '@/domain/Traveling/RefreshFlights';
 
   @Component({ components: { UpdateOdometerView, AddTravelByPlane: AddFlightView, AddCarView } })
 
   export default class TravelingConsumption extends Vue {
-    presenter = new TravelingPresenter();
-    controller = new HomeController(new RefreshCars(this.presenter), new RefreshFlights(this.presenter));
-
+    presenter = this.$travelingFactory.travelingHomePresenter;
     viewModel = this.presenter.getHomeViewModel();
     updateOdometerViewModel = this.presenter.getUpdateOdometerViewModel();
     addCarViewModel = this.presenter.getAddCarViewModel();
     addFlightViewModel = this.presenter!.getAddFlightViewModel();
 
     mounted() {
-      this.controller.refreshAll();
+      this.$travelingFactory.travelingHomeController.initList();
     }
   }
 </script>

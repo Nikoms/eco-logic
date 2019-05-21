@@ -5,7 +5,7 @@ export class HomeController {
   constructor(private refreshCars: RefreshCars, private refreshFlights: RefreshFlights) {
   }
 
-  refreshAll() {
+  initList() {
     this.refreshCars.execute();
     this.refreshFlights.execute();
   }
