@@ -1,37 +1,38 @@
 <template>
-    <v-form @submit.prevent="sendMessage">
-        <v-card>
-            <v-card-title>
-                <v-icon large left>mdi-car</v-icon>
-                <span class="title font-weight-light">{{viewModel.titleLabel}}</span>
-            </v-card-title>
-            <v-card-text>
-                <v-text-field v-model="name" label="Name" ref="name"></v-text-field>
-                <v-text-field v-model="consumption" type="number" label="Consumption" suffix="l/100"></v-text-field>
-                <v-select v-model="engine" :items="viewModel.engines" label="Engine"></v-select>
-                <v-text-field v-model="km" :label="viewModel.kmLabel"></v-text-field>
-            </v-card-text>
+    <v-dialog v-model="viewModel.displayed" max-width="600px">
+        <v-form @submit.prevent="sendMessage">
+            <v-card>
+                <v-card-title>
+                    <v-icon large left>mdi-car</v-icon>
+                    <span class="title font-weight-light">{{viewModel.titleLabel}}</span>
+                </v-card-title>
+                <v-card-text>
+                    <v-text-field v-model="name" label="Name" ref="name"></v-text-field>
+                    <v-text-field v-model="consumption" type="number" label="Consumption" suffix="l/100"></v-text-field>
+                    <v-select v-model="engine" :items="viewModel.engines" label="Engine"></v-select>
+                    <v-text-field v-model="km" :label="viewModel.kmLabel"></v-text-field>
+                </v-card-text>
 
-            <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn flat color="secondary" @click="presenter.cancelAddCar()">{{viewModel.cancelLabel}}</v-btn>
-                <v-btn flat color="primary" type="submit">{{viewModel.saveLabel}}</v-btn>
-            </v-card-actions>
-        </v-card>
-    </v-form>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn flat color="secondary" @click="presenter.cancelAddCar()">{{viewModel.cancelLabel}}</v-btn>
+                    <v-btn flat color="primary" type="submit">{{viewModel.saveLabel}}</v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-form>
+    </v-dialog>
 </template>
 
 <script lang="ts">
-  import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
+  import { Component, Vue, Watch } from 'vue-property-decorator';
   import { AddCarRequest } from '@/domain/Traveling/UseCase/AddCar/AddCarRequest';
   import { AddCar } from '@/domain/Traveling/UseCase/AddCar/AddCar';
-  import { AddCarPresenterInterface } from '@/domain/Traveling/UseCase/AddCar/AddCarPresenterInterface';
   import { AddCarController } from '@/domain/Traveling/UseCase/AddCar/AddCarController';
+  import { AddCarPresenterInterface } from '@/domain/Traveling/UseCase/AddCar/AddCarPresenterInterface';
 
   @Component
   export default class AddCarView extends Vue {
-    @Prop()
-    presenter?: AddCarPresenterInterface;
+    presenter: AddCarPresenterInterface = this.$travelingFactory.travelingHomePresenter;
     viewModel = this.presenter!.getAddCarViewModel();
     controller = new AddCarController(new AddCar(this.presenter!));
 

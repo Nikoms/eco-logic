@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <v-dialog v-model="viewModel.displayed" max-width="600px">
         <v-form v-if="viewModel.selectedCar" @submit.prevent="saveOdometer">
             <v-card>
                 <v-card-title>
@@ -24,11 +24,11 @@
                 </v-card-actions>
             </v-card>
         </v-form>
-    </div>
+    </v-dialog>
 </template>
 
 <script lang="ts">
-  import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
+  import { Component, Vue, Watch } from 'vue-property-decorator';
   import { UpdateOdometerPresenterInterface } from '@/domain/Traveling/UseCase/UpdateOdometer/UpdateOdometerPresenterInterface';
   import { UpdateOdometer as UpdateOdometerUseCase } from '@/domain/Traveling/UseCase/UpdateOdometer/UpdateOdometer';
   import { UpdateOdometerRequest } from '@/domain/Traveling/UseCase/UpdateOdometer/UpdateOdometerRequest';
@@ -36,9 +36,7 @@
 
   @Component
   export default class UpdateOdometerView extends Vue {
-
-    @Prop()
-    presenter?: UpdateOdometerPresenterInterface;
+    presenter: UpdateOdometerPresenterInterface = this.$travelingFactory.travelingHomePresenter;
 
     controller = new UpdateOdometerController(new UpdateOdometerUseCase(this.presenter!));
     viewModel = this.presenter!.getUpdateOdometerViewModel();
