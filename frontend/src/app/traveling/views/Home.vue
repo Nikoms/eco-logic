@@ -60,7 +60,7 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue, Watch } from 'vue-property-decorator';
+  import { Component, Vue } from 'vue-property-decorator';
   import AddCarView from '@/app/traveling/components/AddCarView.vue';
   import AddFlightView from '@/app/traveling/components/AddFlightView.vue';
   import UpdateOdometerView from '@/app/traveling/components/UpdateOdometerView.vue';
@@ -69,7 +69,7 @@
   import { RefreshCars } from '@/domain/Traveling/RefreshCars';
   import { RefreshFlights } from '@/domain/Traveling/RefreshFlights';
 
-  @Component({ components: { UpdateOdometerView: UpdateOdometerView, AddTravelByPlane: AddFlightView, AddCarView } })
+  @Component({ components: { UpdateOdometerView, AddTravelByPlane: AddFlightView, AddCarView } })
 
   export default class TravelingConsumption extends Vue {
     presenter = new TravelingPresenter();

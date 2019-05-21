@@ -1,8 +1,8 @@
 export interface UpdateOdometerCarViewModel {
   id: string;
   name: string;
-  km: string
-};
+  km: string;
+}
 
 export class UpdateOdometerViewModel {
   displayed = false;
