@@ -1,99 +1,87 @@
-<template>
+<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
     <div>
-        <v-dialog v-model="odometerDialog" max-width="600px">
-            <SaveOdometer ref="odoMeterForm" @added="odometerAdded" @cancel="hideOdometerDialog" :car="selectedCar"/>
-        </v-dialog>
         <v-card class="mx-auto mb-3 mt-3" color="#ff8000" dark max-width="400">
             <v-card-title>
                 <v-icon large left>mdi-car</v-icon>
-                <span class="title">Cars</span>
+                <span class="title">{{viewModel.carsTitle}}</span>
                 <v-spacer></v-spacer>
-                <v-btn flat icon @click="showAddCarDialog"><v-icon>mdi-plus</v-icon></v-btn>
+                <v-btn flat icon @click="presenter.showAddCar()">
+                    <v-icon>mdi-plus</v-icon>
+                </v-btn>
             </v-card-title>
         </v-card>
-        <ListCars ref="cars" @selected="carSelected"></ListCars>
+        <div>
+            <v-data-iterator :items="viewModel.cars" hide-actions>
+                <template v-slot:item="props">
+                    <v-card class="mx-auto mb-3 mt-3" color="#26c6da" dark max-width="400"
+                            @click="presenter.showUpdateOdometer(props.item)">
+                        <v-card-title>
+                            <v-flex class="text-xs-left title">{{ props.item.name }}</v-flex>
+                            <span class="title font-weight-light text-xs-right">{{ props.item.km }}</span>
+                        </v-card-title>
+                    </v-card>
+                </template>
+            </v-data-iterator>
+        </div>
 
         <v-card class="mx-auto mb-3 mt-3" color="#ff8000" dark max-width="400">
             <v-card-title>
                 <v-icon large left>mdi-airplane mdi-rotate-45</v-icon>
-                <span class="title">Plane travels</span>
+                <span class="title">{{viewModel.flightTitle}}</span>
                 <v-spacer></v-spacer>
-                <v-btn flat icon @click="showAddAirTravelDialog"><v-icon>mdi-plus</v-icon></v-btn>
+                <v-btn flat icon @click="presenter.showAddFlight()">
+                    <v-icon>mdi-plus</v-icon>
+                </v-btn>
             </v-card-title>
         </v-card>
-        <ListPlaneTravels ref="travels"></ListPlaneTravels>
-        <v-dialog v-model="addAirTravelDialog" max-width="600px">
-            <AddTravelByPlane ref="addTravelByPlaneForm" @added="airTravelAdded"/>
+        <v-data-iterator :items="viewModel.flights" hide-actions>
+            <template v-slot:item="props">
+                <v-card class="mx-auto mb-3 mt-3" color="#26c6da" dark max-width="400">
+                    <v-card-title>
+                        <v-icon large left>mdi-airplane mdi-rotate-45</v-icon>
+                        <span class="title">{{ props.item.date }}</span><span
+                            class="title font-weight-light"> {{ props.item.description }}</span>
+                    </v-card-title>
+                    <v-card-text class="headline font-weight-bold text-xs-right">{{ props.item.km }}</v-card-text>
+                </v-card>
+            </template>
+        </v-data-iterator>
+        <v-dialog v-model="addFlightViewModel.displayed" max-width="600px">
+            <AddTravelByPlane :presenter="presenter"/>
         </v-dialog>
 
-        <v-dialog v-model="addCarDialog" max-width="600px">
-            <AddCar ref="addCarForm" @added="carSaved" @cancel="carCancelled"/>
+        <v-dialog v-model="addCarViewModel.displayed" max-width="600px">
+            <AddCarView ref="addCarForm" :presenter="presenter"/>
+        </v-dialog>
+        <v-dialog v-model="updateOdometerViewModel.displayed" max-width="600px">
+            <UpdateOdometerView ref="odometerForm" :presenter="presenter"/>
         </v-dialog>
     </div>
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
-  import AddCar from '@/app/traveling/components/add-car.vue';
-  import AddTravelByPlane from '@/app/traveling/components/add-travel-by-plane.vue';
-  import ListPlaneTravels from '@/app/traveling/components/list-plane-travels.vue';
-  import SaveOdometer from '@/app/traveling/components/save-odometer.vue';
-  import ListCars from '@/app/traveling/components/list-cars.vue';
-  import { Car } from '@eco/core-travel/src/entity/Car';
+  import { Component, Vue, Watch } from 'vue-property-decorator';
+  import AddCarView from '@/app/traveling/components/AddCarView.vue';
+  import AddFlightView from '@/app/traveling/components/AddFlightView.vue';
+  import UpdateOdometerView from '@/app/traveling/components/UpdateOdometerView.vue';
+  import { TravelingPresenter } from '@/app/traveling/TravelingPresenter';
+  import { HomeController } from '@/domain/Traveling/UseCase/Home/HomeController';
+  import { RefreshCars } from '@/domain/Traveling/RefreshCars';
+  import { RefreshFlights } from '@/domain/Traveling/RefreshFlights';
 
-  @Component({
-    components: { ListCars, AddCar, SaveOdometer, AddTravelByPlane, ListPlaneTravels },
-  })
+  @Component({ components: { UpdateOdometerView: UpdateOdometerView, AddTravelByPlane: AddFlightView, AddCarView } })
 
   export default class TravelingConsumption extends Vue {
-    addCarDialog = false;
-    addAirTravelDialog = false;
-    odometerDialog = false;
-    selectedCar: Car | null = null;
+    presenter = new TravelingPresenter();
+    controller = new HomeController(new RefreshCars(this.presenter), new RefreshFlights(this.presenter));
 
-    odometerAdded() {
-      this.odometerDialog = false;
-      (this.$refs.cars as ListCars).refresh(); // En attendant redux/rematch
-    }
+    viewModel = this.presenter.getHomeViewModel();
+    updateOdometerViewModel = this.presenter.getUpdateOdometerViewModel();
+    addCarViewModel = this.presenter.getAddCarViewModel();
+    addFlightViewModel = this.presenter!.getAddFlightViewModel();
 
-    carSelected(car: Car) {
-      this.selectedCar = car;
-      setImmediate(() => {
-        (this.$refs.odoMeterForm as SaveOdometer).startEditing();
-      });
-      this.odometerDialog = true;
-    }
-
-    hideOdometerDialog() {
-      this.odometerDialog = false;
-    }
-
-    carSaved() {
-      this.addCarDialog = false;
-      (this.$refs.cars as ListCars).refresh(); // En attendant redux/rematch
-    }
-
-    carCancelled() {
-      this.addCarDialog = false;
-    }
-
-    airTravelAdded() {
-      this.addAirTravelDialog = false;
-      (this.$refs.travels as ListPlaneTravels).refresh(); // En attendant redux/rematch
-    }
-
-    showAddCarDialog() {
-      this.addCarDialog = true;
-      setImmediate(() => {
-        (this.$refs.addCarForm as AddCar).startEditing();
-      });
-    }
-
-    showAddAirTravelDialog() {
-      this.addAirTravelDialog = true;
-      setImmediate(() => {
-        (this.$refs.addTravelByPlaneForm as AddTravelByPlane).startEditing();
-      });
+    mounted() {
+      this.controller.refreshAll();
     }
   }
 </script>

@@ -5,7 +5,7 @@ import { CarRepository } from '../repository/CarRepository';
 export class AddCarRequest {
   public readonly car: Car;
 
-  constructor(readonly name: string, readonly consumption: number, readonly engine: Engine, readonly km: number) {
+  constructor(readonly name: string, readonly consumption: number, readonly engine: string, readonly km: number) {
     if (name.trim().length === 0) {
       throw new Error('Name is required');
     }
@@ -15,7 +15,7 @@ export class AddCarRequest {
     if (!engine) {
       throw new Error('Engine is required');
     }
-    this.car = new Car(v4(), name, consumption, engine, new Date(), km);
+    this.car = new Car(v4(), name, consumption, engine as Engine, new Date(), km);
   }
 }
 

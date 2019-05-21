@@ -7,7 +7,7 @@ import { PlaneTravelAdded } from '../event/PlaneTravelAdded';
 export class AddPlaneTravelRequest {
   public readonly planeTravel: PlaneTravel;
 
-  constructor(readonly seat: Seat, readonly km: number, readonly description: string) {
+  constructor(readonly seat: string, readonly km: number, readonly description: string) {
     if (!seat) {
       throw new Error('typeId is required');
     }
@@ -15,7 +15,7 @@ export class AddPlaneTravelRequest {
       throw new Error('km is required');
     }
 
-    this.planeTravel = new PlaneTravel(v4(), seat, km, description, new Date());
+    this.planeTravel = new PlaneTravel(v4(), seat as Seat, km, description, new Date());
   }
 }
 

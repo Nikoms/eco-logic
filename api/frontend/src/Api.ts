@@ -20,14 +20,14 @@ import {
 import { InitElectricMeterRequest } from '@eco/core-electricity/src/use-case/InitElectricMeter';
 import { AddPowerConsumptionRequest } from '@eco/core-electricity/src/use-case/AddPowerConsumption';
 import { AddCarRequest } from '@eco/core-travel/src/use-case/AddCar';
-import { Engine } from '@eco/core-travel/src/entity/Car';
 import { Seat } from '@eco/core-travel/src/entity/PlaneTravel';
 import { AddPlaneTravelRequest } from '@eco/core-travel/src/use-case/AddPlaneTravel';
 import { UpdateOdometerRequest } from '@eco/core-travel/src/use-case/UpdateOdometer';
 import { AddWaterConsumptionRequest } from '@eco/core-water/src/use-case/AddWaterConsumption';
 import { InitWaterMeterRequest } from '@eco/core-water/src/use-case/InitWaterMeter';
+import { Engine } from '@eco/core-travel/src/entity/Car';
 
-class Api {
+export class Api {
   getCars() {
     return getCars.execute();
   }
@@ -48,11 +48,11 @@ class Api {
     return addPowerConsumption.execute(new AddPowerConsumptionRequest(kWh, electricMeterId));
   }
 
-  addCar(carName: string, consumption: number, engine: Engine, km: number) {
+  addCar(carName: string, consumption: number, engine: string | Engine, km: number) {
     return addCar.execute(new AddCarRequest(carName, consumption, engine, km));
   }
 
-  addPlaneTravel(seatId: Seat, km: number, description: string) {
+  addPlaneTravel(seatId: Seat | string, km: number, description: string) {
     return addPlaneTravel.execute(new AddPlaneTravelRequest(seatId, km, description));
   }
 
