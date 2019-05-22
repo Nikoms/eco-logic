@@ -18,7 +18,7 @@ export class TravelLocalStorageRepository implements TravelRepository {
   }
 
   async getAll() {
-    return this.getList().reverse();
+    return this.getList();
   }
 
   private saveList(list: any[]) {

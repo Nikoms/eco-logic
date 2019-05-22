@@ -1,21 +1,23 @@
 <template>
     <v-dialog v-model="viewModel.displayed" max-width="600px">
-        <v-form @submit.prevent="sendMessage">
+        <v-form @submit.prevent="$travel.addCarController.addCar(viewModel.form)">
             <v-card>
                 <v-card-title>
                     <v-icon large left>mdi-car</v-icon>
                     <span class="title font-weight-light">{{viewModel.titleLabel}}</span>
                 </v-card-title>
                 <v-card-text>
-                    <v-text-field v-model="name" label="Name" ref="name"></v-text-field>
-                    <v-text-field v-model="consumption" type="number" label="Consumption" suffix="l/100"></v-text-field>
-                    <v-select v-model="engine" :items="viewModel.engines" label="Engine"></v-select>
-                    <v-text-field v-model="km" :label="viewModel.kmLabel"></v-text-field>
+                    <v-text-field v-model="viewModel.form.name" :label="viewModel.nameLabel" ref="name"></v-text-field>
+                    <v-text-field v-model="viewModel.form.consumption" type="number" :label="viewModel.consumptionLabel"
+                                  :suffix="viewModel.consumptionSuffix"></v-text-field>
+                    <v-select v-model="viewModel.form.engine" :items="viewModel.engines"
+                              :label="viewModel.engineLabel"></v-select>
+                    <v-text-field v-model="viewModel.form.km" :label="viewModel.kmLabel"></v-text-field>
                 </v-card-text>
 
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn flat color="secondary" @click="presenter.cancelAddCar()">{{viewModel.cancelLabel}}</v-btn>
+                    <v-btn flat color="secondary" @click="$travel.addCarPresenter.cancelAddCar()">{{viewModel.cancelLabel}}</v-btn>
                     <v-btn flat color="primary" type="submit">{{viewModel.saveLabel}}</v-btn>
                 </v-card-actions>
             </v-card>
@@ -25,41 +27,18 @@
 
 <script lang="ts">
   import { Component, Vue, Watch } from 'vue-property-decorator';
-  import { AddCarRequest } from '@/domain/Traveling/UseCase/AddCar/AddCarRequest';
-  import { AddCar } from '@/domain/Traveling/UseCase/AddCar/AddCar';
-  import { AddCarController } from '@/domain/Traveling/UseCase/AddCar/AddCarController';
-  import { AddCarPresenterInterface } from '@/domain/Traveling/UseCase/AddCar/AddCarPresenterInterface';
 
   @Component
   export default class AddCarView extends Vue {
-    presenter: AddCarPresenterInterface = this.$travelingFactory.travelingHomePresenter;
-    viewModel = this.presenter!.getAddCarViewModel();
-    controller = new AddCarController(new AddCar(this.presenter!));
-
-    name = '';
-    consumption = '';
-    km = '';
-    engine = '';
-
-
-    async sendMessage() {
-      this.controller.addCar(new AddCarRequest(this.name, this.consumption, this.engine, this.km));
-    }
+    viewModel = this.$travel.addCarPresenter.getAddCarViewModel();
 
     @Watch('viewModel.displayed') onDisplayChanged(displayed: boolean) {
       if (displayed) {
-        this.clearForm();
         setImmediate(() => {
           (this.$refs.name as any).focus();
         });
       }
     }
 
-    private clearForm() {
-      this.name = '';
-      this.consumption = '';
-      this.km = '0';
-      this.engine = this.viewModel.engines[0];
-    }
   }
 </script>

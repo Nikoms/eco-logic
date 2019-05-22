@@ -1,4 +1,5 @@
 import { Seat } from '@eco/core-travel/src/entity/PlaneTravel';
+import { AddFlightRequest } from '@/domain/Traveling/UseCase/AddFlight/AddFlightRequest';
 
 export class AddFlightViewModel {
   displayed = false;
@@ -8,4 +9,5 @@ export class AddFlightViewModel {
   saveLabel = 'Save';
   descriptionLabel = 'Description';
   seatsLabel = 'Select your seat';
+  form = new AddFlightRequest('', '', '');
 }

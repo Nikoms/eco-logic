@@ -1,3 +1,5 @@
+import { UpdateOdometerRequest } from '@/domain/Traveling/UseCase/UpdateOdometer/UpdateOdometerRequest';
+
 export interface UpdateOdometerCarViewModel {
   id: string;
   name: string;
@@ -6,8 +8,10 @@ export interface UpdateOdometerCarViewModel {
 
 export class UpdateOdometerViewModel {
   displayed = false;
-  selectedCar: UpdateOdometerCarViewModel | null = null;
   titleText = 'Save your current odometer';
   cancelText = 'Cancel';
   saveText = 'Save';
+  carName = '';
+  lastKm = '';
+  form = new UpdateOdometerRequest('', '');
 }

@@ -37,8 +37,8 @@
                 <v-card class="mx-auto mb-3 mt-3" color="#26c6da" dark max-width="400">
                     <v-card-title>
                         <v-icon large left>mdi-airplane mdi-rotate-45</v-icon>
-                        <span class="title">{{ props.item.date }}</span><span
-                            class="title font-weight-light"> {{ props.item.description }}</span>
+                        <span class="title">{{ props.item.date }}</span>&nbsp;<span
+                            class="title font-weight-light">{{ props.item.description }}</span>
                     </v-card-title>
                     <v-card-text class="headline font-weight-bold text-xs-right">{{ props.item.km }}</v-card-text>
                 </v-card>
@@ -61,11 +61,11 @@
   @Component({ components: { UpdateOdometerView, AddFlightView, AddCarView } })
 
   export default class TravelingConsumption extends Vue {
-    presenter: HomePresenterInterface = this.$travelingFactory.travelingHomePresenter;
+    presenter: HomePresenterInterface = this.$travel.homePresenter;
     viewModel = this.presenter.getHomeViewModel();
 
     mounted() {
-      this.$travelingFactory.travelingHomeController.initList();
+      this.$travel.HomeController.initList();
     }
   }
 </script>

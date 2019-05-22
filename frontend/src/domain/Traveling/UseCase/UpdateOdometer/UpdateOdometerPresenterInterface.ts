@@ -1,6 +1,8 @@
 import { Odometer } from '@eco/core-travel/src/entity/Odometer';
-import { UpdateOdometerCarViewModel, UpdateOdometerViewModel } from '@/domain/Traveling/UseCase/UpdateOdometer/UpdateOdometerViewModel';
-import { Car } from '@eco/core-travel/src/entity/Car';
+import {
+  UpdateOdometerCarViewModel,
+  UpdateOdometerViewModel,
+} from '@/domain/Traveling/UseCase/UpdateOdometer/UpdateOdometerViewModel';
 
 export interface UpdateOdometerPresenterInterface {
   kmIsEmpty(): void;

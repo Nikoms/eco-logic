@@ -48,7 +48,10 @@ export class TravelingPresenter
 
   showUpdateOdometer(selectedCar: UpdateOdometerCarViewModel) {
     this.updateOdometerViewModel.displayed = true;
-    this.updateOdometerViewModel.selectedCar = selectedCar;
+    this.updateOdometerViewModel.carName = selectedCar.name;
+    this.updateOdometerViewModel.lastKm = selectedCar.km;
+    this.updateOdometerViewModel.form.km = '';
+    this.updateOdometerViewModel.form.carId = selectedCar.id;
   }
 
   getUpdateOdometerViewModel(): UpdateOdometerViewModel {
@@ -108,6 +111,10 @@ export class TravelingPresenter
 
   showAddCar(): void {
     this.addCarViewModel.displayed = true;
+    this.addCarViewModel.form.name = '';
+    this.addCarViewModel.form.consumption = '';
+    this.addCarViewModel.form.km = '0';
+    this.addCarViewModel.form.engine = this.addCarViewModel.engines[0];
   }
 
   nameIsEmpty(): void {
@@ -141,7 +148,11 @@ export class TravelingPresenter
   }
 
   showAddFlight(): void {
+    this.addFlightViewModel.form.km = '';
+    this.addFlightViewModel.form.description = '';
+    this.addFlightViewModel.form.seat = this.addFlightViewModel.seats[0];
     this.addFlightViewModel.displayed = true;
+
   }
 
   // AddFlightPresenterInterface:end
