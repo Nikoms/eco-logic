@@ -1,10 +1,10 @@
 <template>
     <v-data-table
             :headers="headers"
-            :items="consumptions"
+            :items="viewModel.consumptions"
             class="elevation-1"
             hide-actions
-            no-data-text="No consumption for the moment. Don't forget to add yours quickly"
+            :no-data-text="viewModel.noConsumptionsMessage"
     >
         <template slot="items" slot-scope="props">
             <td class="text-xs-right">{{ props.item.m3 }}</td>
@@ -16,29 +16,22 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { WaterConsumption } from '@eco/core-water/src/entity/WaterConsumption';
-  import { api } from '../../../../../api/frontend/src/Api';
 
   @Component
-  export default class ListWaterConsumptions extends Vue {
-    consumptions: WaterConsumption[] = [];
+  export default class ListWaterConsumptionView extends Vue {
+    viewModel = this.$water.listConsumptionsPresenter.getViewModel();
     headers = [
       {
-        text: 'm3',
+        text: this.viewModel.headerM3Label,
         sortable: false,
         value: 'm3',
       },
-      { text: 'Meter', value: 'waterMeter', sortable: false },
-      { text: 'Date', value: 'date' },
+      { text: this.viewModel.headerMeterNameLabel, value: 'waterMeter', sortable: false },
+      { text: this.viewModel.headerDateLabel, value: 'date' },
     ];
 
     async mounted() {
-      await this.refresh();
-    }
-
-    async refresh() {
-      this.consumptions = [];
-      this.consumptions = await api.getAllWaterConsumptions();
+      this.$water.listConsumptionsController.refresh();
     }
   }
 </script>

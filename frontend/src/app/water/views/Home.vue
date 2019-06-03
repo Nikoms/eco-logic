@@ -13,7 +13,7 @@
             <v-icon>mdi-plus</v-icon>
         </v-btn>
 
-        <ListWaterConsumptions ref="list"/>
+        <ListWaterConsumptionView/>
         <AddWaterConsumptionView/>
 
     </div>
@@ -25,14 +25,14 @@
 <script lang="ts">
   import { Component, Vue, Watch } from 'vue-property-decorator';
   import AddWaterConsumptionView from '@/app/water/components/AddWaterConsumptionView.vue';
-  import ListWaterConsumptions from '@/app/water/components/list-water-consumptions.vue';
+  import ListWaterConsumptionView from '@/app/water/components/ListWaterConsumptionView.vue';
   import InitWaterMeterView from '@/app/water/components/InitWaterMeterView.vue';
   import { WaterMeter } from '@eco/core-water/src/entity/WaterMeter';
 
 
   @Component({
     components: {
-      InitWaterMeterView, AddWaterConsumptionView, ListWaterConsumptions,
+      InitWaterMeterView, AddWaterConsumptionView, ListWaterConsumptionView,
     },
   })
   export default class WaterConsumption extends Vue {
@@ -48,8 +48,10 @@
       this.$water.initWaterMeterController.initList();
     }
 
-    @Watch('addConsumptionViewModel.displayed') consumptionChanged() {
-      (this.$refs.list as ListWaterConsumptions).refresh(); // En attendant redux/rematch
+    @Watch('addConsumptionViewModel.displayed') consumptionChanged(displayed: boolean) {
+      if (!displayed) {
+        this.$water.listConsumptionsController.refresh();
+      }
     }
 
     @Watch('initWaterViewModel.meters') metersChanged(meters: WaterMeter[]) {

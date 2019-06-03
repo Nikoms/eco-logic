@@ -6,6 +6,9 @@ import { InitWaterMeterController } from '@/domain/Water/UseCase/InitWaterMeter/
 import { InitWaterMeter } from '@/domain/Water/UseCase/InitWaterMeter/InitWaterMeter';
 import { InitWaterPresenter } from '@/domain/Water/UseCase/InitWaterMeter/InitWaterPresenter';
 import { GetWaterMeters } from '@/domain/Water/UseCase/GetWaterMeters/GetWaterMeters';
+import { ListConsumptionsPresenter } from '@/domain/Water/UseCase/ListConsumptions/ListConsumptionsPresenter';
+import { ListConsumptionsController } from '@/domain/Water/UseCase/ListConsumptions/ListConsumptionsController';
+import { ListConsumptions } from '@/domain/Water/UseCase/ListConsumptions/ListConsumptions';
 
 export class WaterFactory {
   private instances: any = {};
@@ -22,7 +25,19 @@ export class WaterFactory {
         new GetWaterMeters(this.initWaterMeterPresenter),
       ),
     );
+  }
 
+  get listConsumptionsPresenter() {
+    return this.reuseOrInstantiate(ListConsumptionsPresenter.name, () => new ListConsumptionsPresenter());
+  }
+
+  get listConsumptionsController() {
+    return this.reuseOrInstantiate(
+      ListConsumptionsController.name,
+      () => new ListConsumptionsController(
+        new ListConsumptions(this.listConsumptionsPresenter),
+      ),
+    );
   }
 
   get homePresenter() {
