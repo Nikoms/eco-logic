@@ -16,12 +16,4 @@ export class HomePresenter {
   getHomeViewModel(): HomeViewModel {
     return this.viewModel;
   }
-
-  showAddWaterConsumption() {
-    this.viewModel.addWaterConsumptionDisplayed = true;
-  }
-
-  hideAddWaterConsumption() {
-    this.viewModel.addWaterConsumptionDisplayed = false;
-  }
 }

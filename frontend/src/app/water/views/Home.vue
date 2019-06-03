@@ -9,14 +9,12 @@
                 fixed
                 bottom
                 right
-                @click="presenter.showAddWaterConsumption()">
+                @click="addConsumptionPresenter.showAddWaterConsumption(viewModel.meters)">
             <v-icon>mdi-plus</v-icon>
         </v-btn>
 
         <ListWaterConsumptions ref="list"/>
-        <v-dialog v-model="viewModel.addWaterConsumptionDisplayed" max-width="600px">
-            <AddWaterConsumption ref="form" @added="added"/>
-        </v-dialog>
+        <AddWaterConsumptionView/>
 
     </div>
     <div v-else>
@@ -25,34 +23,29 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
-  import AddWaterConsumption from '@/app/water/components/add-water-consumption.vue';
+  import { Component, Vue, Watch } from 'vue-property-decorator';
+  import AddWaterConsumptionView from '@/app/water/components/AddWaterConsumptionView.vue';
   import ListWaterConsumptions from '@/app/water/components/list-water-consumptions.vue';
   import InitWater from '@/app/water/components/init-water.vue';
 
 
   @Component({
     components: {
-      InitWater,
-      AddWaterConsumption, ListWaterConsumptions,
+      InitWater, AddWaterConsumptionView, ListWaterConsumptions,
     },
   })
   export default class WaterConsumption extends Vue {
     presenter = this.$water.homePresenter;
     viewModel = this.$water.homePresenter.getHomeViewModel();
 
+    addConsumptionPresenter = this.$water.addConsumptionPresenter;
+    addConsumptionViewModel = this.$water.addConsumptionPresenter.getViewModel();
+
     async mounted() {
       this.$water.homeController.initList();
     }
 
-    showDialog() {
-      setImmediate(() => {
-        (this.$refs.form as AddWaterConsumption).startEditing();
-      });
-    }
-
-    added() {
-      this.presenter.hideAddWaterConsumption();
+    @Watch('addConsumptionViewModel.displayed') consumptionChanged() {
       (this.$refs.list as ListWaterConsumptions).refresh(); // En attendant redux/rematch
     }
 
