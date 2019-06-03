@@ -1,4 +1,3 @@
-import { TravelingPresenter } from '@/app/traveling/TravelingPresenter';
 import { RefreshFlights } from '@/domain/Traveling/RefreshFlights';
 import { RefreshCars } from '@/domain/Traveling/RefreshCars';
 import { HomeController } from '@/domain/Traveling/UseCase/Home/HomeController';
@@ -12,6 +11,7 @@ import { AddCarPresenterInterface } from '@/domain/Traveling/UseCase/AddCar/AddC
 import { AddFlightPresenterInterface } from '@/domain/Traveling/UseCase/AddFlight/AddFlightPresenterInterface';
 import { UpdateOdometerPresenterInterface } from '@/domain/Traveling/UseCase/UpdateOdometer/UpdateOdometerPresenterInterface';
 import { HomePresenterInterface } from '@/domain/Traveling/UseCase/Home/HomePresenterInterface';
+import { TravelingPresenter } from '@/domain/Traveling/TravelingPresenter';
 
 export class TravelingFactory {
   private instances: any = {};
