@@ -1,5 +1,3 @@
-import { UpdateOdometerRequest } from '@/domain/Traveling/UseCase/UpdateOdometer/UpdateOdometerRequest';
-
 export interface UpdateOdometerCarViewModel {
   id: string;
   name: string;
@@ -13,5 +11,5 @@ export class UpdateOdometerViewModel {
   saveText = 'Save';
   carName = '';
   lastKm = '';
-  form = new UpdateOdometerRequest('', '');
+  carId = '';
 }

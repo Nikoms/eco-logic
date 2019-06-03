@@ -9,5 +9,4 @@ export class AddFlightViewModel {
   saveLabel = 'Save';
   descriptionLabel = 'Description';
   seatsLabel = 'Select your seat';
-  form = new AddFlightRequest('', '', '');
 }
