@@ -18,7 +18,7 @@
 
     </div>
     <div v-else>
-        <InitWater @init="waterInitialized"/>
+        <InitWaterMeterView/>
     </div>
 </template>
 
@@ -26,12 +26,13 @@
   import { Component, Vue, Watch } from 'vue-property-decorator';
   import AddWaterConsumptionView from '@/app/water/components/AddWaterConsumptionView.vue';
   import ListWaterConsumptions from '@/app/water/components/list-water-consumptions.vue';
-  import InitWater from '@/app/water/components/init-water.vue';
+  import InitWaterMeterView from '@/app/water/components/InitWaterMeterView.vue';
+  import { WaterMeter } from '@eco/core-water/src/entity/WaterMeter';
 
 
   @Component({
     components: {
-      InitWater, AddWaterConsumptionView, ListWaterConsumptions,
+      InitWaterMeterView, AddWaterConsumptionView, ListWaterConsumptions,
     },
   })
   export default class WaterConsumption extends Vue {
@@ -41,16 +42,18 @@
     addConsumptionPresenter = this.$water.addConsumptionPresenter;
     addConsumptionViewModel = this.$water.addConsumptionPresenter.getViewModel();
 
+    initWaterViewModel = this.$water.initWaterMeterPresenter.getViewModel();
+
     async mounted() {
-      this.$water.homeController.initList();
+      this.$water.initWaterMeterController.initList();
     }
 
     @Watch('addConsumptionViewModel.displayed') consumptionChanged() {
       (this.$refs.list as ListWaterConsumptions).refresh(); // En attendant redux/rematch
     }
 
-    waterInitialized() {
-      this.$water.homeController.initList();
+    @Watch('initWaterViewModel.meters') metersChanged(meters: WaterMeter[]) {
+      this.presenter.setMeters(meters);
     }
   }
 </script>

@@ -3,7 +3,7 @@ import { WaterMeterRepository } from '../repository/WaterMeterRepository';
 import { WaterMeter } from '../entity/WaterMeter';
 
 export class InitWaterMeterRequest {
-  constructor(public readonly hasHotMeter: boolean) {
+  constructor(public readonly hasHotAndColdMeter: boolean) {
   }
 }
 
@@ -13,11 +13,16 @@ export class InitWaterMeter {
   }
 
   async execute(request: InitWaterMeterRequest) {
-    if (request.hasHotMeter) {
-      await this.store.add(new WaterMeter(v4(), 'Cold meter'));
-      await this.store.add(new WaterMeter(v4(), 'Hot meter'));
+    const waterMeters: WaterMeter[] = [];
+    if (request.hasHotAndColdMeter) {
+      waterMeters.push(new WaterMeter(v4(), 'Cold meter'));
+      waterMeters.push(new WaterMeter(v4(), 'Hot meter'));
     } else {
-      await this.store.add(new WaterMeter(v4(), 'Water meter'));
+      waterMeters.push(new WaterMeter(v4(), 'Water meter'));
     }
+    for (const waterMeter of waterMeters) {
+      await this.store.add(waterMeter);
+    }
+    return waterMeters;
   }
 }
