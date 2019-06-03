@@ -1,5 +1,5 @@
 <template>
-    <div v-if="hasMeter">
+    <div v-if="viewModel.hasMeter">
         <v-btn
                 style="bottom: 70px"
                 color="indigo"
@@ -9,12 +9,12 @@
                 fixed
                 bottom
                 right
-                @click="showDialog">
+                @click="presenter.showAddWaterConsumption()">
             <v-icon>mdi-plus</v-icon>
         </v-btn>
 
         <ListWaterConsumptions ref="list"/>
-        <v-dialog v-model="dialog" max-width="600px">
+        <v-dialog v-model="viewModel.addWaterConsumptionDisplayed" max-width="600px">
             <AddWaterConsumption ref="form" @added="added"/>
         </v-dialog>
 
@@ -29,7 +29,7 @@
   import AddWaterConsumption from '@/app/water/components/add-water-consumption.vue';
   import ListWaterConsumptions from '@/app/water/components/list-water-consumptions.vue';
   import InitWater from '@/app/water/components/init-water.vue';
-  import { api } from '../../../../../api/frontend/src/Api';
+
 
   @Component({
     components: {
@@ -38,27 +38,26 @@
     },
   })
   export default class WaterConsumption extends Vue {
-    dialog = false;
-    hasMeter = false;
+    presenter = this.$water.homePresenter;
+    viewModel = this.$water.homePresenter.getHomeViewModel();
 
     async mounted() {
-      this.hasMeter = (await api.getWaterMeters()).length > 0;
+      this.$water.homeController.initList();
     }
 
     showDialog() {
-      this.dialog = true;
       setImmediate(() => {
         (this.$refs.form as AddWaterConsumption).startEditing();
       });
     }
 
     added() {
-      this.dialog = false;
+      this.presenter.hideAddWaterConsumption();
       (this.$refs.list as ListWaterConsumptions).refresh(); // En attendant redux/rematch
     }
 
     waterInitialized() {
-      this.hasMeter = true;
+      this.$water.homeController.initList();
     }
   }
 </script>
