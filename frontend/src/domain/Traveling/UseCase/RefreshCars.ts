@@ -1,13 +1,13 @@
-import { api } from '../../../../api/frontend/src/Api';
 import { HomePresenterInterface } from '@/domain/Traveling/UseCase/Home/HomePresenterInterface';
+import { api } from '../../../../../api/frontend/src/Api';
 
-export class RefreshFlights {
+export class RefreshCars {
   constructor(private presenter: HomePresenterInterface) {
 
   }
 
   async execute() {
-    const flights = await api.getPlaneTravels();
-    this.presenter.setFlights(flights);
+    const cars = await api.getCars();
+    this.presenter.setCars(cars);
   }
 }

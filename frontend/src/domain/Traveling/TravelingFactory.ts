@@ -1,5 +1,5 @@
-import { RefreshFlights } from '@/domain/Traveling/RefreshFlights';
-import { RefreshCars } from '@/domain/Traveling/RefreshCars';
+import { RefreshFlights } from '@/domain/Traveling/UseCase/RefreshFlights';
+import { RefreshCars } from '@/domain/Traveling/UseCase/RefreshCars';
 import { HomeController } from '@/domain/Traveling/UseCase/Home/HomeController';
 import { AddCar } from '@/domain/Traveling/UseCase/AddCar/AddCar';
 import { AddCarController } from '@/domain/Traveling/UseCase/AddCar/AddCarController';
