@@ -1,28 +1,29 @@
-import { HomePresenter } from '@/domain/Water/UseCase/Home/HomePresenter';
 import { AddConsumptionController } from '@/domain/Water/UseCase/AddConsumption/AddConsumptionController';
-import { AddConsumptionPresenter } from '@/domain/Water/UseCase/AddConsumption/AddConsumptionPresenter';
 import { AddConsumption } from '@/domain/Water/UseCase/AddConsumption/AddConsumption';
 import { InitWaterMeterController } from '@/domain/Water/UseCase/InitWaterMeter/InitWaterMeterController';
 import { InitWaterMeter } from '@/domain/Water/UseCase/InitWaterMeter/InitWaterMeter';
-import { InitWaterPresenter } from '@/domain/Water/UseCase/InitWaterMeter/InitWaterPresenter';
 import { GetWaterMeters } from '@/domain/Water/UseCase/GetWaterMeters/GetWaterMeters';
 import { ListConsumptionsPresenter } from '@/domain/Water/UseCase/ListConsumptions/ListConsumptionsPresenter';
 import { ListConsumptionsController } from '@/domain/Water/UseCase/ListConsumptions/ListConsumptionsController';
 import { ListConsumptions } from '@/domain/Water/UseCase/ListConsumptions/ListConsumptions';
+import { HomePresenterInterface } from '@/domain/Water/UseCase/Home/HomePresenterInterface';
+import { WaterPresenter } from '@/domain/Water/WaterPresenter';
+import { AddConsumptionPresenterInterface } from '@/domain/Water/UseCase/AddConsumption/AddConsumptionPresenterInterface';
+import { GetWaterMeterPresenterInterface } from '@/domain/Water/UseCase/GetWaterMeters/GetWaterMeterPresenterInterface';
 
 export class WaterFactory {
   private instances: any = {};
 
-  get initWaterMeterPresenter() {
-    return this.reuseOrInstantiate(InitWaterPresenter.name, () => new InitWaterPresenter());
+  get getWaterMeterPresenterInterface(): GetWaterMeterPresenterInterface {
+    return this.waterPresenter;
   }
 
   get initWaterMeterController() {
     return this.reuseOrInstantiate(
       InitWaterMeterController.name,
       () => new InitWaterMeterController(
-        new InitWaterMeter(this.initWaterMeterPresenter),
-        new GetWaterMeters(this.initWaterMeterPresenter),
+        new InitWaterMeter(this.getWaterMeterPresenterInterface),
+        new GetWaterMeters(this.getWaterMeterPresenterInterface),
       ),
     );
   }
@@ -40,12 +41,12 @@ export class WaterFactory {
     );
   }
 
-  get homePresenter() {
-    return this.reuseOrInstantiate(HomePresenter.name, () => new HomePresenter());
+  get homePresenter(): HomePresenterInterface {
+    return this.waterPresenter;
   }
 
-  get addConsumptionPresenter() {
-    return this.reuseOrInstantiate(AddConsumptionPresenter.name, () => new AddConsumptionPresenter());
+  get addConsumptionPresenter(): AddConsumptionPresenterInterface {
+    return this.waterPresenter;
   }
 
   get addConsumptionController() {
@@ -53,6 +54,10 @@ export class WaterFactory {
       AddConsumptionController.name,
       () => new AddConsumptionController(new AddConsumption(this.addConsumptionPresenter)),
     );
+  }
+
+  private get waterPresenter(): WaterPresenter {
+    return this.reuseOrInstantiate(WaterPresenter.name, () => new WaterPresenter());
   }
 
   private reuseOrInstantiate<T>(id: string, callback: () => T): T {

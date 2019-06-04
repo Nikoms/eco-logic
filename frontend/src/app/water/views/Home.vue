@@ -9,7 +9,7 @@
                 fixed
                 bottom
                 right
-                @click="addConsumptionPresenter.showAddWaterConsumption(viewModel.meters)">
+                @click="addConsumptionPresenter.showAddWaterConsumption()">
             <v-icon>mdi-plus</v-icon>
         </v-btn>
 
@@ -27,7 +27,6 @@
   import AddWaterConsumptionView from '@/app/water/components/AddWaterConsumptionView.vue';
   import ListWaterConsumptionView from '@/app/water/components/ListWaterConsumptionView.vue';
   import InitWaterMeterView from '@/app/water/components/InitWaterMeterView.vue';
-  import { WaterMeter } from '@eco/core-water/src/entity/WaterMeter';
 
 
   @Component({
@@ -40,9 +39,7 @@
     viewModel = this.$water.homePresenter.getHomeViewModel();
 
     addConsumptionPresenter = this.$water.addConsumptionPresenter;
-    addConsumptionViewModel = this.$water.addConsumptionPresenter.getViewModel();
-
-    initWaterViewModel = this.$water.initWaterMeterPresenter.getViewModel();
+    addConsumptionViewModel = this.$water.addConsumptionPresenter.getAddConsumptionViewModel();
 
     async mounted() {
       this.$water.initWaterMeterController.initList();
@@ -52,10 +49,6 @@
       if (!displayed) {
         this.$water.listConsumptionsController.refresh();
       }
-    }
-
-    @Watch('initWaterViewModel.meters') metersChanged(meters: WaterMeter[]) {
-      this.presenter.setMeters(meters);
     }
   }
 </script>
