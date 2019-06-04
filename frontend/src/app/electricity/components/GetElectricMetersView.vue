@@ -1,5 +1,5 @@
 <template>
-    <v-data-iterator :items="meters" hide-actions>
+    <v-data-iterator :items="viewModel.meters" hide-actions>
         <template v-slot:item="props">
             <v-card class="mx-auto mb-3 mt-3" color="#26c6da" dark max-width="400"
                     @click="electricMeterSelected(props.item)">
@@ -17,22 +17,14 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
-  import { api } from '../../../../../api/frontend/src/Api';
 
   @Component({})
-  export default class ListElectricMeters extends Vue {
-    meters: ElectricMeter[] = [];
-
-    async mounted() {
-      await this.refresh();
-    }
-
-    async refresh() {
-      this.meters = await api.getElectricMeters();
-    }
+  export default class ListElectricMetersView extends Vue {
+    homePresenter = this.$electricity.homePresenter;
+    viewModel = this.$electricity.getElectricMetersPresenter.getGetElectricMetersViewModel();
 
     electricMeterSelected(electricMeter: ElectricMeter) {
-      this.$emit('selected', electricMeter);
+      this.homePresenter.showUpdatePowerConsumption(electricMeter);
     }
   }
 </script>

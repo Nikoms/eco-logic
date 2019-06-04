@@ -15,14 +15,12 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { api } from '../../../../../api/frontend/src/Api';
+  import { InitElectricMetersRequest } from '@/domain/Electricity/UseCase/InitElectricMeters/InitElectricMetersRequest';
 
   @Component({})
-  export default class InitPower extends Vue {
-
+  export default class InitElectricMetersView extends Vue {
     async initElectricMeter(hasDayAndNightMeter: boolean) {
-      await api.initElectricMeter(hasDayAndNightMeter);
-      this.$emit('init');
+      this.$electricity.initElectricMetersController.init(new InitElectricMetersRequest(hasDayAndNightMeter));
     }
   }
 </script>

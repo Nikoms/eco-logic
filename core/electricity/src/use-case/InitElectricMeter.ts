@@ -13,11 +13,18 @@ export class InitElectricMeter {
   }
 
   async execute(request: InitElectricMeterRequest) {
+    const meters: ElectricMeter[] = [];
     if (request.hasNightMeter) {
-      await this.store.add(new ElectricMeter(v4(), 'Day meter', 0, new Date()));
-      await this.store.add(new ElectricMeter(v4(), 'Night meter', 0, new Date()));
+      meters.push(new ElectricMeter(v4(), 'Day meter', 0, new Date()));
+      meters.push(new ElectricMeter(v4(), 'Night meter', 0, new Date()));
     } else {
-      await this.store.add(new ElectricMeter(v4(), 'Electric meter', 0, new Date()));
+      meters.push(new ElectricMeter(v4(), 'Electric meter', 0, new Date()));
     }
+
+    for (const meter of meters) {
+      await this.store.add(meter);
+    }
+
+    return meters;
   }
 }

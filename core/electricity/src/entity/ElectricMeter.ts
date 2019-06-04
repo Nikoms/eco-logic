@@ -10,8 +10,8 @@ export class ElectricMeter {
     return this._lastKWhUpdate;
   }
 
-  updateKwh(kWh: number) {
+  updateKwh(kWh: number, date?: Date) {
     this._kWh = kWh;
-    this._lastKWhUpdate = new Date();
+    this._lastKWhUpdate = date || new Date();
   }
 }
