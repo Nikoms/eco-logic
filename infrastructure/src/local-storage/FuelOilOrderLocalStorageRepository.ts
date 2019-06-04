@@ -17,14 +17,14 @@ export class FuelOilOrderLocalStorageRepository implements FuelOilOrderRepositor
     this.saveList(list);
   }
 
-  async getLast() {
-    return this.getList().pop();
-  }
-
   getTotal(): number {
     return this.getList().reduce((total, command) => {
       return total + command.liters;
     }, 0);
+  }
+
+  async getLast(max: number) {
+    return this.getList().slice().reverse().slice(0, 5);
   }
 
   private saveList(list: any[]) {

@@ -84,7 +84,7 @@ export class Api {
     return orderFuelOil.execute(liters);
   }
 
-  getLastFuelOilOrder() {
+  getLastFuelOilOrders() {
     return getLastFuelOilOrder.execute();
   }
 

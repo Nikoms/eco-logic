@@ -5,6 +5,6 @@ export class GetLastFuelOilOrder {
   }
 
   execute() {
-    return this.fuelOilOrders.getLast();
+    return this.fuelOilOrders.getLast(5);
   }
 }

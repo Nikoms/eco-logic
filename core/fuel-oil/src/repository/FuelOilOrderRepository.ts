@@ -3,7 +3,7 @@ import { FuelOilOrder } from '../entity/FuelOilOrder';
 export interface FuelOilOrderRepository {
   add(fuelOilOrder: FuelOilOrder): Promise<void>;
 
-  getLast(): Promise<FuelOilOrder | undefined>;
+  getLast(max: number): Promise<FuelOilOrder[]>;
 
   getTotal(): number;
 }
