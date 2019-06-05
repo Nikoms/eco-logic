@@ -12,9 +12,9 @@ import { AddCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddC
 import { AddCarViewModel } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarViewModel';
 import { AddFlightPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightPresenterInterface';
 import { AddFlightViewModel } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightViewModel';
-import { AddFlightResponse } from './UseCase/AddFlight/AddFlightResponse';
-import { AddCarResponse } from './UseCase/AddCar/AddCarResponse';
-import { GetCarsResponse } from './UseCase/GetCars/GetCarsResponse';
+import { AddFlightResponse } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightResponse';
+import { AddCarResponse } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarResponse';
+import { GetCarsResponse } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCarsResponse';
 
 export class TravelingPresenter
   implements UpdateOdometerPresenterInterface, HomePresenterInterface, AddCarPresenterInterface, AddFlightPresenterInterface {

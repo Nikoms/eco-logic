@@ -1,7 +1,7 @@
 import { AddFlightRequest } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightRequest';
 import { api } from '@eco/domain/src/Temp/Api';
 import { AddFlightPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightPresenterInterface';
-import { AddFlightResponse } from './AddFlightResponse';
+import { AddFlightResponse } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightResponse';
 
 
 export class AddFlight {

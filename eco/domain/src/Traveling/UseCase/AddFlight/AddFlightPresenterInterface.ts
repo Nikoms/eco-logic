@@ -1,5 +1,5 @@
 import { AddFlightViewModel } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightViewModel';
-import { AddFlightResponse } from './AddFlightResponse';
+import { AddFlightResponse } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightResponse';
 
 export interface AddFlightPresenterInterface {
 

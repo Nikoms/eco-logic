@@ -1,7 +1,7 @@
 import { AddCarRequest } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarRequest';
 import { api } from '@eco/domain/src/Temp/Api';
 import { AddCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarPresenterInterface';
-import { AddCarResponse } from './AddCarResponse';
+import { AddCarResponse } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarResponse';
 
 export class AddCar {
 
