@@ -12,6 +12,7 @@ import { AddCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddC
 import { AddCarViewModel } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarViewModel';
 import { AddFlightPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightPresenterInterface';
 import { AddFlightViewModel } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightViewModel';
+import { AddFlightResponse } from './UseCase/AddFlight/AddFlightResponse';
 
 export class TravelingPresenter
   implements UpdateOdometerPresenterInterface, HomePresenterInterface, AddCarPresenterInterface, AddFlightPresenterInterface {
@@ -123,28 +124,26 @@ export class TravelingPresenter
     this.addFlightViewModel.displayed = false;
   }
 
-
-  addedFlight(flight: PlaneTravel): void {
-    this.flights.push(flight);
-    this.updateFlightViewModel();
-    this.addFlightViewModel.displayed = false;
-  }
-
   getAddFlightViewModel(): AddFlightViewModel {
     return this.addFlightViewModel;
   }
 
-  invalidKm(): void {
-    console.error('invalidKm');
-  }
-
-  invalidSeat(): void {
-    console.error('invalidSeat');
-  }
-
   showAddFlight(): void {
     this.addFlightViewModel.displayed = true;
+  }
 
+  presentAddFlight(response: AddFlightResponse): void {
+    if (response.isInvalidKm) {
+      console.error('invalid km');
+    }
+    if (response.isInvalidSeat) {
+      console.error('invalid seat');
+    }
+    if (response.newFlight !== undefined) {
+      this.flights.push(response.newFlight);
+      this.updateFlightViewModel();
+      this.addFlightViewModel.displayed = false;
+    }
   }
 
   // AddFlightPresenterInterface:end

@@ -1,5 +1,5 @@
-import { PlaneTravel } from '@eco/core-travel/src/entity/PlaneTravel';
 import { AddFlightViewModel } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightViewModel';
+import { AddFlightResponse } from './AddFlightResponse';
 
 export interface AddFlightPresenterInterface {
 
@@ -7,11 +7,7 @@ export interface AddFlightPresenterInterface {
 
   cancelAddFlight(): void;
 
-  invalidKm(): void;
-
-  invalidSeat(): void;
-
-  addedFlight(flight: PlaneTravel): void;
-
   getAddFlightViewModel(): AddFlightViewModel;
+
+  presentAddFlight(response: AddFlightResponse): void;
 }

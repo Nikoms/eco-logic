@@ -1,6 +1,7 @@
 import { AddFlightRequest } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightRequest';
 import { api } from '@eco/domain/src/Temp/Api';
 import { AddFlightPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightPresenterInterface';
+import { AddFlightResponse } from './AddFlightResponse';
 
 
 export class AddFlight {
@@ -8,22 +9,22 @@ export class AddFlight {
   }
 
   async execute(request: AddFlightRequest) {
+    const response = new AddFlightResponse();
     let hasError = false;
     if (isNaN(parseFloat(request.km))) {
       hasError = true;
-      this.presenter.invalidKm();
+      response.isInvalidKm = true;
     }
     if (request.seat === '') {
       hasError = true;
-      this.presenter.invalidSeat();
+      response.isInvalidSeat = true;
     }
 
-    if (hasError) {
-      return;
+    if (!hasError) {
+      const flight = await api.addPlaneTravel(request.seat, parseFloat(request.km), request.description || '');
+      response.newFlight = flight;
     }
 
-    const flight = await api.addPlaneTravel(request.seat, parseFloat(request.km), request.description || '');
-
-    this.presenter.addedFlight(flight);
+    this.presenter.presentAddFlight(response);
   }
 }
