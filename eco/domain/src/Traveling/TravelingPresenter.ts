@@ -13,6 +13,7 @@ import { AddCarViewModel } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCar
 import { AddFlightPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightPresenterInterface';
 import { AddFlightViewModel } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightViewModel';
 import { AddFlightResponse } from './UseCase/AddFlight/AddFlightResponse';
+import { AddCarResponse } from './UseCase/AddCar/AddCarResponse';
 
 export class TravelingPresenter
   implements UpdateOdometerPresenterInterface, HomePresenterInterface, AddCarPresenterInterface, AddFlightPresenterInterface {
@@ -87,22 +88,8 @@ export class TravelingPresenter
 
   // AddCarPresenterInterface:begin
 
-  addedCar(car: Car): void {
-    this.cars.push(car);
-    this.updateCarViewModel();
-    this.addCarViewModel.displayed = false;
-  }
-
   cancelAddCar(): void {
     this.addCarViewModel.displayed = false;
-  }
-
-  consumptionInvalid(): void {
-    console.error('consumptionInvalid');
-  }
-
-  engineInvalid(): void {
-    console.error('engineInvalid');
   }
 
   getAddCarViewModel(): AddCarViewModel {
@@ -113,8 +100,24 @@ export class TravelingPresenter
     this.addCarViewModel.displayed = true;
   }
 
-  nameIsEmpty(): void {
-    console.error('nameIsEmpty');
+  presentAddCar(response: AddCarResponse): void {
+    if (response.isConsumptionInvalid) {
+      console.error('isConsumptionInvalid');
+    }
+    if (response.isEngineInvalid) {
+      console.error('isEngineInvalid');
+    }
+    if (response.isKmInvalid) {
+      console.error('isKmInvalid');
+    }
+    if (response.isNameEmpty) {
+      console.error('isNameEmpty');
+    }
+    if (response.newCar !== undefined) {
+      this.cars.push(response.newCar);
+      this.updateCarViewModel();
+      this.addCarViewModel.displayed = false;
+    }
   }
 
   // AddCarPresenterInterface:end

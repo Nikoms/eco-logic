@@ -1,6 +1,7 @@
 import { AddCarRequest } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarRequest';
 import { api } from '@eco/domain/src/Temp/Api';
 import { AddCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarPresenterInterface';
+import { AddCarResponse } from './AddCarResponse';
 
 export class AddCar {
 
@@ -9,30 +10,31 @@ export class AddCar {
   }
 
   async execute(request: AddCarRequest) {
+    const response = new AddCarResponse();
     let hasError = false;
     if (request.name.trim().length === 0) {
       hasError = true;
-      this.presenter.nameIsEmpty();
+      response.isNameEmpty = true;
     }
     if (isNaN(parseFloat(request.consumption)) || parseFloat(request.consumption) < 0) {
       hasError = true;
-      this.presenter.consumptionInvalid();
+      response.isConsumptionInvalid = true;
     }
     if (isNaN(parseFloat(request.km))) {
       hasError = true;
-      this.presenter.kmIsNaN();
+      response.isKmInvalid = true;
     }
     if (request.engine === '') {
       hasError = true;
-      this.presenter.engineInvalid();
+      response.isEngineInvalid = true;
     }
 
-    if (hasError) {
-      return;
+    if (!hasError) {
+      const car = await api.addCar(request.name, parseFloat(request.consumption), request.engine, parseFloat(request.km));
+
+      response.newCar = car;
     }
 
-    const car = await api.addCar(request.name, parseFloat(request.consumption), request.engine, parseFloat(request.km));
-
-    this.presenter.addedCar(car);
+    this.presenter.presentAddCar(response);
   }
 }
