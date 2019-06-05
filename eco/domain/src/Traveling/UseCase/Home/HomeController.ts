@@ -1,12 +1,12 @@
-import { RefreshCars } from '@eco/domain/src/Traveling/UseCase/RefreshCars';
 import { RefreshFlights } from '@eco/domain/src/Traveling/UseCase/RefreshFlights';
+import { GetCars } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCars';
 
 export class HomeController {
-  constructor(private refreshCars: RefreshCars, private refreshFlights: RefreshFlights) {
+  constructor(private getCars: GetCars, private refreshFlights: RefreshFlights) {
   }
 
   initList() {
-    this.refreshCars.execute();
+    this.getCars.execute();
     this.refreshFlights.execute();
   }
 }

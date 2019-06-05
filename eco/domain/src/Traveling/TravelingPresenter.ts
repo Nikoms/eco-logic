@@ -14,6 +14,7 @@ import { AddFlightPresenterInterface } from '@eco/domain/src/Traveling/UseCase/A
 import { AddFlightViewModel } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightViewModel';
 import { AddFlightResponse } from './UseCase/AddFlight/AddFlightResponse';
 import { AddCarResponse } from './UseCase/AddCar/AddCarResponse';
+import { GetCarsResponse } from './UseCase/GetCars/GetCarsResponse';
 
 export class TravelingPresenter
   implements UpdateOdometerPresenterInterface, HomePresenterInterface, AddCarPresenterInterface, AddFlightPresenterInterface {
@@ -34,8 +35,8 @@ export class TravelingPresenter
     return this.homeViewModel;
   }
 
-  setCars(cars: Car[]) {
-    this.cars = cars;
+  presentGetCars(response: GetCarsResponse): void {
+    this.cars = response.cars;
     this.updateCarViewModel();
   }
 

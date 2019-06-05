@@ -1,5 +1,4 @@
 import { RefreshFlights } from '@eco/domain/src/Traveling/UseCase/RefreshFlights';
-import { RefreshCars } from '@eco/domain/src/Traveling/UseCase/RefreshCars';
 import { HomeController } from '@eco/domain/src/Traveling/UseCase/Home/HomeController';
 import { AddCar } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCar';
 import { AddCarController } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarController';
@@ -12,6 +11,7 @@ import { AddFlightPresenterInterface } from '@eco/domain/src/Traveling/UseCase/A
 import { UpdateOdometerPresenterInterface } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerPresenterInterface';
 import { HomePresenterInterface } from '@eco/domain/src/Traveling/UseCase/Home/HomePresenterInterface';
 import { TravelingPresenter } from '@eco/domain/src/Traveling/TravelingPresenter';
+import { GetCars } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCars';
 
 export class TravelingFactory {
   private instances: any = {};
@@ -51,7 +51,7 @@ export class TravelingFactory {
     return this.reuseOrInstantiate(
       HomeController.name,
       () => new HomeController(
-        new RefreshCars(this.homePresenter),
+        new GetCars(this.homePresenter),
         new RefreshFlights(this.homePresenter),
       ),
     );
