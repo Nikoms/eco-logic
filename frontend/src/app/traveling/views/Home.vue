@@ -56,7 +56,7 @@
   import AddCarView from '@/app/traveling/components/AddCarView.vue';
   import AddFlightView from '@/app/traveling/components/AddFlightView.vue';
   import UpdateOdometerView from '@/app/traveling/components/UpdateOdometerView.vue';
-  import { HomePresenterInterface } from '@/domain/Traveling/UseCase/Home/HomePresenterInterface';
+  import { HomePresenterInterface } from '@eco/domain/src/Traveling/UseCase/Home/HomePresenterInterface';
 
   @Component({ components: { UpdateOdometerView, AddFlightView, AddCarView } })
 

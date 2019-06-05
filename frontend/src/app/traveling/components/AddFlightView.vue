@@ -31,7 +31,7 @@
 
 <script lang="ts">
   import { Component, Vue, Watch } from 'vue-property-decorator';
-  import { AddFlightRequest } from '@/domain/Traveling/UseCase/AddFlight/AddFlightRequest';
+  import { AddFlightRequest } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightRequest';
 
   @Component
   export default class AddFlightView extends Vue {

@@ -15,7 +15,7 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { InitWaterMeterRequest } from '@/domain/Water/UseCase/InitWaterMeter/InitWaterMeterRequest';
+  import { InitWaterMeterRequest } from '@eco/domain/src/Water/UseCase/InitWaterMeter/InitWaterMeterRequest';
 
   @Component({})
   export default class InitWaterMeterView extends Vue {

@@ -15,7 +15,7 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { InitElectricMetersRequest } from '@/domain/Electricity/UseCase/InitElectricMeters/InitElectricMetersRequest';
+  import { InitElectricMetersRequest } from '@eco/domain/src/Electricity/UseCase/InitElectricMeters/InitElectricMetersRequest';
 
   @Component({})
   export default class InitElectricMetersView extends Vue {

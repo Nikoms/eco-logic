@@ -25,7 +25,7 @@
 
 <script lang="ts">
   import { Component, Vue, Watch } from 'vue-property-decorator';
-  import { AddConsumptionRequest } from '@/domain/Water/UseCase/AddConsumption/AddConsumptionRequest';
+  import { AddConsumptionRequest } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionRequest';
 
   @Component
   export default class AddWaterConsumptionView extends Vue {

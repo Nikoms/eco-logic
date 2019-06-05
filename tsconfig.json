@@ -37,6 +37,9 @@
     "@/*": [
       "frontend/src/*"
     ],
+    "@eco/domain/src/*": [
+      "eco/domain/src/*"
+    ],
     "@eco/infrastructure/*": [
       "infrastructure/*"
     ],

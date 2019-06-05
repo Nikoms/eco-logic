@@ -18,7 +18,8 @@
     "vue-property-decorator": "^7.0.0",
     "vue-router": "^3.0.1",
     "vuetify": "^1.4.3",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "@eco/domain": "1.0.0"
   },
   "devDependencies": {
     "@mdi/font": "^3.3.92",

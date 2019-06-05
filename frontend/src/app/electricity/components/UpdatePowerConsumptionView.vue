@@ -24,7 +24,7 @@
 
 <script lang="ts">
   import { Component, Vue, Watch } from 'vue-property-decorator';
-  import { UpdatePowerConsumptionRequest } from '@/domain/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionRequest';
+  import { UpdatePowerConsumptionRequest } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionRequest';
 
   @Component
   export default class UpdatePowerConsumptionView extends Vue {

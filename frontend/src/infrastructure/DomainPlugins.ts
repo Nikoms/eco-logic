@@ -1,7 +1,7 @@
-import { TravelingFactory } from '@/domain/Traveling/TravelingFactory';
-import { WaterFactory } from '@/domain/Water/WaterFactory';
-import { HouseHeatingFactory } from '@/domain/HouseHeating/HouseHeatingFactory';
-import { ElectricityFactory } from '@/domain/Electricity/ElectricityFactory';
+import { TravelingFactory } from '@eco/domain/src/Traveling/TravelingFactory';
+import { WaterFactory } from '@eco/domain/src/Water/WaterFactory';
+import { HouseHeatingFactory } from '@eco/domain/src/HouseHeating/HouseHeatingFactory';
+import { ElectricityFactory } from '@eco/domain/src/Electricity/ElectricityFactory';
 
 const DomainFactoryPlugin = {
   install: (Vue: any, options: any) => {

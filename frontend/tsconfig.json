@@ -36,7 +36,9 @@
     "tests/**/*.tsx",
     "../infrastructure/src/**/*.ts",
     "../core/**/src/**/*.ts",
-    "../api/frontend/src/**/*.ts"
+    "../api/frontend/src/**/*.ts",
+    "../api/frontend/src/**/*.ts",
+    "../eco/domain/src/**/*.ts"
   ],
   "exclude": [
     "node_modules"

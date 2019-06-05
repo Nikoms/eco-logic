@@ -26,7 +26,7 @@
 
 <script lang="ts">
   import { Component, Vue, Watch } from 'vue-property-decorator';
-  import { AddFuelOilOrderRequest } from '@/domain/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderRequest';
+  import { AddFuelOilOrderRequest } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderRequest';
 
   @Component({})
   export default class AddFuelOilOrderView extends Vue {
