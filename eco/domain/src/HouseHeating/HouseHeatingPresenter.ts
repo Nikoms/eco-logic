@@ -5,6 +5,7 @@ import { AddFuelOilOrderPresenterInterface } from '@eco/domain/src/HouseHeating/
 import { AddFuelOilOrderViewModel } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderViewModel';
 import { AddFuelOilOrderResponse } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderResponse';
 import { GetLastFuelOilOrdersResponse } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrder/GetLastFuelOilOrdersResponse';
+import { GetTotalFuelOilOrderResponse } from '@eco/domain/src/HouseHeating/GetTotalFuelOilOrder/GetTotalFuelOilOrderResponse';
 
 export class HouseHeatingPresenter implements HomePresenterInterface, AddFuelOilOrderPresenterInterface {
   private homeViewModel = new HomeViewModel();
@@ -51,8 +52,8 @@ export class HouseHeatingPresenter implements HomePresenterInterface, AddFuelOil
     return this.homeViewModel;
   }
 
-  setTotalFuelOilOrder(liter: number): void {
-    this.homeViewModel.totalFuelOilOrder = liter;
+  presentGetTotalFuelOilOrder(response: GetTotalFuelOilOrderResponse): void {
+    this.homeViewModel.totalFuelOilOrder = response.totalFuelOilOrder;
   }
 
   private updateViewModelLastOrders() {
