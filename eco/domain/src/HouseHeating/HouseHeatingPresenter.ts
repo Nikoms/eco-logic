@@ -1,8 +1,9 @@
 import { HomePresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/Home/HomePresenterInterface';
-import { FuelOilOrder } from '@eco/fuel-oil/src/entity/FuelOilOrder';
+import { FuelOilOrder } from '@eco/core-fuel-oil/src/entity/FuelOilOrder';
 import { HomeViewModel } from '@eco/domain/src/HouseHeating/UseCase/Home/HomeViewModel';
 import { AddFuelOilOrderPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderPresenterInterface';
 import { AddFuelOilOrderViewModel } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderViewModel';
+import { AddFuelOilOrderResponse } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderResponse';
 
 export class HouseHeatingPresenter implements HomePresenterInterface, AddFuelOilOrderPresenterInterface {
   private homeViewModel = new HomeViewModel();
@@ -14,24 +15,26 @@ export class HouseHeatingPresenter implements HomePresenterInterface, AddFuelOil
     return this.addFuelOilOrderviewModel;
   }
 
-  literIsNotANumber() {
-    console.error('literIsNotANumber');
-  }
-
-  literIsEmpty() {
-    console.error('literIsEmpty');
-  }
-
   showAddFuelOilOrder() {
     this.addFuelOilOrderviewModel.displayed = true;
   }
 
-  fuelOilOrdered(fuelOilOrder: FuelOilOrder) {
-    this.orders.unshift(fuelOilOrder);
-    this.orders = this.orders.slice(0, 5);
-    this.updateViewModelLastOrders();
-    this.homeViewModel.totalFuelOilOrder += fuelOilOrder.liters;
-    this.addFuelOilOrderviewModel.displayed = false;
+  presentAddFuelOilOrder(response: AddFuelOilOrderResponse): void {
+    if (response.isLiterEmpty) {
+      console.error('isLiterEmpty');
+    }
+    if (response.isLiterInvalid) {
+      console.error('isLiterInvalid');
+    }
+
+    if (response.newFuelOilOrder !== undefined) {
+      this.orders.unshift(response.newFuelOilOrder);
+      this.orders = this.orders.slice(0, 5);
+      this.homeViewModel.totalFuelOilOrder += response.newFuelOilOrder.liters;
+      this.updateViewModelLastOrders();
+      this.addFuelOilOrderviewModel.displayed = false;
+    }
+
   }
 
   addFuelOilOrderCancelled() {

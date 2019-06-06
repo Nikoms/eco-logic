@@ -22,9 +22,9 @@ import { GetElectricMeters } from '@eco/core-electricity/src/use-case/GetElectri
 import { InitElectricMeter } from '@eco/core-electricity/src/use-case/InitElectricMeter';
 import { AddCarbon } from '@eco/core-co2/src/use-case/AddCarbon';
 import { FuelOilOrderLocalStorageRepository } from './local-storage/FuelOilOrderLocalStorageRepository';
-import { OrderFuelOil } from '@eco/fuel-oil/src/use-case/OrderFuelOil';
-import { GetLastFuelOilOrder } from '@eco/fuel-oil/src/use-case/GetLastFuelOilOrder';
-import { GetTotalFuelOilOrder } from '@eco/fuel-oil/src/use-case/GetTotalFuelOilOrder';
+import { OrderFuelOil } from '@eco/core-fuel-oil/src/use-case/OrderFuelOil';
+import { GetLastFuelOilOrder } from '@eco/core-fuel-oil/src/use-case/GetLastFuelOilOrder';
+import { GetTotalFuelOilOrder } from '@eco/core-fuel-oil/src/use-case/GetTotalFuelOilOrder';
 import { GetCarbons } from '@eco/core-co2/src/use-case/GetCarbons';
 
 export const eventDispatcher = new EventTargetEventDispatcher();

@@ -1,4 +1,4 @@
-import { FuelOilOrder } from '@eco/fuel-oil/src/entity/FuelOilOrder';
+import { FuelOilOrder } from '@eco/core-fuel-oil/src/entity/FuelOilOrder';
 import { HomeViewModel } from '@eco/domain/src/HouseHeating/UseCase/Home/HomeViewModel';
 
 export interface HomePresenterInterface {

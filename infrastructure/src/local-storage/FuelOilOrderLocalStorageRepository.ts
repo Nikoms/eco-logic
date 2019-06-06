@@ -1,6 +1,6 @@
 import { JsonOf } from './type/JsonOf';
-import { FuelOilOrder } from '@eco/fuel-oil/src/entity/FuelOilOrder';
-import { FuelOilOrderRepository } from '@eco/fuel-oil/src/repository/FuelOilOrderRepository';
+import { FuelOilOrder } from '@eco/core-fuel-oil/src/entity/FuelOilOrder';
+import { FuelOilOrderRepository } from '@eco/core-fuel-oil/src/repository/FuelOilOrderRepository';
 
 export class FuelOilOrderLocalStorageRepository implements FuelOilOrderRepository {
   private key = 'fuel-oil-command';
