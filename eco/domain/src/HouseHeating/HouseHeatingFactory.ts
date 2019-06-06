@@ -5,7 +5,7 @@ import { HomeController } from '@eco/domain/src/HouseHeating/UseCase/Home/HomeCo
 import { AddFuelOilOrderPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderPresenterInterface';
 import { HomePresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/Home/HomePresenterInterface';
 import { GetLastFuelOilOrders } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrder/GetLastFuelOilOrder';
-import { GetTotalFuelOilOrder } from '@eco/domain/src/HouseHeating/GetTotalFuelOilOrder/GetTotalFuelOilOrder';
+import { GetTotalFuelOilOrder } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrder';
 
 export class HouseHeatingFactory {
   private instances: any = {};

@@ -5,7 +5,7 @@ import { AddFuelOilOrderPresenterInterface } from '@eco/domain/src/HouseHeating/
 import { AddFuelOilOrderViewModel } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderViewModel';
 import { AddFuelOilOrderResponse } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderResponse';
 import { GetLastFuelOilOrdersResponse } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrder/GetLastFuelOilOrdersResponse';
-import { GetTotalFuelOilOrderResponse } from '@eco/domain/src/HouseHeating/GetTotalFuelOilOrder/GetTotalFuelOilOrderResponse';
+import { GetTotalFuelOilOrderResponse } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrderResponse';
 
 export class HouseHeatingPresenter implements HomePresenterInterface, AddFuelOilOrderPresenterInterface {
   private homeViewModel = new HomeViewModel();
