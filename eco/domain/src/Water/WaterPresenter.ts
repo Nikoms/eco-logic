@@ -3,29 +3,44 @@ import { HomeViewModel } from '@eco/domain/src/Water/UseCase/Home/HomeViewModel'
 import { WaterMeter } from '@eco/core-water/src/entity/WaterMeter';
 import { AddConsumptionPresenterInterface } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionPresenterInterface';
 import { AddConsumptionViewModel } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionViewModel';
-import { WaterConsumption } from '@eco/core-water/src/entity/WaterConsumption';
-import { GetWaterMeterPresenterInterface } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMeterPresenterInterface';
+import { GetWaterMetersPresenterInterface } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersPresenterInterface';
+import { AddConsumptionResponse } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionResponse';
+import { ListConsumptionsPresenterInterface } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsPresenterInterface';
+import { ListConsumptionsViewModel } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsViewModel';
+import { ListConsumptionsResponse } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsResponse';
+import { GetWaterMetersResponse } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersResponse';
 
-export class WaterPresenter implements GetWaterMeterPresenterInterface,
+export class WaterPresenter implements GetWaterMetersPresenterInterface,
   HomePresenterInterface,
-  AddConsumptionPresenterInterface {
+  AddConsumptionPresenterInterface, ListConsumptionsPresenterInterface {
 
   private addConsumptionViewModel = new AddConsumptionViewModel();
   private homeViewModel = new HomeViewModel();
+  private listConsumptionsViewModel = new ListConsumptionsViewModel();
   private meters: WaterMeter[] = [];
+
+  getViewModel(): ListConsumptionsViewModel {
+    return this.listConsumptionsViewModel;
+  }
+
+  presentListConsumptionsResponse(response: ListConsumptionsResponse): void {
+    this.listConsumptionsViewModel.consumptions = response.consumptions;
+  }
 
   getHomeViewModel(): HomeViewModel {
     return this.homeViewModel;
   }
 
-  setMeters(meters: WaterMeter[]): void {
-    this.meters = meters;
+  presentGetWaterMeters(response: GetWaterMetersResponse): void {
+    this.meters = response.meters;
     this.homeViewModel.hasMeter = this.meters.length > 0;
+
     this.addConsumptionViewModel.meters = this.meters;
     this.addConsumptionViewModel.hasMeters = this.meters.length > 0;
   }
 
-  allConsumptionsSaved(consumptions: WaterConsumption[]): void {
+  presentAddConsumption(response: AddConsumptionResponse): void {
+    this.listConsumptionsViewModel.consumptions.push(...response.consumptions);
     this.addConsumptionViewModel.displayed = false;
   }
 

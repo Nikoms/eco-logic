@@ -6,6 +6,7 @@
 - Unit test!
 - E2E tests with VueJs
 - Having another front end framework
+- Check presenter interface: is it good?
 
 # frontend
 

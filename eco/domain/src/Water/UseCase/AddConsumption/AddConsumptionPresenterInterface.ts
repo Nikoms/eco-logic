@@ -1,10 +1,10 @@
 import { AddConsumptionViewModel } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionViewModel';
-import { WaterConsumption } from '@eco/core-water/src/entity/WaterConsumption';
+import { AddConsumptionResponse } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionResponse';
 
 export interface AddConsumptionPresenterInterface {
   getAddConsumptionViewModel(): AddConsumptionViewModel;
 
-  allConsumptionsSaved(consumptions: WaterConsumption[]): void;
+  presentAddConsumption(response: AddConsumptionResponse): void;
 
   showAddWaterConsumption(): void;
 }

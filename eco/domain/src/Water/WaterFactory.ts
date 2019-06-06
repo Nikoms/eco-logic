@@ -3,18 +3,18 @@ import { AddConsumption } from '@eco/domain/src/Water/UseCase/AddConsumption/Add
 import { InitWaterMeterController } from '@eco/domain/src/Water/UseCase/InitWaterMeter/InitWaterMeterController';
 import { InitWaterMeter } from '@eco/domain/src/Water/UseCase/InitWaterMeter/InitWaterMeter';
 import { GetWaterMeters } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMeters';
-import { ListConsumptionsPresenter } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsPresenter';
 import { ListConsumptionsController } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsController';
 import { ListConsumptions } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptions';
 import { HomePresenterInterface } from '@eco/domain/src/Water/UseCase/Home/HomePresenterInterface';
 import { WaterPresenter } from '@eco/domain/src/Water/WaterPresenter';
 import { AddConsumptionPresenterInterface } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionPresenterInterface';
-import { GetWaterMeterPresenterInterface } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMeterPresenterInterface';
+import { GetWaterMetersPresenterInterface } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersPresenterInterface';
+import { ListConsumptionsPresenterInterface } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsPresenterInterface';
 
 export class WaterFactory {
   private instances: any = {};
 
-  get getWaterMeterPresenterInterface(): GetWaterMeterPresenterInterface {
+  get getWaterMeterPresenterInterface(): GetWaterMetersPresenterInterface {
     return this.waterPresenter;
   }
 
@@ -28,8 +28,8 @@ export class WaterFactory {
     );
   }
 
-  get listConsumptionsPresenter() {
-    return this.reuseOrInstantiate(ListConsumptionsPresenter.name, () => new ListConsumptionsPresenter());
+  get listConsumptionsPresenter(): ListConsumptionsPresenterInterface {
+    return this.waterPresenter;
   }
 
   get listConsumptionsController() {

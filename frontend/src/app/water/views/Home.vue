@@ -23,11 +23,10 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue, Watch } from 'vue-property-decorator';
+  import { Component, Vue } from 'vue-property-decorator';
   import AddWaterConsumptionView from '@/app/water/components/AddWaterConsumptionView.vue';
   import ListWaterConsumptionView from '@/app/water/components/ListWaterConsumptionView.vue';
   import InitWaterMeterView from '@/app/water/components/InitWaterMeterView.vue';
-
 
   @Component({
     components: {
@@ -45,10 +44,5 @@
       this.$water.initWaterMeterController.initList();
     }
 
-    @Watch('addConsumptionViewModel.displayed') consumptionChanged(displayed: boolean) {
-      if (!displayed) {
-        this.$water.listConsumptionsController.refresh();
-      }
-    }
   }
 </script>
