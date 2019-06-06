@@ -27,39 +27,36 @@
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@eco/domain/*": [
+        "eco/domain/*"
+      ],
+      "@eco/infrastructure/*": [
+        "infrastructure/*"
+      ],
+      "@eco/core-co2/*": [
+        "core/co2/*"
+      ],
+      "@eco/core-electricity/*": [
+        "core/electricity/*"
+      ],
+      "@eco/core-water/*": [
+        "core/water/*"
+      ],
+      "@eco/core-travel/*": [
+        "core/travel/*"
+      ],
+      "@eco/core-fuel-oil/*": [
+        "core/fuel-oil/*"
+      ],
+      "@eco/core-shared-kernel/*": [
+        "core/shared-kernel/*"
+      ]
+    }
   },
   "exclude": [
     "dist"
-  ],
-  "baseUrl": ".",
-  "paths": {
-    "@/*": [
-      "frontend/src/*"
-    ],
-    "@eco/domain/src/*": [
-      "eco/domain/src/*"
-    ],
-    "@eco/infrastructure/*": [
-      "infrastructure/*"
-    ],
-    "@eco/core-co2/*": [
-      "core/co2/src/*"
-    ],
-    "@eco/core-electricity/*": [
-      "core/electricity/src/*"
-    ],
-    "@eco/core-water/*": [
-      "core/water/src/*"
-    ],
-    "@eco/core-travel/*": [
-      "core/travel/src/*"
-    ],
-    "@eco/core-fuel-oil/*": [
-      "core/fuel-oil/src/*"
-    ],
-    "@eco/core-shared-kernel/*": [
-      "core/shared-kernel/src/*"
-    ]
-  }
+  ]
 }
