@@ -1,5 +1,5 @@
-import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
+import { InitElectricMetersResponse } from '@eco/domain/src/Electricity/UseCase/InitElectricMeters/InitElectricMetersResponse';
 
 export interface InitElectricMetersPresenterInterface {
-  electricMetersInitialized(electricMeters: ElectricMeter[]): void;
+  presentInitElectricMetersResponse(response: InitElectricMetersResponse): void;
 }
