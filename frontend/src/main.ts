@@ -5,11 +5,11 @@ import router from './app/router';
 import store from './store';
 import './registerServiceWorker';
 import { initListeners } from '@eco/infrastructure/src/initListeners';
-import DomainFactoryPlugin from '@/infrastructure/DomainPlugins';
+import factories from '@/plugins/factories';
 
 Vue.config.productionTip = false;
 initListeners();
-Vue.use(DomainFactoryPlugin);
+Vue.use(factories);
 
 new Vue({
   router,

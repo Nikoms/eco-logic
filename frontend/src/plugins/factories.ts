@@ -3,7 +3,7 @@ import { WaterFactory } from '@eco/domain/src/Water/WaterFactory';
 import { HouseHeatingFactory } from '@eco/domain/src/HouseHeating/HouseHeatingFactory';
 import { ElectricityFactory } from '@eco/domain/src/Electricity/ElectricityFactory';
 
-const DomainFactoryPlugin = {
+const factories = {
   install: (Vue: any, options: any) => {
     Vue.prototype.$travel = new TravelingFactory();
     Vue.prototype.$water = new WaterFactory();
@@ -21,4 +21,4 @@ declare module 'vue/types/vue' {
   }
 }
 
-export default DomainFactoryPlugin;
+export default factories;
