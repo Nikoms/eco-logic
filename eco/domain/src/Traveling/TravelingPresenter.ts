@@ -1,6 +1,5 @@
 import { Car } from '@eco/core-travel/src/entity/Car';
 import { HomeViewModel } from '@eco/domain/src/Traveling/UseCase/Home/HomeViewModel';
-import { Odometer } from '@eco/core-travel/src/entity/Odometer';
 import { PlaneTravel } from '@eco/core-travel/src/entity/PlaneTravel';
 import { UpdateOdometerPresenterInterface } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerPresenterInterface';
 import {
@@ -15,6 +14,7 @@ import { AddFlightViewModel } from '@eco/domain/src/Traveling/UseCase/AddFlight/
 import { AddFlightResponse } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightResponse';
 import { AddCarResponse } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarResponse';
 import { GetCarsResponse } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCarsResponse';
+import { UpdateOdometerResponse } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerResponse';
 
 export class TravelingPresenter
   implements UpdateOdometerPresenterInterface, HomePresenterInterface, AddCarPresenterInterface, AddFlightPresenterInterface {
@@ -60,29 +60,29 @@ export class TravelingPresenter
     return this.updateOdometerViewModel;
   }
 
-  updatedOdometer(odometer: Odometer) {
-    const savedCar = this.cars.find(car => car.id === odometer.carId);
-    if (savedCar !== undefined) {
-      savedCar.updateKm(odometer.km);
-    }
-    this.updateCarViewModel();
-    this.updateOdometerViewModel.displayed = false;
-  }
-
   cancelOdometer(): any {
     this.updateOdometerViewModel.displayed = false;
   }
 
-  carNotSelected(): void {
-    console.error('car not selected');
-  }
-
-  kmIsEmpty(): void {
-    console.error('kmIsEmpty');
-  }
-
-  kmIsNaN(): void {
-    console.error('kmIsNaN');
+  presentUpdateOdometer(response: UpdateOdometerResponse): void {
+    if (response.isCarEmpty) {
+      console.error('isCarEmpty');
+    }
+    if (response.isKmEmpty) {
+      console.error('isKmEmpty');
+    }
+    if (response.isKmInvalid) {
+      console.error('isKmInvalid');
+    }
+    if (response.updatedOdometer !== undefined) {
+      const updatedOdometer = response.updatedOdometer;
+      const savedCar = this.cars.find(car => car.id === updatedOdometer.carId);
+      if (savedCar !== undefined) {
+        savedCar.updateKm(updatedOdometer.km);
+      }
+      this.updateCarViewModel();
+      this.updateOdometerViewModel.displayed = false;
+    }
   }
 
   // UpdateOdometerPresenterInterface:end
