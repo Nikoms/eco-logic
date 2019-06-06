@@ -1,6 +1,6 @@
 <template>
     <v-dialog v-model="viewModel.displayed" max-width="600px">
-        <v-form @submit.prevent="controller.add(request)">
+        <v-form @submit.prevent="$houseHeating.addFuelOilOrderController.add(request)">
             <v-card>
                 <v-card-text>
                     <v-text-field v-model="request.liters"
@@ -32,7 +32,6 @@
   export default class AddFuelOilOrderView extends Vue {
     presenter = this.$houseHeating.addFuelOilOrderPresenter;
     viewModel = this.$houseHeating.addFuelOilOrderPresenter.getAddFuelOilOrderViewModel();
-    controller = this.$houseHeating.addFuelOilOrderController;
 
     request = new AddFuelOilOrderRequest('');
 
