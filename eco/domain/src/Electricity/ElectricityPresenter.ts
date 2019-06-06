@@ -6,6 +6,7 @@ import { PowerConsumption } from '@eco/core-electricity/src/entity/PowerConsumpt
 import { GetElectricMetersPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersPresenterInterface';
 import { GetElectricMetersViewModel } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersViewModel';
 import { InitElectricMetersPresenterInterface } from '@eco/domain/src/Electricity/UseCase/InitElectricMeters/InitElectricMetersPresenterInterface';
+import { GetElectricMetersResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersResponse';
 
 export class ElectricityPresenter implements HomePresenterInterface,
   UpdatePowerConsumptionPresenterInterface,
@@ -55,8 +56,8 @@ export class ElectricityPresenter implements HomePresenterInterface,
     this.updatePowerConsumptionViewModel.displayed = false;
   }
 
-  setElectricMeters(electricMeters: ElectricMeter[]): void {
-    this.meters = electricMeters;
+  presentGetElectricMeters(response: GetElectricMetersResponse): void {
+    this.meters = response.electricMeters;
     this.updateMetersViewModel();
   }
 

@@ -1,8 +1,8 @@
-import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
 import { GetElectricMetersViewModel } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersViewModel';
+import { GetElectricMetersResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersResponse';
 
 export interface GetElectricMetersPresenterInterface {
   getGetElectricMetersViewModel(): GetElectricMetersViewModel;
 
-  setElectricMeters(electricMeters: ElectricMeter[]): void;
+  presentGetElectricMeters(response: GetElectricMetersResponse): void;
 }
