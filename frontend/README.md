@@ -2,7 +2,6 @@
 - Remove "api" and call it repository.
 - The use cases **must** be the same in front end and backend
 - Give the presenter in execute method
-- Use a response object
 - Unit test!
 - E2E tests with VueJs
 - Having another front end framework
