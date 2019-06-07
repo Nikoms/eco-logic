@@ -38,10 +38,9 @@
     viewModel = this.$water.homePresenter.getHomeViewModel();
 
     addConsumptionPresenter = this.$water.addConsumptionPresenter;
-    addConsumptionViewModel = this.$water.addConsumptionPresenter.getAddConsumptionViewModel();
 
     async mounted() {
-      this.$water.initWaterMeterController.initList();
+      this.$water.controller.refreshSummary();
     }
 
   }

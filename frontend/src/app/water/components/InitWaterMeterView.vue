@@ -20,7 +20,7 @@
   @Component({})
   export default class InitWaterMeterView extends Vue {
     async initWaterMeter(hasColdAndHotMeter: boolean) {
-      this.$water.initWaterMeterController.init(new InitWaterMeterRequest(hasColdAndHotMeter));
+      this.$water.controller.initialize(new InitWaterMeterRequest(hasColdAndHotMeter));
     }
   }
 </script>

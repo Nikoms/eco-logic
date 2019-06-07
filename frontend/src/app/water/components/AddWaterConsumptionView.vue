@@ -1,7 +1,7 @@
 <template>
     <v-dialog v-model="viewModel.displayed" max-width="600px">
         <v-form v-if="viewModel.hasMeters"
-                @submit.prevent="$water.addConsumptionController.addConsumption(forms)">
+                @submit.prevent="$water.controller.addConsumption(forms)">
             <v-card>
                 <v-card-text>
                     <v-text-field v-for="(form, index) in forms" :key="viewModel.meters[index].id"

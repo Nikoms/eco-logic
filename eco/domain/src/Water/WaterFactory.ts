@@ -1,15 +1,13 @@
-import { AddConsumptionController } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionController';
 import { AddConsumption } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumption';
-import { InitWaterMeterController } from '@eco/domain/src/Water/UseCase/InitWaterMeter/InitWaterMeterController';
 import { InitWaterMeter } from '@eco/domain/src/Water/UseCase/InitWaterMeter/InitWaterMeter';
 import { GetWaterMeters } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMeters';
-import { ListConsumptionsController } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsController';
 import { ListConsumptions } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptions';
 import { HomePresenterInterface } from '@eco/domain/src/Water/UseCase/Home/HomePresenterInterface';
 import { WaterPresenter } from '@eco/domain/src/Water/WaterPresenter';
 import { AddConsumptionPresenterInterface } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionPresenterInterface';
 import { GetWaterMetersPresenterInterface } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersPresenterInterface';
 import { ListConsumptionsPresenterInterface } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsPresenterInterface';
+import { WaterController } from '@eco/domain/src/Water/WaterController';
 
 export class WaterFactory {
   private instances: any = {};
@@ -18,12 +16,15 @@ export class WaterFactory {
     return this.waterPresenter;
   }
 
-  get initWaterMeterController() {
+  get controller() {
+
     return this.reuseOrInstantiate(
-      InitWaterMeterController.name,
-      () => new InitWaterMeterController(
+      WaterController.name,
+      () => new WaterController(
+        new AddConsumption(this.addConsumptionPresenter),
         new InitWaterMeter(this.getWaterMeterPresenterInterface),
         new GetWaterMeters(this.getWaterMeterPresenterInterface),
+        new ListConsumptions(this.listConsumptionsPresenter),
       ),
     );
   }
@@ -32,28 +33,12 @@ export class WaterFactory {
     return this.waterPresenter;
   }
 
-  get listConsumptionsController() {
-    return this.reuseOrInstantiate(
-      ListConsumptionsController.name,
-      () => new ListConsumptionsController(
-        new ListConsumptions(this.listConsumptionsPresenter),
-      ),
-    );
-  }
-
   get homePresenter(): HomePresenterInterface {
     return this.waterPresenter;
   }
 
   get addConsumptionPresenter(): AddConsumptionPresenterInterface {
     return this.waterPresenter;
-  }
-
-  get addConsumptionController() {
-    return this.reuseOrInstantiate(
-      AddConsumptionController.name,
-      () => new AddConsumptionController(new AddConsumption(this.addConsumptionPresenter)),
-    );
   }
 
   private get waterPresenter(): WaterPresenter {

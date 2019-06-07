@@ -31,7 +31,7 @@
     ];
 
     async mounted() {
-      this.$water.listConsumptionsController.refresh();
+      this.$water.controller.refreshConsumptions();
     }
   }
 </script>
