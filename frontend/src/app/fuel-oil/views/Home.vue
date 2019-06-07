@@ -45,7 +45,7 @@
     viewModel = this.$houseHeating.homePresenter.getHomeViewModel();
 
     mounted() {
-      this.$houseHeating.homeController.init();
+      this.$houseHeating.controller.refreshSummary();
     }
   }
 </script>

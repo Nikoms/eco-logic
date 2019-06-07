@@ -1,6 +1,6 @@
 <template>
     <v-dialog v-model="viewModel.displayed" max-width="600px">
-        <v-form @submit.prevent="$houseHeating.addFuelOilOrderController.add(request)">
+        <v-form @submit.prevent="$houseHeating.controller.addFuelOilOrder(request)">
             <v-card>
                 <v-card-text>
                     <v-text-field v-model="request.liters"

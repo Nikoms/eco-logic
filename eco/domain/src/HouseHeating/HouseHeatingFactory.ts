@@ -1,11 +1,10 @@
-import { AddFuelOilOrderController } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderController';
 import { AddFuelOilOrder } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrder';
 import { HouseHeatingPresenter } from '@eco/domain/src/HouseHeating/HouseHeatingPresenter';
-import { HomeController } from '@eco/domain/src/HouseHeating/UseCase/Home/HomeController';
 import { AddFuelOilOrderPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderPresenterInterface';
 import { HomePresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/Home/HomePresenterInterface';
 import { GetLastFuelOilOrders } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrder/GetLastFuelOilOrder';
 import { GetTotalFuelOilOrder } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrder';
+import { HouseHeatingController } from '@eco/domain/src/HouseHeating/HouseHeatingController';
 
 export class HouseHeatingFactory {
   private instances: any = {};
@@ -14,27 +13,20 @@ export class HouseHeatingFactory {
     return this.fullPresenter;
   }
 
-  get addFuelOilOrderController() {
+
+  get controller() {
     return this.reuseOrInstantiate(
-      AddFuelOilOrderController.name,
-      () => new AddFuelOilOrderController(
+      HouseHeatingController.name,
+      () => new HouseHeatingController(
         new AddFuelOilOrder(this.addFuelOilOrderPresenter),
+        new GetLastFuelOilOrders(this.homePresenter),
+        new GetTotalFuelOilOrder(this.homePresenter),
       ),
     );
   }
 
   get homePresenter(): HomePresenterInterface {
     return this.fullPresenter;
-  }
-
-  get homeController() {
-    return this.reuseOrInstantiate(
-      HomeController.name,
-      () => new HomeController(
-        new GetLastFuelOilOrders(this.homePresenter),
-        new GetTotalFuelOilOrder(this.homePresenter),
-      ),
-    );
   }
 
   private get fullPresenter() {
