@@ -1,10 +1,6 @@
 import { RefreshFlights } from '@eco/domain/src/Traveling/UseCase/RefreshFlights';
-import { HomeController } from '@eco/domain/src/Traveling/UseCase/Home/HomeController';
 import { AddCar } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCar';
-import { AddCarController } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarController';
 import { AddFlight } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlight';
-import { AddFlightController } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightController';
-import { UpdateOdometerController } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerController';
 import { UpdateOdometer } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometer';
 import { AddCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarPresenterInterface';
 import { AddFlightPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightPresenterInterface';
@@ -12,12 +8,10 @@ import { UpdateOdometerPresenterInterface } from '@eco/domain/src/Traveling/UseC
 import { HomePresenterInterface } from '@eco/domain/src/Traveling/UseCase/Home/HomePresenterInterface';
 import { TravelingPresenter } from '@eco/domain/src/Traveling/TravelingPresenter';
 import { GetCars } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCars';
+import { TravelingController } from '@eco/domain/src/Traveling/TravelingController';
 
 export class TravelingFactory {
   private instances: any = {};
-
-  constructor() {
-  }
 
   get homePresenter(): HomePresenterInterface {
     return this.reuseOrInstantiate(
@@ -47,36 +41,17 @@ export class TravelingFactory {
     );
   }
 
-  get HomeController() {
+  get controller() {
     return this.reuseOrInstantiate(
-      HomeController.name,
-      () => new HomeController(
+      TravelingController.name,
+      () => new TravelingController(
+        new AddCar(this.addCarPresenter),
+        new AddFlight(this.addFlightPresenter),
         new GetCars(this.homePresenter),
         new RefreshFlights(this.homePresenter),
+        new UpdateOdometer(this.updateOdometerPresenter),
       ),
     );
-  }
-
-  get addCarController() {
-    return this.reuseOrInstantiate(
-      AddCarController.name,
-      () => new AddCarController(new AddCar(this.addCarPresenter)),
-    );
-  }
-
-  get addFlightController() {
-    return this.reuseOrInstantiate(
-      AddFlightController.name,
-      () => new AddFlightController(new AddFlight(this.addFlightPresenter)),
-    );
-  }
-
-  get updateOdometerController() {
-    return this.reuseOrInstantiate(
-      AddFlightController.name,
-      () => new UpdateOdometerController(new UpdateOdometer(this.updateOdometerPresenter)),
-    );
-
   }
 
   private reuseOrInstantiate<T>(id: string, callback: () => T): T {

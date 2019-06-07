@@ -1,6 +1,6 @@
 <template>
     <v-dialog v-model="viewModel.displayed" max-width="600px">
-        <v-form @submit.prevent="$travel.addCarController.addCar(form)">
+        <v-form @submit.prevent="$travel.controller.addCar(form)">
             <v-card>
                 <v-card-title>
                     <v-icon large left>mdi-car</v-icon>

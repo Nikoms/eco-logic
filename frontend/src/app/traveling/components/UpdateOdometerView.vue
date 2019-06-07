@@ -1,7 +1,7 @@
 <template>
     <v-dialog v-model="viewModel.displayed" max-width="600px">
         <v-form v-if="form.carId"
-                @submit.prevent="$travel.updateOdometerController.updateOdometer(form)">
+                @submit.prevent="$travel.controller.updateOdometer(form)">
             <v-card>
                 <v-card-title>
                     <v-icon large left>mdi-car</v-icon>

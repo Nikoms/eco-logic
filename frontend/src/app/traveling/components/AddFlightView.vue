@@ -1,6 +1,6 @@
 <template>
     <v-dialog v-model="viewModel.displayed" max-width="600px">
-        <v-form @submit.prevent="$travel.addFlightController.addFlight(form)">
+        <v-form @submit.prevent="$travel.controller.addFlight(form)">
             <v-card>
                 <v-card-title>
                     <v-icon large left>mdi-airplane</v-icon>

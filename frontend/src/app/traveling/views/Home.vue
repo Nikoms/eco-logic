@@ -65,7 +65,7 @@
     viewModel = this.presenter.getHomeViewModel();
 
     mounted() {
-      this.$travel.HomeController.initList();
+      this.$travel.controller.refreshSummary();
     }
   }
 </script>
