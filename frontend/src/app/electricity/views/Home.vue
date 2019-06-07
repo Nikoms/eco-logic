@@ -28,7 +28,7 @@
     viewModel = this.$electricity.getElectricMetersPresenter.getGetElectricMetersViewModel();
 
     async mounted() {
-      this.$electricity.homeController.initList();
+      this.$electricity.controller.refreshMeters();
     }
   }
 </script>

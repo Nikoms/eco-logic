@@ -20,7 +20,7 @@
   @Component({})
   export default class InitElectricMetersView extends Vue {
     async initElectricMeter(hasDayAndNightMeter: boolean) {
-      this.$electricity.initElectricMetersController.init(new InitElectricMetersRequest(hasDayAndNightMeter));
+      this.$electricity.controller.initializeMeters(new InitElectricMetersRequest(hasDayAndNightMeter));
     }
   }
 </script>

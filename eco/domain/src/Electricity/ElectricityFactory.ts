@@ -1,36 +1,29 @@
 import { ElectricityPresenter } from '@eco/domain/src/Electricity/ElectricityPresenter';
 import { HomePresenterInterface } from '@eco/domain/src/Electricity/UseCase/Home/HomePresenterInterface';
-import { HomeController } from '@eco/domain/src/Electricity/UseCase/Home/HomeController';
 import { UpdatePowerConsumptionPresenterInterface } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionPresenterInterface';
-import { UpdatePowerConsumptionController } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionController';
 import { UpdatePowerConsumption } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumption';
 import { GetElectricMetersPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersPresenterInterface';
 import { GetElectricMeters } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMeters';
 import { InitElectricMetersPresenterInterface } from '@eco/domain/src/Electricity/UseCase/InitElectricMeters/InitElectricMetersPresenterInterface';
-import { InitElectricMetersController } from '@eco/domain/src/Electricity/UseCase/InitElectricMeters/InitElectricMetersController';
 import { InitElectricsMeter } from '@eco/domain/src/Electricity/UseCase/InitElectricMeters/InitElectricsMeter';
+import { ElectricityController } from '@eco/domain/src/Electricity/ElectricityController';
 
 export class ElectricityFactory {
   private instances: any = {};
 
-  get homeController() {
+  get controller() {
     return this.reuseOrInstantiate(
-      HomeController.name,
-      () => new HomeController(new GetElectricMeters(this.getElectricMetersPresenter)),
+      ElectricityController.name,
+      () => new ElectricityController(
+        new GetElectricMeters(this.getElectricMetersPresenter),
+        new InitElectricsMeter(this.initElectricMetersPresenter),
+        new UpdatePowerConsumption(this.updatePowerConsumptionPresenter),
+      ),
     );
   }
 
   get homePresenter(): HomePresenterInterface {
     return this.fullPresenter;
-  }
-
-  get initElectricMetersController() {
-    return this.reuseOrInstantiate(
-      InitElectricMetersController.name,
-      () => new InitElectricMetersController(
-        new InitElectricsMeter(this.initElectricMetersPresenter),
-      ),
-    );
   }
 
   get initElectricMetersPresenter(): InitElectricMetersPresenterInterface {
@@ -39,15 +32,6 @@ export class ElectricityFactory {
 
   get getElectricMetersPresenter(): GetElectricMetersPresenterInterface {
     return this.fullPresenter;
-  }
-
-  get updatePowerConsumptionController() {
-    return this.reuseOrInstantiate(
-      UpdatePowerConsumptionController.name,
-      () => new UpdatePowerConsumptionController(
-        new UpdatePowerConsumption(this.updatePowerConsumptionPresenter),
-      ),
-    );
   }
 
   get updatePowerConsumptionPresenter(): UpdatePowerConsumptionPresenterInterface {

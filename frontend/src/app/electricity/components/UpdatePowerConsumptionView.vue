@@ -34,7 +34,7 @@
 
     updateConsumption() {
       const request = new UpdatePowerConsumptionRequest(this.viewModel.electricMeterId, this.kWh);
-      this.$electricity.updatePowerConsumptionController.update(request);
+      this.$electricity.controller.updatePowerConsumption(request);
     }
 
     @Watch('viewModel.displayed')
