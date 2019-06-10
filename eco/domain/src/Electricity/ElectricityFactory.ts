@@ -7,6 +7,7 @@ import { GetElectricMeters } from '@eco/domain/src/Electricity/UseCase/GetElectr
 import { InitElectricMetersPresenterInterface } from '@eco/domain/src/Electricity/UseCase/InitElectricMeters/InitElectricMetersPresenterInterface';
 import { InitElectricsMeter } from '@eco/domain/src/Electricity/UseCase/InitElectricMeters/InitElectricsMeter';
 import { ElectricityController } from '@eco/domain/src/Electricity/ElectricityController';
+import { api } from '@eco/domain/src/Temp/Api';
 
 export class ElectricityFactory {
   private instances: any = {};
@@ -15,9 +16,12 @@ export class ElectricityFactory {
     return this.reuseOrInstantiate(
       ElectricityController.name,
       () => new ElectricityController(
-        new GetElectricMeters(this.getElectricMetersPresenter),
-        new InitElectricsMeter(this.initElectricMetersPresenter),
-        new UpdatePowerConsumption(this.updatePowerConsumptionPresenter),
+        this.getElectricMetersPresenter,
+        this.initElectricMetersPresenter,
+        this.updatePowerConsumptionPresenter,
+        new GetElectricMeters(api),
+        new InitElectricsMeter(api),
+        new UpdatePowerConsumption(api),
       ),
     );
   }

@@ -1,14 +1,14 @@
 import { UpdatePowerConsumptionRequest } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionRequest';
-import { Api, api as defaultApi } from '@eco/domain/src/Temp/Api';
+import { Api } from '@eco/domain/src/Temp/Api';
 import { UpdatePowerConsumptionPresenterInterface } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionPresenterInterface';
 import { UpdatePowerConsumptionResponse } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionResponse';
 
 export class UpdatePowerConsumption {
-  constructor(private presenter: UpdatePowerConsumptionPresenterInterface, private api: Api = defaultApi) {
+  constructor(private api: Api) {
 
   }
 
-  async execute(request: UpdatePowerConsumptionRequest) {
+  async execute(request: UpdatePowerConsumptionRequest, presenter: UpdatePowerConsumptionPresenterInterface) {
     const response = new UpdatePowerConsumptionResponse();
     let hasError = false;
     if (request.electricMeterId.length === 0) {
@@ -27,6 +27,6 @@ export class UpdatePowerConsumption {
     if (!hasError) {
       response.newPowerConsumption = await this.api.addPowerConsumption(parseFloat(request.kWh), request.electricMeterId);
     }
-    this.presenter.presentUpdatePowerConsumption(response);
+    presenter.presentUpdatePowerConsumption(response);
   }
 }
