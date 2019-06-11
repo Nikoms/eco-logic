@@ -8,6 +8,7 @@ export class ElectricityMeterFakeApiRepository implements ElectricityMeterReposi
   }
 
   async add(electricMeter: ElectricMeter): Promise<void> {
+    await this.api.addElectricMeter(electricMeter);
   }
 
   getAll(): Promise<ElectricMeter[]> {
