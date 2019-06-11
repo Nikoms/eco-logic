@@ -21,7 +21,7 @@ export class ElectricityFactory {
         this.initElectricMetersPresenter,
         this.updatePowerConsumptionPresenter,
         new GetElectricMeters(new ElectricityMeterFakeApiRepository(api)),
-        new AddElectricMeter(api),
+        new AddElectricMeter(new ElectricityMeterFakeApiRepository(api)),
         new UpdatePowerConsumption(api),
       ),
     );
