@@ -9,6 +9,7 @@ import { AddElectricMeter } from '@eco/domain/src/Electricity/UseCase/AddElectri
 import { ElectricityController } from '@eco/domain/src/Electricity/ElectricityController';
 import { api } from '@eco/domain/src/Temp/Api';
 import { ElectricityMeterFakeApiRepository } from 'frontend/src/infrastructure/Electricity/ElectricityMeterFakeApiRepository';
+import { PowerConsumptionFakeApiRepository } from 'frontend/src/infrastructure/Electricity/PowerConsumptionFakeApiRepository';
 
 export class ElectricityFactory {
   private instances: any = {};
@@ -22,7 +23,7 @@ export class ElectricityFactory {
         this.updatePowerConsumptionPresenter,
         new GetElectricMeters(new ElectricityMeterFakeApiRepository(api)),
         new AddElectricMeter(new ElectricityMeterFakeApiRepository(api)),
-        new UpdatePowerConsumption(api),
+        new UpdatePowerConsumption(new PowerConsumptionFakeApiRepository(api)),
       ),
     );
   }

@@ -1,10 +1,12 @@
 import { UpdatePowerConsumptionRequest } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionRequest';
-import { Api } from '@eco/domain/src/Temp/Api';
 import { UpdatePowerConsumptionPresenterInterface } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionPresenterInterface';
 import { UpdatePowerConsumptionResponse } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionResponse';
+import { PowerConsumptionRepositoryInterface } from '@eco/domain/src/Electricity/Repository/PowerConsumptionRepositoryInterface';
+import { PowerConsumption } from '@eco/core-electricity/src/entity/PowerConsumption';
+import { v4 } from 'uuid';
 
 export class UpdatePowerConsumption {
-  constructor(private api: Api) {
+  constructor(private repository: PowerConsumptionRepositoryInterface) {
 
   }
 
@@ -25,7 +27,9 @@ export class UpdatePowerConsumption {
     }
 
     if (!hasError) {
-      response.newPowerConsumption = await this.api.addPowerConsumption(parseFloat(request.kWh), request.electricMeterId);
+      const consumption = new PowerConsumption(v4(), parseFloat(request.kWh), request.electricMeterId, new Date());
+      await this.repository.add(consumption);
+      response.newPowerConsumption = consumption;
     }
     presenter.presentUpdatePowerConsumption(response);
   }

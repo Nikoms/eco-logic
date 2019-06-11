@@ -8,8 +8,11 @@ import { ElectricMeterRepository } from '../repository/ElectricMeterRepository';
 export class AddPowerConsumptionRequest {
   public readonly powerConsumption: PowerConsumption;
 
-  constructor(public readonly kWh: number, public readonly electricMeterId: string) {
-    this.powerConsumption = new PowerConsumption(v4(), kWh, electricMeterId, new Date());
+  constructor(public readonly kWh: number,
+              public readonly electricMeterId: string,
+              public readonly id?: string,
+              public readonly date?: Date) {
+    this.powerConsumption = new PowerConsumption(id || v4(), kWh, electricMeterId, date || new Date());
   }
 }
 

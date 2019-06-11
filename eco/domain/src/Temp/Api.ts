@@ -27,6 +27,7 @@ import { AddWaterConsumptionRequest } from '@eco/core-water/src/use-case/AddWate
 import { InitWaterMeterRequest } from '@eco/core-water/src/use-case/InitWaterMeter';
 import { Engine } from '@eco/core-travel/src/entity/Car';
 import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
+import { PowerConsumption } from '@eco/core-electricity/src/entity/PowerConsumption';
 
 export class Api {
   getCars() {
@@ -45,8 +46,8 @@ export class Api {
     return getAllPowerConsumptions.execute();
   }
 
-  addPowerConsumption(kWh: number, electricMeterId: string) {
-    return addPowerConsumption.execute(new AddPowerConsumptionRequest(kWh, electricMeterId));
+  addPowerConsumption(powerConsumption: PowerConsumption) {
+    return addPowerConsumption.execute(new AddPowerConsumptionRequest(powerConsumption.kWh, powerConsumption.electricMeterId));
   }
 
   addCar(carName: string, consumption: number, engine: string | Engine, km: number) {
