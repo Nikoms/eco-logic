@@ -24,7 +24,7 @@
       GetElectricMetersView,
     },
   })
-  export default class PowerConsumption extends Vue {
+  export default class Home extends Vue {
     viewModel = this.$electricity.getElectricMetersPresenter.getGetElectricMetersViewModel();
 
     async mounted() {
