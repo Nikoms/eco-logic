@@ -26,14 +26,15 @@ import { UpdateOdometerRequest } from '@eco/core-travel/src/use-case/UpdateOdome
 import { AddWaterConsumptionRequest } from '@eco/core-water/src/use-case/AddWaterConsumption';
 import { InitWaterMeterRequest } from '@eco/core-water/src/use-case/InitWaterMeter';
 import { Engine } from '@eco/core-travel/src/entity/Car';
+import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
 
 export class Api {
   getCars() {
     return getCars.execute();
   }
 
-  initElectricMeter(hasDayAndNightMeter: boolean) {
-    return initElectricMeter.execute(new InitElectricMeterRequest(hasDayAndNightMeter));
+  addElectricMeter(meter: ElectricMeter) {
+    return initElectricMeter.execute(new InitElectricMeterRequest(meter));
   }
 
   getElectricMeters() {

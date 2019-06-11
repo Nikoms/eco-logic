@@ -4,15 +4,15 @@ import { UpdatePowerConsumptionPresenterInterface } from '@eco/domain/src/Electr
 import { UpdatePowerConsumptionViewModel } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionViewModel';
 import { GetElectricMetersPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersPresenterInterface';
 import { GetElectricMetersViewModel } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersViewModel';
-import { InitElectricMetersPresenterInterface } from '@eco/domain/src/Electricity/UseCase/InitElectricMeters/InitElectricMetersPresenterInterface';
+import { AddElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/AddElectricMeter/AddElectricMeterPresenterInterface';
 import { GetElectricMetersResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersResponse';
-import { InitElectricMetersResponse } from '@eco/domain/src/Electricity/UseCase/InitElectricMeters/InitElectricMetersResponse';
+import { AddElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/AddElectricMeter/AddElectricMeterResponse';
 import { UpdatePowerConsumptionResponse } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionResponse';
 
 export class ElectricityPresenter implements HomePresenterInterface,
   UpdatePowerConsumptionPresenterInterface,
   GetElectricMetersPresenterInterface,
-  InitElectricMetersPresenterInterface {
+  AddElectricMeterPresenterInterface {
 
   private updatePowerConsumptionViewModel = new UpdatePowerConsumptionViewModel();
   private getElectricMetersViewModel = new GetElectricMetersViewModel();
@@ -66,8 +66,8 @@ export class ElectricityPresenter implements HomePresenterInterface,
     return this.getElectricMetersViewModel;
   }
 
-  presentInitElectricMetersResponse(response: InitElectricMetersResponse): void {
-    this.meters = response.meters;
+  presentAddElectricMeterResponse(response: AddElectricMeterResponse): void {
+    this.meters.push(response.meter);
     this.updateMetersViewModel();
   }
 

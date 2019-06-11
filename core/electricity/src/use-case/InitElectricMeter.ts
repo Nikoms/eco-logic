@@ -1,9 +1,8 @@
-import { v4 } from 'uuid';
 import { ElectricMeterRepository } from '../repository/ElectricMeterRepository';
 import { ElectricMeter } from '../entity/ElectricMeter';
 
 export class InitElectricMeterRequest {
-  constructor(public readonly hasNightMeter: boolean) {
+  constructor(public meter: ElectricMeter) {
   }
 }
 
@@ -13,18 +12,8 @@ export class InitElectricMeter {
   }
 
   async execute(request: InitElectricMeterRequest) {
-    const meters: ElectricMeter[] = [];
-    if (request.hasNightMeter) {
-      meters.push(new ElectricMeter(v4(), 'Day meter', 0, new Date()));
-      meters.push(new ElectricMeter(v4(), 'Night meter', 0, new Date()));
-    } else {
-      meters.push(new ElectricMeter(v4(), 'Electric meter', 0, new Date()));
-    }
+    await this.store.add(request.meter);
 
-    for (const meter of meters) {
-      await this.store.add(meter);
-    }
-
-    return meters;
+    return request.meter;
   }
 }
