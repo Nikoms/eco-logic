@@ -1,7 +1,6 @@
 #
 - Remove "api" and call it repository.
 - The use cases **must** be the same in front end and backend
-- Give the presenter in execute method
 - Tous les presenters doivent avoir une interface et seul l'interface doit être utilisé
 - Unit test!
 - E2E tests with VueJs

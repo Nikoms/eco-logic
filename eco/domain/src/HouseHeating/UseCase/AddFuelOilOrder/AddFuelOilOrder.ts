@@ -1,14 +1,14 @@
 import { AddFuelOilOrderRequest } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderRequest';
-import { api as defaultApi, Api } from '@eco/domain/src/Temp/Api';
+import { Api } from '@eco/domain/src/Temp/Api';
 import { AddFuelOilOrderPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderPresenterInterface';
 import { AddFuelOilOrderResponse } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderResponse';
 
 export class AddFuelOilOrder {
-  constructor(private presenter: AddFuelOilOrderPresenterInterface, private api: Api = defaultApi) {
+  constructor(private api: Api) {
 
   }
 
-  async execute(request: AddFuelOilOrderRequest) {
+  async execute(request: AddFuelOilOrderRequest, presenter: AddFuelOilOrderPresenterInterface) {
     const response = new AddFuelOilOrderResponse();
 
     if (request.liters.length === 0) {
@@ -22,6 +22,6 @@ export class AddFuelOilOrder {
     }
     response.newFuelOilOrder = await this.api.orderFuelOil(liters);
 
-    this.presenter.presentAddFuelOilOrder(response);
+    presenter.presentAddFuelOilOrder(response);
   }
 }

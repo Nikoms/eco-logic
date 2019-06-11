@@ -5,6 +5,7 @@ import { HomePresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/Hom
 import { GetLastFuelOilOrders } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrder/GetLastFuelOilOrder';
 import { GetTotalFuelOilOrder } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrder';
 import { HouseHeatingController } from '@eco/domain/src/HouseHeating/HouseHeatingController';
+import { api } from '@eco/domain/src/Temp/Api';
 
 export class HouseHeatingFactory {
   private instances: any = {};
@@ -18,9 +19,11 @@ export class HouseHeatingFactory {
     return this.reuseOrInstantiate(
       HouseHeatingController.name,
       () => new HouseHeatingController(
-        new AddFuelOilOrder(this.addFuelOilOrderPresenter),
-        new GetLastFuelOilOrders(this.homePresenter),
-        new GetTotalFuelOilOrder(this.homePresenter),
+        this.addFuelOilOrderPresenter,
+        this.homePresenter,
+        new AddFuelOilOrder(api),
+        new GetLastFuelOilOrders(api),
+        new GetTotalFuelOilOrder(api),
       ),
     );
   }

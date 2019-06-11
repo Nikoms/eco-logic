@@ -9,6 +9,7 @@ import { HomePresenterInterface } from '@eco/domain/src/Traveling/UseCase/Home/H
 import { TravelingPresenter } from '@eco/domain/src/Traveling/TravelingPresenter';
 import { GetCars } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCars';
 import { TravelingController } from '@eco/domain/src/Traveling/TravelingController';
+import { api } from '@eco/domain/src/Temp/Api';
 
 export class TravelingFactory {
   private instances: any = {};
@@ -45,11 +46,15 @@ export class TravelingFactory {
     return this.reuseOrInstantiate(
       TravelingController.name,
       () => new TravelingController(
-        new AddCar(this.addCarPresenter),
-        new AddFlight(this.addFlightPresenter),
-        new GetCars(this.homePresenter),
-        new RefreshFlights(this.homePresenter),
-        new UpdateOdometer(this.updateOdometerPresenter),
+        this.addCarPresenter,
+        this.addFlightPresenter,
+        this.homePresenter,
+        this.updateOdometerPresenter,
+        new AddCar(api),
+        new AddFlight(api),
+        new GetCars(api),
+        new RefreshFlights(api),
+        new UpdateOdometer(api),
       ),
     );
   }

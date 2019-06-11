@@ -8,11 +8,12 @@ import { AddConsumptionPresenterInterface } from '@eco/domain/src/Water/UseCase/
 import { GetWaterMetersPresenterInterface } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersPresenterInterface';
 import { ListConsumptionsPresenterInterface } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsPresenterInterface';
 import { WaterController } from '@eco/domain/src/Water/WaterController';
+import { api } from '@eco/domain/src/Temp/Api';
 
 export class WaterFactory {
   private instances: any = {};
 
-  get getWaterMeterPresenterInterface(): GetWaterMetersPresenterInterface {
+  get getWaterMeterPresenter(): GetWaterMetersPresenterInterface {
     return this.waterPresenter;
   }
 
@@ -21,10 +22,13 @@ export class WaterFactory {
     return this.reuseOrInstantiate(
       WaterController.name,
       () => new WaterController(
-        new AddConsumption(this.addConsumptionPresenter),
-        new InitWaterMeter(this.getWaterMeterPresenterInterface),
-        new GetWaterMeters(this.getWaterMeterPresenterInterface),
-        new ListConsumptions(this.listConsumptionsPresenter),
+        this.addConsumptionPresenter,
+        this.getWaterMeterPresenter,
+        this.listConsumptionsPresenter,
+        new AddConsumption(api),
+        new InitWaterMeter(api),
+        new GetWaterMeters(api),
+        new ListConsumptions(api),
       ),
     );
   }

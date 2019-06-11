@@ -1,14 +1,14 @@
 import { AddConsumptionRequest } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionRequest';
-import { api as defaultExport, Api } from '@eco/domain/src/Temp/Api';
+import { Api } from '@eco/domain/src/Temp/Api';
 import { AddConsumptionPresenterInterface } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionPresenterInterface';
 import { AddConsumptionResponse } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionResponse';
 import { WaterConsumption } from '@eco/core-water/src/entity/WaterConsumption';
 
 export class AddConsumption {
-  constructor(private presenter: AddConsumptionPresenterInterface, private api: Api = defaultExport) {
+  constructor(private api: Api) {
   }
 
-  async execute(requests: AddConsumptionRequest[]) {
+  async execute(requests: AddConsumptionRequest[], presenter: AddConsumptionPresenterInterface) {
     const response = new AddConsumptionResponse();
     const consumptions: WaterConsumption[] = [];
 
@@ -18,6 +18,6 @@ export class AddConsumption {
       }
     }
     response.consumptions = consumptions;
-    this.presenter.presentAddConsumption(response);
+    presenter.presentAddConsumption(response);
   }
 }
