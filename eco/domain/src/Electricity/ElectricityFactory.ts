@@ -8,6 +8,7 @@ import { InitElectricMetersPresenterInterface } from '@eco/domain/src/Electricit
 import { InitElectricsMeter } from '@eco/domain/src/Electricity/UseCase/InitElectricMeters/InitElectricsMeter';
 import { ElectricityController } from '@eco/domain/src/Electricity/ElectricityController';
 import { api } from '@eco/domain/src/Temp/Api';
+import { ElectricityMeterFakeApiRepository } from 'frontend/src/infrastructure/Electricity/ElectricityMeterFakeApiRepository';
 
 export class ElectricityFactory {
   private instances: any = {};
@@ -19,7 +20,7 @@ export class ElectricityFactory {
         this.getElectricMetersPresenter,
         this.initElectricMetersPresenter,
         this.updatePowerConsumptionPresenter,
-        new GetElectricMeters(api),
+        new GetElectricMeters(new ElectricityMeterFakeApiRepository(api)),
         new InitElectricsMeter(api),
         new UpdatePowerConsumption(api),
       ),
