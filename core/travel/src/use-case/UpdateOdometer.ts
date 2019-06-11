@@ -1,6 +1,5 @@
 import { v4 } from 'uuid';
 import { OdometerRepository } from '../repository/OdometerRepository';
-import { Car } from '../entity/Car';
 import { Odometer } from '../entity/Odometer';
 import { EventDispatcher } from '@eco/core-shared-kernel/src/event/EventDispatcher';
 import { OdometerUpdated } from '../event/OdometerUpdated';
