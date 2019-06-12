@@ -7,15 +7,15 @@ import { PlaneTravelAdded } from '../event/PlaneTravelAdded';
 export class AddPlaneTravelRequest {
   public readonly planeTravel: PlaneTravel;
 
-  constructor(readonly seat: string, readonly km: number, readonly description: string) {
+  constructor(readonly id: string, readonly seat: string, readonly km: number, readonly description: string, readonly date: Date) {
     if (!seat) {
-      throw new Error('typeId is required');
+      throw new Error('seat is required');
     }
     if (!km) {
       throw new Error('km is required');
     }
 
-    this.planeTravel = new PlaneTravel(v4(), seat as Seat, km, description, new Date());
+    this.planeTravel = new PlaneTravel(id || v4(), seat as Seat, km, description, date);
   }
 }
 

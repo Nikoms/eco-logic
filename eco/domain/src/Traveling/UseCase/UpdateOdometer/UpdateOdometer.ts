@@ -1,10 +1,11 @@
 import { UpdateOdometerPresenterInterface } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerPresenterInterface';
-import { Api } from '@eco/domain/src/Temp/Api';
 import { UpdateOdometerRequest } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerRequest';
 import { UpdateOdometerResponse } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerResponse';
+import { OdometerRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/OdometerRepositoryInterface';
+import { Odometer } from '@eco/core-travel/src/entity/Odometer';
 
 export class UpdateOdometer {
-  constructor(private api: Api) {
+  constructor(private repository: OdometerRepositoryInterface) {
   }
 
   async execute(request: UpdateOdometerRequest, presenter: UpdateOdometerPresenterInterface) {
@@ -23,7 +24,10 @@ export class UpdateOdometer {
       response.isKmInvalid = true;
     }
     if (!hasError) {
-      response.updatedOdometer = await this.api.updateOdometer(request.carId, parseFloat(request.km));
+      const id = await this.repository.nextIdentity();
+      const odometer = new Odometer(id, request.carId, parseFloat(request.km), new Date());
+      await this.repository.add(odometer);
+      response.updatedOdometer = odometer;
     }
 
     presenter.presentUpdateOdometer(response);

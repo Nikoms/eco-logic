@@ -5,7 +5,12 @@ import { CarRepository } from '../repository/CarRepository';
 export class AddCarRequest {
   public readonly car: Car;
 
-  constructor(readonly name: string, readonly consumption: number, readonly engine: string, readonly km: number) {
+  constructor(readonly id: string,
+              readonly name: string,
+              readonly consumption: number,
+              readonly engine: string,
+              readonly km: number,
+              readonly lastKmDate: Date) {
     if (name.trim().length === 0) {
       throw new Error('Name is required');
     }
@@ -15,7 +20,8 @@ export class AddCarRequest {
     if (!engine) {
       throw new Error('Engine is required');
     }
-    this.car = new Car(v4(), name, consumption, engine as Engine, new Date(), km);
+    const _id = id || v4();
+    this.car = new Car(_id, name, consumption, engine as Engine, lastKmDate, km);
   }
 }
 

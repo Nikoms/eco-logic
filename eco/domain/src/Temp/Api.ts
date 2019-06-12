@@ -20,14 +20,15 @@ import {
 import { InitElectricMeterRequest } from '@eco/core-electricity/src/use-case/InitElectricMeter';
 import { AddPowerConsumptionRequest } from '@eco/core-electricity/src/use-case/AddPowerConsumption';
 import { AddCarRequest } from '@eco/core-travel/src/use-case/AddCar';
-import { Seat } from '@eco/core-travel/src/entity/PlaneTravel';
+import { PlaneTravel } from '@eco/core-travel/src/entity/PlaneTravel';
 import { AddPlaneTravelRequest } from '@eco/core-travel/src/use-case/AddPlaneTravel';
 import { UpdateOdometerRequest } from '@eco/core-travel/src/use-case/UpdateOdometer';
 import { AddWaterConsumptionRequest } from '@eco/core-water/src/use-case/AddWaterConsumption';
 import { InitWaterMeterRequest } from '@eco/core-water/src/use-case/InitWaterMeter';
-import { Engine } from '@eco/core-travel/src/entity/Car';
+import { Car } from '@eco/core-travel/src/entity/Car';
 import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
 import { PowerConsumption } from '@eco/core-electricity/src/entity/PowerConsumption';
+import { Odometer } from '@eco/core-travel/src/entity/Odometer';
 
 export class Api {
   getCars() {
@@ -50,20 +51,20 @@ export class Api {
     return addPowerConsumption.execute(new AddPowerConsumptionRequest(powerConsumption.kWh, powerConsumption.electricMeterId));
   }
 
-  addCar(carName: string, consumption: number, engine: string | Engine, km: number) {
-    return addCar.execute(new AddCarRequest(carName, consumption, engine, km));
+  addCar(car: Car) {
+    return addCar.execute(new AddCarRequest(car.id, car.name, car.consumption, car.engine, car.km, car.lastKmUpdate));
   }
 
-  addPlaneTravel(seatId: Seat | string, km: number, description: string) {
-    return addPlaneTravel.execute(new AddPlaneTravelRequest(seatId, km, description));
+  addPlaneTravel(flight: PlaneTravel) {
+    return addPlaneTravel.execute(new AddPlaneTravelRequest(flight.id, flight.seat, flight.km, flight.description, flight.date));
   }
 
   getPlaneTravels() {
     return getPlaneTravels.execute();
   }
 
-  updateOdometer(carId: string, km: number) {
-    return updateOdometer.execute(new UpdateOdometerRequest(carId, km));
+  updateOdometer(odometer: Odometer) {
+    return updateOdometer.execute(new UpdateOdometerRequest(odometer.id, odometer.carId, odometer.km, odometer.date));
   }
 
   addWaterConsumption(meterId: string, consumption: number) {

@@ -1,13 +1,13 @@
 import { HomePresenterInterface } from '@eco/domain/src/Traveling/UseCase/Home/HomePresenterInterface';
-import { Api } from '@eco/domain/src/Temp/Api';
+import { FlightRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/FlightRepositoryInterface';
 
 export class RefreshFlights {
-  constructor(private api: Api) {
+  constructor(private repository: FlightRepositoryInterface) {
 
   }
 
   async execute(presenter: HomePresenterInterface) {
-    const flights = await this.api.getPlaneTravels();
+    const flights = await this.repository.getAll();
     presenter.setFlights(flights);
   }
 }

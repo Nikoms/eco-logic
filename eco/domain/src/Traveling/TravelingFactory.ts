@@ -10,6 +10,9 @@ import { TravelingPresenter } from '@eco/domain/src/Traveling/TravelingPresenter
 import { GetCars } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCars';
 import { TravelingController } from '@eco/domain/src/Traveling/TravelingController';
 import { api } from '@eco/domain/src/Temp/Api';
+import { CarFakeApiRepository } from 'frontend/src/infrastructure/Traveling/CarFakeApiRepository';
+import { FlightFakeApiRepository } from 'frontend/src/infrastructure/Traveling/FlightFakeApiRepository';
+import { OdometerFakeApiRepository } from 'frontend/src/infrastructure/Traveling/OdometerFakeApiRepository';
 
 export class TravelingFactory {
   private instances: any = {};
@@ -50,11 +53,11 @@ export class TravelingFactory {
         this.addFlightPresenter,
         this.homePresenter,
         this.updateOdometerPresenter,
-        new AddCar(api),
-        new AddFlight(api),
-        new GetCars(api),
-        new RefreshFlights(api),
-        new UpdateOdometer(api),
+        new AddCar(new CarFakeApiRepository(api)),
+        new AddFlight(new FlightFakeApiRepository(api)),
+        new GetCars(new CarFakeApiRepository(api)),
+        new RefreshFlights(new FlightFakeApiRepository(api)),
+        new UpdateOdometer(new OdometerFakeApiRepository(api)),
       ),
     );
   }

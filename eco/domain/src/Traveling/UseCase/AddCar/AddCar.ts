@@ -1,11 +1,12 @@
 import { AddCarRequest } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarRequest';
-import { Api } from '@eco/domain/src/Temp/Api';
 import { AddCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarPresenterInterface';
 import { AddCarResponse } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarResponse';
+import { CarRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/CarRepositoryInterface';
+import { Car, Engine } from '@eco/core-travel/src/entity/Car';
 
 export class AddCar {
 
-  constructor(private api: Api) {
+  constructor(private repository: CarRepositoryInterface) {
 
   }
 
@@ -30,7 +31,10 @@ export class AddCar {
     }
 
     if (!hasError) {
-      response.newCar = await this.api.addCar(request.name, parseFloat(request.consumption), request.engine, parseFloat(request.km));
+      const id = await this.repository.nextIdentity();
+      const car = new Car(id, request.name, parseFloat(request.consumption), request.engine as Engine, new Date(), parseFloat(request.km));
+      await this.repository.add(car);
+      response.newCar = car;
     }
 
     presenter.presentAddCar(response);
