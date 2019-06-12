@@ -1,5 +1,5 @@
 import { AddConsumption } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumption';
-import { InitWaterMeter } from '@eco/domain/src/Water/UseCase/InitWaterMeter/InitWaterMeter';
+import { AddWaterMeter } from '@eco/domain/src/Water/UseCase/InitWaterMeter/AddWaterMeter';
 import { GetWaterMeters } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMeters';
 import { ListConsumptions } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptions';
 import { HomePresenterInterface } from '@eco/domain/src/Water/UseCase/Home/HomePresenterInterface';
@@ -9,11 +9,18 @@ import { GetWaterMetersPresenterInterface } from '@eco/domain/src/Water/UseCase/
 import { ListConsumptionsPresenterInterface } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsPresenterInterface';
 import { WaterController } from '@eco/domain/src/Water/WaterController';
 import { api } from '@eco/domain/src/Temp/Api';
+import { ConsumptionFakeApiRepository } from 'frontend/src/infrastructure/Water/ConsumptionFakeApiRepository';
+import { AddWaterMeterPresenterInterface } from '@eco/domain/src/Water/UseCase/InitWaterMeter/AddWaterMeterPresenterInterface';
+import { WaterMeterFakeApiRepository } from 'frontend/src/infrastructure/Water/WaterMeterFakeApiRepository';
 
 export class WaterFactory {
   private instances: any = {};
 
   get getWaterMeterPresenter(): GetWaterMetersPresenterInterface {
+    return this.waterPresenter;
+  }
+
+  get addWaterMeterPresenter(): AddWaterMeterPresenterInterface {
     return this.waterPresenter;
   }
 
@@ -24,11 +31,12 @@ export class WaterFactory {
       () => new WaterController(
         this.addConsumptionPresenter,
         this.getWaterMeterPresenter,
+        this.addWaterMeterPresenter,
         this.listConsumptionsPresenter,
-        new AddConsumption(api),
-        new InitWaterMeter(api),
-        new GetWaterMeters(api),
-        new ListConsumptions(api),
+        new AddConsumption(new ConsumptionFakeApiRepository(api)),
+        new AddWaterMeter(new WaterMeterFakeApiRepository(api)),
+        new GetWaterMeters(new WaterMeterFakeApiRepository(api)),
+        new ListConsumptions(new ConsumptionFakeApiRepository(api)),
       ),
     );
   }

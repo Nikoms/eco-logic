@@ -1,11 +1,11 @@
 import { AddConsumptionRequest } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionRequest';
-import { Api } from '@eco/domain/src/Temp/Api';
 import { AddConsumptionPresenterInterface } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionPresenterInterface';
 import { AddConsumptionResponse } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionResponse';
 import { WaterConsumption } from '@eco/core-water/src/entity/WaterConsumption';
+import { ConsumptionRepositoryInterface } from '@eco/domain/src/Water/UseCase/ConsumptionRepositoryInterface';
 
 export class AddConsumption {
-  constructor(private api: Api) {
+  constructor(private repository: ConsumptionRepositoryInterface) {
   }
 
   async execute(requests: AddConsumptionRequest[], presenter: AddConsumptionPresenterInterface) {
@@ -14,7 +14,9 @@ export class AddConsumption {
 
     for (const request of requests) {
       if (request.m3.trim().length > 0) {
-        consumptions.push(await this.api.addWaterConsumption(request.meterId, parseFloat(request.m3)));
+        const waterConsumption = new WaterConsumption(await this.repository.nextIdentity(), parseFloat(request.m3), request.meterId, new Date());
+        await this.repository.add(waterConsumption);
+        consumptions.push(waterConsumption);
       }
     }
     response.consumptions = consumptions;

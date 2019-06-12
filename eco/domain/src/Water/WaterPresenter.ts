@@ -9,10 +9,14 @@ import { ListConsumptionsPresenterInterface } from '@eco/domain/src/Water/UseCas
 import { ListConsumptionsViewModel } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsViewModel';
 import { ListConsumptionsResponse } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsResponse';
 import { GetWaterMetersResponse } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersResponse';
+import { AddWaterMeterPresenterInterface } from '@eco/domain/src/Water/UseCase/InitWaterMeter/AddWaterMeterPresenterInterface';
+import { AddWaterMeterResponse } from '@eco/domain/src/Water/UseCase/InitWaterMeter/AddWaterMeterResponse';
 
 export class WaterPresenter implements GetWaterMetersPresenterInterface,
   HomePresenterInterface,
-  AddConsumptionPresenterInterface, ListConsumptionsPresenterInterface {
+  AddConsumptionPresenterInterface,
+  ListConsumptionsPresenterInterface,
+  AddWaterMeterPresenterInterface {
 
   private addConsumptionViewModel = new AddConsumptionViewModel();
   private homeViewModel = new HomeViewModel();
@@ -33,10 +37,7 @@ export class WaterPresenter implements GetWaterMetersPresenterInterface,
 
   presentGetWaterMeters(response: GetWaterMetersResponse): void {
     this.meters = response.meters;
-    this.homeViewModel.hasMeter = this.meters.length > 0;
-
-    this.addConsumptionViewModel.meters = this.meters;
-    this.addConsumptionViewModel.hasMeters = this.meters.length > 0;
+    this.metersUpdated();
   }
 
   presentAddConsumption(response: AddConsumptionResponse): void {
@@ -53,5 +54,22 @@ export class WaterPresenter implements GetWaterMetersPresenterInterface,
     if (!this.addConsumptionViewModel.hasMeters) {
       this.addConsumptionViewModel.errorMessage = 'Please add a water meter before adding (TODO, but in INIT app)';
     }
+  }
+
+  presentAddWaterMeter(response: AddWaterMeterResponse): void {
+    if (response.isNameInvalid) {
+      console.error('isNameInvalid');
+    }
+    if (response.meter !== undefined) {
+      this.meters.push(response.meter);
+      this.metersUpdated();
+    }
+  }
+
+  private metersUpdated() {
+    this.homeViewModel.hasMeter = this.meters.length > 0;
+
+    this.addConsumptionViewModel.meters = this.meters;
+    this.addConsumptionViewModel.hasMeters = this.meters.length > 0;
   }
 }

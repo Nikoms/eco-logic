@@ -1,20 +1,22 @@
 import { AddConsumption } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumption';
 import { AddConsumptionRequest } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionRequest';
-import { InitWaterMeter } from '@eco/domain/src/Water/UseCase/InitWaterMeter/InitWaterMeter';
+import { AddWaterMeter } from '@eco/domain/src/Water/UseCase/InitWaterMeter/AddWaterMeter';
 import { GetWaterMeters } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMeters';
-import { InitWaterMeterRequest } from '@eco/domain/src/Water/UseCase/InitWaterMeter/InitWaterMeterRequest';
 import { ListConsumptions } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptions';
 import { AddConsumptionPresenterInterface } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionPresenterInterface';
 import { GetWaterMetersPresenterInterface } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersPresenterInterface';
 import { ListConsumptionsPresenterInterface } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsPresenterInterface';
+import { AddWaterMeterRequest } from '@eco/domain/src/Water/UseCase/InitWaterMeter/AddWaterMeterRequest';
+import { AddWaterMeterPresenterInterface } from '@eco/domain/src/Water/UseCase/InitWaterMeter/AddWaterMeterPresenterInterface';
 
 export class WaterController {
   constructor(
     private addConsumptionPresenter: AddConsumptionPresenterInterface,
     private getWaterMeterPresenter: GetWaterMetersPresenterInterface,
+    private addWaterMeterPresenter: AddWaterMeterPresenterInterface,
     private listConsumptionsPresenter: ListConsumptionsPresenterInterface,
     private addConsumptionUseCase: AddConsumption,
-    private initWaterMeter: InitWaterMeter,
+    private addWaterMeter: AddWaterMeter,
     private getWaterMeters: GetWaterMeters,
     private listConsumptions: ListConsumptions) {
 
@@ -24,8 +26,18 @@ export class WaterController {
     this.addConsumptionUseCase.execute(requests, this.addConsumptionPresenter);
   }
 
-  async initialize(request: InitWaterMeterRequest) {
-    await this.initWaterMeter.execute(request, this.getWaterMeterPresenter);
+  async initialize(hasColdAndHotMeter: boolean) {
+    const names: string[] = [];
+    if (hasColdAndHotMeter) {
+      names.push('Cold meter');
+      names.push('Hot meter');
+    } else {
+      names.push('Water meter');
+    }
+    for (const name of names) {
+      const request = new AddWaterMeterRequest(name);
+      await this.addWaterMeter.execute(request, this.addWaterMeterPresenter);
+    }
   }
 
   async refreshSummary() {

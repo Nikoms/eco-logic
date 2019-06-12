@@ -29,6 +29,8 @@ import { Car } from '@eco/core-travel/src/entity/Car';
 import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
 import { PowerConsumption } from '@eco/core-electricity/src/entity/PowerConsumption';
 import { Odometer } from '@eco/core-travel/src/entity/Odometer';
+import { WaterConsumption } from '@eco/core-water/src/entity/WaterConsumption';
+import { WaterMeter } from '@eco/core-water/src/entity/WaterMeter';
 
 export class Api {
   getCars() {
@@ -67,16 +69,18 @@ export class Api {
     return updateOdometer.execute(new UpdateOdometerRequest(odometer.id, odometer.carId, odometer.km, odometer.date));
   }
 
-  addWaterConsumption(meterId: string, consumption: number) {
-    return addWaterConsumption.execute(new AddWaterConsumptionRequest(consumption, meterId));
+  addWaterConsumption(consumption: WaterConsumption) {
+    return addWaterConsumption.execute(
+      new AddWaterConsumptionRequest(consumption.id, consumption.m3, consumption.waterMeter, consumption.date),
+    );
   }
 
   getWaterMeters() {
     return getWaterMeters.execute();
   }
 
-  initWaterMeter(hasColdAndHotMeter: boolean) {
-    return initWaterMeter.execute(new InitWaterMeterRequest(hasColdAndHotMeter));
+  initWaterMeter(meter: WaterMeter) {
+    return initWaterMeter.execute(new InitWaterMeterRequest(meter.id, meter.name));
   }
 
   getAllWaterConsumptions() {

@@ -1,14 +1,14 @@
 import { GetWaterMetersPresenterInterface } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersPresenterInterface';
-import { Api } from '@eco/domain/src/Temp/Api';
 import { GetWaterMetersResponse } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersResponse';
+import { WaterMeterRepositoryInterface } from '@eco/domain/src/Water/UseCase/WaterMeterRepositoryInterface';
 
 export class GetWaterMeters {
-  constructor(private api: Api) {
+  constructor(private repository: WaterMeterRepositoryInterface) {
   }
 
   async execute(presenter: GetWaterMetersPresenterInterface) {
     const response = new GetWaterMetersResponse();
-    response.meters = await this.api.getWaterMeters();
+    response.meters = await this.repository.getAll();
     presenter.presentGetWaterMeters(response);
   }
 }
