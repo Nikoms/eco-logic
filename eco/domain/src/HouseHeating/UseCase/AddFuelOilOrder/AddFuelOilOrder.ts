@@ -1,10 +1,11 @@
 import { AddFuelOilOrderRequest } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderRequest';
-import { Api } from '@eco/domain/src/Temp/Api';
 import { AddFuelOilOrderPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderPresenterInterface';
 import { AddFuelOilOrderResponse } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderResponse';
+import { OrderFuelOilRepositoryInterface } from '@eco/domain/src/HouseHeating/OrderFuelOilRepositoryInterface';
+import { FuelOilOrder } from '@eco/core-fuel-oil/src/entity/FuelOilOrder';
 
 export class AddFuelOilOrder {
-  constructor(private api: Api) {
+  constructor(private repository: OrderFuelOilRepositoryInterface) {
 
   }
 
@@ -20,7 +21,9 @@ export class AddFuelOilOrder {
       response.isLiterInvalid = true;
       return;
     }
-    response.newFuelOilOrder = await this.api.orderFuelOil(liters);
+    const fuelOilOrder = new FuelOilOrder(parseFloat(request.liters), new Date());
+    await this.repository.add(fuelOilOrder);
+    response.newFuelOilOrder = fuelOilOrder;
 
     presenter.presentAddFuelOilOrder(response);
   }

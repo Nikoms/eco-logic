@@ -6,6 +6,7 @@ import { GetLastFuelOilOrders } from '@eco/domain/src/HouseHeating/UseCase/GetLa
 import { GetTotalFuelOilOrder } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrder';
 import { HouseHeatingController } from '@eco/domain/src/HouseHeating/HouseHeatingController';
 import { api } from '@eco/domain/src/Temp/Api';
+import { OrderFuelOilFakeApiRepository } from 'frontend/src/infrastructure/HouseHeating/OrderFuelOilFakeApiRepository';
 
 export class HouseHeatingFactory {
   private instances: any = {};
@@ -21,9 +22,9 @@ export class HouseHeatingFactory {
       () => new HouseHeatingController(
         this.addFuelOilOrderPresenter,
         this.homePresenter,
-        new AddFuelOilOrder(api),
-        new GetLastFuelOilOrders(api),
-        new GetTotalFuelOilOrder(api),
+        new AddFuelOilOrder(new OrderFuelOilFakeApiRepository(api)),
+        new GetLastFuelOilOrders(new OrderFuelOilFakeApiRepository(api)),
+        new GetTotalFuelOilOrder(new OrderFuelOilFakeApiRepository(api)),
       ),
     );
   }
