@@ -38,7 +38,7 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { api } from '../../../../../api/frontend/src/Api';
+  import { api } from '@/infrastructure/Api';
 
   const gradients = [
     ['#222'],
