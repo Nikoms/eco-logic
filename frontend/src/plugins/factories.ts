@@ -1,10 +1,10 @@
-import { TravelingFactory } from '@eco/domain/src/Traveling/TravelingFactory';
-import { WaterFactory } from '@eco/domain/src/Water/WaterFactory';
-import { HouseHeatingFactory } from '@eco/domain/src/HouseHeating/HouseHeatingFactory';
-import { ElectricityFactory } from '@eco/domain/src/Electricity/ElectricityFactory';
+import { WaterFactory } from '@/infrastructure/Water/WaterFactory';
+import { ElectricityFactory } from '@/infrastructure/Electricity/ElectricityFactory';
+import { HouseHeatingFactory } from '@/infrastructure/HouseHeating/HouseHeatingFactory';
+import { TravelingFactory } from '@/infrastructure/Traveling/TravelingFactory';
 
 const factories = {
-  install: (Vue: any, options: any) => {
+  install: (Vue: any) => {
     Vue.prototype.$travel = new TravelingFactory();
     Vue.prototype.$water = new WaterFactory();
     Vue.prototype.$houseHeating = new HouseHeatingFactory();

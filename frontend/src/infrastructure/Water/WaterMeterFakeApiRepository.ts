@@ -1,6 +1,6 @@
 import { WaterMeterRepositoryInterface } from '@eco/domain/src/Water/UseCase/WaterMeterRepositoryInterface';
 import { WaterMeter } from '@eco/core-water/src/entity/WaterMeter';
-import { Api } from '@eco/domain/src/Temp/Api';
+import { Api } from '@/infrastructure/Api';
 import { v4 } from 'uuid';
 
 export class WaterMeterFakeApiRepository implements WaterMeterRepositoryInterface {

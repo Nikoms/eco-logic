@@ -1,4 +1,4 @@
-import { Api } from '@eco/domain/src/Temp/Api';
+import { Api } from '@/infrastructure/Api';
 import { PowerConsumptionRepositoryInterface } from '@eco/domain/src/Electricity/Repository/PowerConsumptionRepositoryInterface';
 import { PowerConsumption } from '@eco/core-electricity/src/entity/PowerConsumption';
 import { v4 } from 'uuid';

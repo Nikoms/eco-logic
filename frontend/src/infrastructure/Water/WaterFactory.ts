@@ -8,10 +8,10 @@ import { AddConsumptionPresenterInterface } from '@eco/domain/src/Water/UseCase/
 import { GetWaterMetersPresenterInterface } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersPresenterInterface';
 import { ListConsumptionsPresenterInterface } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsPresenterInterface';
 import { WaterController } from '@eco/domain/src/Water/WaterController';
-import { api } from '@eco/domain/src/Temp/Api';
-import { ConsumptionFakeApiRepository } from 'frontend/src/infrastructure/Water/ConsumptionFakeApiRepository';
 import { AddWaterMeterPresenterInterface } from '@eco/domain/src/Water/UseCase/InitWaterMeter/AddWaterMeterPresenterInterface';
-import { WaterMeterFakeApiRepository } from 'frontend/src/infrastructure/Water/WaterMeterFakeApiRepository';
+import { api } from '@/infrastructure/Api';
+import { ConsumptionFakeApiRepository } from '@/infrastructure/Water/ConsumptionFakeApiRepository';
+import { WaterMeterFakeApiRepository } from '@/infrastructure/Water/WaterMeterFakeApiRepository';
 
 export class WaterFactory {
   private instances: any = {};

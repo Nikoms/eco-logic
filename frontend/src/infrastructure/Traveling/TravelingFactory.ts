@@ -9,10 +9,10 @@ import { HomePresenterInterface } from '@eco/domain/src/Traveling/UseCase/Home/H
 import { TravelingPresenter } from '@eco/domain/src/Traveling/TravelingPresenter';
 import { GetCars } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCars';
 import { TravelingController } from '@eco/domain/src/Traveling/TravelingController';
-import { api } from '@eco/domain/src/Temp/Api';
-import { CarFakeApiRepository } from 'frontend/src/infrastructure/Traveling/CarFakeApiRepository';
-import { FlightFakeApiRepository } from 'frontend/src/infrastructure/Traveling/FlightFakeApiRepository';
-import { OdometerFakeApiRepository } from 'frontend/src/infrastructure/Traveling/OdometerFakeApiRepository';
+import { CarFakeApiRepository } from '@/infrastructure/Traveling/CarFakeApiRepository';
+import { FlightFakeApiRepository } from '@/infrastructure/Traveling/FlightFakeApiRepository';
+import { OdometerFakeApiRepository } from '@/infrastructure/Traveling/OdometerFakeApiRepository';
+import { api } from '@/infrastructure/Api';
 
 export class TravelingFactory {
   private instances: any = {};

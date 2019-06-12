@@ -7,9 +7,9 @@ import { GetElectricMeters } from '@eco/domain/src/Electricity/UseCase/GetElectr
 import { AddElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/AddElectricMeter/AddElectricMeterPresenterInterface';
 import { AddElectricMeter } from '@eco/domain/src/Electricity/UseCase/AddElectricMeter/AddElectricMeter';
 import { ElectricityController } from '@eco/domain/src/Electricity/ElectricityController';
-import { api } from '@eco/domain/src/Temp/Api';
-import { ElectricityMeterFakeApiRepository } from 'frontend/src/infrastructure/Electricity/ElectricityMeterFakeApiRepository';
-import { PowerConsumptionFakeApiRepository } from 'frontend/src/infrastructure/Electricity/PowerConsumptionFakeApiRepository';
+import { api } from '@/infrastructure/Api';
+import { ElectricityMeterFakeApiRepository } from '@/infrastructure/Electricity/ElectricityMeterFakeApiRepository';
+import { PowerConsumptionFakeApiRepository } from '@/infrastructure/Electricity/PowerConsumptionFakeApiRepository';
 
 export class ElectricityFactory {
   private instances: any = {};

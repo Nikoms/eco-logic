@@ -1,6 +1,6 @@
 import { FlightRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/FlightRepositoryInterface';
 import { PlaneTravel } from '@eco/core-travel/src/entity/PlaneTravel';
-import { Api } from '@eco/domain/src/Temp/Api';
+import { Api } from '@/infrastructure/Api';
 import { v4 } from 'uuid';
 
 export class FlightFakeApiRepository implements FlightRepositoryInterface {

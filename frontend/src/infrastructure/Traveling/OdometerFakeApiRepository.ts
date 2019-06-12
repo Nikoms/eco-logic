@@ -1,6 +1,6 @@
 import { Odometer } from '@eco/core-travel/src/entity/Odometer';
 import { OdometerRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/OdometerRepositoryInterface';
-import { Api } from '@eco/domain/src/Temp/Api';
+import { Api } from '@/infrastructure/Api';
 import { v4 } from 'uuid';
 
 export class OdometerFakeApiRepository implements OdometerRepositoryInterface {
