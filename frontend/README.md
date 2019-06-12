@@ -1,7 +1,5 @@
 #
-- Remove "api" and call it repository.
-- The use cases **must** be the same in front end and backend
-- Tous les presenters doivent avoir une interface et seul l'interface doit être utilisé
+- The use cases **must** be the same in front end and backend: Attention aux ids qui peuvent être vides (front) ou remplis (back)
 - Unit test!
 - E2E tests with VueJs
 - Having another front end framework
