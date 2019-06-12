@@ -1,6 +1,7 @@
 import { Api } from '@eco/domain/src/Temp/Api';
 import { PowerConsumptionRepositoryInterface } from '@eco/domain/src/Electricity/Repository/PowerConsumptionRepositoryInterface';
 import { PowerConsumption } from '@eco/core-electricity/src/entity/PowerConsumption';
+import { v4 } from 'uuid';
 
 export class PowerConsumptionFakeApiRepository implements PowerConsumptionRepositoryInterface {
   constructor(private api: Api) {
@@ -9,5 +10,9 @@ export class PowerConsumptionFakeApiRepository implements PowerConsumptionReposi
 
   async add(powerConsumption: PowerConsumption): Promise<void> {
     await this.api.addPowerConsumption(powerConsumption);
+  }
+
+  async nextIdentity(): Promise<string> {
+    return v4();
   }
 }

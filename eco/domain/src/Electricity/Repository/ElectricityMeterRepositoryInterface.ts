@@ -4,4 +4,6 @@ export interface ElectricityMeterRepositoryInterface {
   getAll(): Promise<ElectricMeter[]>;
 
   add(electricMeter: ElectricMeter): Promise<void>;
+
+  nextIdentity(): Promise<string>;
 }

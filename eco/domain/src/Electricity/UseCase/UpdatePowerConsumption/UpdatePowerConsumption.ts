@@ -3,7 +3,6 @@ import { UpdatePowerConsumptionPresenterInterface } from '@eco/domain/src/Electr
 import { UpdatePowerConsumptionResponse } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionResponse';
 import { PowerConsumptionRepositoryInterface } from '@eco/domain/src/Electricity/Repository/PowerConsumptionRepositoryInterface';
 import { PowerConsumption } from '@eco/core-electricity/src/entity/PowerConsumption';
-import { v4 } from 'uuid';
 
 export class UpdatePowerConsumption {
   constructor(private repository: PowerConsumptionRepositoryInterface) {
@@ -27,7 +26,8 @@ export class UpdatePowerConsumption {
     }
 
     if (!hasError) {
-      const consumption = new PowerConsumption(v4(), parseFloat(request.kWh), request.electricMeterId, new Date());
+      const id = await this.repository.nextIdentity();
+      const consumption = new PowerConsumption(id, parseFloat(request.kWh), request.electricMeterId, new Date());
       await this.repository.add(consumption);
       response.newPowerConsumption = consumption;
     }

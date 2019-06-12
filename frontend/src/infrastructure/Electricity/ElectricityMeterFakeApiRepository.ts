@@ -1,10 +1,10 @@
 import { ElectricityMeterRepositoryInterface } from '@eco/domain/src/Electricity/Repository/ElectricityMeterRepositoryInterface';
 import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
 import { Api } from '@eco/domain/src/Temp/Api';
+import { v4 } from 'uuid';
 
 export class ElectricityMeterFakeApiRepository implements ElectricityMeterRepositoryInterface {
   constructor(private api: Api) {
-
   }
 
   async add(electricMeter: ElectricMeter): Promise<void> {
@@ -15,4 +15,7 @@ export class ElectricityMeterFakeApiRepository implements ElectricityMeterReposi
     return this.api.getElectricMeters();
   }
 
+  async nextIdentity(): Promise<string> {
+    return v4();
+  }
 }

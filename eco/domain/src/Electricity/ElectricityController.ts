@@ -5,8 +5,6 @@ import { UpdatePowerConsumptionRequest } from '@eco/domain/src/Electricity/UseCa
 import { GetElectricMetersPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersPresenterInterface';
 import { AddElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/AddElectricMeter/AddElectricMeterPresenterInterface';
 import { UpdatePowerConsumptionPresenterInterface } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionPresenterInterface';
-import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
-import { v4 } from 'uuid';
 import { AddElectricMeterRequest } from '@eco/domain/src/Electricity/UseCase/AddElectricMeter/AddElectricMeterRequest';
 
 export class ElectricityController {
@@ -24,12 +22,12 @@ export class ElectricityController {
   }
 
   initializeMeters(hasDayAndNightMeter: boolean) {
-    const meters: ElectricMeter[] = [];
+    const meters: string[] = [];
     if (hasDayAndNightMeter) {
-      meters.push(new ElectricMeter(v4(), 'Day meter', 0, new Date()));
-      meters.push(new ElectricMeter(v4(), 'Night meter', 0, new Date()));
+      meters.push('Day meter');
+      meters.push('Night meter');
     } else {
-      meters.push(new ElectricMeter(v4(), 'Electric meter', 0, new Date()));
+      meters.push('Electric meter');
     }
 
     for (const meter of meters) {
