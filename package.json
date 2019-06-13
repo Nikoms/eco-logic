@@ -22,7 +22,6 @@
     "core/*",
     "eco/domain",
     "infrastructure",
-    "frontend-interface-adapter",
     "frontend/*"
   ],
   "private": true,
