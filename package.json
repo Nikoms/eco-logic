@@ -23,7 +23,7 @@
     "eco/domain",
     "infrastructure",
     "frontend-interface-adapter",
-    "frontend"
+    "frontend/*"
   ],
   "private": true,
   "devDependencies": {
