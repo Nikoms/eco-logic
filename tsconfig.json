@@ -36,6 +36,9 @@
       "@eco/infrastructure/*": [
         "infrastructure/*"
       ],
+      "@eco/frontend-interface-adapter/*": [
+        "frontend-interface-adapter/*"
+      ],
       "@eco/core-co2/*": [
         "core/co2/*"
       ],

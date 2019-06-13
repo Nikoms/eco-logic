@@ -3,15 +3,15 @@ import { AddWaterMeter } from '@eco/domain/src/Water/UseCase/InitWaterMeter/AddW
 import { GetWaterMeters } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMeters';
 import { ListConsumptions } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptions';
 import { HomePresenterInterface } from '@eco/domain/src/Water/UseCase/Home/HomePresenterInterface';
-import { WaterPresenter } from '@eco/domain/src/Water/WaterPresenter';
 import { AddConsumptionPresenterInterface } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionPresenterInterface';
 import { GetWaterMetersPresenterInterface } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersPresenterInterface';
 import { ListConsumptionsPresenterInterface } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsPresenterInterface';
-import { WaterController } from '@eco/domain/src/Water/WaterController';
 import { AddWaterMeterPresenterInterface } from '@eco/domain/src/Water/UseCase/InitWaterMeter/AddWaterMeterPresenterInterface';
-import { api } from '@/infrastructure/Api';
-import { ConsumptionFakeApiRepository } from '@/infrastructure/Water/ConsumptionFakeApiRepository';
-import { WaterMeterFakeApiRepository } from '@/infrastructure/Water/WaterMeterFakeApiRepository';
+import { api } from 'frontend/src/infrastructure/Api';
+import { ConsumptionFakeApiRepository } from 'frontend/src/infrastructure/Water/ConsumptionFakeApiRepository';
+import { WaterMeterFakeApiRepository } from 'frontend/src/infrastructure/Water/WaterMeterFakeApiRepository';
+import { WaterController } from '@eco/frontend-interface-adapter/src/Water/WaterController';
+import { WaterPresenter } from '@eco/frontend-interface-adapter/src/Water/WaterPresenter';
 
 export class WaterFactory {
   private instances: any = {};

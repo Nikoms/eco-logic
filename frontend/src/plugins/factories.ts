@@ -1,7 +1,7 @@
-import { WaterFactory } from '@/infrastructure/Water/WaterFactory';
-import { ElectricityFactory } from '@/infrastructure/Electricity/ElectricityFactory';
-import { HouseHeatingFactory } from '@/infrastructure/HouseHeating/HouseHeatingFactory';
-import { TravelingFactory } from '@/infrastructure/Traveling/TravelingFactory';
+import { WaterFactory } from '@eco/frontend-interface-adapter/src/Water/WaterFactory';
+import { ElectricityFactory } from '@eco/frontend-interface-adapter/src/Electricity/ElectricityFactory';
+import { HouseHeatingFactory } from '@eco/frontend-interface-adapter/src/HouseHeating/HouseHeatingFactory';
+import { TravelingFactory } from '@eco/frontend-interface-adapter/src/Traveling/TravelingFactory';
 
 const factories = {
   install: (Vue: any) => {

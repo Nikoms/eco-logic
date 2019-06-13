@@ -1,4 +1,3 @@
-import { ElectricityPresenter } from '@eco/domain/src/Electricity/ElectricityPresenter';
 import { HomePresenterInterface } from '@eco/domain/src/Electricity/UseCase/Home/HomePresenterInterface';
 import { UpdatePowerConsumptionPresenterInterface } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionPresenterInterface';
 import { UpdatePowerConsumption } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumption';
@@ -6,10 +5,11 @@ import { GetElectricMetersPresenterInterface } from '@eco/domain/src/Electricity
 import { GetElectricMeters } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMeters';
 import { AddElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/AddElectricMeter/AddElectricMeterPresenterInterface';
 import { AddElectricMeter } from '@eco/domain/src/Electricity/UseCase/AddElectricMeter/AddElectricMeter';
-import { ElectricityController } from '@eco/domain/src/Electricity/ElectricityController';
-import { api } from '@/infrastructure/Api';
-import { ElectricityMeterFakeApiRepository } from '@/infrastructure/Electricity/ElectricityMeterFakeApiRepository';
-import { PowerConsumptionFakeApiRepository } from '@/infrastructure/Electricity/PowerConsumptionFakeApiRepository';
+import { api } from 'frontend/src/infrastructure/Api';
+import { ElectricityMeterFakeApiRepository } from 'frontend/src/infrastructure/Electricity/ElectricityMeterFakeApiRepository';
+import { PowerConsumptionFakeApiRepository } from 'frontend/src/infrastructure/Electricity/PowerConsumptionFakeApiRepository';
+import { ElectricityController } from '@eco/frontend-interface-adapter/src/Electricity/ElectricityController';
+import { ElectricityPresenter } from '@eco/frontend-interface-adapter/src/Electricity/ElectricityPresenter';
 
 export class ElectricityFactory {
   private instances: any = {};

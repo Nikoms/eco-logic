@@ -6,13 +6,13 @@ import { AddCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddC
 import { AddFlightPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightPresenterInterface';
 import { UpdateOdometerPresenterInterface } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerPresenterInterface';
 import { HomePresenterInterface } from '@eco/domain/src/Traveling/UseCase/Home/HomePresenterInterface';
-import { TravelingPresenter } from '@eco/domain/src/Traveling/TravelingPresenter';
 import { GetCars } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCars';
-import { TravelingController } from '@eco/domain/src/Traveling/TravelingController';
-import { CarFakeApiRepository } from '@/infrastructure/Traveling/CarFakeApiRepository';
-import { FlightFakeApiRepository } from '@/infrastructure/Traveling/FlightFakeApiRepository';
-import { OdometerFakeApiRepository } from '@/infrastructure/Traveling/OdometerFakeApiRepository';
-import { api } from '@/infrastructure/Api';
+import { CarFakeApiRepository } from 'frontend/src/infrastructure/Traveling/CarFakeApiRepository';
+import { FlightFakeApiRepository } from 'frontend/src/infrastructure/Traveling/FlightFakeApiRepository';
+import { OdometerFakeApiRepository } from 'frontend/src/infrastructure/Traveling/OdometerFakeApiRepository';
+import { api } from 'frontend/src/infrastructure/Api';
+import { TravelingController } from '@eco/frontend-interface-adapter/src/Traveling/TravelingController';
+import { TravelingPresenter } from '@eco/frontend-interface-adapter/src/Traveling/TravelingPresenter';
 
 export class TravelingFactory {
   private instances: any = {};

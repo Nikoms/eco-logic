@@ -1,12 +1,12 @@
 import { AddFuelOilOrder } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrder';
-import { HouseHeatingPresenter } from '@eco/domain/src/HouseHeating/HouseHeatingPresenter';
 import { AddFuelOilOrderPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderPresenterInterface';
 import { HomePresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/Home/HomePresenterInterface';
 import { GetLastFuelOilOrders } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrder/GetLastFuelOilOrder';
 import { GetTotalFuelOilOrder } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrder';
-import { HouseHeatingController } from '@eco/domain/src/HouseHeating/HouseHeatingController';
-import { OrderFuelOilFakeApiRepository } from '@/infrastructure/HouseHeating/OrderFuelOilFakeApiRepository';
-import { api } from '@/infrastructure/Api';
+import { OrderFuelOilFakeApiRepository } from 'frontend/src/infrastructure/HouseHeating/OrderFuelOilFakeApiRepository';
+import { api } from 'frontend/src/infrastructure/Api';
+import { HouseHeatingController } from '@eco/frontend-interface-adapter/src/HouseHeating/HouseHeatingController';
+import { HouseHeatingPresenter } from '@eco/frontend-interface-adapter/src/HouseHeating/HouseHeatingPresenter';
 
 export class HouseHeatingFactory {
   private instances: any = {};

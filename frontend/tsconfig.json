@@ -35,9 +35,8 @@
     "tests/**/*.ts",
     "tests/**/*.tsx",
     "../infrastructure/src/**/*.ts",
+    "../frontend-interface-adapter/src/**/*.ts",
     "../core/**/src/**/*.ts",
-    "../api/frontend/src/**/*.ts",
-    "../api/frontend/src/**/*.ts",
     "../eco/domain/src/**/*.ts"
   ],
   "exclude": [
