@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd frontend && vue-cli-service build"
+    "build": "cd frontend/vuejs && vue-cli-service build"
   },
   "repository": {
     "type": "git",
