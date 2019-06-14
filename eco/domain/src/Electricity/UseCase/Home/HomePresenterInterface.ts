@@ -1,4 +1,4 @@
-import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
+import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
 
 export interface HomePresenterInterface {
   showUpdatePowerConsumption(electricMeter: ElectricMeter): void;

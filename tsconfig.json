@@ -45,9 +45,6 @@
       "@eco/core-co2/*": [
         "core/co2/*"
       ],
-      "@eco/core-electricity/*": [
-        "core/electricity/*"
-      ],
       "@eco/core-water/*": [
         "core/water/*"
       ],

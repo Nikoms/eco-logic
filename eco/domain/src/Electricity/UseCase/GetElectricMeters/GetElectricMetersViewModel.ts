@@ -1,4 +1,4 @@
-import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
+import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
 
 export class GetElectricMetersViewModel {
   public meters: ElectricMeter[] = [];

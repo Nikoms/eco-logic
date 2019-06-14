@@ -1,9 +1,11 @@
-import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
+import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
 
 export interface ElectricityMeterRepositoryInterface {
   getAll(): Promise<ElectricMeter[]>;
 
-  add(electricMeter: ElectricMeter): Promise<void>;
-
   nextIdentity(): Promise<string>;
+
+  get(id: string): Promise<ElectricMeter | undefined>;
+
+  save(electricMeter: ElectricMeter): Promise<void>;
 }

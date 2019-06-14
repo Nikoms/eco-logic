@@ -1,11 +1,14 @@
 import { UpdatePowerConsumptionRequest } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionRequest';
 import { UpdatePowerConsumptionPresenterInterface } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionPresenterInterface';
 import { UpdatePowerConsumptionResponse } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionResponse';
-import { PowerConsumptionRepositoryInterface } from '@eco/domain/src/Electricity/Repository/PowerConsumptionRepositoryInterface';
-import { PowerConsumption } from '@eco/core-electricity/src/entity/PowerConsumption';
+import { PowerConsumption } from '@eco/domain/src/Electricity/Entity/PowerConsumption';
+import { ElectricityMeterRepositoryInterface } from '@eco/domain/src/Electricity/Repository/ElectricityMeterRepositoryInterface';
+import { EventDispatcher } from '@eco/core-shared-kernel/src/event/EventDispatcher';
+import { PowerUpdated } from '@eco/domain/src/Electricity/Event/PowerUpdated';
 
 export class UpdatePowerConsumption {
-  constructor(private repository: PowerConsumptionRepositoryInterface) {
+  constructor(private meterRepository: ElectricityMeterRepositoryInterface,
+              private eventDispatcher: EventDispatcher) {
 
   }
 
@@ -25,11 +28,30 @@ export class UpdatePowerConsumption {
       response.isKwhInvalid = true;
     }
 
+    const electricMeter = await this.meterRepository.get(request.electricMeterId);
+    if (electricMeter === undefined) {
+      hasError = true;
+      response.isElectricMeterUnknown = true;
+    }
+
     if (!hasError) {
-      const id = await this.repository.nextIdentity();
-      const consumption = new PowerConsumption(id, parseFloat(request.kWh), request.electricMeterId, new Date());
-      await this.repository.add(consumption);
-      response.newPowerConsumption = consumption;
+
+      const lastKwh = electricMeter!.kWh;
+      const fromDate = electricMeter!.lastKWhUpdate;
+      electricMeter!.updateKwh(parseFloat(request.kWh), new Date());
+
+      await this.meterRepository.save(electricMeter!);
+
+      const kWhConsumed = electricMeter!.kWh - lastKwh;
+
+      this.eventDispatcher.emit(new PowerUpdated(
+        electricMeter!,
+        kWhConsumed,
+        fromDate,
+        electricMeter!.lastKWhUpdate,
+      ));
+
+      response.newPowerConsumption = new PowerConsumption(electricMeter!.kWh, electricMeter!.id, electricMeter!.lastKWhUpdate);
     }
     presenter.presentUpdatePowerConsumption(response);
   }

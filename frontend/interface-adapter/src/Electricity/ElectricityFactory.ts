@@ -3,27 +3,36 @@ import { UpdatePowerConsumptionPresenterInterface } from '@eco/domain/src/Electr
 import { UpdatePowerConsumption } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumption';
 import { GetElectricMetersPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersPresenterInterface';
 import { GetElectricMeters } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMeters';
-import { AddElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/AddElectricMeter/AddElectricMeterPresenterInterface';
-import { AddElectricMeter } from '@eco/domain/src/Electricity/UseCase/AddElectricMeter/AddElectricMeter';
+import { SaveElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterPresenterInterface';
+import { SaveElectricMeter } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeter';
 import { ElectricityController } from './ElectricityController';
 import { ElectricityMeterFakeApiRepository } from '@eco/frontend-infrastructure/src/Electricity/ElectricityMeterFakeApiRepository';
-import { PowerConsumptionFakeApiRepository } from '@eco/frontend-infrastructure/src/Electricity/PowerConsumptionFakeApiRepository';
 import { api } from '@eco/frontend-infrastructure/src/Api';
 import { ElectricityPresenter } from './ElectricityPresenter';
+import { EventTargetEventDispatcher } from '@eco/infrastructure/src/event/EventDispatcher';
+import { ElectricMeterLocalStorageRepository2 } from '@eco/infrastructure/src/local-storage/ElectricMeterLocalStorageRepository2';
 
 export class ElectricityFactory {
   private instances: any = {};
 
+  constructor(private eventDispatcher: EventTargetEventDispatcher) {
+
+  }
+
   get controller() {
+    const electricityMeterFakeApiRepository = new ElectricityMeterFakeApiRepository(
+      api,
+      new ElectricMeterLocalStorageRepository2(window.localStorage),
+    );
     return this.reuseOrInstantiate(
       'ElectricityController',
       () => new ElectricityController(
         this.getElectricMetersPresenter,
         this.initElectricMetersPresenter,
         this.updatePowerConsumptionPresenter,
-        new GetElectricMeters(new ElectricityMeterFakeApiRepository(api)),
-        new AddElectricMeter(new ElectricityMeterFakeApiRepository(api)),
-        new UpdatePowerConsumption(new PowerConsumptionFakeApiRepository(api)),
+        new GetElectricMeters(electricityMeterFakeApiRepository),
+        new SaveElectricMeter(electricityMeterFakeApiRepository),
+        new UpdatePowerConsumption(electricityMeterFakeApiRepository, this.eventDispatcher),
       ),
     );
   }
@@ -32,7 +41,7 @@ export class ElectricityFactory {
     return this.fullPresenter;
   }
 
-  get initElectricMetersPresenter(): AddElectricMeterPresenterInterface {
+  get initElectricMetersPresenter(): SaveElectricMeterPresenterInterface {
     return this.fullPresenter;
   }
 

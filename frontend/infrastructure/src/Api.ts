@@ -1,9 +1,7 @@
 import {
   addCar,
   addPlaneTravel,
-  addPowerConsumption,
   addWaterConsumption,
-  getAllPowerConsumptions,
   getAllWaterConsumptions,
   getCarbons,
   getCars,
@@ -12,13 +10,12 @@ import {
   getPlaneTravels,
   getTotalFuelOilOrder,
   getWaterMeters,
-  initElectricMeter,
   initWaterMeter,
   orderFuelOil,
+  saveElectricMeter,
   updateOdometer,
+  updatePowerConsumption,
 } from '@eco/infrastructure/src/di';
-import { InitElectricMeterRequest } from '@eco/core-electricity/src/use-case/InitElectricMeter';
-import { AddPowerConsumptionRequest } from '@eco/core-electricity/src/use-case/AddPowerConsumption';
 import { AddCarRequest } from '@eco/core-travel/src/use-case/AddCar';
 import { PlaneTravel } from '@eco/core-travel/src/entity/PlaneTravel';
 import { AddPlaneTravelRequest } from '@eco/core-travel/src/use-case/AddPlaneTravel';
@@ -26,31 +23,72 @@ import { UpdateOdometerRequest } from '@eco/core-travel/src/use-case/UpdateOdome
 import { AddWaterConsumptionRequest } from '@eco/core-water/src/use-case/AddWaterConsumption';
 import { InitWaterMeterRequest } from '@eco/core-water/src/use-case/InitWaterMeter';
 import { Car } from '@eco/core-travel/src/entity/Car';
-import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
-import { PowerConsumption } from '@eco/core-electricity/src/entity/PowerConsumption';
+import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
 import { Odometer } from '@eco/core-travel/src/entity/Odometer';
 import { WaterConsumption } from '@eco/core-water/src/entity/WaterConsumption';
 import { WaterMeter } from '@eco/core-water/src/entity/WaterMeter';
+import { PowerConsumption } from '@eco/domain/src/Electricity/Entity/PowerConsumption';
+import { SaveElectricMeterRequest } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterRequest';
+import { SaveElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterPresenterInterface';
+import { SaveElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterResponse';
+import { GetElectricMetersPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersPresenterInterface';
+import { GetElectricMetersViewModel } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersViewModel';
+import { GetElectricMetersResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersResponse';
+import { UpdatePowerConsumptionRequest } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionRequest';
+import { UpdatePowerConsumptionPresenterInterface } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionPresenterInterface';
+import { UpdatePowerConsumptionViewModel } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionViewModel';
+import { UpdatePowerConsumptionResponse } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionResponse';
 
 export class Api {
   getCars() {
     return getCars.execute();
   }
 
-  addElectricMeter(meter: ElectricMeter) {
-    return initElectricMeter.execute(new InitElectricMeterRequest(meter));
+  saveElectricMeter(meter: ElectricMeter) {
+    const presenter = new (class ApiPresenter implements SaveElectricMeterPresenterInterface {
+      presentAddElectricMeterResponse(_response: SaveElectricMeterResponse): void {
+      }
+    })();
+
+    return saveElectricMeter.execute(new SaveElectricMeterRequest(meter.name, meter.id), presenter);
   }
 
-  getElectricMeters() {
-    return getElectricMeters.execute();
+  async getElectricMeters() {
+    const presenter = new (class ApiPresenter implements GetElectricMetersPresenterInterface {
+      private viewModel = new GetElectricMetersViewModel();
+
+      getGetElectricMetersViewModel(): GetElectricMetersViewModel {
+        return this.viewModel;
+      }
+
+      presentGetElectricMeters(response: GetElectricMetersResponse): void {
+        this.viewModel.meters = response.electricMeters;
+        this.viewModel.hasMeter = this.viewModel.meters.length > 0;
+      }
+    })();
+
+    await getElectricMeters.execute(presenter);
+
+    return presenter.getGetElectricMetersViewModel().meters;
   }
 
-  getAllPowerConsumptions() {
-    return getAllPowerConsumptions.execute();
-  }
+  async addPowerConsumption(powerConsumption: PowerConsumption) {
+    const presenter = new (class ApiPresenter implements UpdatePowerConsumptionPresenterInterface {
+      cancelUpdatePowerConsumption(): void {
+        // Mhhh... La preuve qu'il faut uniquement un "present" dans l'interface. Le reste c'est pour la vue "js"
+      }
 
-  addPowerConsumption(powerConsumption: PowerConsumption) {
-    return addPowerConsumption.execute(new AddPowerConsumptionRequest(powerConsumption.kWh, powerConsumption.electricMeterId));
+      getUpdatePowerConsumptionViewModel(): UpdatePowerConsumptionViewModel {
+        return new UpdatePowerConsumptionViewModel();
+      }
+
+      presentUpdatePowerConsumption(_response: UpdatePowerConsumptionResponse): void {
+      }
+    })();
+    await updatePowerConsumption.execute(
+      new UpdatePowerConsumptionRequest(powerConsumption.electricMeterId, `${powerConsumption.kWh}`),
+      presenter,
+    );
   }
 
   addCar(car: Car) {

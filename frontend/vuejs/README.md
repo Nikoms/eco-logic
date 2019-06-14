@@ -5,7 +5,8 @@
 - Having another front end framework
 - Check presenter interface: is it good?
 - Il y a des imports de frontend-infra dans frontend-interface: Pas bie
-
+- ElectricityMeterFakeApiRepository ne devrait pas utiliser le repo "backend" (hot fix)
+- Checkout le commentaire là: "Api.addPowerConsumption". Le presenter a des méthodes que pour la vue "js" et ca, c'est pas bon
 # frontend
 
 ## Project setup

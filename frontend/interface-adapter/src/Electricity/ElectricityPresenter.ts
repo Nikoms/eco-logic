@@ -1,18 +1,18 @@
 import { HomePresenterInterface } from '@eco/domain/src/Electricity/UseCase/Home/HomePresenterInterface';
-import { ElectricMeter } from '@eco/core-electricity/src/entity/ElectricMeter';
 import { UpdatePowerConsumptionPresenterInterface } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionPresenterInterface';
 import { UpdatePowerConsumptionViewModel } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionViewModel';
 import { GetElectricMetersPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersPresenterInterface';
 import { GetElectricMetersViewModel } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersViewModel';
-import { AddElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/AddElectricMeter/AddElectricMeterPresenterInterface';
+import { SaveElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterPresenterInterface';
 import { GetElectricMetersResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersResponse';
-import { AddElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/AddElectricMeter/AddElectricMeterResponse';
+import { SaveElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterResponse';
 import { UpdatePowerConsumptionResponse } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionResponse';
+import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
 
 export class ElectricityPresenter implements HomePresenterInterface,
   UpdatePowerConsumptionPresenterInterface,
   GetElectricMetersPresenterInterface,
-  AddElectricMeterPresenterInterface {
+  SaveElectricMeterPresenterInterface {
 
   private updatePowerConsumptionViewModel = new UpdatePowerConsumptionViewModel();
   private getElectricMetersViewModel = new GetElectricMetersViewModel();
@@ -66,7 +66,7 @@ export class ElectricityPresenter implements HomePresenterInterface,
     return this.getElectricMetersViewModel;
   }
 
-  presentAddElectricMeterResponse(response: AddElectricMeterResponse): void {
+  presentAddElectricMeterResponse(response: SaveElectricMeterResponse): void {
     this.meters.push(response.meter);
     this.updateMetersViewModel();
   }

@@ -1,4 +1,4 @@
-import { PowerUpdated } from '@eco/core-electricity/src/event/PowerUpdated';
+import { PowerUpdated } from '@eco/domain/src/Electricity/Event/PowerUpdated';
 import { OdometerUpdated } from '@eco/core-travel/src/event/OdometerUpdated';
 import { PlaneTravelAdded } from '@eco/core-travel/src/event/PlaneTravelAdded';
 import { AddCarbonRequest } from './use-case/AddCarbon';

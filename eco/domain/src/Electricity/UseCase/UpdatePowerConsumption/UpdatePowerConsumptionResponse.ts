@@ -1,4 +1,4 @@
-import { PowerConsumption } from '@eco/core-electricity/src/entity/PowerConsumption';
+import { PowerConsumption } from '@eco/domain/src/Electricity/Entity/PowerConsumption';
 
 export class UpdatePowerConsumptionResponse {
   isElectricMeterUnknown: boolean = false;

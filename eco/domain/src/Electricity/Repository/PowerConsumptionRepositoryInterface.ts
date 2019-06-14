@@ -1,7 +1,7 @@
-import { PowerConsumption } from '@eco/core-electricity/src/entity/PowerConsumption';
+import { PowerConsumption } from '@eco/domain/src/Electricity/Entity/PowerConsumption';
 
 export interface PowerConsumptionRepositoryInterface {
-  add(powerConsumption: PowerConsumption): Promise<void>;
+  save(powerConsumption: PowerConsumption): Promise<void>;
 
   nextIdentity(): Promise<string>;
 }

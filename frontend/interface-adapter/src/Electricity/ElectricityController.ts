@@ -1,19 +1,19 @@
 import { GetElectricMeters } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMeters';
-import { AddElectricMeter } from '@eco/domain/src/Electricity/UseCase/AddElectricMeter/AddElectricMeter';
+import { SaveElectricMeter } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeter';
 import { UpdatePowerConsumption } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumption';
 import { UpdatePowerConsumptionRequest } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionRequest';
 import { GetElectricMetersPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersPresenterInterface';
-import { AddElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/AddElectricMeter/AddElectricMeterPresenterInterface';
+import { SaveElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterPresenterInterface';
 import { UpdatePowerConsumptionPresenterInterface } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionPresenterInterface';
-import { AddElectricMeterRequest } from '@eco/domain/src/Electricity/UseCase/AddElectricMeter/AddElectricMeterRequest';
+import { SaveElectricMeterRequest } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterRequest';
 
 export class ElectricityController {
   constructor(
     private getPresenter: GetElectricMetersPresenterInterface,
-    private initPresenter: AddElectricMeterPresenterInterface,
+    private initPresenter: SaveElectricMeterPresenterInterface,
     private updatePresenter: UpdatePowerConsumptionPresenterInterface,
     private getElectricMeters: GetElectricMeters,
-    private initUseCase: AddElectricMeter,
+    private initUseCase: SaveElectricMeter,
     private updateUseCase: UpdatePowerConsumption) {
   }
 
@@ -31,7 +31,7 @@ export class ElectricityController {
     }
 
     for (const meter of meters) {
-      this.initUseCase.execute(new AddElectricMeterRequest(meter), this.initPresenter);
+      this.initUseCase.execute(new SaveElectricMeterRequest(meter), this.initPresenter);
     }
   }
 
