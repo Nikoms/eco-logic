@@ -27,7 +27,7 @@ export class WaterFactory {
   get controller() {
 
     return this.reuseOrInstantiate(
-      WaterController.name,
+      'WaterController',
       () => new WaterController(
         this.addConsumptionPresenter,
         this.getWaterMeterPresenter,
@@ -54,7 +54,7 @@ export class WaterFactory {
   }
 
   private get waterPresenter(): WaterPresenter {
-    return this.reuseOrInstantiate(WaterPresenter.name, () => new WaterPresenter());
+    return this.reuseOrInstantiate('WaterPresenter', () => new WaterPresenter());
   }
 
   private reuseOrInstantiate<T>(id: string, callback: () => T): T {

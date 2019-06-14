@@ -19,35 +19,35 @@ export class TravelingFactory {
 
   get homePresenter(): HomePresenterInterface {
     return this.reuseOrInstantiate(
-      TravelingPresenter.name,
+      'TravelingPresenter',
       () => new TravelingPresenter(),
     );
   }
 
   get addCarPresenter(): AddCarPresenterInterface {
     return this.reuseOrInstantiate(
-      TravelingPresenter.name,
+      'TravelingPresenter',
       () => new TravelingPresenter(),
     );
   }
 
   get addFlightPresenter(): AddFlightPresenterInterface {
     return this.reuseOrInstantiate(
-      TravelingPresenter.name,
+      'TravelingPresenter',
       () => new TravelingPresenter(),
     );
   }
 
   get updateOdometerPresenter(): UpdateOdometerPresenterInterface {
     return this.reuseOrInstantiate(
-      TravelingPresenter.name,
+      'TravelingPresenter',
       () => new TravelingPresenter(),
     );
   }
 
   get controller() {
     return this.reuseOrInstantiate(
-      TravelingController.name,
+      'TravelingController',
       () => new TravelingController(
         this.addCarPresenter,
         this.addFlightPresenter,

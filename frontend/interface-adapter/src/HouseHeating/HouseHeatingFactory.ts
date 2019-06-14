@@ -18,7 +18,7 @@ export class HouseHeatingFactory {
 
   get controller() {
     return this.reuseOrInstantiate(
-      HouseHeatingController.name,
+      'HouseHeatingController',
       () => new HouseHeatingController(
         this.addFuelOilOrderPresenter,
         this.homePresenter,
@@ -34,7 +34,7 @@ export class HouseHeatingFactory {
   }
 
   private get fullPresenter() {
-    return this.reuseOrInstantiate(HouseHeatingPresenter.name, () => new HouseHeatingPresenter());
+    return this.reuseOrInstantiate('HouseHeatingPresenter', () => new HouseHeatingPresenter());
   }
 
   private reuseOrInstantiate<T>(id: string, callback: () => T): T {
