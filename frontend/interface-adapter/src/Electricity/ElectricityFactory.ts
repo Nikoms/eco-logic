@@ -16,7 +16,7 @@ export class ElectricityFactory {
 
   get controller() {
     return this.reuseOrInstantiate(
-      ElectricityController.name,
+      'ElectricityController',
       () => new ElectricityController(
         this.getElectricMetersPresenter,
         this.initElectricMetersPresenter,
@@ -45,7 +45,7 @@ export class ElectricityFactory {
   }
 
   private get fullPresenter() {
-    return this.reuseOrInstantiate(ElectricityPresenter.name, () => new ElectricityPresenter());
+    return this.reuseOrInstantiate('ElectricityPresenter', () => new ElectricityPresenter());
   }
 
   private reuseOrInstantiate<T>(id: string, callback: () => T): T {
