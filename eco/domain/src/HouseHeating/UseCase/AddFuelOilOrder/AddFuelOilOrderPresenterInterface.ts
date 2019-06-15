@@ -3,7 +3,5 @@ import { AddFuelOilOrderResponse } from '@eco/domain/src/HouseHeating/UseCase/Ad
 export interface AddFuelOilOrderPresenterInterface {
   getAddFuelOilOrderViewModel(): void;
 
-  addFuelOilOrderCancelled(): void;
-
   presentAddFuelOilOrder(response: AddFuelOilOrderResponse): void;
 }

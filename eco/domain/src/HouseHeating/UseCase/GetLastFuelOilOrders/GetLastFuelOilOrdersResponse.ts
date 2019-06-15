@@ -1,4 +1,4 @@
-import { FuelOilOrder } from '@eco/core-fuel-oil/src/entity/FuelOilOrder';
+import { FuelOilOrder } from '@eco/domain/src/Entity/FuelOilOrder';
 
 export class GetLastFuelOilOrdersResponse {
   lastFuelOilOrders: FuelOilOrder[] = [];

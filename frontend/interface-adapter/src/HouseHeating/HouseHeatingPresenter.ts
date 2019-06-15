@@ -1,14 +1,21 @@
-import { HomePresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/Home/HomePresenterInterface';
-import { FuelOilOrder } from '@eco/core-fuel-oil/src/entity/FuelOilOrder';
-import { HomeViewModel } from '@eco/domain/src/HouseHeating/UseCase/Home/HomeViewModel';
+import { GetTotalFuelOilOrderPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrderPresenterInterface';
 import { AddFuelOilOrderPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderPresenterInterface';
 import { AddFuelOilOrderViewModel } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderViewModel';
 import { AddFuelOilOrderResponse } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderResponse';
-import { GetLastFuelOilOrdersResponse } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrder/GetLastFuelOilOrdersResponse';
+import { GetLastFuelOilOrdersResponse } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersResponse';
 import { GetTotalFuelOilOrderResponse } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrderResponse';
+import { FuelOilOrder } from '@eco/domain/src/Entity/FuelOilOrder';
+import { GetLastFuelOilOrdersPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersPresenterInterface';
+import { GetLastFuelOilOrdersViewModel } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersViewModel';
+import { GetTotalFuelOilOrderViewModel } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrderViewModel';
+import { ElectricUI } from '@eco/frontend-interface-adapter/src/HouseHeating/ElectricUI';
 
-export class HouseHeatingPresenter implements HomePresenterInterface, AddFuelOilOrderPresenterInterface {
-  private homeViewModel = new HomeViewModel();
+export class HouseHeatingPresenter implements GetTotalFuelOilOrderPresenterInterface,
+  GetLastFuelOilOrdersPresenterInterface,
+  ElectricUI,
+  AddFuelOilOrderPresenterInterface {
+  private getTotalFuelOilOrderViewModel = new GetTotalFuelOilOrderViewModel();
+  private getLastFuelOilOrdersViewModel = new GetLastFuelOilOrdersViewModel();
   private addFuelOilOrderviewModel = new AddFuelOilOrderViewModel();
 
   private orders: FuelOilOrder[] = [];
@@ -32,14 +39,14 @@ export class HouseHeatingPresenter implements HomePresenterInterface, AddFuelOil
     if (response.newFuelOilOrder !== undefined) {
       this.orders.unshift(response.newFuelOilOrder);
       this.orders = this.orders.slice(0, 5);
-      this.homeViewModel.totalFuelOilOrder += response.newFuelOilOrder.liters;
+      this.getTotalFuelOilOrderViewModel.totalFuelOilOrder += response.newFuelOilOrder.liters;
       this.updateViewModelLastOrders();
       this.addFuelOilOrderviewModel.displayed = false;
     }
 
   }
 
-  addFuelOilOrderCancelled() {
+  hideAddFuelOilOrder() {
     this.addFuelOilOrderviewModel.displayed = false;
   }
 
@@ -48,16 +55,20 @@ export class HouseHeatingPresenter implements HomePresenterInterface, AddFuelOil
     this.updateViewModelLastOrders();
   }
 
-  getHomeViewModel(): HomeViewModel {
-    return this.homeViewModel;
+  presentGetTotalFuelOilOrder(response: GetTotalFuelOilOrderResponse): void {
+    this.getTotalFuelOilOrderViewModel.totalFuelOilOrder = response.totalFuelOilOrder;
   }
 
-  presentGetTotalFuelOilOrder(response: GetTotalFuelOilOrderResponse): void {
-    this.homeViewModel.totalFuelOilOrder = response.totalFuelOilOrder;
+  getGetLastFuelOilOrdersViewModel(): GetLastFuelOilOrdersViewModel {
+    return this.getLastFuelOilOrdersViewModel;
+  }
+
+  getGetTotalFuelOilOrderViewModel(): GetTotalFuelOilOrderViewModel {
+    return this.getTotalFuelOilOrderViewModel;
   }
 
   private updateViewModelLastOrders() {
-    this.homeViewModel.orders = this.orders.slice();
+    this.getLastFuelOilOrdersViewModel.lastOrders = this.orders.slice();
   }
 
 }

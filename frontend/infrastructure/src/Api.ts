@@ -1,5 +1,6 @@
 import {
   addCar,
+  addFuelOilOrder,
   addPlaneTravel,
   addWaterConsumption,
   getAllWaterConsumptions,
@@ -12,7 +13,6 @@ import {
   getTotalFuelOilOrder,
   getWaterMeters,
   initWaterMeter,
-  orderFuelOil,
   saveElectricMeter,
   updateOdometer,
   updatePowerConsumption,
@@ -42,6 +42,9 @@ import { GetElectricMeterRequest } from '@eco/domain/src/Electricity/UseCase/Get
 import { GetElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterPresenterInterface';
 import { GetElectricMeterViewModel } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterViewModel';
 import { GetElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterResponse';
+import { GetLastFuelOilOrdersRequest } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersRequest';
+import { HouseHeatingPresenter } from '@eco/frontend-interface-adapter/src/HouseHeating/HouseHeatingPresenter';
+import { AddFuelOilOrderRequest } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderRequest';
 
 export class Api {
   getCars() {
@@ -125,16 +128,22 @@ export class Api {
     return getAllWaterConsumptions.execute();
   }
 
-  orderFuelOil(liters: number) {
-    return orderFuelOil.execute(liters);
+  async addFuelOilOrder(liters: number) {
+    const presenter = new HouseHeatingPresenter();
+
+    await addFuelOilOrder.execute(new AddFuelOilOrderRequest(`${liters}`), presenter);
   }
 
-  getLastFuelOilOrders() {
-    return getLastFuelOilOrder.execute();
+  async getLastFuelOilOrders(max: number) {
+    const presenter = new HouseHeatingPresenter();
+    await getLastFuelOilOrder.execute(new GetLastFuelOilOrdersRequest(max), presenter);
+    return presenter.getGetLastFuelOilOrdersViewModel().lastOrders;
   }
 
-  getTotalFuelOilOrder() {
-    return getTotalFuelOilOrder.execute();
+  async getTotalFuelOilOrder() {
+    const presenter = new HouseHeatingPresenter();
+    await getTotalFuelOilOrder.execute(presenter);
+    return presenter.getGetTotalFuelOilOrderViewModel().totalFuelOilOrder;
   }
 
   getCarbons() {

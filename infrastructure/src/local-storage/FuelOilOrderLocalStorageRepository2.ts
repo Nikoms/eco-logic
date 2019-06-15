@@ -1,8 +1,8 @@
-import { JsonOf } from './type/JsonOf';
-import { FuelOilOrder } from '@eco/core-fuel-oil/src/entity/FuelOilOrder';
-import { FuelOilOrderRepository } from '@eco/core-fuel-oil/src/repository/FuelOilOrderRepository';
+import { FuelOilOrderRepositoryInterface } from '@eco/domain/src/HouseHeating/FuelOilOrderRepositoryInterface';
+import { FuelOilOrder } from '@eco/domain/src/Entity/FuelOilOrder';
+import { JsonOf } from '@eco/infrastructure/src/local-storage/type/JsonOf';
 
-export class FuelOilOrderLocalStorageRepository implements FuelOilOrderRepository {
+export class FuelOilOrderLocalStorageRepository2 implements FuelOilOrderRepositoryInterface {
   private key = 'fuel-oil-command';
 
   constructor(private localstorage: Storage) {
@@ -17,14 +17,14 @@ export class FuelOilOrderLocalStorageRepository implements FuelOilOrderRepositor
     this.saveList(list);
   }
 
-  getTotal(): number {
+  async getTotal(): Promise<number> {
     return this.getList().reduce((total, command) => {
       return total + command.liters;
     }, 0);
   }
 
   async getLast(max: number) {
-    return this.getList().slice().reverse().slice(0, 5);
+    return this.getList().slice().reverse().slice(0, max);
   }
 
   private saveList(list: any[]) {

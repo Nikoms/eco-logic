@@ -1,18 +1,18 @@
-import { OrderFuelOilRepositoryInterface } from '@eco/domain/src/HouseHeating/OrderFuelOilRepositoryInterface';
-import { FuelOilOrder } from '@eco/core-fuel-oil/src/entity/FuelOilOrder';
+import { FuelOilOrderRepositoryInterface } from '@eco/domain/src/HouseHeating/FuelOilOrderRepositoryInterface';
 import { Api } from '@eco/frontend-infrastructure/src/Api';
+import { FuelOilOrder } from '@eco/domain/src/Entity/FuelOilOrder';
 
-export class OrderFuelOilFakeApiRepository implements OrderFuelOilRepositoryInterface {
+export class OrderFuelOilFakeApiRepository implements FuelOilOrderRepositoryInterface {
   constructor(private api: Api) {
 
   }
 
   async add(order: FuelOilOrder): Promise<void> {
-    await this.api.orderFuelOil(order.liters);
+    await this.api.addFuelOilOrder(order.liters);
   }
 
-  async getLast(): Promise<FuelOilOrder[]> {
-    return this.api.getLastFuelOilOrders();
+  async getLast(max: number): Promise<FuelOilOrder[]> {
+    return this.api.getLastFuelOilOrders(max);
   }
 
   async getTotal(): Promise<number> {

@@ -5,16 +5,24 @@
                 <v-icon large left>mdi-fuel</v-icon>
                 <span class="title">Fuel oil commands</span>
                 <v-spacer></v-spacer>
-                <v-btn flat icon @click="presenter.showAddFuelOilOrder()">
+                <v-btn flat icon @click="$houseHeating.ui.showAddFuelOilOrder()">
                     <v-icon>mdi-plus</v-icon>
                 </v-btn>
             </v-card-title>
         </v-card>
-        <v-data-iterator :items="viewModel.orders" hide-actions>
+
+        <v-card class="mx-auto mb-3 mt-3" color="#26c6da" dark max-width="400">
+            <v-card-title>
+                <span class="title font-weight-light">Total ordered:&nbsp;</span><span
+                    class="title">{{totalViewModel.totalFuelOilOrder}} liters</span>
+            </v-card-title>
+        </v-card>
+
+        <v-data-iterator :items="lastOrdersViewModel.lastOrders" hide-actions>
             <template v-slot:item="props">
                 <v-card class="mx-auto mb-3 mt-3" color="#26c6da" dark max-width="400">
                     <v-card-title>
-                        <span class="title font-weight-light">Last order: </span><span
+                        <span class="title font-weight-light">Last order:&nbsp;</span><span
                             class="title">{{props.item.liters}} liters</span>
                     </v-card-title>
                     <v-card-text class="headline font-weight-bold text-xs-right">
@@ -23,13 +31,6 @@
                 </v-card>
             </template>
         </v-data-iterator>
-
-        <v-card class="mx-auto mb-3 mt-3" color="#26c6da" dark max-width="400">
-            <v-card-title>
-                <span class="title font-weight-light">Total ordered: </span><span
-                    class="title">{{viewModel.totalFuelOilOrder}} liters</span>
-            </v-card-title>
-        </v-card>
         <AddFuelOilOrderView/>
     </div>
 </template>
@@ -41,8 +42,8 @@
   @Component({ components: { AddFuelOilOrderView } })
 
   export default class TravelingConsumption extends Vue {
-    presenter = this.$houseHeating.homePresenter;
-    viewModel = this.$houseHeating.homePresenter.getHomeViewModel();
+    totalViewModel = this.$houseHeating.getTotalFuelOilOrderPresenter.getGetTotalFuelOilOrderViewModel();
+    lastOrdersViewModel = this.$houseHeating.getLastFuelOilOrdersPresenter.getGetLastFuelOilOrdersViewModel();
 
     mounted() {
       this.$houseHeating.controller.refreshSummary();

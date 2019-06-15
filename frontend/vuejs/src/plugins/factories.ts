@@ -3,13 +3,14 @@ import { ElectricityFactory } from '@eco/frontend-interface-adapter/src/Electric
 import { HouseHeatingFactory } from '@eco/frontend-interface-adapter/src/HouseHeating/HouseHeatingFactory';
 import { TravelingFactory } from '@eco/frontend-interface-adapter/src/Traveling/TravelingFactory';
 import { EventTargetEventDispatcher } from '@eco/infrastructure/src/event/EventDispatcher';
+
 export const eventDispatcher = new EventTargetEventDispatcher();
 
 const factories = {
   install: (Vue: any) => {
     Vue.prototype.$travel = new TravelingFactory();
     Vue.prototype.$water = new WaterFactory();
-    Vue.prototype.$houseHeating = new HouseHeatingFactory();
+    Vue.prototype.$houseHeating = new HouseHeatingFactory(eventDispatcher);
     Vue.prototype.$electricity = new ElectricityFactory(eventDispatcher);
   },
 };

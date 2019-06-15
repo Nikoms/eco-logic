@@ -1,12 +1,12 @@
-import { HomePresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/Home/HomePresenterInterface';
+import { GetTotalFuelOilOrderPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrderPresenterInterface';
 import { GetTotalFuelOilOrderResponse } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrderResponse';
-import { OrderFuelOilRepositoryInterface } from '@eco/domain/src/HouseHeating/OrderFuelOilRepositoryInterface';
+import { FuelOilOrderRepositoryInterface } from '@eco/domain/src/HouseHeating/FuelOilOrderRepositoryInterface';
 
 export class GetTotalFuelOilOrder {
-  constructor(private repository: OrderFuelOilRepositoryInterface) {
+  constructor(private repository: FuelOilOrderRepositoryInterface) {
   }
 
-  async execute(presenter: HomePresenterInterface) {
+  async execute(presenter: GetTotalFuelOilOrderPresenterInterface) {
     const response = new GetTotalFuelOilOrderResponse();
     response.totalFuelOilOrder = await this.repository.getTotal();
     presenter.presentGetTotalFuelOilOrder(response);

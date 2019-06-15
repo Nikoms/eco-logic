@@ -14,7 +14,7 @@
 
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn flat color="secondary" @click="presenter.addFuelOilOrderCancelled()">
+                    <v-btn flat color="secondary" @click="$houseHeating.ui.hideAddFuelOilOrder()">
                         {{viewModel.cancelLabel}}
                     </v-btn>
                     <v-btn type="submit" flat color="primary">{{viewModel.addLabel}}</v-btn>
@@ -30,7 +30,6 @@
 
   @Component({})
   export default class AddFuelOilOrderView extends Vue {
-    presenter = this.$houseHeating.addFuelOilOrderPresenter;
     viewModel = this.$houseHeating.addFuelOilOrderPresenter.getAddFuelOilOrderViewModel();
 
     request = new AddFuelOilOrderRequest('');

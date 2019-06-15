@@ -1,14 +1,17 @@
 import { AddFuelOilOrder } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrder';
 import { AddFuelOilOrderRequest } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderRequest';
-import { GetLastFuelOilOrders } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrder/GetLastFuelOilOrder';
+import { GetLastFuelOilOrders } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrder';
 import { GetTotalFuelOilOrder } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrder';
 import { AddFuelOilOrderPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderPresenterInterface';
-import { HomePresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/Home/HomePresenterInterface';
+import { GetTotalFuelOilOrderPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrderPresenterInterface';
+import { GetLastFuelOilOrdersRequest } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersRequest';
+import { GetLastFuelOilOrdersPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersPresenterInterface';
 
 export class HouseHeatingController {
   constructor(
     private addFuelOilOrderPresenter: AddFuelOilOrderPresenterInterface,
-    private homePresenter: HomePresenterInterface,
+    private lastFuelOilOrdersPresenter: GetLastFuelOilOrdersPresenterInterface,
+    private getTotalFuelOilOrderPresenter: GetTotalFuelOilOrderPresenterInterface,
     private addUseCase: AddFuelOilOrder,
     private getLastFuelOilOrders: GetLastFuelOilOrders,
     private getTotalFuelOilOrder: GetTotalFuelOilOrder) {
@@ -20,7 +23,7 @@ export class HouseHeatingController {
   }
 
   refreshSummary() {
-    this.getLastFuelOilOrders.execute(this.homePresenter);
-    this.getTotalFuelOilOrder.execute(this.homePresenter);
+    this.getLastFuelOilOrders.execute(new GetLastFuelOilOrdersRequest(5), this.lastFuelOilOrdersPresenter);
+    this.getTotalFuelOilOrder.execute(this.getTotalFuelOilOrderPresenter);
   }
 }
