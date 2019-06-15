@@ -10,7 +10,6 @@ import { ElectricityMeterFakeApiRepository } from '@eco/frontend-infrastructure/
 import { api } from '@eco/frontend-infrastructure/src/Api';
 import { ElectricityPresenter } from './ElectricityPresenter';
 import { EventTargetEventDispatcher } from '@eco/infrastructure/src/event/EventDispatcher';
-import { ElectricMeterLocalStorageRepository2 } from '@eco/infrastructure/src/local-storage/ElectricMeterLocalStorageRepository2';
 
 export class ElectricityFactory {
   private instances: any = {};
@@ -20,10 +19,7 @@ export class ElectricityFactory {
   }
 
   get controller() {
-    const electricityMeterFakeApiRepository = new ElectricityMeterFakeApiRepository(
-      api,
-      new ElectricMeterLocalStorageRepository2(window.localStorage),
-    );
+    const electricityMeterFakeApiRepository = new ElectricityMeterFakeApiRepository(api);
     return this.reuseOrInstantiate(
       'ElectricityController',
       () => new ElectricityController(

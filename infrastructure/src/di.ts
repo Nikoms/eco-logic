@@ -24,6 +24,7 @@ import { SaveElectricMeter } from '@eco/domain/src/Electricity/UseCase/SaveElect
 import { ElectricMeterLocalStorageRepository2 } from '@eco/infrastructure/src/local-storage/ElectricMeterLocalStorageRepository2';
 import { GetElectricMeters } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMeters';
 import { UpdatePowerConsumption } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumption';
+import { GetElectricMeter } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeter';
 
 export const eventDispatcher = new EventTargetEventDispatcher();
 
@@ -39,6 +40,7 @@ const fuelOilStore = new FuelOilOrderLocalStorageRepository(window.localStorage)
 export const updatePowerConsumption = new UpdatePowerConsumption(electricStore2, eventDispatcher);
 export const saveElectricMeter = new SaveElectricMeter(electricStore2);
 export const getElectricMeters = new GetElectricMeters(electricStore2);
+export const getElectricMeter = new GetElectricMeter(electricStore2);
 
 export const addCar = new AddCar(carStore);
 export const getCars = new GetCars(carStore);

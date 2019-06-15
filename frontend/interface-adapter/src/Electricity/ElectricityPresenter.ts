@@ -8,14 +8,19 @@ import { GetElectricMetersResponse } from '@eco/domain/src/Electricity/UseCase/G
 import { SaveElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterResponse';
 import { UpdatePowerConsumptionResponse } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionResponse';
 import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
+import { GetElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterPresenterInterface';
+import { GetElectricMeterViewModel } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterViewModel';
+import { GetElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterResponse';
 
 export class ElectricityPresenter implements HomePresenterInterface,
   UpdatePowerConsumptionPresenterInterface,
   GetElectricMetersPresenterInterface,
+  GetElectricMeterPresenterInterface,
   SaveElectricMeterPresenterInterface {
 
   private updatePowerConsumptionViewModel = new UpdatePowerConsumptionViewModel();
   private getElectricMetersViewModel = new GetElectricMetersViewModel();
+  private getElectricMeterViewModel = new GetElectricMeterViewModel();
   private meters: ElectricMeter[] = [];
 
   showUpdatePowerConsumption(electricMeter: ElectricMeter): void {
@@ -69,6 +74,14 @@ export class ElectricityPresenter implements HomePresenterInterface,
   presentAddElectricMeterResponse(response: SaveElectricMeterResponse): void {
     this.meters.push(response.meter);
     this.updateMetersViewModel();
+  }
+
+  getGetElectricMeterViewModel(): GetElectricMeterViewModel {
+    return this.getElectricMeterViewModel;
+  }
+
+  presentGetElectricMeter(response: GetElectricMeterResponse): void {
+    this.getElectricMeterViewModel.meter = response.electricMeter;
   }
 
   private updateMetersViewModel() {

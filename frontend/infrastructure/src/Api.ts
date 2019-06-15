@@ -5,6 +5,7 @@ import {
   getAllWaterConsumptions,
   getCarbons,
   getCars,
+  getElectricMeter,
   getElectricMeters,
   getLastFuelOilOrder,
   getPlaneTravels,
@@ -38,6 +39,10 @@ import { UpdatePowerConsumptionRequest } from '@eco/domain/src/Electricity/UseCa
 import { UpdatePowerConsumptionPresenterInterface } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionPresenterInterface';
 import { UpdatePowerConsumptionViewModel } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionViewModel';
 import { UpdatePowerConsumptionResponse } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionResponse';
+import { GetElectricMeterRequest } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterRequest';
+import { GetElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterPresenterInterface';
+import { GetElectricMeterViewModel } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterViewModel';
+import { GetElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterResponse';
 
 export class Api {
   getCars() {
@@ -139,6 +144,24 @@ export class Api {
 
   getCarbons() {
     return getCarbons.execute();
+  }
+
+  async getElectricMeter(id: string) {
+    const presenter = new (class ApiPresenter implements GetElectricMeterPresenterInterface {
+      public viewModel = new GetElectricMeterViewModel();
+
+      getGetElectricMeterViewModel(): GetElectricMeterViewModel {
+        return this.viewModel;
+      }
+
+      presentGetElectricMeter(response: GetElectricMeterResponse): void {
+        this.viewModel.meter = response.electricMeter;
+      }
+    })();
+
+    await getElectricMeter.execute(new GetElectricMeterRequest(id), presenter);
+
+    return presenter.getGetElectricMeterViewModel().meter;
   }
 }
 
