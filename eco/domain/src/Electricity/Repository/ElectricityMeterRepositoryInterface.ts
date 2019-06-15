@@ -8,4 +8,6 @@ export interface ElectricityMeterRepositoryInterface {
   get(id: string): Promise<ElectricMeter | undefined>;
 
   save(electricMeter: ElectricMeter): Promise<void>;
+
+  update(electricMeter: ElectricMeter): Promise<void>;
 }

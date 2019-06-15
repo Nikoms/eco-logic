@@ -1,4 +1,3 @@
-import { HomePresenterInterface } from '@eco/domain/src/Electricity/UseCase/Home/HomePresenterInterface';
 import { UpdatePowerConsumptionPresenterInterface } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionPresenterInterface';
 import { UpdatePowerConsumptionViewModel } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionViewModel';
 import { GetElectricMetersPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersPresenterInterface';
@@ -11,8 +10,9 @@ import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter'
 import { GetElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterPresenterInterface';
 import { GetElectricMeterViewModel } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterViewModel';
 import { GetElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterResponse';
+import { ElectricUI } from '@eco/frontend-interface-adapter/src/Electricity/ElectricUI';
 
-export class ElectricityPresenter implements HomePresenterInterface,
+export class ElectricityPresenter implements ElectricUI,
   UpdatePowerConsumptionPresenterInterface,
   GetElectricMetersPresenterInterface,
   GetElectricMeterPresenterInterface,

@@ -35,12 +35,11 @@ export class UpdatePowerConsumption {
     }
 
     if (!hasError) {
-
       const lastKwh = electricMeter!.kWh;
       const fromDate = electricMeter!.lastKWhUpdate;
       electricMeter!.updateKwh(parseFloat(request.kWh), new Date());
 
-      await this.meterRepository.save(electricMeter!);
+      await this.meterRepository.update(electricMeter!);
 
       const kWhConsumed = electricMeter!.kWh - lastKwh;
 

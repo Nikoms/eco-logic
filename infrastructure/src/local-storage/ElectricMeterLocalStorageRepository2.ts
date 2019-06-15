@@ -39,10 +39,14 @@ export class ElectricMeterLocalStorageRepository2 implements ElectricityMeterRep
     });
     if (index === -1) {
       list.push(electricMeterToSave);
-      this.saveList(list);
     } else {
       list[index] = electricMeterToSave;
     }
+    this.saveList(list);
+  }
+
+  update(electricMeter: ElectricMeter): Promise<void> {
+    return this.save(electricMeter);
   }
 
   private getList(): ElectricMeter[] {

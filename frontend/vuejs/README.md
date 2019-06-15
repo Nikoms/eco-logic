@@ -3,9 +3,8 @@
 - Unit test!
 - E2E tests with VueJs
 - Having another front end framework
-- Check presenter interface: is it good?
-- Il y a des imports de frontend-infra dans frontend-interface: Pas bie
-- Checkout le commentaire là: "Api.addPowerConsumption". Le presenter a des méthodes que pour la vue "js" et ca, c'est pas bon
+- Check presenter interface: is it good? => Only keep getViewModel + present
+- ElectricityMeterRepositoryInterface: Il y a un save et un update, car en fait ca va vers 2 use case différent si on utilise la classe "Api". Que faire?
 
 # frontend
 

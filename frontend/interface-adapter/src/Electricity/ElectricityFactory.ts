@@ -1,4 +1,3 @@
-import { HomePresenterInterface } from '@eco/domain/src/Electricity/UseCase/Home/HomePresenterInterface';
 import { UpdatePowerConsumptionPresenterInterface } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionPresenterInterface';
 import { UpdatePowerConsumption } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumption';
 import { GetElectricMetersPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersPresenterInterface';
@@ -10,6 +9,7 @@ import { ElectricityMeterFakeApiRepository } from '@eco/frontend-infrastructure/
 import { api } from '@eco/frontend-infrastructure/src/Api';
 import { ElectricityPresenter } from './ElectricityPresenter';
 import { EventTargetEventDispatcher } from '@eco/infrastructure/src/event/EventDispatcher';
+import { ElectricUI } from '@eco/frontend-interface-adapter/src/Electricity/ElectricUI';
 
 export class ElectricityFactory {
   private instances: any = {};
@@ -33,7 +33,7 @@ export class ElectricityFactory {
     );
   }
 
-  get homePresenter(): HomePresenterInterface {
+  get ui(): ElectricUI {
     return this.fullPresenter;
   }
 

@@ -14,7 +14,7 @@
 
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn flat color="secondary" @click="presenter.cancelUpdatePowerConsumption()">Cancel</v-btn>
+                    <v-btn flat color="secondary" @click="$electricity.ui.cancelUpdatePowerConsumption()">Cancel</v-btn>
                     <v-btn type="submit" flat color="primary">Update consumption</v-btn>
                 </v-card-actions>
             </v-card>
@@ -29,7 +29,6 @@
   @Component
   export default class UpdatePowerConsumptionView extends Vue {
     kWh = '';
-    presenter = this.$electricity.updatePowerConsumptionPresenter;
     viewModel = this.$electricity.updatePowerConsumptionPresenter.getUpdatePowerConsumptionViewModel();
 
     updateConsumption() {

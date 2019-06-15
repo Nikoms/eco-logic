@@ -28,7 +28,6 @@ import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter'
 import { Odometer } from '@eco/core-travel/src/entity/Odometer';
 import { WaterConsumption } from '@eco/core-water/src/entity/WaterConsumption';
 import { WaterMeter } from '@eco/core-water/src/entity/WaterMeter';
-import { PowerConsumption } from '@eco/domain/src/Electricity/Entity/PowerConsumption';
 import { SaveElectricMeterRequest } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterRequest';
 import { SaveElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterPresenterInterface';
 import { SaveElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterResponse';
@@ -77,12 +76,8 @@ export class Api {
     return presenter.getGetElectricMetersViewModel().meters;
   }
 
-  async addPowerConsumption(powerConsumption: PowerConsumption) {
+  async updatePowerConsumption(electricMeter: ElectricMeter) {
     const presenter = new (class ApiPresenter implements UpdatePowerConsumptionPresenterInterface {
-      cancelUpdatePowerConsumption(): void {
-        // Mhhh... La preuve qu'il faut uniquement un "present" dans l'interface. Le reste c'est pour la vue "js"
-      }
-
       getUpdatePowerConsumptionViewModel(): UpdatePowerConsumptionViewModel {
         return new UpdatePowerConsumptionViewModel();
       }
@@ -91,7 +86,7 @@ export class Api {
       }
     })();
     await updatePowerConsumption.execute(
-      new UpdatePowerConsumptionRequest(powerConsumption.electricMeterId, `${powerConsumption.kWh}`),
+      new UpdatePowerConsumptionRequest(electricMeter.id, `${electricMeter.kWh}`),
       presenter,
     );
   }
