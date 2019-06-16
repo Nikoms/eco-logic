@@ -17,7 +17,7 @@
 
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn flat color="secondary" @click="$travel.addCarPresenter.cancelAddCar()">
+                    <v-btn flat color="secondary" @click="$travel.addCarPresenter.hideAddCar()">
                         {{viewModel.cancelLabel}}
                     </v-btn>
                     <v-btn flat color="primary" type="submit">{{viewModel.saveLabel}}</v-btn>

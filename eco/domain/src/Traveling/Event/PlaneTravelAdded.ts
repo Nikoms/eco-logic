@@ -1,6 +1,6 @@
 import { Event } from '@eco/core-shared-kernel/src/event/Event';
 import { TravelEvents } from './TravelEvents';
-import { PlaneTravel } from '../entity/PlaneTravel';
+import { PlaneTravel } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
 
 export class PlaneTravelAdded implements Event {
   name = TravelEvents.planeTravelAdded;

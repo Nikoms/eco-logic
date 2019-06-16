@@ -1,5 +1,6 @@
-import { CarRepository } from '@eco/core-travel/src/repository/CarRepository';
-import { Car, Engine } from '@eco/core-travel/src/entity/Car';
+import { CarRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/CarRepositoryInterface';
+import { Car, Engine } from '@eco/domain/src/Traveling/Entity/Car';
+import { v4 } from 'uuid';
 
 interface CarJson {
   id: string;
@@ -10,7 +11,7 @@ interface CarJson {
   _km: number;
 }
 
-export class CarLocalStorageRepository implements CarRepository {
+export class CarLocalStorageRepository2 implements CarRepositoryInterface {
   private key = 'cars';
 
   constructor(private localstorage: Storage) {
@@ -19,28 +20,29 @@ export class CarLocalStorageRepository implements CarRepository {
     }
   }
 
-  async add(powerConsumption: Car) {
+
+  async add(car: Car): Promise<void> {
     const list = this.getList();
-    list.push(powerConsumption);
+    list.push(car);
     this.saveList(list);
   }
 
-  async getAll() {
+  async getAll(): Promise<Car[]> {
     return this.getList();
   }
 
-  async getCar(carId: string): Promise<Car | undefined> {
-    return this.getList().find(c => c.id === carId);
+  async nextIdentity(): Promise<string> {
+    return v4();
+  }
+
+  async get(carId: string): Promise<Car | undefined> {
+    return this.getList().find((c) => c.id === carId);
   }
 
   async update(car: Car): Promise<void> {
     const list = this.getList();
-    const index = this.getList().findIndex(c => c.id === car.id);
-    if (index === -1) {
-      throw new Error('Impossible to update an unknown car');
-    }
+    const index = list.findIndex((c) => c.id === car.id);
     list[index] = car;
-
     this.saveList(list);
   }
 
@@ -53,4 +55,5 @@ export class CarLocalStorageRepository implements CarRepository {
     const rawList: CarJson[] = JSON.parse(this.localstorage.getItem(this.key) || '[]');
     return rawList.map(raw => new Car(raw.id, raw.name, raw.consumption, raw.engine as Engine, new Date(raw._lastKmUpdate), raw._km));
   }
+
 }

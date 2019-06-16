@@ -1,5 +1,4 @@
-import { Seat } from '@eco/core-travel/src/entity/PlaneTravel';
-import { AddFlightRequest } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightRequest';
+import { Seat } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
 
 export class AddFlightViewModel {
   displayed = false;

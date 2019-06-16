@@ -1,4 +1,4 @@
-import { Car } from '@eco/core-travel/src/entity/Car';
+import { Car } from '@eco/domain/src/Traveling/Entity/Car';
 
 export interface CarRepositoryInterface {
   nextIdentity(): Promise<string>;
@@ -6,4 +6,8 @@ export interface CarRepositoryInterface {
   add(car: Car): Promise<void>;
 
   getAll(): Promise<Car[]>;
+
+  update(car: Car): Promise<void>;
+
+  get(carId: string): Promise<Car | undefined>;
 }

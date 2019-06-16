@@ -1,7 +1,10 @@
-export class HomeViewModel {
+import { Car } from '@eco/domain/src/Traveling/Entity/Car';
+import { PlaneTravel } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
+
+export class HomeViewModel { // TODO: Move me in presentation... + Do not call it HomeView :)
   carsTitle = 'Cars';
-  cars: { id: string, name: string, km: string }[] = [];
+  cars: Car[] = []; // { id: string, name: string, km: string }[] = [];
 
   flightTitle = 'Flights';
-  flights: { date: string, description: string, km: string }[] = [];
+  flights: PlaneTravel[] = []; // { date: string, description: string, km: string }[] = [];
 }

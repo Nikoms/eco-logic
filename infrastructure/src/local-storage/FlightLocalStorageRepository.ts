@@ -1,9 +1,10 @@
 import { JsonOf } from './type/JsonOf';
-import { TravelRepository } from '@eco/core-travel/src/repository/TravelRepository';
-import { PlaneTravel, Seat } from '@eco/core-travel/src/entity/PlaneTravel';
+import { PlaneTravel, Seat } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
+import { FlightRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/FlightRepositoryInterface';
+import { v4 } from 'uuid';
 
-export class TravelLocalStorageRepository implements TravelRepository {
-  private key = 'travels';
+export class FlightLocalStorageRepository implements FlightRepositoryInterface {
+  private key = 'flights';
 
   constructor(private localstorage: Storage) {
     if (!this.localstorage.getItem(this.key)) {
@@ -19,6 +20,10 @@ export class TravelLocalStorageRepository implements TravelRepository {
 
   async getAll() {
     return this.getList();
+  }
+
+  async nextIdentity(): Promise<string> {
+    return v4();
   }
 
   private saveList(list: any[]) {

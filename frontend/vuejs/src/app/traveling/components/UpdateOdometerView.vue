@@ -19,7 +19,7 @@
 
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn flat color="secondary" @click="$travel.updateOdometerPresenter.cancelOdometer()">
+                    <v-btn flat color="secondary" @click="$travel.updateOdometerPresenter.hideUpdateOdometer()">
                         {{viewModel.cancelText}}
                     </v-btn>
                     <v-btn type="submit" flat color="primary">{{viewModel.saveText}}</v-btn>

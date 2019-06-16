@@ -1,7 +1,7 @@
 import { FlightRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/FlightRepositoryInterface';
-import { PlaneTravel } from '@eco/core-travel/src/entity/PlaneTravel';
 import { Api } from '@eco/frontend-infrastructure/src/Api';
 import { v4 } from 'uuid';
+import { PlaneTravel } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
 
 export class FlightFakeApiRepository implements FlightRepositoryInterface {
   constructor(private api: Api) {
@@ -13,7 +13,7 @@ export class FlightFakeApiRepository implements FlightRepositoryInterface {
   }
 
   getAll(): Promise<PlaneTravel[]> {
-    return this.api.getPlaneTravels();
+    return this.api.getFlights();
   }
 
   async nextIdentity(): Promise<string> {

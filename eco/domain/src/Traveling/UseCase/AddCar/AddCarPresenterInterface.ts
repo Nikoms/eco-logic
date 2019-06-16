@@ -2,11 +2,7 @@ import { AddCarViewModel } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCar
 import { AddCarResponse } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarResponse';
 
 export interface AddCarPresenterInterface {
-  cancelAddCar(): void;
-
   getAddCarViewModel(): AddCarViewModel;
-
-  showAddCar(): void;
 
   presentAddCar(response: AddCarResponse): void;
 }

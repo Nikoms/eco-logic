@@ -5,7 +5,7 @@
                 <v-icon large left>mdi-car</v-icon>
                 <span class="title">{{viewModel.carsTitle}}</span>
                 <v-spacer></v-spacer>
-                <v-btn flat icon @click="presenter.showAddCar()">
+                <v-btn flat icon @click="$travel.ui.showAddCar()">
                     <v-icon>mdi-plus</v-icon>
                 </v-btn>
             </v-card-title>
@@ -13,7 +13,7 @@
         <v-data-iterator :items="viewModel.cars" hide-actions>
             <template v-slot:item="props">
                 <v-card class="mx-auto mb-3 mt-3" color="#26c6da" dark max-width="400"
-                        @click="presenter.showUpdateOdometer(props.item)">
+                        @click="$travel.ui.showUpdateOdometer(props.item)">
                     <v-card-title>
                         <v-flex class="text-xs-left title">{{ props.item.name }}</v-flex>
                         <span class="title font-weight-light text-xs-right">{{ props.item.km }}</span>
@@ -27,7 +27,7 @@
                 <v-icon large left>mdi-airplane mdi-rotate-45</v-icon>
                 <span class="title">{{viewModel.flightTitle}}</span>
                 <v-spacer></v-spacer>
-                <v-btn flat icon @click="presenter.showAddFlight()">
+                <v-btn flat icon @click="$travel.ui.showAddFlight()">
                     <v-icon>mdi-plus</v-icon>
                 </v-btn>
             </v-card-title>
@@ -56,13 +56,13 @@
   import AddCarView from '@/app/traveling/components/AddCarView.vue';
   import AddFlightView from '@/app/traveling/components/AddFlightView.vue';
   import UpdateOdometerView from '@/app/traveling/components/UpdateOdometerView.vue';
-  import { HomePresenterInterface } from '@eco/domain/src/Traveling/UseCase/Home/HomePresenterInterface';
+  import { GetCarsPresenterInterface } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCarsPresenterInterface';
 
   @Component({ components: { UpdateOdometerView, AddFlightView, AddCarView } })
 
   export default class TravelingConsumption extends Vue {
-    presenter: HomePresenterInterface = this.$travel.homePresenter;
-    viewModel = this.presenter.getHomeViewModel();
+    getCarsPresenter: GetCarsPresenterInterface = this.$travel.getCarsPresenter;
+    viewModel = this.getCarsPresenter.getGetCarsViewModel();
 
     mounted() {
       this.$travel.controller.refreshSummary();

@@ -1,15 +1,7 @@
 import { EventTargetEventDispatcher } from './event/EventDispatcher';
 import { WaterConsumptionLocalStorageRepository } from './local-storage/WaterConsumptionLocalStorageRepository';
 import { WaterMeterLocalStorageRepository } from './local-storage/WaterMeterLocalStorageRepository';
-import { CarLocalStorageRepository } from './local-storage/CarLocalStorageRepository';
-import { TravelLocalStorageRepository } from './local-storage/TravelLocalStorageRepository';
-import { OdometerLocalStorageRepository } from './local-storage/OdometerLocalStorageRepository';
 import { CarbonLocalStorageRepository } from './local-storage/CarbonLocalStorageRepository';
-import { AddCar } from '@eco/core-travel/src/use-case/AddCar';
-import { GetCars } from '@eco/core-travel/src/use-case/GetCars';
-import { AddPlaneTravel } from '@eco/core-travel/src/use-case/AddPlaneTravel';
-import { GetPlaneTravels } from '@eco/core-travel/src/use-case/GetPlaneTravels';
-import { UpdateOdometer } from '@eco/core-travel/src/use-case/UpdateOdometer';
 import { AddWaterConsumption } from '@eco/core-water/src/use-case/AddWaterConsumption';
 import { GetWaterMeters } from '@eco/core-water/src/use-case/GetWaterMeters';
 import { GetAllWaterConsumptions } from '@eco/core-water/src/use-case/GetAllWaterConsumptions';
@@ -25,27 +17,34 @@ import { GetLastFuelOilOrders } from '@eco/domain/src/HouseHeating/UseCase/GetLa
 import { FuelOilOrderLocalStorageRepository2 } from '@eco/infrastructure/src/local-storage/FuelOilOrderLocalStorageRepository2';
 import { GetTotalFuelOilOrder } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrder';
 import { AddFuelOilOrder } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrder';
+import { AddCar } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCar';
+import { CarLocalStorageRepository2 } from '@eco/infrastructure/src/local-storage/CarLocalStorageRepository2';
+import { GetCars } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCars';
+import { AddFlight } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlight';
+import { FlightLocalStorageRepository } from '@eco/infrastructure/src/local-storage/FlightLocalStorageRepository';
+import { GetFlights } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlights';
+import { UpdateOdometer } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometer';
 
 export const eventDispatcher = new EventTargetEventDispatcher();
 
 const waterConsumptionStore = new WaterConsumptionLocalStorageRepository(window.localStorage);
 const electricStore2 = new ElectricMeterLocalStorageRepository2(window.localStorage);
 const waterStore = new WaterMeterLocalStorageRepository(window.localStorage);
-const carStore = new CarLocalStorageRepository(window.localStorage);
-const travelStore = new TravelLocalStorageRepository(window.localStorage);
-const odometerStore = new OdometerLocalStorageRepository(window.localStorage);
+const carStore2 = new CarLocalStorageRepository2(window.localStorage);
 const carbonStore = new CarbonLocalStorageRepository(window.localStorage);
 const fuelOilStore2 = new FuelOilOrderLocalStorageRepository2(window.localStorage);
+const flightStore = new FlightLocalStorageRepository(window.localStorage);
+
 export const updatePowerConsumption = new UpdatePowerConsumption(electricStore2, eventDispatcher);
 export const saveElectricMeter = new SaveElectricMeter(electricStore2);
 export const getElectricMeters = new GetElectricMeters(electricStore2);
 export const getElectricMeter = new GetElectricMeter(electricStore2);
 
-export const addCar = new AddCar(carStore);
-export const getCars = new GetCars(carStore);
-export const addPlaneTravel = new AddPlaneTravel(travelStore, eventDispatcher);
-export const getPlaneTravels = new GetPlaneTravels(travelStore);
-export const updateOdometer = new UpdateOdometer(odometerStore, carStore, eventDispatcher);
+export const addCar = new AddCar(carStore2);
+export const getCars = new GetCars(carStore2);
+export const addFlight = new AddFlight(flightStore, eventDispatcher);
+export const getFlights = new GetFlights(flightStore);
+export const updateOdometer = new UpdateOdometer(carStore2, eventDispatcher);
 
 export const addWaterConsumption = new AddWaterConsumption(waterConsumptionStore);
 export const getAllWaterConsumptions = new GetAllWaterConsumptions(waterConsumptionStore);

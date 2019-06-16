@@ -1,4 +1,4 @@
-import { Car } from '@eco/core-travel/src/entity/Car';
+import { Car } from '@eco/domain/src/Traveling/Entity/Car';
 
 export class GetCarsResponse {
   cars: Car[] = [];

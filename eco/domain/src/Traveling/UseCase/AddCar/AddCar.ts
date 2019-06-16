@@ -2,7 +2,7 @@ import { AddCarRequest } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarRe
 import { AddCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarPresenterInterface';
 import { AddCarResponse } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarResponse';
 import { CarRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/CarRepositoryInterface';
-import { Car, Engine } from '@eco/core-travel/src/entity/Car';
+import { Car, Engine } from '@eco/domain/src/Traveling/Entity/Car';
 
 export class AddCar {
 
@@ -31,8 +31,9 @@ export class AddCar {
     }
 
     if (!hasError) {
-      const id = await this.repository.nextIdentity();
-      const car = new Car(id, request.name, parseFloat(request.consumption), request.engine as Engine, new Date(), parseFloat(request.km));
+      const id = request.id || await this.repository.nextIdentity();
+      const date = request.date || new Date();
+      const car = new Car(id, request.name, parseFloat(request.consumption), request.engine as Engine, date, parseFloat(request.km));
       await this.repository.add(car);
       response.newCar = car;
     }

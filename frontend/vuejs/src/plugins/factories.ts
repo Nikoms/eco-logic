@@ -8,7 +8,7 @@ export const eventDispatcher = new EventTargetEventDispatcher();
 
 const factories = {
   install: (Vue: any) => {
-    Vue.prototype.$travel = new TravelingFactory();
+    Vue.prototype.$travel = new TravelingFactory(eventDispatcher);
     Vue.prototype.$water = new WaterFactory();
     Vue.prototype.$houseHeating = new HouseHeatingFactory(eventDispatcher);
     Vue.prototype.$electricity = new ElectricityFactory(eventDispatcher);

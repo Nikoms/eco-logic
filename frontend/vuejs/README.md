@@ -5,6 +5,10 @@
 - Having another front end framework
 - Check presenter interface: is it good? => Only keep getViewModel + present
 - ElectricityMeterRepositoryInterface: Il y a un save et un update, car en fait ca va vers 2 use case différent si on utilise la classe "Api". Que faire?
+- les presenters ne devraient avoir la méthode "present"... UNIQUEMENT! Du coup les view model vont aussi là bas
+- Check le code "enAttendant" => C'est un quick fix deg, pas le temps de rajouter 2 use case pour le moment :)
+- Du coup, pour les api, on peut dire qu'ils n'utilisent pas de view model pour le résultat... On pourrait retourner un truc du style presenter.cars. Comme ca les view model n'ont pas l'entity exact
+
 
 # frontend
 

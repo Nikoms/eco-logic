@@ -1,15 +1,15 @@
 import {
   addCar,
+  addFlight,
   addFuelOilOrder,
-  addPlaneTravel,
   addWaterConsumption,
   getAllWaterConsumptions,
   getCarbons,
   getCars,
   getElectricMeter,
   getElectricMeters,
+  getFlights,
   getLastFuelOilOrder,
-  getPlaneTravels,
   getTotalFuelOilOrder,
   getWaterMeters,
   initWaterMeter,
@@ -17,15 +17,12 @@ import {
   updateOdometer,
   updatePowerConsumption,
 } from '@eco/infrastructure/src/di';
-import { AddCarRequest } from '@eco/core-travel/src/use-case/AddCar';
-import { PlaneTravel } from '@eco/core-travel/src/entity/PlaneTravel';
-import { AddPlaneTravelRequest } from '@eco/core-travel/src/use-case/AddPlaneTravel';
-import { UpdateOdometerRequest } from '@eco/core-travel/src/use-case/UpdateOdometer';
+import { PlaneTravel } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
 import { AddWaterConsumptionRequest } from '@eco/core-water/src/use-case/AddWaterConsumption';
 import { InitWaterMeterRequest } from '@eco/core-water/src/use-case/InitWaterMeter';
-import { Car } from '@eco/core-travel/src/entity/Car';
+import { Car } from '@eco/domain/src/Traveling/Entity/Car';
 import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
-import { Odometer } from '@eco/core-travel/src/entity/Odometer';
+import { Odometer } from '@eco/domain/src/Traveling/Entity/Odometer';
 import { WaterConsumption } from '@eco/core-water/src/entity/WaterConsumption';
 import { WaterMeter } from '@eco/core-water/src/entity/WaterMeter';
 import { SaveElectricMeterRequest } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterRequest';
@@ -45,10 +42,16 @@ import { GetElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/Ge
 import { GetLastFuelOilOrdersRequest } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersRequest';
 import { HouseHeatingPresenter } from '@eco/frontend-interface-adapter/src/HouseHeating/HouseHeatingPresenter';
 import { AddFuelOilOrderRequest } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderRequest';
+import { AddCarRequest } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarRequest';
+import { TravelingPresenter } from '@eco/frontend-interface-adapter/src/Traveling/TravelingPresenter';
+import { AddFlightRequest } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightRequest';
+import { UpdateOdometerRequest } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerRequest';
 
 export class Api {
-  getCars() {
-    return getCars.execute();
+  async getCars() {
+    const presenter = new TravelingPresenter();
+    await getCars.execute(presenter);
+    return presenter.getGetCarsViewModel().cars;
   }
 
   saveElectricMeter(meter: ElectricMeter) {
@@ -94,20 +97,31 @@ export class Api {
     );
   }
 
-  addCar(car: Car) {
-    return addCar.execute(new AddCarRequest(car.id, car.name, car.consumption, car.engine, car.km, car.lastKmUpdate));
+  async addCar(car: Car) {
+    await addCar.execute(
+      new AddCarRequest(car.name, `${car.consumption}`, car.engine, `${car.km}`, car.id),
+      new TravelingPresenter(),
+    );
   }
 
   addPlaneTravel(flight: PlaneTravel) {
-    return addPlaneTravel.execute(new AddPlaneTravelRequest(flight.id, flight.seat, flight.km, flight.description, flight.date));
+    return addFlight.execute(
+      new AddFlightRequest(flight.seat, `${flight.km}`, flight.description, flight.id, flight.date),
+      new TravelingPresenter(),
+    );
   }
 
-  getPlaneTravels() {
-    return getPlaneTravels.execute();
+  async getFlights() {
+    const presenter = new TravelingPresenter();
+    await getFlights.execute(presenter);
+    return presenter.getFlights();
   }
 
   updateOdometer(odometer: Odometer) {
-    return updateOdometer.execute(new UpdateOdometerRequest(odometer.id, odometer.carId, odometer.km, odometer.date));
+    return updateOdometer.execute(
+      new UpdateOdometerRequest(odometer.carId, `${odometer.km}`),
+      new TravelingPresenter(),
+    );
   }
 
   addWaterConsumption(consumption: WaterConsumption) {

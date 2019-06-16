@@ -3,24 +3,26 @@ import { AddCarRequest } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarRe
 import { AddFlight } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlight';
 import { AddFlightRequest } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightRequest';
 import { GetCars } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCars';
-import { RefreshFlights } from '@eco/domain/src/Traveling/UseCase/RefreshFlights';
+import { GetFlights } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlights';
 import { UpdateOdometer } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometer';
 import { UpdateOdometerRequest } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerRequest';
 import { AddCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarPresenterInterface';
 import { AddFlightPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightPresenterInterface';
-import { HomePresenterInterface } from '@eco/domain/src/Traveling/UseCase/Home/HomePresenterInterface';
 import { UpdateOdometerPresenterInterface } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerPresenterInterface';
+import { GetFlightsPresenterInterface } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlightsPresenterInterface';
+import { GetCarsPresenterInterface } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCarsPresenterInterface';
 
 export class TravelingController {
   constructor(
     private addCarPresenter: AddCarPresenterInterface,
     private addFlightPresenter: AddFlightPresenterInterface,
-    private homePresenter: HomePresenterInterface,
+    private getFlightsPresenter: GetFlightsPresenterInterface,
+    private getCarsPresenter: GetCarsPresenterInterface,
     private updateOdometerPresenter: UpdateOdometerPresenterInterface,
     private addCarUseCase: AddCar,
     private addFlightUseCase: AddFlight,
     private getCars: GetCars,
-    private refreshFlights: RefreshFlights,
+    private getFlights: GetFlights,
     private updateOdometerUseCase: UpdateOdometer) {
   }
 
@@ -33,8 +35,8 @@ export class TravelingController {
   }
 
   refreshSummary() {
-    this.getCars.execute(this.homePresenter);
-    this.refreshFlights.execute(this.homePresenter);
+    this.getCars.execute(this.getCarsPresenter);
+    this.getFlights.execute(this.getFlightsPresenter);
   }
 
   updateOdometer(request: UpdateOdometerRequest) {

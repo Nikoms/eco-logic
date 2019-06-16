@@ -1,8 +1,8 @@
-import { Odometer } from '@eco/core-travel/src/entity/Odometer';
+import { Car } from '@eco/domain/src/Traveling/Entity/Car';
 
 export class UpdateOdometerResponse {
   isKmEmpty: boolean = false;
-  isCarEmpty: boolean = false;
+  isCarUnknown: boolean = false;
   isKmInvalid: boolean = false;
-  updatedOdometer?: Odometer;
+  updatedCar?: Car;
 }
