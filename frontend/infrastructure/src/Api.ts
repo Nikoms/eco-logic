@@ -127,7 +127,7 @@ export class Api {
 
   async addWaterConsumption(consumption: WaterConsumption) {
     await addWaterConsumption.execute(
-      new AddConsumptionRequest(`${consumption.m3}`, consumption.waterMeter, consumption.id, consumption.date),
+      new AddConsumptionRequest(consumption.waterMeterId, `${consumption.m3}`, consumption.id, consumption.date),
       new WaterPresenter(),
     );
   }
