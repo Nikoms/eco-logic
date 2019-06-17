@@ -33,6 +33,6 @@ export class WaterConsumptionLocalStorageRepository2 implements ConsumptionRepos
 
   private getList(): WaterConsumption[] {
     const rawList: JsonOf<WaterConsumption>[] = JSON.parse(this.localstorage.getItem(this.key) || '[]');
-    return rawList.map(raw => new WaterConsumption(raw.id, raw.m3, raw.waterMeter, new Date(raw.date)));
+    return rawList.map(raw => new WaterConsumption(raw.id, raw.m3, raw.waterMeterId, new Date(raw.date)));
   }
 }
