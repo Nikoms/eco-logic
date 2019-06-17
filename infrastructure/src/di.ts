@@ -1,11 +1,5 @@
 import { EventTargetEventDispatcher } from './event/EventDispatcher';
-import { WaterConsumptionLocalStorageRepository } from './local-storage/WaterConsumptionLocalStorageRepository';
-import { WaterMeterLocalStorageRepository } from './local-storage/WaterMeterLocalStorageRepository';
 import { CarbonLocalStorageRepository } from './local-storage/CarbonLocalStorageRepository';
-import { AddWaterConsumption } from '@eco/core-water/src/use-case/AddWaterConsumption';
-import { GetWaterMeters } from '@eco/core-water/src/use-case/GetWaterMeters';
-import { GetAllWaterConsumptions } from '@eco/core-water/src/use-case/GetAllWaterConsumptions';
-import { InitWaterMeter } from '@eco/core-water/src/use-case/InitWaterMeter';
 import { AddCarbon } from '@eco/core-co2/src/use-case/AddCarbon';
 import { GetCarbons } from '@eco/core-co2/src/use-case/GetCarbons';
 import { SaveElectricMeter } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeter';
@@ -24,12 +18,18 @@ import { AddFlight } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlight
 import { FlightLocalStorageRepository } from '@eco/infrastructure/src/local-storage/FlightLocalStorageRepository';
 import { GetFlights } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlights';
 import { UpdateOdometer } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometer';
+import { AddConsumption } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumption';
+import { WaterConsumptionLocalStorageRepository2 } from '@eco/infrastructure/src/local-storage/WaterConsumptionLocalStorageRepository2';
+import { ListConsumptions } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptions';
+import { AddWaterMeter } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeter';
+import { WaterMeterLocalStorageRepository2 } from '@eco/infrastructure/src/local-storage/WaterMeterLocalStorageRepository2';
+import { GetWaterMeters } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMeters';
 
 export const eventDispatcher = new EventTargetEventDispatcher();
 
-const waterConsumptionStore = new WaterConsumptionLocalStorageRepository(window.localStorage);
+const waterConsumptionStore2 = new WaterConsumptionLocalStorageRepository2(window.localStorage);
 const electricStore2 = new ElectricMeterLocalStorageRepository2(window.localStorage);
-const waterStore = new WaterMeterLocalStorageRepository(window.localStorage);
+const waterStore2 = new WaterMeterLocalStorageRepository2(window.localStorage);
 const carStore2 = new CarLocalStorageRepository2(window.localStorage);
 const carbonStore = new CarbonLocalStorageRepository(window.localStorage);
 const fuelOilStore2 = new FuelOilOrderLocalStorageRepository2(window.localStorage);
@@ -46,10 +46,10 @@ export const addFlight = new AddFlight(flightStore, eventDispatcher);
 export const getFlights = new GetFlights(flightStore);
 export const updateOdometer = new UpdateOdometer(carStore2, eventDispatcher);
 
-export const addWaterConsumption = new AddWaterConsumption(waterConsumptionStore);
-export const getAllWaterConsumptions = new GetAllWaterConsumptions(waterConsumptionStore);
-export const initWaterMeter = new InitWaterMeter(waterStore);
-export const getWaterMeters = new GetWaterMeters(waterStore);
+export const addWaterConsumption = new AddConsumption(waterConsumptionStore2);
+export const getAllWaterConsumptions = new ListConsumptions(waterConsumptionStore2);
+export const addWaterMeter = new AddWaterMeter(waterStore2);
+export const getWaterMeters = new GetWaterMeters(waterStore2);
 
 export const addFuelOilOrder = new AddFuelOilOrder(fuelOilStore2, eventDispatcher);
 export const getLastFuelOilOrder = new GetLastFuelOilOrders(fuelOilStore2);

@@ -1,25 +1,28 @@
 import { AddConsumptionRequest } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionRequest';
 import { AddConsumptionPresenterInterface } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionPresenterInterface';
 import { AddConsumptionResponse } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionResponse';
-import { WaterConsumption } from '@eco/core-water/src/entity/WaterConsumption';
 import { ConsumptionRepositoryInterface } from '@eco/domain/src/Water/UseCase/ConsumptionRepositoryInterface';
+import { WaterConsumption } from '@eco/domain/src/Water/Entity/WaterConsumption';
 
 export class AddConsumption {
   constructor(private repository: ConsumptionRepositoryInterface) {
   }
 
-  async execute(requests: AddConsumptionRequest[], presenter: AddConsumptionPresenterInterface) {
+  async execute(request: AddConsumptionRequest, presenter: AddConsumptionPresenterInterface) {
     const response = new AddConsumptionResponse();
-    const consumptions: WaterConsumption[] = [];
 
-    for (const request of requests) {
-      if (request.m3.trim().length > 0) {
-        const waterConsumption = new WaterConsumption(await this.repository.nextIdentity(), parseFloat(request.m3), request.meterId, new Date());
-        await this.repository.add(waterConsumption);
-        consumptions.push(waterConsumption);
-      }
+    const m3 = parseFloat(request.m3.trim());
+    if (isNaN(m3)) {
+      response.isConsumptionInvalid = true;
+    } else {
+      const id = request.id || await this.repository.nextIdentity();
+      const date = request.date || new Date();
+
+      const waterConsumption = new WaterConsumption(id, m3, request.meterId, date);
+      await this.repository.add(waterConsumption);
+      response.consumption = waterConsumption;
     }
-    response.consumptions = consumptions;
+
     presenter.presentAddConsumption(response);
   }
 }

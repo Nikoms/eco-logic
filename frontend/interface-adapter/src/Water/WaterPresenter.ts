@@ -1,6 +1,5 @@
 import { HomePresenterInterface } from '@eco/domain/src/Water/UseCase/Home/HomePresenterInterface';
 import { HomeViewModel } from '@eco/domain/src/Water/UseCase/Home/HomeViewModel';
-import { WaterMeter } from '@eco/core-water/src/entity/WaterMeter';
 import { AddConsumptionPresenterInterface } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionPresenterInterface';
 import { AddConsumptionViewModel } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionViewModel';
 import { GetWaterMetersPresenterInterface } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersPresenterInterface';
@@ -9,26 +8,40 @@ import { ListConsumptionsPresenterInterface } from '@eco/domain/src/Water/UseCas
 import { ListConsumptionsViewModel } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsViewModel';
 import { ListConsumptionsResponse } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsResponse';
 import { GetWaterMetersResponse } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersResponse';
-import { AddWaterMeterPresenterInterface } from '@eco/domain/src/Water/UseCase/InitWaterMeter/AddWaterMeterPresenterInterface';
-import { AddWaterMeterResponse } from '@eco/domain/src/Water/UseCase/InitWaterMeter/AddWaterMeterResponse';
+import { AddWaterMeterPresenterInterface } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterPresenterInterface';
+import { AddWaterMeterResponse } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterResponse';
+import { WaterMeter } from '@eco/domain/src/Water/Entity/WaterMeter';
+import { WaterConsumption } from '@eco/domain/src/Water/Entity/WaterConsumption';
+import { WaterUI } from '@eco/frontend-interface-adapter/src/Water/WaterUI';
 
 export class WaterPresenter implements GetWaterMetersPresenterInterface,
   HomePresenterInterface,
   AddConsumptionPresenterInterface,
   ListConsumptionsPresenterInterface,
-  AddWaterMeterPresenterInterface {
+  AddWaterMeterPresenterInterface,
+  WaterUI {
 
   private addConsumptionViewModel = new AddConsumptionViewModel();
   private homeViewModel = new HomeViewModel();
   private listConsumptionsViewModel = new ListConsumptionsViewModel();
   private meters: WaterMeter[] = [];
+  private _consumptions: WaterConsumption[] = [];
+
+  get waterConsumptions() {
+    return this._consumptions;
+  }
+
+  get waterMeters() {
+    return this.meters;
+  }
 
   getViewModel(): ListConsumptionsViewModel {
     return this.listConsumptionsViewModel;
   }
 
   presentListConsumptionsResponse(response: ListConsumptionsResponse): void {
-    this.listConsumptionsViewModel.consumptions = response.consumptions;
+    this._consumptions = response.consumptions;
+    this.listConsumptionsViewModel.consumptions = this._consumptions;
   }
 
   getHomeViewModel(): HomeViewModel {
@@ -41,8 +54,14 @@ export class WaterPresenter implements GetWaterMetersPresenterInterface,
   }
 
   presentAddConsumption(response: AddConsumptionResponse): void {
-    this.listConsumptionsViewModel.consumptions.push(...response.consumptions);
-    this.addConsumptionViewModel.displayed = false;
+    if (response.isConsumptionInvalid) {
+      console.error('isConsumptionInvalid');
+    }
+
+    if (response.consumption) {
+      this.listConsumptionsViewModel.consumptions.push(response.consumption);
+      this.addConsumptionViewModel.displayed = false;
+    }
   }
 
   getAddConsumptionViewModel(): AddConsumptionViewModel {

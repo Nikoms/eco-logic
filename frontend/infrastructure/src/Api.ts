@@ -3,6 +3,7 @@ import {
   addFlight,
   addFuelOilOrder,
   addWaterConsumption,
+  addWaterMeter,
   getAllWaterConsumptions,
   getCarbons,
   getCars,
@@ -12,19 +13,16 @@ import {
   getLastFuelOilOrder,
   getTotalFuelOilOrder,
   getWaterMeters,
-  initWaterMeter,
   saveElectricMeter,
   updateOdometer,
   updatePowerConsumption,
 } from '@eco/infrastructure/src/di';
 import { PlaneTravel } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
-import { AddWaterConsumptionRequest } from '@eco/core-water/src/use-case/AddWaterConsumption';
-import { InitWaterMeterRequest } from '@eco/core-water/src/use-case/InitWaterMeter';
 import { Car } from '@eco/domain/src/Traveling/Entity/Car';
 import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
 import { Odometer } from '@eco/domain/src/Traveling/Entity/Odometer';
-import { WaterConsumption } from '@eco/core-water/src/entity/WaterConsumption';
-import { WaterMeter } from '@eco/core-water/src/entity/WaterMeter';
+import { WaterConsumption } from '@eco/domain/src/Water/Entity/WaterConsumption';
+import { WaterMeter } from '@eco/domain/src/Water/Entity/WaterMeter';
 import { SaveElectricMeterRequest } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterRequest';
 import { SaveElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterPresenterInterface';
 import { SaveElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterResponse';
@@ -46,6 +44,9 @@ import { AddCarRequest } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarRe
 import { TravelingPresenter } from '@eco/frontend-interface-adapter/src/Traveling/TravelingPresenter';
 import { AddFlightRequest } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightRequest';
 import { UpdateOdometerRequest } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerRequest';
+import { AddConsumptionRequest } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionRequest';
+import { WaterPresenter } from '@eco/frontend-interface-adapter/src/Water/WaterPresenter';
+import { AddWaterMeterRequest } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterRequest';
 
 export class Api {
   async getCars() {
@@ -124,22 +125,31 @@ export class Api {
     );
   }
 
-  addWaterConsumption(consumption: WaterConsumption) {
-    return addWaterConsumption.execute(
-      new AddWaterConsumptionRequest(consumption.id, consumption.m3, consumption.waterMeter, consumption.date),
+  async addWaterConsumption(consumption: WaterConsumption) {
+    await addWaterConsumption.execute(
+      new AddConsumptionRequest(`${consumption.m3}`, consumption.waterMeter, consumption.id, consumption.date),
+      new WaterPresenter(),
     );
   }
 
-  getWaterMeters() {
-    return getWaterMeters.execute();
+  async getAllWaterConsumptions() {
+    const presenter = new WaterPresenter();
+    await getAllWaterConsumptions.execute(presenter);
+
+    return presenter.waterConsumptions;
   }
 
-  initWaterMeter(meter: WaterMeter) {
-    return initWaterMeter.execute(new InitWaterMeterRequest(meter.id, meter.name));
+  async getWaterMeters() {
+    const presenter = new WaterPresenter();
+    await getWaterMeters.execute(presenter);
+    return presenter.waterMeters;
   }
 
-  getAllWaterConsumptions() {
-    return getAllWaterConsumptions.execute();
+  addWaterMeter(meter: WaterMeter) {
+    return addWaterMeter.execute(
+      new AddWaterMeterRequest(meter.name, meter.id),
+      new WaterPresenter(),
+    );
   }
 
   async addFuelOilOrder(liters: number) {

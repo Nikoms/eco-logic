@@ -1,8 +1,9 @@
 import { JsonOf } from './type/JsonOf';
-import { WaterMeterRepository } from '@eco/core-water/src/repository/WaterMeterRepository';
-import { WaterMeter } from '@eco/core-water/src/entity/WaterMeter';
+import { WaterMeter } from '@eco/domain/src/Water/Entity/WaterMeter';
+import { WaterMeterRepositoryInterface } from '@eco/domain/src/Water/UseCase/WaterMeterRepositoryInterface';
+import { v4 } from 'uuid';
 
-export class WaterMeterLocalStorageRepository implements WaterMeterRepository {
+export class WaterMeterLocalStorageRepository2 implements WaterMeterRepositoryInterface {
   private key = 'water-meters';
 
   constructor(private localstorage: Storage) {
@@ -17,6 +18,14 @@ export class WaterMeterLocalStorageRepository implements WaterMeterRepository {
     this.saveList(list);
   }
 
+  async getAll() {
+    return this.getList();
+  }
+
+  async nextIdentity(): Promise<string> {
+    return v4();
+  }
+
   private saveList(list: any[]) {
     const listAsJson = JSON.stringify(list);
     this.localstorage.setItem(this.key, listAsJson);
@@ -25,9 +34,5 @@ export class WaterMeterLocalStorageRepository implements WaterMeterRepository {
   private getList(): WaterMeter[] {
     const rawList: JsonOf<WaterMeter>[] = JSON.parse(this.localstorage.getItem(this.key) || '[]');
     return rawList.map(raw => new WaterMeter(raw.id, raw.name));
-  }
-
-  async getAll() {
-    return this.getList();
   }
 }

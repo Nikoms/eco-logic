@@ -1,7 +1,7 @@
 import { WaterMeterRepositoryInterface } from '@eco/domain/src/Water/UseCase/WaterMeterRepositoryInterface';
-import { WaterMeter } from '@eco/core-water/src/entity/WaterMeter';
 import { Api } from '@eco/frontend-infrastructure/src/Api';
 import { v4 } from 'uuid';
+import { WaterMeter } from '@eco/domain/src/Water/Entity/WaterMeter';
 
 export class WaterMeterFakeApiRepository implements WaterMeterRepositoryInterface {
   constructor(private api: Api) {
@@ -9,7 +9,7 @@ export class WaterMeterFakeApiRepository implements WaterMeterRepositoryInterfac
   }
 
   async add(meter: WaterMeter): Promise<void> {
-    await this.api.initWaterMeter(meter);
+    await this.api.addWaterMeter(meter);
   }
 
   getAll(): Promise<WaterMeter[]> {

@@ -1,13 +1,13 @@
 import { AddConsumption } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumption';
 import { AddConsumptionRequest } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionRequest';
-import { AddWaterMeter } from '@eco/domain/src/Water/UseCase/InitWaterMeter/AddWaterMeter';
+import { AddWaterMeter } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeter';
 import { GetWaterMeters } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMeters';
 import { ListConsumptions } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptions';
 import { AddConsumptionPresenterInterface } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionPresenterInterface';
 import { GetWaterMetersPresenterInterface } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersPresenterInterface';
 import { ListConsumptionsPresenterInterface } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsPresenterInterface';
-import { AddWaterMeterRequest } from '@eco/domain/src/Water/UseCase/InitWaterMeter/AddWaterMeterRequest';
-import { AddWaterMeterPresenterInterface } from '@eco/domain/src/Water/UseCase/InitWaterMeter/AddWaterMeterPresenterInterface';
+import { AddWaterMeterRequest } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterRequest';
+import { AddWaterMeterPresenterInterface } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterPresenterInterface';
 
 export class WaterController {
   constructor(
@@ -23,7 +23,9 @@ export class WaterController {
   }
 
   addConsumption(requests: AddConsumptionRequest[]) {
-    this.addConsumptionUseCase.execute(requests, this.addConsumptionPresenter);
+    for (const request of requests) {
+      this.addConsumptionUseCase.execute(request, this.addConsumptionPresenter);
+    }
   }
 
   async initialize(hasColdAndHotMeter: boolean) {

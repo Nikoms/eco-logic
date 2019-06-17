@@ -45,12 +45,6 @@
       "@eco/core-co2/*": [
         "core/co2/*"
       ],
-      "@eco/core-water/*": [
-        "core/water/*"
-      ],
-      "@eco/core-travel/*": [
-        "core/travel/*"
-      ],
       "@eco/core-shared-kernel/*": [
         "core/shared-kernel/*"
       ]

@@ -5,6 +5,4 @@ export interface AddConsumptionPresenterInterface {
   getAddConsumptionViewModel(): AddConsumptionViewModel;
 
   presentAddConsumption(response: AddConsumptionResponse): void;
-
-  showAddWaterConsumption(): void;
 }

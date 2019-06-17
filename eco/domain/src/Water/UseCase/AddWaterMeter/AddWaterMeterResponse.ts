@@ -1,4 +1,4 @@
-import { WaterMeter } from '@eco/core-water/src/entity/WaterMeter';
+import { WaterMeter } from '@eco/domain/src/Water/Entity/WaterMeter';
 
 export class AddWaterMeterResponse {
   meter?: WaterMeter;

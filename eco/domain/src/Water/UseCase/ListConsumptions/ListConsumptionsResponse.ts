@@ -1,4 +1,4 @@
-import { WaterConsumption } from '@eco/core-water/src/entity/WaterConsumption';
+import { WaterConsumption } from '@eco/domain/src/Water/Entity/WaterConsumption';
 
 export class ListConsumptionsResponse {
   consumptions: WaterConsumption[] = [];

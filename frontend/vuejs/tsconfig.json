@@ -38,7 +38,6 @@
     "../infrastructure/src/**/*.ts",
     "../interface-adapter/src/**/*.ts",
     "../../core/**/src/**/*.ts",
-    "../../eco/domain/src/**/*.ts"
   ],
   "exclude": [
     "node_modules"
