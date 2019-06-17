@@ -1,7 +1,7 @@
 import { UpdateOdometerPresenterInterface } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerPresenterInterface';
 import { UpdateOdometerRequest } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerRequest';
 import { UpdateOdometerResponse } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerResponse';
-import { EventDispatcher } from '@eco/core-shared-kernel/src/event/EventDispatcher';
+import { EventDispatcher } from '@eco/shared-kernel/src/event/EventDispatcher';
 import { CarRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/CarRepositoryInterface';
 import { OdometerUpdated } from '@eco/domain/src/Traveling/Event/OdometerUpdated';
 

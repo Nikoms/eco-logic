@@ -2,7 +2,7 @@ import { AddFlightRequest } from '@eco/domain/src/Traveling/UseCase/AddFlight/Ad
 import { AddFlightPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightPresenterInterface';
 import { AddFlightResponse } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightResponse';
 import { FlightRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/FlightRepositoryInterface';
-import { EventDispatcher } from '@eco/core-shared-kernel/src/event/EventDispatcher';
+import { EventDispatcher } from '@eco/shared-kernel/src/event/EventDispatcher';
 import { PlaneTravel, Seat } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
 import { PlaneTravelAdded } from '@eco/domain/src/Traveling/Event/PlaneTravelAdded';
 

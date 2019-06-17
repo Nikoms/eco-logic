@@ -1,4 +1,4 @@
-import { Event } from './Event';
+import { Event } from '@eco/shared-kernel/src/event/Event';
 
 export interface EventDispatcher {
   emit(event: Event): any;

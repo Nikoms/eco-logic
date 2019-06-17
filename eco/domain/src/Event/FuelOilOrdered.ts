@@ -1,4 +1,4 @@
-import { Event } from '@eco/core-shared-kernel/src/event/Event';
+import { Event } from '@eco/shared-kernel/src/event/Event';
 import { FuelOilOrder } from '@eco/domain/src/Entity/FuelOilOrder';
 import { FuelOilEvents } from '@eco/domain/src/Event/FuelOilEvents';
 

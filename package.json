@@ -20,7 +20,7 @@
   "homepage": "https://github.com/Nikoms/eco-logic#readme",
   "workspaces": [
     "core/*",
-    "eco/domain",
+    "eco/*",
     "infrastructure",
     "frontend/*"
   ],

@@ -1,4 +1,4 @@
-import { Event } from '@eco/core-shared-kernel/src/event/Event';
+import { Event } from '@eco/shared-kernel/src/event/Event';
 import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
 import { ElectricityEvents } from '@eco/domain/src/Electricity/Event/ElectricityEvents';
 

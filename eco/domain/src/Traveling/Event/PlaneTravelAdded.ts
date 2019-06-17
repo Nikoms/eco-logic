@@ -1,4 +1,4 @@
-import { Event } from '@eco/core-shared-kernel/src/event/Event';
+import { Event } from '@eco/shared-kernel/src/event/Event';
 import { TravelEvents } from './TravelEvents';
 import { PlaneTravel } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
 

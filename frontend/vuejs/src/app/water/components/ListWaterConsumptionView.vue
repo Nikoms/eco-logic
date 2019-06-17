@@ -8,7 +8,7 @@
     >
         <template slot="items" slot-scope="props">
             <td class="text-xs-right">{{ props.item.m3 }}</td>
-            <td class="text-xs-right">{{ props.item.waterMeter }}</td>
+            <td class="text-xs-right">{{ props.item.waterMeterId }}</td>
             <td class="text-xs-right">{{ props.item.date }}</td>
         </template>
     </v-data-table>

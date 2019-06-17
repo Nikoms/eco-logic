@@ -33,6 +33,9 @@
       "@eco/domain/*": [
         "eco/domain/*"
       ],
+      "@eco/shared-kernel/*": [
+        "eco/shared-kernel/*"
+      ],
       "@eco/infrastructure/*": [
         "infrastructure/*"
       ],
@@ -44,9 +47,6 @@
       ],
       "@eco/core-co2/*": [
         "core/co2/*"
-      ],
-      "@eco/core-shared-kernel/*": [
-        "core/shared-kernel/*"
       ]
     }
   },

@@ -4,7 +4,7 @@ import { AddFuelOilOrderResponse } from '@eco/domain/src/HouseHeating/UseCase/Ad
 import { FuelOilOrderRepositoryInterface } from '@eco/domain/src/HouseHeating/FuelOilOrderRepositoryInterface';
 import { FuelOilOrder } from '@eco/domain/src/Entity/FuelOilOrder';
 import { FuelOilOrdered } from '@eco/domain/src/Event/FuelOilOrdered';
-import { EventDispatcher } from '@eco/core-shared-kernel/src/event/EventDispatcher';
+import { EventDispatcher } from '@eco/shared-kernel/src/event/EventDispatcher';
 
 export class AddFuelOilOrder {
   constructor(private repository: FuelOilOrderRepositoryInterface, private eventDispatcher: EventDispatcher) {

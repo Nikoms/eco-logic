@@ -1,5 +1,5 @@
 {
-  "name": "@eco/core-shared-kernel",
+  "name": "@eco/shared-kernel",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,5 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-  },
-  "devDependencies": {
   }
 }

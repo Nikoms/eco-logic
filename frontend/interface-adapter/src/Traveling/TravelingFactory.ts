@@ -11,7 +11,7 @@ import { api } from '@eco/frontend-infrastructure/src/Api';
 import { FlightFakeApiRepository } from '@eco/frontend-infrastructure/src/Traveling/FlightFakeApiRepository';
 import { CarFakeApiRepository } from '@eco/frontend-infrastructure/src/Traveling/CarFakeApiRepository';
 import { TravelingController } from './TravelingController';
-import { EventDispatcher } from '@eco/core-shared-kernel/src/event/EventDispatcher';
+import { EventDispatcher } from '@eco/shared-kernel/src/event/EventDispatcher';
 import { GetFlightsPresenterInterface } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlightsPresenterInterface';
 import { GetCarsPresenterInterface } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCarsPresenterInterface';
 import { TravelingUI } from '@eco/frontend-interface-adapter/src/Traveling/TravelingUI';

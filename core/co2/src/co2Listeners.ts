@@ -1,7 +1,7 @@
 import { AddCarbon } from './use-case/AddCarbon';
 import { TravelEvents } from '@eco/domain/src/Traveling/Event/TravelEvents';
 import { ElectricityEvents } from '@eco/domain/src/Electricity/Event/ElectricityEvents';
-import { EventDispatcher } from '@eco/core-shared-kernel/src/event/EventDispatcher';
+import { EventDispatcher } from '@eco/shared-kernel/src/event/EventDispatcher';
 import { CarbonCalculator } from './CarbonCalculator';
 import { FuelOilEvents } from '@eco/domain/src/Event/FuelOilEvents';
 

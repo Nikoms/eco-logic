@@ -3,8 +3,8 @@ import { UpdatePowerConsumptionPresenterInterface } from '@eco/domain/src/Electr
 import { UpdatePowerConsumptionResponse } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionResponse';
 import { PowerConsumption } from '@eco/domain/src/Electricity/Entity/PowerConsumption';
 import { ElectricityMeterRepositoryInterface } from '@eco/domain/src/Electricity/Repository/ElectricityMeterRepositoryInterface';
-import { EventDispatcher } from '@eco/core-shared-kernel/src/event/EventDispatcher';
 import { PowerUpdated } from '@eco/domain/src/Electricity/Event/PowerUpdated';
+import { EventDispatcher } from '@eco/shared-kernel/src/event/EventDispatcher';
 
 export class UpdatePowerConsumption {
   constructor(private meterRepository: ElectricityMeterRepositoryInterface,
