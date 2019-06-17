@@ -1,4 +1,5 @@
 # Refac
+- Move @eco/core-co2 to @eco/domain/co2 + Make an api and so on...
 - Unit test!
 - E2E tests with VueJs
 - Having another front end framework
