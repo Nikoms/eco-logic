@@ -29,7 +29,7 @@
   @Component
   export default class UpdatePowerConsumptionView extends Vue {
     kWh = '';
-    viewModel = this.$electricity.updatePowerConsumptionPresenter.getUpdatePowerConsumptionViewModel();
+    viewModel = this.$electricity.electricityPresenter.getUpdatePowerConsumptionViewModel();
 
     updateConsumption() {
       const request = new UpdatePowerConsumptionRequest(this.viewModel.electricMeterId, this.kWh);

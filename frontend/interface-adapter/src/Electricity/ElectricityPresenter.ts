@@ -11,12 +11,14 @@ import { GetElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/
 import { GetElectricMeterViewModel } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterViewModel';
 import { GetElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterResponse';
 import { ElectricUI } from '@eco/frontend-interface-adapter/src/Electricity/ElectricUI';
+import { ElectricityPresenterToViewModel } from '@eco/frontend-interface-adapter/src/Electricity/ElectricityPresenterToViewModel';
 
 export class ElectricityPresenter implements ElectricUI,
   UpdatePowerConsumptionPresenterInterface,
   GetElectricMetersPresenterInterface,
   GetElectricMeterPresenterInterface,
-  SaveElectricMeterPresenterInterface {
+  SaveElectricMeterPresenterInterface,
+  ElectricityPresenterToViewModel {
 
   private updatePowerConsumptionViewModel = new UpdatePowerConsumptionViewModel();
   private getElectricMetersViewModel = new GetElectricMetersViewModel();
@@ -74,10 +76,6 @@ export class ElectricityPresenter implements ElectricUI,
   presentAddElectricMeterResponse(response: SaveElectricMeterResponse): void {
     this.meters.push(response.meter);
     this.updateMetersViewModel();
-  }
-
-  getGetElectricMeterViewModel(): GetElectricMeterViewModel {
-    return this.getElectricMeterViewModel;
   }
 
   presentGetElectricMeter(response: GetElectricMeterResponse): void {
