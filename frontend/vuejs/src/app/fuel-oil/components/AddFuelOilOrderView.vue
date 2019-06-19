@@ -1,5 +1,5 @@
 <template>
-    <v-dialog v-model="viewModel.displayed" max-width="600px">
+    <v-dialog v-model="viewModel.formDisplayed" max-width="600px">
         <v-form @submit.prevent="$houseHeating.controller.addFuelOilOrder(request)">
             <v-card>
                 <v-card-text>
@@ -30,11 +30,10 @@
 
   @Component({})
   export default class AddFuelOilOrderView extends Vue {
-    viewModel = this.$houseHeating.addFuelOilOrderPresenter.getAddFuelOilOrderViewModel();
-
+    viewModel = this.$houseHeating.viewModel;
     request = new AddFuelOilOrderRequest('');
 
-    @Watch('viewModel.displayed') onDisplayChanged(displayed: boolean) {
+    @Watch('viewModel.formDisplayed') onDisplayChanged(displayed: boolean) {
       if (displayed) {
         this.request = new AddFuelOilOrderRequest('');
         setImmediate(() => {

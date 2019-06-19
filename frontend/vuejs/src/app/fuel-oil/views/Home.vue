@@ -14,11 +14,11 @@
         <v-card class="mx-auto mb-3 mt-3" color="#26c6da" dark max-width="400">
             <v-card-title>
                 <span class="title font-weight-light">Total ordered:&nbsp;</span><span
-                    class="title">{{totalViewModel.totalFuelOilOrder}} liters</span>
+                    class="title">{{viewModel.totalFuelOilOrder}} liters</span>
             </v-card-title>
         </v-card>
 
-        <v-data-iterator :items="lastOrdersViewModel.lastOrders" hide-actions>
+        <v-data-iterator :items="viewModel.lastOrders" hide-actions>
             <template v-slot:item="props">
                 <v-card class="mx-auto mb-3 mt-3" color="#26c6da" dark max-width="400">
                     <v-card-title>
@@ -42,8 +42,7 @@
   @Component({ components: { AddFuelOilOrderView } })
 
   export default class TravelingConsumption extends Vue {
-    totalViewModel = this.$houseHeating.getTotalFuelOilOrderPresenter.getGetTotalFuelOilOrderViewModel();
-    lastOrdersViewModel = this.$houseHeating.getLastFuelOilOrdersPresenter.getGetLastFuelOilOrdersViewModel();
+    viewModel = this.$houseHeating.viewModel;
 
     mounted() {
       this.$houseHeating.controller.refreshSummary();

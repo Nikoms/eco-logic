@@ -130,20 +130,19 @@ export class Api {
 
   async addFuelOilOrder(liters: number) {
     const presenter = new HouseHeatingPresenter();
-
     await addFuelOilOrder.execute(new AddFuelOilOrderRequest(`${liters}`), presenter);
   }
 
   async getLastFuelOilOrders(max: number) {
     const presenter = new HouseHeatingPresenter();
     await getLastFuelOilOrder.execute(new GetLastFuelOilOrdersRequest(max), presenter);
-    return presenter.getGetLastFuelOilOrdersViewModel().lastOrders;
+    return presenter.viewModel.lastOrders;
   }
 
   async getTotalFuelOilOrder() {
     const presenter = new HouseHeatingPresenter();
     await getTotalFuelOilOrder.execute(presenter);
-    return presenter.getGetTotalFuelOilOrderViewModel().totalFuelOilOrder;
+    return presenter.viewModel.totalFuelOilOrder;
   }
 
   getCarbons() {
