@@ -4,7 +4,7 @@ import { PlaneTravelAdded } from '@eco/domain/src/Traveling/Event/PlaneTravelAdd
 import { AddCarbonRequest } from './use-case/AddCarbon';
 import { Seat } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
 import { Engine } from '@eco/domain/src/Traveling/Entity/Car';
-import { FuelOilOrdered } from '@eco/domain/src/Event/FuelOilOrdered';
+import { FuelOilOrdered } from '@eco/domain/src/HouseHeating/Event/FuelOilOrdered';
 
 export class CarbonCalculator {
 

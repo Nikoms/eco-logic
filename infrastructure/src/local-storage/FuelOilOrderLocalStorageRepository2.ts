@@ -1,5 +1,5 @@
 import { FuelOilOrderRepositoryInterface } from '@eco/domain/src/HouseHeating/FuelOilOrderRepositoryInterface';
-import { FuelOilOrder } from '@eco/domain/src/Entity/FuelOilOrder';
+import { FuelOilOrder } from '@eco/domain/src/HouseHeating/Entity/FuelOilOrder';
 import { JsonOf } from '@eco/infrastructure/src/local-storage/type/JsonOf';
 
 export class FuelOilOrderLocalStorageRepository2 implements FuelOilOrderRepositoryInterface {

@@ -3,7 +3,7 @@ import { TravelEvents } from '@eco/domain/src/Traveling/Event/TravelEvents';
 import { ElectricityEvents } from '@eco/domain/src/Electricity/Event/ElectricityEvents';
 import { EventDispatcher } from '@eco/shared-kernel/src/event/EventDispatcher';
 import { CarbonCalculator } from './CarbonCalculator';
-import { FuelOilEvents } from '@eco/domain/src/Event/FuelOilEvents';
+import { FuelOilEvents } from '@eco/domain/src/HouseHeating/Event/FuelOilEvents';
 
 export const initCo2Listeners = (eventDispatcher: EventDispatcher, addCarbonCommand: AddCarbon) => {
   const on = eventDispatcher.addListener.bind(eventDispatcher);

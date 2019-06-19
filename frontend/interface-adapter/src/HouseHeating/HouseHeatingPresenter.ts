@@ -4,7 +4,7 @@ import { AddFuelOilOrderViewModel } from '@eco/domain/src/HouseHeating/UseCase/A
 import { AddFuelOilOrderResponse } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderResponse';
 import { GetLastFuelOilOrdersResponse } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersResponse';
 import { GetTotalFuelOilOrderResponse } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrderResponse';
-import { FuelOilOrder } from '@eco/domain/src/Entity/FuelOilOrder';
+import { FuelOilOrder } from '@eco/domain/src/HouseHeating/Entity/FuelOilOrder';
 import { GetLastFuelOilOrdersPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersPresenterInterface';
 import { GetLastFuelOilOrdersViewModel } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersViewModel';
 import { GetTotalFuelOilOrderViewModel } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrderViewModel';

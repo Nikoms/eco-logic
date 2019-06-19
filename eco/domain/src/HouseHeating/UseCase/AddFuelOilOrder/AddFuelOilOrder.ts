@@ -2,8 +2,8 @@ import { AddFuelOilOrderRequest } from '@eco/domain/src/HouseHeating/UseCase/Add
 import { AddFuelOilOrderPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderPresenterInterface';
 import { AddFuelOilOrderResponse } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderResponse';
 import { FuelOilOrderRepositoryInterface } from '@eco/domain/src/HouseHeating/FuelOilOrderRepositoryInterface';
-import { FuelOilOrder } from '@eco/domain/src/Entity/FuelOilOrder';
-import { FuelOilOrdered } from '@eco/domain/src/Event/FuelOilOrdered';
+import { FuelOilOrder } from '@eco/domain/src/HouseHeating/Entity/FuelOilOrder';
+import { FuelOilOrdered } from '@eco/domain/src/HouseHeating/Event/FuelOilOrdered';
 import { EventDispatcher } from '@eco/shared-kernel/src/event/EventDispatcher';
 
 export class AddFuelOilOrder {

@@ -1,6 +1,6 @@
 import { FuelOilOrderRepositoryInterface } from '@eco/domain/src/HouseHeating/FuelOilOrderRepositoryInterface';
 import { Api } from '@eco/frontend-infrastructure/src/Api';
-import { FuelOilOrder } from '@eco/domain/src/Entity/FuelOilOrder';
+import { FuelOilOrder } from '@eco/domain/src/HouseHeating/Entity/FuelOilOrder';
 
 export class OrderFuelOilFakeApiRepository implements FuelOilOrderRepositoryInterface {
   constructor(private api: Api) {
