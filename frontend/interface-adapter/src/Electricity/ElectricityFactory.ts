@@ -2,29 +2,29 @@ import { UpdatePowerConsumption } from '@eco/domain/src/Electricity/UseCase/Upda
 import { GetElectricMeters } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMeters';
 import { SaveElectricMeter } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeter';
 import { ElectricityController } from './ElectricityController';
-import { ElectricityMeterFakeApiRepository } from '@eco/frontend-infrastructure/src/Electricity/ElectricityMeterFakeApiRepository';
-import { api } from '@eco/frontend-infrastructure/src/Api';
 import { ElectricityUIPresenter } from './ElectricityUIPresenter';
 import { EventTargetEventDispatcher } from '@eco/infrastructure/src/event/EventDispatcher';
 import { ElectricUI } from '@eco/frontend-interface-adapter/src/Electricity/ElectricUI';
+import { ElectricityMeterRepositoryInterface } from '@eco/domain/src/Electricity/Repository/ElectricityMeterRepositoryInterface';
 
 export class ElectricityFactory {
   private instances: any = {};
 
-  constructor(private eventDispatcher: EventTargetEventDispatcher) {
+  constructor(private eventDispatcher: EventTargetEventDispatcher,
+              private electricityMeterRepository: ElectricityMeterRepositoryInterface) {
+
   }
 
   get controller() {
-    const electricityMeterFakeApiRepository = new ElectricityMeterFakeApiRepository(api);
     return this.reuseOrInstantiate(
       'ElectricityController',
       () => new ElectricityController(
         this.fullPresenter,
         this.fullPresenter,
         this.fullPresenter,
-        new GetElectricMeters(electricityMeterFakeApiRepository),
-        new SaveElectricMeter(electricityMeterFakeApiRepository),
-        new UpdatePowerConsumption(electricityMeterFakeApiRepository, this.eventDispatcher),
+        new GetElectricMeters(this.electricityMeterRepository),
+        new SaveElectricMeter(this.electricityMeterRepository),
+        new UpdatePowerConsumption(this.electricityMeterRepository, this.eventDispatcher),
       ),
     );
   }

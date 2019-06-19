@@ -7,23 +7,15 @@ import {
   getAllWaterConsumptions,
   getCarbons,
   getCars,
-  getElectricMeter,
-  getElectricMeters,
   getFlights,
   getLastFuelOilOrder,
   getTotalFuelOilOrder,
   getWaterMeters,
-  saveElectricMeter,
-  updatePowerConsumption,
 } from '@eco/infrastructure/src/di';
 import { PlaneTravel } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
 import { Car } from '@eco/domain/src/Traveling/Entity/Car';
-import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
 import { WaterConsumption } from '@eco/domain/src/Water/Entity/WaterConsumption';
 import { WaterMeter } from '@eco/domain/src/Water/Entity/WaterMeter';
-import { SaveElectricMeterRequest } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterRequest';
-import { UpdatePowerConsumptionRequest } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionRequest';
-import { GetElectricMeterRequest } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterRequest';
 import { GetLastFuelOilOrdersRequest } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersRequest';
 import { AddFuelOilOrderRequest } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderRequest';
 import { AddCarRequest } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarRequest';
@@ -32,38 +24,9 @@ import { AddFlightRequest } from '@eco/domain/src/Traveling/UseCase/AddFlight/Ad
 import { AddConsumptionRequest } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionRequest';
 import { WaterPresenter } from '@eco/frontend-interface-adapter/src/Water/WaterPresenter';
 import { AddWaterMeterRequest } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterRequest';
-import { ElectricityUIPresenter } from '@eco/frontend-interface-adapter/src/Electricity/ElectricityUIPresenter';
 import { HouseHeatingApiPresenter } from '@eco/frontend-infrastructure/src/HouseHeating/HouseHeatingApiPresenter';
-import { ElectricityApiPresenter } from '@eco/frontend-infrastructure/src/Electricity/ElectricityApiPresenter';
 
 export class Api {
-
-  saveElectricMeter(meter: ElectricMeter) {
-    return saveElectricMeter.execute(new SaveElectricMeterRequest(meter.name, meter.id), new ElectricityApiPresenter());
-  }
-
-  async getElectricMeters() {
-    const presenter = new ElectricityApiPresenter();
-    await getElectricMeters.execute(presenter);
-
-    return presenter.getElectricMetersResponse!.electricMeters;
-  }
-
-  async updatePowerConsumption(electricMeter: ElectricMeter) {
-    await updatePowerConsumption.execute(
-      new UpdatePowerConsumptionRequest(electricMeter.id, `${electricMeter.kWh}`),
-      new ElectricityUIPresenter(),
-    );
-  }
-
-  async getElectricMeter(id: string) {
-    const presenter = new ElectricityApiPresenter();
-
-    await getElectricMeter.execute(new GetElectricMeterRequest(id), presenter);
-
-    return presenter.getElectricMeterResponse!.electricMeter;
-  }
-
   async getCars() {
     const presenter = new TravelingPresenter();
     await getCars.execute(presenter);

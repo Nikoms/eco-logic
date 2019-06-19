@@ -1,10 +1,10 @@
 import { ElectricityMeterRepositoryInterface } from '@eco/domain/src/Electricity/Repository/ElectricityMeterRepositoryInterface';
 import { v4 } from 'uuid';
-import { Api } from '@eco/frontend-infrastructure/src/Api';
 import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
+import { ElectricityApi } from '@eco/frontend-infrastructure/src/Electricity/ElectricityApi';
 
 export class ElectricityMeterFakeApiRepository implements ElectricityMeterRepositoryInterface {
-  constructor(private api: Api) {
+  constructor(private api: ElectricityApi) {
   }
 
   getAll(): Promise<ElectricMeter[]> {
@@ -20,7 +20,7 @@ export class ElectricityMeterFakeApiRepository implements ElectricityMeterReposi
   }
 
   async save(electricMeter: ElectricMeter): Promise<void> {
-    await this.api.saveElectricMeter(electricMeter);
+    await this.api.save(electricMeter);
   }
 
   async update(electricMeter: ElectricMeter): Promise<void> {
