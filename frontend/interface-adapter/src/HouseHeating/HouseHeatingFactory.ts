@@ -4,7 +4,7 @@ import { GetTotalFuelOilOrder } from '@eco/domain/src/HouseHeating/UseCase/GetTo
 import { HouseHeatingController } from './HouseHeatingController';
 import { OrderFuelOilFakeApiRepository } from '@eco/frontend-infrastructure/src/HouseHeating/OrderFuelOilFakeApiRepository';
 import { api } from '@eco/frontend-infrastructure/src/Api';
-import { HouseHeatingPresenter } from './HouseHeatingPresenter';
+import { HouseHeatingUIPresenter } from './HouseHeatingUIPresenter';
 import { ElectricUI } from '@eco/frontend-interface-adapter/src/HouseHeating/ElectricUI';
 import { EventTargetEventDispatcher } from '@eco/infrastructure/src/event/EventDispatcher';
 
@@ -37,7 +37,7 @@ export class HouseHeatingFactory {
   }
 
   private get fullPresenter() {
-    return this.reuseOrInstantiate('HouseHeatingPresenter', () => new HouseHeatingPresenter());
+    return this.reuseOrInstantiate('HouseHeatingPresenter', () => new HouseHeatingUIPresenter());
   }
 
   private reuseOrInstantiate<T>(id: string, callback: () => T): T {

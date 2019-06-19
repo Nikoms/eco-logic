@@ -14,13 +14,11 @@ import {
   getTotalFuelOilOrder,
   getWaterMeters,
   saveElectricMeter,
-  updateOdometer,
   updatePowerConsumption,
 } from '@eco/infrastructure/src/di';
 import { PlaneTravel } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
 import { Car } from '@eco/domain/src/Traveling/Entity/Car';
 import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
-import { Odometer } from '@eco/domain/src/Traveling/Entity/Odometer';
 import { WaterConsumption } from '@eco/domain/src/Water/Entity/WaterConsumption';
 import { WaterMeter } from '@eco/domain/src/Water/Entity/WaterMeter';
 import { SaveElectricMeterRequest } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterRequest';
@@ -31,16 +29,15 @@ import { GetElectricMeterRequest } from '@eco/domain/src/Electricity/UseCase/Get
 import { GetElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterPresenterInterface';
 import { GetElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterResponse';
 import { GetLastFuelOilOrdersRequest } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersRequest';
-import { HouseHeatingPresenter } from '@eco/frontend-interface-adapter/src/HouseHeating/HouseHeatingPresenter';
 import { AddFuelOilOrderRequest } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderRequest';
 import { AddCarRequest } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarRequest';
 import { TravelingPresenter } from '@eco/frontend-interface-adapter/src/Traveling/TravelingPresenter';
 import { AddFlightRequest } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightRequest';
-import { UpdateOdometerRequest } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerRequest';
 import { AddConsumptionRequest } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionRequest';
 import { WaterPresenter } from '@eco/frontend-interface-adapter/src/Water/WaterPresenter';
 import { AddWaterMeterRequest } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterRequest';
 import { ElectricityPresenter } from '@eco/frontend-interface-adapter/src/Electricity/ElectricityPresenter';
+import { HouseHeatingApiPresenter } from '@eco/frontend-infrastructure/src/HouseHeating/HouseHeatingApiPresenter';
 
 export class Api {
   async getCars() {
@@ -94,13 +91,6 @@ export class Api {
     return presenter.getFlights();
   }
 
-  updateOdometer(odometer: Odometer) {
-    return updateOdometer.execute(
-      new UpdateOdometerRequest(odometer.carId, `${odometer.km}`),
-      new TravelingPresenter(),
-    );
-  }
-
   async addWaterConsumption(consumption: WaterConsumption) {
     await addWaterConsumption.execute(
       new AddConsumptionRequest(consumption.waterMeterId, `${consumption.m3}`, consumption.id, consumption.date),
@@ -129,20 +119,19 @@ export class Api {
   }
 
   async addFuelOilOrder(liters: number) {
-    const presenter = new HouseHeatingPresenter();
-    await addFuelOilOrder.execute(new AddFuelOilOrderRequest(`${liters}`), presenter);
+    await addFuelOilOrder.execute(new AddFuelOilOrderRequest(`${liters}`), new HouseHeatingApiPresenter());
   }
 
   async getLastFuelOilOrders(max: number) {
-    const presenter = new HouseHeatingPresenter();
+    const presenter = new HouseHeatingApiPresenter();
     await getLastFuelOilOrder.execute(new GetLastFuelOilOrdersRequest(max), presenter);
-    return presenter.viewModel.lastOrders;
+    return presenter.getLastFuelOilOrdersResponse!.lastFuelOilOrders;
   }
 
   async getTotalFuelOilOrder() {
-    const presenter = new HouseHeatingPresenter();
+    const presenter = new HouseHeatingApiPresenter();
     await getTotalFuelOilOrder.execute(presenter);
-    return presenter.viewModel.totalFuelOilOrder;
+    return presenter.getTotalFuelOilOrderResponse!.totalFuelOilOrder;
   }
 
   getCarbons() {

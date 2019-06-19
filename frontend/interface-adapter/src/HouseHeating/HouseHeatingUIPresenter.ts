@@ -8,7 +8,7 @@ import { GetLastFuelOilOrdersPresenterInterface } from '@eco/domain/src/HouseHea
 import { ElectricUI } from '@eco/frontend-interface-adapter/src/HouseHeating/ElectricUI';
 import { ViewModel } from '@eco/frontend-interface-adapter/src/HouseHeating/ViewModel';
 
-export class HouseHeatingPresenter implements ElectricUI,
+export class HouseHeatingUIPresenter implements ElectricUI,
   GetTotalFuelOilOrderPresenterInterface,
   GetLastFuelOilOrdersPresenterInterface,
   AddFuelOilOrderPresenterInterface {
