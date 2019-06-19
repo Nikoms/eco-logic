@@ -37,11 +37,6 @@ import { HouseHeatingApiPresenter } from '@eco/frontend-infrastructure/src/House
 import { ElectricityApiPresenter } from '@eco/frontend-infrastructure/src/Electricity/ElectricityApiPresenter';
 
 export class Api {
-  async getCars() {
-    const presenter = new TravelingPresenter();
-    await getCars.execute(presenter);
-    return presenter.getGetCarsViewModel().cars;
-  }
 
   saveElectricMeter(meter: ElectricMeter) {
     return saveElectricMeter.execute(new SaveElectricMeterRequest(meter.name, meter.id), new ElectricityApiPresenter());
@@ -67,6 +62,12 @@ export class Api {
     await getElectricMeter.execute(new GetElectricMeterRequest(id), presenter);
 
     return presenter.getElectricMeterResponse!.electricMeter;
+  }
+
+  async getCars() {
+    const presenter = new TravelingPresenter();
+    await getCars.execute(presenter);
+    return presenter.getGetCarsViewModel().cars;
   }
 
   async addCar(car: Car) {
