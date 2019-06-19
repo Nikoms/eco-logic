@@ -2,17 +2,18 @@ import { AddFuelOilOrder } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOil
 import { GetLastFuelOilOrders } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrder';
 import { GetTotalFuelOilOrder } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrder';
 import { HouseHeatingController } from './HouseHeatingController';
-import { OrderFuelOilFakeApiRepository } from '@eco/frontend-infrastructure/src/HouseHeating/OrderFuelOilFakeApiRepository';
-import { api } from '@eco/frontend-infrastructure/src/Api';
 import { HouseHeatingUIPresenter } from './HouseHeatingUIPresenter';
 import { ElectricUI } from '@eco/frontend-interface-adapter/src/HouseHeating/ElectricUI';
 import { EventTargetEventDispatcher } from '@eco/infrastructure/src/event/EventDispatcher';
+import { FuelOilOrderRepositoryInterface } from '@eco/domain/src/HouseHeating/FuelOilOrderRepositoryInterface';
 
 export class HouseHeatingFactory {
   private instances: any = {};
 
-  constructor(private eventDispatcher: EventTargetEventDispatcher) {
+  constructor(private eventDispatcher: EventTargetEventDispatcher,
+              private orderFuelOilRepository: FuelOilOrderRepositoryInterface) {
   }
+
 
   get controller() {
     return this.reuseOrInstantiate(
@@ -21,9 +22,9 @@ export class HouseHeatingFactory {
         this.fullPresenter,
         this.fullPresenter,
         this.fullPresenter,
-        new AddFuelOilOrder(new OrderFuelOilFakeApiRepository(api), this.eventDispatcher),
-        new GetLastFuelOilOrders(new OrderFuelOilFakeApiRepository(api)),
-        new GetTotalFuelOilOrder(new OrderFuelOilFakeApiRepository(api)),
+        new AddFuelOilOrder(this.orderFuelOilRepository, this.eventDispatcher),
+        new GetLastFuelOilOrders(this.orderFuelOilRepository),
+        new GetTotalFuelOilOrder(this.orderFuelOilRepository),
       ),
     );
   }
