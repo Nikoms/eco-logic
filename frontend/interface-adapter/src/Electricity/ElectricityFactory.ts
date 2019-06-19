@@ -4,7 +4,7 @@ import { SaveElectricMeter } from '@eco/domain/src/Electricity/UseCase/SaveElect
 import { ElectricityController } from './ElectricityController';
 import { ElectricityMeterFakeApiRepository } from '@eco/frontend-infrastructure/src/Electricity/ElectricityMeterFakeApiRepository';
 import { api } from '@eco/frontend-infrastructure/src/Api';
-import { ElectricityPresenter } from './ElectricityPresenter';
+import { ElectricityUIPresenter } from './ElectricityUIPresenter';
 import { EventTargetEventDispatcher } from '@eco/infrastructure/src/event/EventDispatcher';
 import { ElectricUI } from '@eco/frontend-interface-adapter/src/Electricity/ElectricUI';
 
@@ -38,7 +38,7 @@ export class ElectricityFactory {
   }
 
   private get fullPresenter() {
-    return this.reuseOrInstantiate('ElectricityPresenter', () => new ElectricityPresenter());
+    return this.reuseOrInstantiate('ElectricityPresenter', () => new ElectricityUIPresenter());
   }
 
   private reuseOrInstantiate<T>(id: string, callback: () => T): T {

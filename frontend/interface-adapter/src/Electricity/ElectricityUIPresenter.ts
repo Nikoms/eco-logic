@@ -10,7 +10,7 @@ import { GetElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/Ge
 import { ElectricUI } from '@eco/frontend-interface-adapter/src/Electricity/ElectricUI';
 import { ViewModel } from '@eco/frontend-interface-adapter/src/Electricity/ViewModel';
 
-export class ElectricityPresenter implements ElectricUI,
+export class ElectricityUIPresenter implements ElectricUI,
   UpdatePowerConsumptionPresenterInterface,
   GetElectricMetersPresenterInterface,
   GetElectricMeterPresenterInterface,

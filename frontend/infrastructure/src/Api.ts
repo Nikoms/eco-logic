@@ -22,12 +22,8 @@ import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter'
 import { WaterConsumption } from '@eco/domain/src/Water/Entity/WaterConsumption';
 import { WaterMeter } from '@eco/domain/src/Water/Entity/WaterMeter';
 import { SaveElectricMeterRequest } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterRequest';
-import { GetElectricMetersPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersPresenterInterface';
-import { GetElectricMetersResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersResponse';
 import { UpdatePowerConsumptionRequest } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionRequest';
 import { GetElectricMeterRequest } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterRequest';
-import { GetElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterPresenterInterface';
-import { GetElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterResponse';
 import { GetLastFuelOilOrdersRequest } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersRequest';
 import { AddFuelOilOrderRequest } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderRequest';
 import { AddCarRequest } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarRequest';
@@ -36,8 +32,9 @@ import { AddFlightRequest } from '@eco/domain/src/Traveling/UseCase/AddFlight/Ad
 import { AddConsumptionRequest } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionRequest';
 import { WaterPresenter } from '@eco/frontend-interface-adapter/src/Water/WaterPresenter';
 import { AddWaterMeterRequest } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterRequest';
-import { ElectricityPresenter } from '@eco/frontend-interface-adapter/src/Electricity/ElectricityPresenter';
+import { ElectricityUIPresenter } from '@eco/frontend-interface-adapter/src/Electricity/ElectricityUIPresenter';
 import { HouseHeatingApiPresenter } from '@eco/frontend-infrastructure/src/HouseHeating/HouseHeatingApiPresenter';
+import { ElectricityApiPresenter } from '@eco/frontend-infrastructure/src/Electricity/ElectricityApiPresenter';
 
 export class Api {
   async getCars() {
@@ -47,28 +44,29 @@ export class Api {
   }
 
   saveElectricMeter(meter: ElectricMeter) {
-    return saveElectricMeter.execute(new SaveElectricMeterRequest(meter.name, meter.id), new ElectricityPresenter());
+    return saveElectricMeter.execute(new SaveElectricMeterRequest(meter.name, meter.id), new ElectricityApiPresenter());
   }
 
   async getElectricMeters() {
-    const presenter = new (class ApiPresenter implements GetElectricMetersPresenterInterface {
-      meters: ElectricMeter[] = [];
-
-      presentGetElectricMeters(response: GetElectricMetersResponse): void {
-        this.meters = response.electricMeters;
-      }
-    })();
-
+    const presenter = new ElectricityApiPresenter();
     await getElectricMeters.execute(presenter);
 
-    return presenter.meters;
+    return presenter.getElectricMetersResponse!.electricMeters;
   }
 
   async updatePowerConsumption(electricMeter: ElectricMeter) {
     await updatePowerConsumption.execute(
       new UpdatePowerConsumptionRequest(electricMeter.id, `${electricMeter.kWh}`),
-      new ElectricityPresenter(),
+      new ElectricityUIPresenter(),
     );
+  }
+
+  async getElectricMeter(id: string) {
+    const presenter = new ElectricityApiPresenter();
+
+    await getElectricMeter.execute(new GetElectricMeterRequest(id), presenter);
+
+    return presenter.getElectricMeterResponse!.electricMeter;
   }
 
   async addCar(car: Car) {
@@ -136,20 +134,6 @@ export class Api {
 
   getCarbons() {
     return getCarbons.execute();
-  }
-
-  async getElectricMeter(id: string) {
-    const presenter = new (class ApiPresenter implements GetElectricMeterPresenterInterface {
-      public meter?: ElectricMeter;
-
-      presentGetElectricMeter(response: GetElectricMeterResponse): void {
-        this.meter = response.electricMeter;
-      }
-    })();
-
-    await getElectricMeter.execute(new GetElectricMeterRequest(id), presenter);
-
-    return presenter.meter;
   }
 }
 
