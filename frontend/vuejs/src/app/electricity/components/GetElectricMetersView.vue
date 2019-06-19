@@ -19,6 +19,6 @@
 
   @Component({})
   export default class ListElectricMetersView extends Vue {
-    viewModel = this.$electricity.electricityPresenter.getGetElectricMetersViewModel();
+    viewModel = this.$electricity.viewModel;
   }
 </script>

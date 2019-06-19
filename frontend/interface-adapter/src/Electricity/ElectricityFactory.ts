@@ -7,7 +7,6 @@ import { api } from '@eco/frontend-infrastructure/src/Api';
 import { ElectricityPresenter } from './ElectricityPresenter';
 import { EventTargetEventDispatcher } from '@eco/infrastructure/src/event/EventDispatcher';
 import { ElectricUI } from '@eco/frontend-interface-adapter/src/Electricity/ElectricUI';
-import { ElectricityPresenterToViewModel } from '@eco/frontend-interface-adapter/src/Electricity/ElectricityPresenterToViewModel';
 
 export class ElectricityFactory {
   private instances: any = {};
@@ -34,8 +33,8 @@ export class ElectricityFactory {
     return this.fullPresenter;
   }
 
-  get electricityPresenter(): ElectricityPresenterToViewModel {
-    return this.fullPresenter;
+  get viewModel() {
+    return this.fullPresenter.viewModel;
   }
 
   private get fullPresenter() {

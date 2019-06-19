@@ -1,5 +1,5 @@
 <template>
-    <v-dialog v-model="viewModel.displayed" max-width="600px">
+    <v-dialog v-model="viewModel.isFormDisplayed" max-width="600px">
         <v-form @submit.prevent="updateConsumption">
             <v-card>
                 <v-card-text>
@@ -29,14 +29,14 @@
   @Component
   export default class UpdatePowerConsumptionView extends Vue {
     kWh = '';
-    viewModel = this.$electricity.electricityPresenter.getUpdatePowerConsumptionViewModel();
+    viewModel = this.$electricity.viewModel;
 
     updateConsumption() {
       const request = new UpdatePowerConsumptionRequest(this.viewModel.electricMeterId, this.kWh);
       this.$electricity.controller.updatePowerConsumption(request);
     }
 
-    @Watch('viewModel.displayed')
+    @Watch('viewModel.isFormDisplayed')
     onPropertyChanged(displayed: boolean) {
       if (displayed) {
         this.kWh = '';

@@ -1,43 +1,37 @@
 import { UpdatePowerConsumptionPresenterInterface } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionPresenterInterface';
-import { UpdatePowerConsumptionViewModel } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionViewModel';
 import { GetElectricMetersPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersPresenterInterface';
-import { GetElectricMetersViewModel } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersViewModel';
 import { SaveElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterPresenterInterface';
 import { GetElectricMetersResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersResponse';
 import { SaveElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterResponse';
 import { UpdatePowerConsumptionResponse } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionResponse';
 import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
 import { GetElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterPresenterInterface';
-import { GetElectricMeterViewModel } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterViewModel';
 import { GetElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterResponse';
 import { ElectricUI } from '@eco/frontend-interface-adapter/src/Electricity/ElectricUI';
-import { ElectricityPresenterToViewModel } from '@eco/frontend-interface-adapter/src/Electricity/ElectricityPresenterToViewModel';
+import { ViewModel } from '@eco/frontend-interface-adapter/src/Electricity/ViewModel';
 
 export class ElectricityPresenter implements ElectricUI,
   UpdatePowerConsumptionPresenterInterface,
   GetElectricMetersPresenterInterface,
   GetElectricMeterPresenterInterface,
-  SaveElectricMeterPresenterInterface,
-  ElectricityPresenterToViewModel {
+  SaveElectricMeterPresenterInterface {
 
-  private updatePowerConsumptionViewModel = new UpdatePowerConsumptionViewModel();
-  private getElectricMetersViewModel = new GetElectricMetersViewModel();
-  private getElectricMeterViewModel = new GetElectricMeterViewModel();
+  private _viewModel = new ViewModel();
   private meters: ElectricMeter[] = [];
 
+  get viewModel() {
+    return this._viewModel;
+  }
+
   showUpdatePowerConsumption(electricMeter: ElectricMeter): void {
-    this.updatePowerConsumptionViewModel.lastKWh = `${electricMeter.kWh}`;
-    this.updatePowerConsumptionViewModel.meterName = `${electricMeter.name}`;
-    this.updatePowerConsumptionViewModel.electricMeterId = electricMeter.id;
-    this.updatePowerConsumptionViewModel.displayed = true;
+    this.viewModel.lastKWh = `${electricMeter.kWh}`;
+    this.viewModel.meterName = `${electricMeter.name}`;
+    this.viewModel.electricMeterId = electricMeter.id;
+    this.viewModel.isFormDisplayed = true;
   }
 
   cancelUpdatePowerConsumption(): void {
-    this.updatePowerConsumptionViewModel.displayed = false;
-  }
-
-  getUpdatePowerConsumptionViewModel(): UpdatePowerConsumptionViewModel {
-    return this.updatePowerConsumptionViewModel;
+    this.viewModel.isFormDisplayed = false;
   }
 
   presentUpdatePowerConsumption(response: UpdatePowerConsumptionResponse): void {
@@ -60,7 +54,7 @@ export class ElectricityPresenter implements ElectricUI,
       }
       this.updateMetersViewModel();
 
-      this.updatePowerConsumptionViewModel.displayed = false;
+      this.viewModel.isFormDisplayed = false;
     }
   }
 
@@ -69,21 +63,17 @@ export class ElectricityPresenter implements ElectricUI,
     this.updateMetersViewModel();
   }
 
-  getGetElectricMetersViewModel(): GetElectricMetersViewModel {
-    return this.getElectricMetersViewModel;
-  }
-
   presentAddElectricMeterResponse(response: SaveElectricMeterResponse): void {
     this.meters.push(response.meter);
     this.updateMetersViewModel();
   }
 
   presentGetElectricMeter(response: GetElectricMeterResponse): void {
-    this.getElectricMeterViewModel.meter = response.electricMeter;
+    this.viewModel.meter = response.electricMeter;
   }
 
   private updateMetersViewModel() {
-    this.getElectricMetersViewModel.meters = this.meters;
-    this.getElectricMetersViewModel.hasMeter = this.meters.length > 0;
+    this.viewModel.meters = this.meters;
+    this.viewModel.hasMeter = this.meters.length > 0;
   }
 }

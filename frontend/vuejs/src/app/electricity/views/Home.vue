@@ -25,7 +25,7 @@
     },
   })
   export default class Home extends Vue {
-    viewModel = this.$electricity.electricityPresenter.getGetElectricMetersViewModel();
+    viewModel = this.$electricity.viewModel;
 
     async mounted() {
       this.$electricity.controller.refreshMeters();
