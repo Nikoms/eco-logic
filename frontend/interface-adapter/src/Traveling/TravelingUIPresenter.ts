@@ -23,7 +23,7 @@ export class TravelingUIPresenter
     GetFlightsPresenterInterface,
     TravelingUI {
 
-  cars: Car[] = [];
+  private cars: Car[] = [];
   private _viewModel = new ViewModel();
   private flights: PlaneTravel[] = [];
 
@@ -32,10 +32,6 @@ export class TravelingUIPresenter
 
   get viewModel() {
     return this._viewModel;
-  }
-
-  getFlights() {
-    return this.flights.slice();
   }
 
   presentGetCars(response: GetCarsResponse): void {
@@ -47,10 +43,6 @@ export class TravelingUIPresenter
     this.flights = response.flights;
     this.updateFlightViewModel();
   }
-
-  // HomePresenterInterface:end
-
-  // UpdateOdometerPresenterInterface:begin
 
   showUpdateOdometer(selectedCar: UpdateOdometerCarViewModel) {
     this.viewModel.updateOdometerView.displayed = true;
@@ -84,10 +76,6 @@ export class TravelingUIPresenter
     }
   }
 
-  // UpdateOdometerPresenterInterface:end
-
-  // AddCarPresenterInterface:begin
-
   hideAddCar(): void {
     this.viewModel.addCarView.displayed = false;
   }
@@ -116,9 +104,6 @@ export class TravelingUIPresenter
     }
   }
 
-  // AddCarPresenterInterface:end
-
-  // AddFlightPresenterInterface:begin
   cancelAddFlight(): void {
     this.viewModel.addFlightView.displayed = false;
   }
@@ -141,9 +126,6 @@ export class TravelingUIPresenter
     }
   }
 
-  // AddFlightPresenterInterface:end
-
-  // PRIVATE...
   private updateCarViewModel() {
     this.viewModel.cars = this.cars
       .slice()
