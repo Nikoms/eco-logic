@@ -1,13 +1,7 @@
-import { HomeViewModel } from '@eco/domain/src/Traveling/UseCase/Home/HomeViewModel';
 import { UpdateOdometerPresenterInterface } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerPresenterInterface';
-import {
-  UpdateOdometerCarViewModel,
-  UpdateOdometerViewModel,
-} from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerViewModel';
+import { UpdateOdometerCarViewModel } from '@eco/frontend-interface-adapter/src/Traveling/UpdateOdometerViewModel';
 import { AddCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarPresenterInterface';
-import { AddCarViewModel } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarViewModel';
 import { AddFlightPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightPresenterInterface';
-import { AddFlightViewModel } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightViewModel';
 import { AddFlightResponse } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightResponse';
 import { AddCarResponse } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarResponse';
 import { GetCarsResponse } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCarsResponse';
@@ -17,8 +11,10 @@ import { GetCarsPresenterInterface } from '@eco/domain/src/Traveling/UseCase/Get
 import { TravelingUI } from '@eco/frontend-interface-adapter/src/Traveling/TravelingUI';
 import { Car } from '@eco/domain/src/Traveling/Entity/Car';
 import { PlaneTravel } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
+import { ViewModel } from '@eco/frontend-interface-adapter/src/Traveling/ViewModel';
+import { GetFlightsResponse } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlightsResponse';
 
-export class TravelingPresenter
+export class TravelingUIPresenter
   implements UpdateOdometerPresenterInterface,
     GetCarsPresenterInterface,
     AddCarPresenterInterface,
@@ -27,24 +23,19 @@ export class TravelingPresenter
     GetFlightsPresenterInterface,
     TravelingUI {
 
-  private homeViewModel = new HomeViewModel();
-  private cars: Car[] = [];
+  cars: Car[] = [];
+  private _viewModel = new ViewModel();
   private flights: PlaneTravel[] = [];
-  private updateOdometerViewModel = new UpdateOdometerViewModel();
-  private addCarViewModel = new AddCarViewModel();
-  private addFlightViewModel = new AddFlightViewModel();
 
   constructor() {
   }
 
-  getFlights() {
-    return this.flights.slice();
+  get viewModel() {
+    return this._viewModel;
   }
 
-  // HomePresenterInterface:begin
-
-  getGetCarsViewModel() {
-    return this.homeViewModel;
+  getFlights() {
+    return this.flights.slice();
   }
 
   presentGetCars(response: GetCarsResponse): void {
@@ -52,8 +43,8 @@ export class TravelingPresenter
     this.updateCarViewModel();
   }
 
-  presentGetFlights(flights: PlaneTravel[]): void {
-    this.flights = flights;
+  presentGetFlights(response: GetFlightsResponse): void {
+    this.flights = response.flights;
     this.updateFlightViewModel();
   }
 
@@ -62,18 +53,14 @@ export class TravelingPresenter
   // UpdateOdometerPresenterInterface:begin
 
   showUpdateOdometer(selectedCar: UpdateOdometerCarViewModel) {
-    this.updateOdometerViewModel.displayed = true;
-    this.updateOdometerViewModel.carName = selectedCar.name;
-    this.updateOdometerViewModel.lastKm = selectedCar.km;
-    this.updateOdometerViewModel.carId = selectedCar.id;
-  }
-
-  getUpdateOdometerViewModel(): UpdateOdometerViewModel {
-    return this.updateOdometerViewModel;
+    this.viewModel.updateOdometerView.displayed = true;
+    this.viewModel.updateOdometerView.carName = selectedCar.name;
+    this.viewModel.updateOdometerView.lastKm = selectedCar.km;
+    this.viewModel.updateOdometerView.carId = selectedCar.id;
   }
 
   hideUpdateOdometer(): any {
-    this.updateOdometerViewModel.displayed = false;
+    this.viewModel.updateOdometerView.displayed = false;
   }
 
   presentUpdateOdometer(response: UpdateOdometerResponse): void {
@@ -93,7 +80,7 @@ export class TravelingPresenter
         this.cars[index] = updatedCar;
       }
       this.updateCarViewModel();
-      this.updateOdometerViewModel.displayed = false;
+      this.viewModel.updateOdometerView.displayed = false;
     }
   }
 
@@ -102,15 +89,11 @@ export class TravelingPresenter
   // AddCarPresenterInterface:begin
 
   hideAddCar(): void {
-    this.addCarViewModel.displayed = false;
-  }
-
-  getAddCarViewModel(): AddCarViewModel {
-    return this.addCarViewModel;
+    this.viewModel.addCarView.displayed = false;
   }
 
   showAddCar(): void {
-    this.addCarViewModel.displayed = true;
+    this.viewModel.addCarView.displayed = true;
   }
 
   presentAddCar(response: AddCarResponse): void {
@@ -129,7 +112,7 @@ export class TravelingPresenter
     if (response.newCar !== undefined) {
       this.cars.push(response.newCar);
       this.updateCarViewModel();
-      this.addCarViewModel.displayed = false;
+      this.viewModel.addCarView.displayed = false;
     }
   }
 
@@ -137,15 +120,11 @@ export class TravelingPresenter
 
   // AddFlightPresenterInterface:begin
   cancelAddFlight(): void {
-    this.addFlightViewModel.displayed = false;
-  }
-
-  getAddFlightViewModel(): AddFlightViewModel {
-    return this.addFlightViewModel;
+    this.viewModel.addFlightView.displayed = false;
   }
 
   showAddFlight(): void {
-    this.addFlightViewModel.displayed = true;
+    this.viewModel.addFlightView.displayed = true;
   }
 
   presentAddFlight(response: AddFlightResponse): void {
@@ -158,7 +137,7 @@ export class TravelingPresenter
     if (response.newFlight !== undefined) {
       this.flights.push(response.newFlight);
       this.updateFlightViewModel();
-      this.addFlightViewModel.displayed = false;
+      this.viewModel.addFlightView.displayed = false;
     }
   }
 
@@ -166,13 +145,13 @@ export class TravelingPresenter
 
   // PRIVATE...
   private updateCarViewModel() {
-    this.homeViewModel.cars = this.cars
+    this.viewModel.cars = this.cars
       .slice()
       .reverse();
   }
 
   private updateFlightViewModel() {
-    this.homeViewModel.flights = this.flights
+    this.viewModel.flights = this.flights
       .slice()
       .reverse();
   }

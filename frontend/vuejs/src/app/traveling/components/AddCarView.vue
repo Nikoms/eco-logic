@@ -17,7 +17,7 @@
 
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn flat color="secondary" @click="$travel.addCarPresenter.hideAddCar()">
+                    <v-btn flat color="secondary" @click="$travel.presenter.hideAddCar()">
                         {{viewModel.cancelLabel}}
                     </v-btn>
                     <v-btn flat color="primary" type="submit">{{viewModel.saveLabel}}</v-btn>
@@ -34,7 +34,7 @@
   @Component
   export default class AddCarView extends Vue {
     form = new AddCarRequest('', '', '', '');
-    viewModel = this.$travel.addCarPresenter.getAddCarViewModel();
+    viewModel = this.$travel.viewModel.addCarView;
 
     @Watch('viewModel.displayed') onDisplayChanged(displayed: boolean) {
       if (displayed) {

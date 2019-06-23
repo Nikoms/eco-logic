@@ -1,5 +1,5 @@
 # Refac
-- Check presenter interface: is it good? => Only keep "present" (comme electricity)
+- Check presenter interface: is it good? => Only keep "present" (comme electricity & house heating => also move viewmodel)
 - Move @eco/core-co2 to @eco/domain/co2 + Make an api and so on...
 - Unit test!
 - E2E tests with VueJs

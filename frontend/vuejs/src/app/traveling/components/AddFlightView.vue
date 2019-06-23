@@ -19,7 +19,7 @@
 
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn flat color="secondary" @click="$travel.addFlightPresenter.cancelAddFlight()">
+                    <v-btn flat color="secondary" @click="$travel.presenter.cancelAddFlight()">
                         {{viewModel.cancelLabel}}
                     </v-btn>
                     <v-btn flat color="primary" type="submit">{{viewModel.saveLabel}}</v-btn>
@@ -36,7 +36,7 @@
   @Component
   export default class AddFlightView extends Vue {
     form = new AddFlightRequest('', '', '');
-    viewModel = this.$travel.addFlightPresenter.getAddFlightViewModel();
+    viewModel = this.$travel.viewModel.addFlightView;
 
     @Watch('viewModel.displayed') onDisplayedChanged(newValue: boolean) {
       if (newValue) {

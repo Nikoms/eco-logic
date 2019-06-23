@@ -1,4 +1,4 @@
-import { UpdateOdometerCarViewModel } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerViewModel';
+import { UpdateOdometerCarViewModel } from '@eco/frontend-interface-adapter/src/Traveling/UpdateOdometerViewModel';
 
 export interface TravelingUI {
   showUpdateOdometer(car: UpdateOdometerCarViewModel): void;

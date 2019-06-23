@@ -56,13 +56,11 @@
   import AddCarView from '@/app/traveling/components/AddCarView.vue';
   import AddFlightView from '@/app/traveling/components/AddFlightView.vue';
   import UpdateOdometerView from '@/app/traveling/components/UpdateOdometerView.vue';
-  import { GetCarsPresenterInterface } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCarsPresenterInterface';
 
   @Component({ components: { UpdateOdometerView, AddFlightView, AddCarView } })
 
   export default class TravelingConsumption extends Vue {
-    getCarsPresenter: GetCarsPresenterInterface = this.$travel.getCarsPresenter;
-    viewModel = this.getCarsPresenter.getGetCarsViewModel();
+    viewModel = this.$travel.viewModel;
 
     mounted() {
       this.$travel.controller.refreshSummary();

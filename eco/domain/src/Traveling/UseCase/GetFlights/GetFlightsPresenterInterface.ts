@@ -1,5 +1,5 @@
-import { PlaneTravel } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
+import { GetFlightsResponse } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlightsResponse';
 
 export interface GetFlightsPresenterInterface {
-  presentGetFlights(flights: PlaneTravel[]): void;
+  presentGetFlights(response: GetFlightsResponse): void;
 }

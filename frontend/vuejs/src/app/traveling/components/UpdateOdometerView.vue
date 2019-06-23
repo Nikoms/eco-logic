@@ -19,7 +19,7 @@
 
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn flat color="secondary" @click="$travel.updateOdometerPresenter.hideUpdateOdometer()">
+                    <v-btn flat color="secondary" @click="$travel.presenter.hideUpdateOdometer()">
                         {{viewModel.cancelText}}
                     </v-btn>
                     <v-btn type="submit" flat color="primary">{{viewModel.saveText}}</v-btn>
@@ -35,7 +35,7 @@
 
   @Component
   export default class UpdateOdometerView extends Vue {
-    viewModel = this.$travel.updateOdometerPresenter.getUpdateOdometerViewModel();
+    viewModel = this.$travel.viewModel.updateOdometerView;
     form = new UpdateOdometerRequest('', '');
 
     @Watch('viewModel.displayed') onDisplayChanged(displayed: boolean) {
