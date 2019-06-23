@@ -1,14 +1,11 @@
 # Refac
-- Check presenter interface: is it good? => Only keep "present" (comme electricity & house heating => also move viewmodel)
-- Move @eco/core-co2 to @eco/domain/co2 + Make an api and so on...
+- Check le code "enAttendant" => C'est un quick fix deg, pas le temps de rajouter 2 use case pour le moment :)
+- ViewModel dans interface-adapter ne devraient pas avoir d'entités comme "Car" en brut. En effet, avant, on avait des models spécifique pour la vue :)
+- ElectricityMeterRepositoryInterface: Il y a un save et un update, car en fait ca va vers 2 use case différent si on utilise la classe "Api". Que faire?
+- Water: Les noms des uses cases sont pas terribles
 - Unit test!
 - E2E tests with VueJs
 - Having another front end framework
-- ElectricityMeterRepositoryInterface: Il y a un save et un update, car en fait ca va vers 2 use case différent si on utilise la classe "Api". Que faire?
-- les presenters ne devraient avoir la méthode "present"... UNIQUEMENT! Du coup les view model vont aussi là bas
-- Check le code "enAttendant" => C'est un quick fix deg, pas le temps de rajouter 2 use case pour le moment :)
-- Du coup, pour les api, on peut dire qu'ils n'utilisent pas de view model pour le résultat... On pourrait retourner un truc du style presenter.cars. Comme ca les view model n'ont pas l'entity exact
-- Water: Les noms des uses cases sont pas terribles
 
 # TODO
 - Water: revoir la ui et faire comme les autres: Afficher les compteurs + leur dernière valeur de compteur
