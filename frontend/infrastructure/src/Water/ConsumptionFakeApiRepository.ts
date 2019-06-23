@@ -1,10 +1,10 @@
 import { ConsumptionRepositoryInterface } from '@eco/domain/src/Water/UseCase/ConsumptionRepositoryInterface';
-import { Api } from '@eco/frontend-infrastructure/src/Api';
 import { v4 } from 'uuid';
 import { WaterConsumption } from '@eco/domain/src/Water/Entity/WaterConsumption';
+import { WaterApi } from '@eco/frontend-infrastructure/src/Water/WaterApi';
 
 export class ConsumptionFakeApiRepository implements ConsumptionRepositoryInterface {
-  constructor(private api: Api) {
+  constructor(private api: WaterApi) {
 
   }
 

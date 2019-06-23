@@ -11,6 +11,9 @@ import { CarFakeApiRepository } from '@eco/frontend-infrastructure/src/Traveling
 import { TravelingApi } from '@eco/frontend-infrastructure/src/Traveling/TravelingApi';
 import { CarLocalStorageRepository2 } from '@eco/infrastructure/src/local-storage/CarLocalStorageRepository2';
 import { FlightFakeApiRepository } from '@eco/frontend-infrastructure/src/Traveling/FlightFakeApiRepository';
+import { WaterMeterFakeApiRepository } from '@eco/frontend-infrastructure/src/Water/WaterMeterFakeApiRepository';
+import { WaterApi } from '@eco/frontend-infrastructure/src/Water/WaterApi';
+import { ConsumptionFakeApiRepository } from '@eco/frontend-infrastructure/src/Water/ConsumptionFakeApiRepository';
 
 export const eventDispatcher = new EventTargetEventDispatcher();
 const electricityRepository = new ElectricityMeterFakeApiRepository(new ElectricityApi());
@@ -20,12 +23,14 @@ const travelingApi = new TravelingApi();
 const enAttendant = new CarLocalStorageRepository2(window.localStorage);
 const carRepository = new CarFakeApiRepository(travelingApi, enAttendant);
 const flightRepository = new FlightFakeApiRepository(travelingApi);
-
+const waterApi = new WaterApi();
+const waterRepository = new WaterMeterFakeApiRepository(waterApi);
+const consumptionRepository = new ConsumptionFakeApiRepository(waterApi);
 
 const factories = {
   install: (Vue: any) => {
     Vue.prototype.$travel = new TravelingFactory(eventDispatcher, carRepository, flightRepository);
-    Vue.prototype.$water = new WaterFactory();
+    Vue.prototype.$water = new WaterFactory(waterRepository, consumptionRepository);
     Vue.prototype.$houseHeating = new HouseHeatingFactory(eventDispatcher, houseHeatingRepository);
     Vue.prototype.$electricity = new ElectricityFactory(eventDispatcher, electricityRepository);
   },

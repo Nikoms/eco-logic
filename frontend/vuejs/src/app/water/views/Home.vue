@@ -9,7 +9,7 @@
                 fixed
                 bottom
                 right
-                @click="addConsumptionPresenter.showAddWaterConsumption()">
+                @click="presenter.showAddWaterConsumption()">
             <v-icon>mdi-plus</v-icon>
         </v-btn>
 
@@ -34,10 +34,8 @@
     },
   })
   export default class WaterConsumption extends Vue {
-    presenter = this.$water.homePresenter;
-    viewModel = this.$water.homePresenter.getHomeViewModel();
-
-    addConsumptionPresenter = this.$water.addConsumptionPresenter;
+    presenter = this.$water.presenter;
+    viewModel = this.$water.viewModel;
 
     async mounted() {
       this.$water.controller.refreshSummary();

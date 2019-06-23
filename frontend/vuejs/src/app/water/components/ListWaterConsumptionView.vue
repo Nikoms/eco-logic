@@ -19,7 +19,7 @@
 
   @Component
   export default class ListWaterConsumptionView extends Vue {
-    viewModel = this.$water.listConsumptionsPresenter.getViewModel();
+    viewModel = this.$water.viewModel;
     headers = [
       {
         text: this.viewModel.headerM3Label,

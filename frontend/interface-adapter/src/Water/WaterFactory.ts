@@ -2,59 +2,40 @@ import { AddConsumption } from '@eco/domain/src/Water/UseCase/AddConsumption/Add
 import { AddWaterMeter } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeter';
 import { GetWaterMeters } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMeters';
 import { ListConsumptions } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptions';
-import { HomePresenterInterface } from '@eco/domain/src/Water/UseCase/Home/HomePresenterInterface';
-import { AddConsumptionPresenterInterface } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionPresenterInterface';
-import { GetWaterMetersPresenterInterface } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersPresenterInterface';
-import { ListConsumptionsPresenterInterface } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsPresenterInterface';
-import { AddWaterMeterPresenterInterface } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterPresenterInterface';
 import { WaterController } from './WaterController';
-import { ConsumptionFakeApiRepository } from '@eco/frontend-infrastructure/src/Water/ConsumptionFakeApiRepository';
-import { WaterMeterFakeApiRepository } from '@eco/frontend-infrastructure/src/Water/WaterMeterFakeApiRepository';
-import { api } from '@eco/frontend-infrastructure/src/Api';
-import { WaterPresenter } from './WaterPresenter';
+import { WaterUIPresenter } from '@eco/frontend-interface-adapter/src/Water/WaterUIPresenter';
+import { WaterMeterRepositoryInterface } from '@eco/domain/src/Water/UseCase/WaterMeterRepositoryInterface';
+import { ConsumptionRepositoryInterface } from '@eco/domain/src/Water/UseCase/ConsumptionRepositoryInterface';
 
 export class WaterFactory {
   private instances: any = {};
 
-  get getWaterMeterPresenter(): GetWaterMetersPresenterInterface {
-    return this.waterPresenter;
-  }
-
-  get addWaterMeterPresenter(): AddWaterMeterPresenterInterface {
-    return this.waterPresenter;
+  constructor(private waterRepository: WaterMeterRepositoryInterface,
+              private consumptionRepository: ConsumptionRepositoryInterface) {
   }
 
   get controller() {
-
     return this.reuseOrInstantiate(
       'WaterController',
       () => new WaterController(
-        this.addConsumptionPresenter,
-        this.getWaterMeterPresenter,
-        this.addWaterMeterPresenter,
-        this.listConsumptionsPresenter,
-        new AddConsumption(new ConsumptionFakeApiRepository(api)),
-        new AddWaterMeter(new WaterMeterFakeApiRepository(api)),
-        new GetWaterMeters(new WaterMeterFakeApiRepository(api)),
-        new ListConsumptions(new ConsumptionFakeApiRepository(api)),
+        this.presenter,
+        this.presenter,
+        this.presenter,
+        this.presenter,
+        new AddConsumption(this.consumptionRepository),
+        new AddWaterMeter(this.waterRepository),
+        new GetWaterMeters(this.waterRepository),
+        new ListConsumptions(this.consumptionRepository),
       ),
     );
   }
 
-  get listConsumptionsPresenter(): ListConsumptionsPresenterInterface {
-    return this.waterPresenter;
+  get presenter(): WaterUIPresenter {
+    return this.reuseOrInstantiate('WaterPresenter', () => new WaterUIPresenter());
   }
 
-  get homePresenter(): HomePresenterInterface {
-    return this.waterPresenter;
-  }
-
-  get addConsumptionPresenter(): AddConsumptionPresenterInterface {
-    return this.waterPresenter;
-  }
-
-  private get waterPresenter(): WaterPresenter {
-    return this.reuseOrInstantiate('WaterPresenter', () => new WaterPresenter());
+  get viewModel() {
+    return this.presenter.viewModel;
   }
 
   private reuseOrInstantiate<T>(id: string, callback: () => T): T {

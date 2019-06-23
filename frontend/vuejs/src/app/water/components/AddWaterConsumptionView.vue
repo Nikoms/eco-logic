@@ -29,8 +29,8 @@
 
   @Component
   export default class AddWaterConsumptionView extends Vue {
-    presenter = this.$water.addConsumptionPresenter;
-    viewModel = this.$water.addConsumptionPresenter.getAddConsumptionViewModel();
+    presenter = this.$water.presenter;
+    viewModel = this.$water.viewModel;
     forms: AddConsumptionRequest[] = [];
 
     @Watch('viewModel.displayed') onDisplayedChanged(newValue: boolean) {

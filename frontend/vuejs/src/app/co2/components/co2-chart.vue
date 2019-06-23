@@ -38,7 +38,7 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { api } from '@eco/frontend-infrastructure/src/Api';
+  import { getCarbons } from '@eco/infrastructure/src/di';
 
   const gradients = [
     ['#222'],
@@ -80,7 +80,7 @@
     }
 
     async mounted() {
-      const carbons = await api.getCarbons();
+      const carbons = await getCarbons.execute();
       if (carbons.length > 0) {
         const rangeOfDates = this.getDatesBetween(carbons[0].date, carbons[carbons.length - 1].date);
         const dates = [];
