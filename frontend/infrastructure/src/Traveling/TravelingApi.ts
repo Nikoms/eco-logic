@@ -10,9 +10,12 @@ import { UpdateOdometerResponse } from '@eco/domain/src/Traveling/UseCase/Update
 import { GetFlightsResponse } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlightsResponse';
 import { Car } from '@eco/domain/src/Traveling/Entity/Car';
 import { PlaneTravel } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
-import { addCar, addFlight, getCars, getFlights } from '@eco/infrastructure/src/di';
+import { addCar, addFlight, getCar, getCars, getFlights } from '@eco/infrastructure/src/di';
 import { AddCarRequest } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarRequest';
 import { AddFlightRequest } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightRequest';
+import { GetCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/GetCar/GetCarPresenterInterface';
+import { GetCarResponse } from '@eco/domain/src/Traveling/UseCase/GetCar/GetCarResponse';
+import { GetCarRequest } from '@eco/domain/src/Traveling/UseCase/GetCar/GetCarRequest';
 
 export class TravelingApi
   implements UpdateOdometerPresenterInterface,
@@ -20,12 +23,14 @@ export class TravelingApi
     AddCarPresenterInterface,
     AddFlightPresenterInterface,
     GetCarsPresenterInterface,
-    GetFlightsPresenterInterface {
+    GetFlightsPresenterInterface,
+    GetCarPresenterInterface {
   addCarResponse?: AddCarResponse;
   addFlightResponse?: AddFlightResponse;
   getCarsResponse?: GetCarsResponse;
   getFlightsResponse?: GetFlightsResponse;
   updateOdometerResponse?: UpdateOdometerResponse;
+  getCarResponse?: GetCarResponse;
 
   presentAddCar(response: AddCarResponse): void {
     this.addCarResponse = response;
@@ -69,5 +74,14 @@ export class TravelingApi
   async getFlights(): Promise<PlaneTravel[]> {
     await getFlights.execute(this);
     return this.getFlightsResponse!.flights;
+  }
+
+  async getCar(carId: string): Promise<Car | undefined> {
+    await getCar.execute(new GetCarRequest(carId), this);
+    return this.getCarResponse!.car;
+  }
+
+  presentGetCar(response: GetCarResponse): void {
+    this.getCarResponse = response;
   }
 }

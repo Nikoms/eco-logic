@@ -21,7 +21,7 @@ export class CarFakeApiRepository implements CarRepositoryInterface {
   }
 
   get(carId: string): Promise<Car | undefined> {
-    return this.enAttendant.get(carId); // TODO: Create a use case
+    return this.api.getCar(carId);
   }
 
   update(car: Car): Promise<void> {

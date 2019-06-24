@@ -24,6 +24,7 @@ import { ListConsumptions } from '@eco/domain/src/Water/UseCase/ListConsumptions
 import { AddWaterMeter } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeter';
 import { WaterMeterLocalStorageRepository2 } from '@eco/infrastructure/src/local-storage/WaterMeterLocalStorageRepository2';
 import { GetWaterMeters } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMeters';
+import { GetCar } from '@eco/domain/src/Traveling/UseCase/GetCar/GetCar';
 
 export const eventDispatcher = new EventTargetEventDispatcher();
 
@@ -42,6 +43,7 @@ export const getElectricMeter = new GetElectricMeter(electricStore2);
 
 export const addCar = new AddCar(carStore2);
 export const getCars = new GetCars(carStore2);
+export const getCar = new GetCar(carStore2);
 export const addFlight = new AddFlight(flightStore, eventDispatcher);
 export const getFlights = new GetFlights(flightStore);
 export const updateOdometer = new UpdateOdometer(carStore2, eventDispatcher);
