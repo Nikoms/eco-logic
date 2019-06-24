@@ -9,7 +9,6 @@ import { HouseHeatingApi } from '@eco/frontend-infrastructure/src/HouseHeating/H
 import { OrderFuelOilFakeApiRepository } from '@eco/frontend-infrastructure/src/HouseHeating/OrderFuelOilFakeApiRepository';
 import { CarFakeApiRepository } from '@eco/frontend-infrastructure/src/Traveling/CarFakeApiRepository';
 import { TravelingApi } from '@eco/frontend-infrastructure/src/Traveling/TravelingApi';
-import { CarLocalStorageRepository2 } from '@eco/infrastructure/src/local-storage/CarLocalStorageRepository2';
 import { FlightFakeApiRepository } from '@eco/frontend-infrastructure/src/Traveling/FlightFakeApiRepository';
 import { WaterMeterFakeApiRepository } from '@eco/frontend-infrastructure/src/Water/WaterMeterFakeApiRepository';
 import { WaterApi } from '@eco/frontend-infrastructure/src/Water/WaterApi';
@@ -20,8 +19,7 @@ const electricityRepository = new ElectricityMeterFakeApiRepository(new Electric
 const houseHeatingRepository = new OrderFuelOilFakeApiRepository(new HouseHeatingApi());
 
 const travelingApi = new TravelingApi();
-const enAttendant = new CarLocalStorageRepository2(window.localStorage);
-const carRepository = new CarFakeApiRepository(travelingApi, enAttendant);
+const carRepository = new CarFakeApiRepository(travelingApi);
 const flightRepository = new FlightFakeApiRepository(travelingApi);
 const waterApi = new WaterApi();
 const waterRepository = new WaterMeterFakeApiRepository(waterApi);

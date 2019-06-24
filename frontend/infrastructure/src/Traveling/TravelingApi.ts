@@ -10,12 +10,15 @@ import { UpdateOdometerResponse } from '@eco/domain/src/Traveling/UseCase/Update
 import { GetFlightsResponse } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlightsResponse';
 import { Car } from '@eco/domain/src/Traveling/Entity/Car';
 import { PlaneTravel } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
-import { addCar, addFlight, getCar, getCars, getFlights } from '@eco/infrastructure/src/di';
+import { addCar, addFlight, getCar, getCars, getFlights, updateCar } from '@eco/infrastructure/src/di';
 import { AddCarRequest } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarRequest';
 import { AddFlightRequest } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightRequest';
 import { GetCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/GetCar/GetCarPresenterInterface';
 import { GetCarResponse } from '@eco/domain/src/Traveling/UseCase/GetCar/GetCarResponse';
 import { GetCarRequest } from '@eco/domain/src/Traveling/UseCase/GetCar/GetCarRequest';
+import { UpdateCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/UpdateCar/UpdateCarPresenterInterface';
+import { UpdateCarResponse } from '@eco/domain/src/Traveling/UseCase/UpdateCar/UpdateCarResponse';
+import { UpdateCarRequest } from '@eco/domain/src/Traveling/UseCase/UpdateCar/UpdateCarRequest';
 
 export class TravelingApi
   implements UpdateOdometerPresenterInterface,
@@ -24,7 +27,8 @@ export class TravelingApi
     AddFlightPresenterInterface,
     GetCarsPresenterInterface,
     GetFlightsPresenterInterface,
-    GetCarPresenterInterface {
+    GetCarPresenterInterface,
+    UpdateCarPresenterInterface {
   addCarResponse?: AddCarResponse;
   addFlightResponse?: AddFlightResponse;
   getCarsResponse?: GetCarsResponse;
@@ -83,5 +87,13 @@ export class TravelingApi
 
   presentGetCar(response: GetCarResponse): void {
     this.getCarResponse = response;
+  }
+
+  async updateCar(car: Car) {
+    await updateCar.execute(new UpdateCarRequest(car), this);
+  }
+
+  presentUpdateCar(_response: UpdateCarResponse): void {
+
   }
 }

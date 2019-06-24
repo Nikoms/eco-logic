@@ -1,5 +1,4 @@
 # Refac
-- Check le code "enAttendant" => C'est un quick fix deg, pas le temps de rajouter 2 use case pour le moment :)
 - ViewModel dans interface-adapter ne devraient pas avoir d'entités comme "Car" en brut. En effet, avant, on avait des models spécifique pour la vue :)
 - ElectricityMeterRepositoryInterface: Il y a un save et un update, car en fait ca va vers 2 use case différent si on utilise la classe "Api". Que faire?
 - Water: Les noms des uses cases sont pas terribles

@@ -1,11 +1,10 @@
 import { CarRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/CarRepositoryInterface';
 import { v4 } from 'uuid';
-import { CarLocalStorageRepository2 } from '@eco/infrastructure/src/local-storage/CarLocalStorageRepository2';
 import { Car } from '@eco/domain/src/Traveling/Entity/Car';
 import { TravelingApi } from '@eco/frontend-infrastructure/src/Traveling/TravelingApi';
 
 export class CarFakeApiRepository implements CarRepositoryInterface {
-  constructor(private api: TravelingApi, private enAttendant: CarLocalStorageRepository2) {
+  constructor(private api: TravelingApi) {
   }
 
   async add(car: Car): Promise<void> {
@@ -25,6 +24,6 @@ export class CarFakeApiRepository implements CarRepositoryInterface {
   }
 
   update(car: Car): Promise<void> {
-    return this.enAttendant.update(car); // TODO: Create a use case
+    return this.api.updateCar(car);
   }
 }
