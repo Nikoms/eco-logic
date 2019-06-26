@@ -20,7 +20,7 @@ import { GetFlights } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlig
 import { UpdateOdometer } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometer';
 import { AddConsumption } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumption';
 import { WaterConsumptionLocalStorageRepository2 } from '@eco/infrastructure/src/local-storage/WaterConsumptionLocalStorageRepository2';
-import { ListConsumptions } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptions';
+import { GetConsumptions } from '@eco/domain/src/Water/UseCase/GetConsumptions/GetConsumptions';
 import { AddWaterMeter } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeter';
 import { WaterMeterLocalStorageRepository2 } from '@eco/infrastructure/src/local-storage/WaterMeterLocalStorageRepository2';
 import { GetWaterMeters } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMeters';
@@ -51,7 +51,7 @@ export const getFlights = new GetFlights(flightStore);
 export const updateOdometer = new UpdateOdometer(carStore2, eventDispatcher);
 
 export const addWaterConsumption = new AddConsumption(waterConsumptionStore2);
-export const getAllWaterConsumptions = new ListConsumptions(waterConsumptionStore2);
+export const getAllWaterConsumptions = new GetConsumptions(waterConsumptionStore2);
 export const addWaterMeter = new AddWaterMeter(waterStore2);
 export const getWaterMeters = new GetWaterMeters(waterStore2);
 

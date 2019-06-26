@@ -2,10 +2,10 @@ import { AddConsumption } from '@eco/domain/src/Water/UseCase/AddConsumption/Add
 import { AddConsumptionRequest } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionRequest';
 import { AddWaterMeter } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeter';
 import { GetWaterMeters } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMeters';
-import { ListConsumptions } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptions';
+import { GetConsumptions } from '@eco/domain/src/Water/UseCase/GetConsumptions/GetConsumptions';
 import { AddConsumptionPresenterInterface } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionPresenterInterface';
 import { GetWaterMetersPresenterInterface } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersPresenterInterface';
-import { ListConsumptionsPresenterInterface } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsPresenterInterface';
+import { GetConsumptionsPresenterInterface } from '@eco/domain/src/Water/UseCase/GetConsumptions/GetConsumptionsPresenterInterface';
 import { AddWaterMeterRequest } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterRequest';
 import { AddWaterMeterPresenterInterface } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterPresenterInterface';
 
@@ -14,11 +14,11 @@ export class WaterController {
     private addConsumptionPresenter: AddConsumptionPresenterInterface,
     private getWaterMeterPresenter: GetWaterMetersPresenterInterface,
     private addWaterMeterPresenter: AddWaterMeterPresenterInterface,
-    private listConsumptionsPresenter: ListConsumptionsPresenterInterface,
+    private getConsumptionsPresenter: GetConsumptionsPresenterInterface,
     private addConsumptionUseCase: AddConsumption,
     private addWaterMeter: AddWaterMeter,
     private getWaterMeters: GetWaterMeters,
-    private listConsumptions: ListConsumptions) {
+    private getConsumptions: GetConsumptions) {
 
   }
 
@@ -50,6 +50,6 @@ export class WaterController {
   }
 
   refreshConsumptions() {
-    this.listConsumptions.execute(this.listConsumptionsPresenter);
+    this.getConsumptions.execute(this.getConsumptionsPresenter);
   }
 }

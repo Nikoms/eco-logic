@@ -1,11 +1,11 @@
 import { GetWaterMetersPresenterInterface } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersPresenterInterface';
 import { AddConsumptionPresenterInterface } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionPresenterInterface';
-import { ListConsumptionsPresenterInterface } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsPresenterInterface';
+import { GetConsumptionsPresenterInterface } from '@eco/domain/src/Water/UseCase/GetConsumptions/GetConsumptionsPresenterInterface';
 import { AddWaterMeterPresenterInterface } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterPresenterInterface';
 import { AddConsumptionResponse } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionResponse';
 import { AddWaterMeterResponse } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterResponse';
 import { GetWaterMetersResponse } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersResponse';
-import { ListConsumptionsResponse } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptionsResponse';
+import { GetConsumptionsResponse } from '@eco/domain/src/Water/UseCase/GetConsumptions/GetConsumptionsResponse';
 import { WaterConsumption } from '@eco/domain/src/Water/Entity/WaterConsumption';
 import {
   addWaterConsumption,
@@ -19,12 +19,12 @@ import { AddWaterMeterRequest } from '@eco/domain/src/Water/UseCase/AddWaterMete
 
 export class WaterApi implements GetWaterMetersPresenterInterface,
   AddConsumptionPresenterInterface,
-  ListConsumptionsPresenterInterface,
+  GetConsumptionsPresenterInterface,
   AddWaterMeterPresenterInterface {
   private addConsumptionResponse?: AddConsumptionResponse;
   private addWaterMeterResponse?: AddWaterMeterResponse;
   private getWaterMetersResponse?: GetWaterMetersResponse;
-  private listConsumptionsResponse?: ListConsumptionsResponse;
+  private getConsumptionsResponse?: GetConsumptionsResponse;
 
   presentAddConsumption(response: AddConsumptionResponse): void {
     this.addConsumptionResponse = response;
@@ -38,8 +38,8 @@ export class WaterApi implements GetWaterMetersPresenterInterface,
     this.getWaterMetersResponse = response;
   }
 
-  presentListConsumptionsResponse(response: ListConsumptionsResponse): void {
-    this.listConsumptionsResponse = response;
+  presentGetConsumptionsResponse(response: GetConsumptionsResponse): void {
+    this.getConsumptionsResponse = response;
   }
 
   async addWaterConsumption(consumption: WaterConsumption) {
@@ -52,7 +52,7 @@ export class WaterApi implements GetWaterMetersPresenterInterface,
   async getAllWaterConsumptions() {
     await getAllWaterConsumptions.execute(this);
 
-    return this.listConsumptionsResponse!.consumptions;
+    return this.getConsumptionsResponse!.consumptions;
   }
 
   async getWaterMeters() {

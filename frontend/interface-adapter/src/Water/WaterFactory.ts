@@ -1,7 +1,7 @@
 import { AddConsumption } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumption';
 import { AddWaterMeter } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeter';
 import { GetWaterMeters } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMeters';
-import { ListConsumptions } from '@eco/domain/src/Water/UseCase/ListConsumptions/ListConsumptions';
+import { GetConsumptions } from '@eco/domain/src/Water/UseCase/GetConsumptions/GetConsumptions';
 import { WaterController } from './WaterController';
 import { WaterUIPresenter } from '@eco/frontend-interface-adapter/src/Water/WaterUIPresenter';
 import { WaterMeterRepositoryInterface } from '@eco/domain/src/Water/UseCase/WaterMeterRepositoryInterface';
@@ -25,7 +25,7 @@ export class WaterFactory {
         new AddConsumption(this.consumptionRepository),
         new AddWaterMeter(this.waterRepository),
         new GetWaterMeters(this.waterRepository),
-        new ListConsumptions(this.consumptionRepository),
+        new GetConsumptions(this.consumptionRepository),
       ),
     );
   }
