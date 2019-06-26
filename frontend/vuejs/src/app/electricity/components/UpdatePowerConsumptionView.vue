@@ -1,12 +1,13 @@
 <template>
     <v-dialog v-model="viewModel.isFormDisplayed" max-width="600px">
-        <v-form @submit.prevent="updateConsumption">
+        <v-form v-if="viewModel.isFormDisplayed"
+                @submit.prevent="updateConsumption(viewModel.selectedMeter.id)">
             <v-card>
                 <v-card-text>
                     <v-text-field v-model="kWh"
                                   type="number"
-                                  :label="viewModel.meterName"
-                                  :placeholder="viewModel.lastKWh"
+                                  :label="viewModel.selectedMeter.name"
+                                  :placeholder="viewModel.selectedMeter.kWh"
                                   suffix="kWh"
                                   ref="consumptionField"
                     ></v-text-field>
@@ -24,16 +25,14 @@
 
 <script lang="ts">
   import { Component, Vue, Watch } from 'vue-property-decorator';
-  import { UpdatePowerConsumptionRequest } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionRequest';
 
   @Component
   export default class UpdatePowerConsumptionView extends Vue {
     kWh = '';
     viewModel = this.$electricity.viewModel;
 
-    updateConsumption() {
-      const request = new UpdatePowerConsumptionRequest(this.viewModel.electricMeterId, this.kWh);
-      this.$electricity.controller.updatePowerConsumption(request);
+    async updateConsumption(meterId: string) {
+      await this.$electricity.controller.updatePowerConsumption(meterId, this.kWh);
     }
 
     @Watch('viewModel.isFormDisplayed')

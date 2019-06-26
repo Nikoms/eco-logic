@@ -25,6 +25,7 @@
     },
   })
   export default class Home extends Vue {
+    // Using "$electricity.viewModel" in the template does not work
     viewModel = this.$electricity.viewModel;
 
     async mounted() {

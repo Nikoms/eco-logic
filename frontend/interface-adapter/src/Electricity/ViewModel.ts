@@ -1,16 +1,16 @@
-import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
+export class ElectricViewModel {
+  constructor(
+    public readonly id: string,
+    public readonly name: string,
+    public readonly kWh: string,
+    public readonly lastUpdateDate: string,
+  ) {
+  }
+}
 
 export class ViewModel {
-  //List
-  meters: ElectricMeter[] = [];
+  meters: ElectricViewModel[] = [];
   hasMeter = false;
-
-  //
-  meter?: ElectricMeter;
-
-  //Update
   isFormDisplayed = false;
-  meterName = '';
-  lastKWh = '';
-  electricMeterId: string = '';
+  selectedMeter?: ElectricViewModel;
 }

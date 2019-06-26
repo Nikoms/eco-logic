@@ -1,7 +1,7 @@
-import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
+import { ElectricViewModel } from '@eco/frontend-interface-adapter/src/Electricity/ViewModel';
 
 export interface ElectricUI {
-  showUpdatePowerConsumption(electricMeter: ElectricMeter): void;
+  showUpdatePowerConsumption(electricViewModel: ElectricViewModel): void;
 
   cancelUpdatePowerConsumption(): void;
 }

@@ -5,15 +5,12 @@ import { GetElectricMetersResponse } from '@eco/domain/src/Electricity/UseCase/G
 import { SaveElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterResponse';
 import { UpdatePowerConsumptionResponse } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionResponse';
 import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
-import { GetElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterPresenterInterface';
-import { GetElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterResponse';
 import { ElectricUI } from '@eco/frontend-interface-adapter/src/Electricity/ElectricUI';
-import { ViewModel } from '@eco/frontend-interface-adapter/src/Electricity/ViewModel';
+import { ElectricViewModel, ViewModel } from '@eco/frontend-interface-adapter/src/Electricity/ViewModel';
 
 export class ElectricityUIPresenter implements ElectricUI,
   UpdatePowerConsumptionPresenterInterface,
   GetElectricMetersPresenterInterface,
-  GetElectricMeterPresenterInterface,
   SaveElectricMeterPresenterInterface {
 
   private _viewModel = new ViewModel();
@@ -23,15 +20,14 @@ export class ElectricityUIPresenter implements ElectricUI,
     return this._viewModel;
   }
 
-  showUpdatePowerConsumption(electricMeter: ElectricMeter): void {
-    this.viewModel.lastKWh = `${electricMeter.kWh}`;
-    this.viewModel.meterName = `${electricMeter.name}`;
-    this.viewModel.electricMeterId = electricMeter.id;
+  showUpdatePowerConsumption(electricViewModel: ElectricViewModel): void {
+    this.viewModel.selectedMeter = electricViewModel;
     this.viewModel.isFormDisplayed = true;
   }
 
   cancelUpdatePowerConsumption(): void {
     this.viewModel.isFormDisplayed = false;
+    this.viewModel.selectedMeter = undefined;
   }
 
   presentUpdatePowerConsumption(response: UpdatePowerConsumptionResponse): void {
@@ -55,6 +51,7 @@ export class ElectricityUIPresenter implements ElectricUI,
       this.updateMetersViewModel();
 
       this.viewModel.isFormDisplayed = false;
+      this.viewModel.selectedMeter = undefined;
     }
   }
 
@@ -68,12 +65,15 @@ export class ElectricityUIPresenter implements ElectricUI,
     this.updateMetersViewModel();
   }
 
-  presentGetElectricMeter(response: GetElectricMeterResponse): void {
-    this.viewModel.meter = response.electricMeter;
-  }
-
   private updateMetersViewModel() {
-    this.viewModel.meters = this.meters;
+    this.viewModel.meters = this.meters.map((electricMeter) => {
+      return new ElectricViewModel(
+        electricMeter.id,
+        electricMeter.name,
+        electricMeter.kWh + ' kWh',
+        electricMeter.lastKWhUpdate.toLocaleDateString('fr'),
+      );
+    });
     this.viewModel.hasMeter = this.meters.length > 0;
   }
 }
