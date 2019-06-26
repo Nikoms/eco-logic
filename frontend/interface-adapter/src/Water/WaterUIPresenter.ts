@@ -9,7 +9,11 @@ import { AddWaterMeterResponse } from '@eco/domain/src/Water/UseCase/AddWaterMet
 import { WaterMeter } from '@eco/domain/src/Water/Entity/WaterMeter';
 import { WaterConsumption } from '@eco/domain/src/Water/Entity/WaterConsumption';
 import { WaterUI } from '@eco/frontend-interface-adapter/src/Water/WaterUI';
-import { ViewModel } from '@eco/frontend-interface-adapter/src/Water/ViewModel';
+import {
+  ViewModel,
+  WaterConsumptionViewModel,
+  WaterMeterViewModel,
+} from '@eco/frontend-interface-adapter/src/Water/ViewModel';
 
 export class WaterUIPresenter implements GetWaterMetersPresenterInterface,
   AddConsumptionPresenterInterface,
@@ -27,7 +31,7 @@ export class WaterUIPresenter implements GetWaterMetersPresenterInterface,
 
   presentListConsumptionsResponse(response: ListConsumptionsResponse): void {
     this._consumptions = response.consumptions;
-    this.viewModel.consumptions = this._consumptions;
+    this.updateViewConsumptions();
   }
 
   presentGetWaterMeters(response: GetWaterMetersResponse): void {
@@ -41,7 +45,8 @@ export class WaterUIPresenter implements GetWaterMetersPresenterInterface,
     }
 
     if (response.consumption) {
-      this.viewModel.consumptions.push(response.consumption);
+      this._consumptions.unshift(response.consumption);
+      this.updateViewConsumptions();
       this.viewModel.displayed = false;
     }
   }
@@ -51,6 +56,10 @@ export class WaterUIPresenter implements GetWaterMetersPresenterInterface,
     if (!this.viewModel.hasMeters) {
       this.viewModel.errorMessage = 'Please add a water meter before adding (TODO, but in INIT app)';
     }
+  }
+
+  hideAddWaterConsumption(): void {
+    this.viewModel.displayed = false;
   }
 
   presentAddWaterMeter(response: AddWaterMeterResponse): void {
@@ -63,10 +72,15 @@ export class WaterUIPresenter implements GetWaterMetersPresenterInterface,
     }
   }
 
+  private updateViewConsumptions() {
+    this.viewModel.consumptions = this._consumptions
+      .map(c => new WaterConsumptionViewModel(c.waterMeterId, c.m3 + ' m3', c.date.toLocaleDateString('fr')));
+  }
+
   private metersUpdated() {
     this.viewModel.hasMeter = this.meters.length > 0;
 
-    this.viewModel.meters = this.meters;
+    this.viewModel.meters = this.meters.map(e => new WaterMeterViewModel(e.id, e.name));
     this.viewModel.hasMeters = this.viewModel.hasMeter;
   }
 }

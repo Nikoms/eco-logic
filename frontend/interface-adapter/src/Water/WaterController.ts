@@ -22,9 +22,12 @@ export class WaterController {
 
   }
 
-  addConsumption(requests: AddConsumptionRequest[]) {
-    for (const request of requests) {
-      this.addConsumptionUseCase.execute(request, this.addConsumptionPresenter);
+  addConsumption(forms: { meterId: string, quantity: string }[]) {
+    for (const form of forms) {
+      this.addConsumptionUseCase.execute(
+        new AddConsumptionRequest(form.meterId, form.quantity),
+        this.addConsumptionPresenter,
+      );
     }
   }
 

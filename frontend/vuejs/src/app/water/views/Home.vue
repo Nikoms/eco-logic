@@ -9,7 +9,7 @@
                 fixed
                 bottom
                 right
-                @click="presenter.showAddWaterConsumption()">
+                @click="$water.presenter.showAddWaterConsumption()">
             <v-icon>mdi-plus</v-icon>
         </v-btn>
 
@@ -34,7 +34,7 @@
     },
   })
   export default class WaterConsumption extends Vue {
-    presenter = this.$water.presenter;
+    // Impossible to ONLY use "$water.viewModel" in the template without putting this line here. Probably because the initialization is done before the template?
     viewModel = this.$water.viewModel;
 
     async mounted() {

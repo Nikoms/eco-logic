@@ -7,8 +7,8 @@
             :no-data-text="viewModel.noConsumptionsMessage"
     >
         <template slot="items" slot-scope="props">
-            <td class="text-xs-right">{{ props.item.m3 }}</td>
-            <td class="text-xs-right">{{ props.item.waterMeterId }}</td>
+            <td class="text-xs-right">{{ props.item.quantity }}</td>
+            <td class="text-xs-right">{{ props.item.meterId }}</td>
             <td class="text-xs-right">{{ props.item.date }}</td>
         </template>
     </v-data-table>
@@ -21,13 +21,9 @@
   export default class ListWaterConsumptionView extends Vue {
     viewModel = this.$water.viewModel;
     headers = [
-      {
-        text: this.viewModel.headerM3Label,
-        sortable: false,
-        value: 'm3',
-      },
-      { text: this.viewModel.headerMeterNameLabel, value: 'waterMeter', sortable: false },
-      { text: this.viewModel.headerDateLabel, value: 'date' },
+      { value: 'quantity', text: this.viewModel.headerM3Label, sortable: false },
+      { value: 'meterId', text: this.viewModel.headerMeterNameLabel, sortable: false },
+      { value: 'date', text: this.viewModel.headerDateLabel, sortable: false },
     ];
 
     async mounted() {

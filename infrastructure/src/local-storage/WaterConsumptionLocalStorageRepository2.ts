@@ -19,7 +19,7 @@ export class WaterConsumptionLocalStorageRepository2 implements ConsumptionRepos
   }
 
   async getAll() {
-    return this.getList();
+    return this.getList().reverse();
   }
 
   async nextIdentity(): Promise<string> {
