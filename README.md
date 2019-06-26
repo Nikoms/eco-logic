@@ -1,5 +1,4 @@
 # Refac
-- Water: Les noms des uses cases sont pas terribles
 - Unit test!
 - E2E tests with VueJs
 - Having another front end framework
