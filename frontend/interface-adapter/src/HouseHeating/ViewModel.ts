@@ -1,8 +1,12 @@
-import { FuelOilOrder } from '@eco/domain/src/HouseHeating/Entity/FuelOilOrder';
+export class FuelOilOrderViewModel {
+  constructor(public readonly quantity: string, public readonly date: string) {
+
+  }
+}
 
 export class ViewModel {
-  totalFuelOilOrder: number = 0;
-  lastOrders: FuelOilOrder[] = [];
+  totalFuelOilOrder: string = '';
+  lastOrders: FuelOilOrderViewModel[] = [];
 
   cancelLabel = 'Cancel';
   addLabel = 'Add command';

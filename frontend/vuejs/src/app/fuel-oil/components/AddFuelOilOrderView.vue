@@ -1,9 +1,9 @@
 <template>
     <v-dialog v-model="viewModel.formDisplayed" max-width="600px">
-        <v-form @submit.prevent="$houseHeating.controller.addFuelOilOrder(request)">
+        <v-form @submit.prevent="$houseHeating.controller.addFuelOilOrder(quantity)">
             <v-card>
                 <v-card-text>
-                    <v-text-field v-model="request.liters"
+                    <v-text-field v-model="quantity"
                                   type="number"
                                   :label="viewModel.literInputLabel"
                                   :placeholder="viewModel.literInputHelp"
@@ -26,16 +26,15 @@
 
 <script lang="ts">
   import { Component, Vue, Watch } from 'vue-property-decorator';
-  import { AddFuelOilOrderRequest } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderRequest';
 
   @Component({})
   export default class AddFuelOilOrderView extends Vue {
+    quantity = '';
     viewModel = this.$houseHeating.viewModel;
-    request = new AddFuelOilOrderRequest('');
 
     @Watch('viewModel.formDisplayed') onDisplayChanged(displayed: boolean) {
       if (displayed) {
-        this.request = new AddFuelOilOrderRequest('');
+        this.quantity = '';
         setImmediate(() => {
           (this.$refs.liters as any).focus();
         });

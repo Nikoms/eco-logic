@@ -14,7 +14,7 @@
         <v-card class="mx-auto mb-3 mt-3" color="#26c6da" dark max-width="400">
             <v-card-title>
                 <span class="title font-weight-light">Total ordered:&nbsp;</span><span
-                    class="title">{{viewModel.totalFuelOilOrder}} liters</span>
+                    class="title">{{viewModel.totalFuelOilOrder}}</span>
             </v-card-title>
         </v-card>
 
@@ -23,10 +23,10 @@
                 <v-card class="mx-auto mb-3 mt-3" color="#26c6da" dark max-width="400">
                     <v-card-title>
                         <span class="title font-weight-light">Last order:&nbsp;</span><span
-                            class="title">{{props.item.liters}} liters</span>
+                            class="title">{{props.item.quantity}}</span>
                     </v-card-title>
                     <v-card-text class="headline font-weight-bold text-xs-right">
-                        {{props.item.date.toLocaleDateString('fr')}}
+                        {{props.item.date}}
                     </v-card-text>
                 </v-card>
             </template>
