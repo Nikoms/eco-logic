@@ -12,7 +12,7 @@ export class SaveElectricMeter {
   async execute(request: SaveElectricMeterRequest, presenter: SaveElectricMeterPresenterInterface) {
     const id = request.id || await this.repository.nextIdentity();
     const meter = new ElectricMeter(id, request.name, 0, new Date());
-    await this.repository.save(meter);
+    await this.repository.add(meter);
     const response = new SaveElectricMeterResponse(meter);
     presenter.presentAddElectricMeterResponse(response);
   }

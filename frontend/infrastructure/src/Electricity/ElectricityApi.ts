@@ -49,7 +49,7 @@ export class ElectricityApi implements UpdatePowerConsumptionPresenterInterface,
     return this.getElectricMetersResponse!.electricMeters;
   }
 
-  save(meter: ElectricMeter) {
+  add(meter: ElectricMeter) {
     return saveElectricMeter.execute(new SaveElectricMeterRequest(meter.name, meter.id), this);
   }
 

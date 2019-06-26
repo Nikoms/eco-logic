@@ -19,8 +19,8 @@ export class ElectricityMeterFakeApiRepository implements ElectricityMeterReposi
     return this.api.getElectricMeter(id);
   }
 
-  async save(electricMeter: ElectricMeter): Promise<void> {
-    await this.api.save(electricMeter);
+  async add(electricMeter: ElectricMeter): Promise<void> {
+    await this.api.add(electricMeter);
   }
 
   async update(electricMeter: ElectricMeter): Promise<void> {

@@ -1,5 +1,4 @@
 # Refac
-- ElectricityMeterRepositoryInterface (et aussi dans car repository): Il y a un save et un update, car en fait ca va vers 2 use case différent si on utilise la classe "Api". Que faire?
 - Water: Les noms des uses cases sont pas terribles
 - Unit test!
 - E2E tests with VueJs
@@ -15,6 +14,7 @@
 - Utiliser le GPS pour détecter que le mec à bouger. D'abord, on peut commencer par un truc simple avec un bouton "find me" et qui dit qu'il est à x km de sa maison
 - Ajouter les transports en commun
 - Ajouter des trajets préfait?
+- ElectricityMeterRepositoryInterface (et aussi dans car repository): Il y a un save et un update, car en fait ca va vers 2 use case différent si on utilise la classe "Api". Que faire?
 
 
 Backend :

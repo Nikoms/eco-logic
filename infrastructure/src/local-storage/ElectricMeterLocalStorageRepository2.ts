@@ -32,7 +32,15 @@ export class ElectricMeterLocalStorageRepository2 implements ElectricityMeterRep
     });
   }
 
-  async save(electricMeterToSave: ElectricMeter): Promise<void> {
+  add(electricMeterToSave: ElectricMeter): Promise<void> {
+    return this.save(electricMeterToSave);
+  }
+
+  update(electricMeter: ElectricMeter): Promise<void> {
+    return this.save(electricMeter);
+  }
+
+  private async save(electricMeterToSave: ElectricMeter) {
     const list = this.getList();
     const index = list.findIndex((meter: ElectricMeter) => {
       return meter.id === electricMeterToSave.id;
@@ -43,10 +51,6 @@ export class ElectricMeterLocalStorageRepository2 implements ElectricityMeterRep
       list[index] = electricMeterToSave;
     }
     this.saveList(list);
-  }
-
-  update(electricMeter: ElectricMeter): Promise<void> {
-    return this.save(electricMeter);
   }
 
   private getList(): ElectricMeter[] {
