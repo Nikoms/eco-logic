@@ -21,17 +21,13 @@ export class WaterApi implements GetWaterMetersPresenterInterface,
   AddConsumptionPresenterInterface,
   GetConsumptionsPresenterInterface,
   AddWaterMeterPresenterInterface {
-  private addConsumptionResponse?: AddConsumptionResponse;
-  private addWaterMeterResponse?: AddWaterMeterResponse;
   private getWaterMetersResponse?: GetWaterMetersResponse;
   private getConsumptionsResponse?: GetConsumptionsResponse;
 
-  presentAddConsumption(response: AddConsumptionResponse): void {
-    this.addConsumptionResponse = response;
+  presentAddConsumption(_response: AddConsumptionResponse): void {
   }
 
-  presentAddWaterMeter(response: AddWaterMeterResponse): void {
-    this.addWaterMeterResponse = response;
+  presentAddWaterMeter(_response: AddWaterMeterResponse): void {
   }
 
   presentGetWaterMeters(response: GetWaterMetersResponse): void {
