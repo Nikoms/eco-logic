@@ -1,4 +1,4 @@
-<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
+<template>
     <div>
         <v-card class="mx-auto mb-3 mt-3" color="#ff8000" dark max-width="400">
             <v-card-title>
@@ -16,7 +16,7 @@
                         @click="$travel.ui.showUpdateOdometer(props.item)">
                     <v-card-title>
                         <v-flex class="text-xs-left title">{{ props.item.name }}</v-flex>
-                        <span class="title font-weight-light text-xs-right">{{ props.item.km }}</span>
+                        <span class="title font-weight-light text-xs-right">{{ props.item.distance }}</span>
                     </v-card-title>
                 </v-card>
             </template>
@@ -40,7 +40,7 @@
                         <span class="title">{{ props.item.date }}</span>&nbsp;<span
                             class="title font-weight-light">{{ props.item.description }}</span>
                     </v-card-title>
-                    <v-card-text class="headline font-weight-bold text-xs-right">{{ props.item.km }}</v-card-text>
+                    <v-card-text class="headline font-weight-bold text-xs-right">{{ props.item.distance }}</v-card-text>
                 </v-card>
             </template>
         </v-data-iterator>

@@ -28,7 +28,7 @@ export class CarLocalStorageRepository2 implements CarRepositoryInterface {
   }
 
   async getAll(): Promise<Car[]> {
-    return this.getList();
+    return this.getList().reverse();
   }
 
   async nextIdentity(): Promise<string> {

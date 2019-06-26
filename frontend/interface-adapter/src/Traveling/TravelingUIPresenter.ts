@@ -1,5 +1,4 @@
 import { UpdateOdometerPresenterInterface } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerPresenterInterface';
-import { UpdateOdometerCarViewModel } from '@eco/frontend-interface-adapter/src/Traveling/UpdateOdometerViewModel';
 import { AddCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarPresenterInterface';
 import { AddFlightPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightPresenterInterface';
 import { AddFlightResponse } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightResponse';
@@ -11,7 +10,7 @@ import { GetCarsPresenterInterface } from '@eco/domain/src/Traveling/UseCase/Get
 import { TravelingUI } from '@eco/frontend-interface-adapter/src/Traveling/TravelingUI';
 import { Car } from '@eco/domain/src/Traveling/Entity/Car';
 import { PlaneTravel } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
-import { ViewModel } from '@eco/frontend-interface-adapter/src/Traveling/ViewModel';
+import { CarViewModel, FlightViewModel, ViewModel } from '@eco/frontend-interface-adapter/src/Traveling/ViewModel';
 import { GetFlightsResponse } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlightsResponse';
 
 export class TravelingUIPresenter
@@ -44,15 +43,14 @@ export class TravelingUIPresenter
     this.updateFlightViewModel();
   }
 
-  showUpdateOdometer(selectedCar: UpdateOdometerCarViewModel) {
+  showUpdateOdometer(selectedCar: CarViewModel) {
     this.viewModel.updateOdometerView.displayed = true;
-    this.viewModel.updateOdometerView.carName = selectedCar.name;
-    this.viewModel.updateOdometerView.lastKm = selectedCar.km;
-    this.viewModel.updateOdometerView.carId = selectedCar.id;
+    this.viewModel.updateOdometerView.selectedCar = selectedCar;
   }
 
   hideUpdateOdometer(): any {
     this.viewModel.updateOdometerView.displayed = false;
+    this.viewModel.updateOdometerView.selectedCar = undefined;
   }
 
   presentUpdateOdometer(response: UpdateOdometerResponse): void {
@@ -73,6 +71,7 @@ export class TravelingUIPresenter
       }
       this.updateCarViewModel();
       this.viewModel.updateOdometerView.displayed = false;
+      this.viewModel.updateOdometerView.selectedCar = undefined;
     }
   }
 
@@ -98,7 +97,7 @@ export class TravelingUIPresenter
       console.error('isNameEmpty');
     }
     if (response.newCar !== undefined) {
-      this.cars.push(response.newCar);
+      this.cars.unshift(response.newCar);
       this.updateCarViewModel();
       this.viewModel.addCarView.displayed = false;
     }
@@ -120,21 +119,25 @@ export class TravelingUIPresenter
       console.error('invalid seat');
     }
     if (response.newFlight !== undefined) {
-      this.flights.push(response.newFlight);
+      this.flights.unshift(response.newFlight);
       this.updateFlightViewModel();
       this.viewModel.addFlightView.displayed = false;
     }
   }
 
   private updateCarViewModel() {
-    this.viewModel.cars = this.cars
-      .slice()
-      .reverse();
+    this.viewModel.cars = this.cars.map(car => {
+      return new CarViewModel(car.id, car.name, car.km + ' Km');
+    });
   }
 
   private updateFlightViewModel() {
-    this.viewModel.flights = this.flights
-      .slice()
-      .reverse();
+    this.viewModel.flights = this.flights.map(flight => {
+      return new FlightViewModel(
+        flight.date.toLocaleDateString('fr'),
+        flight.km + ' Km',
+        flight.description,
+      );
+    });
   }
 }

@@ -5,12 +5,12 @@ import { AddFlightRequest } from '@eco/domain/src/Traveling/UseCase/AddFlight/Ad
 import { GetCars } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCars';
 import { GetFlights } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlights';
 import { UpdateOdometer } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometer';
-import { UpdateOdometerRequest } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerRequest';
 import { AddCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarPresenterInterface';
 import { AddFlightPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightPresenterInterface';
 import { UpdateOdometerPresenterInterface } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerPresenterInterface';
 import { GetFlightsPresenterInterface } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlightsPresenterInterface';
 import { GetCarsPresenterInterface } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCarsPresenterInterface';
+import { UpdateOdometerRequest } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerRequest';
 
 export class TravelingController {
   constructor(
@@ -39,7 +39,8 @@ export class TravelingController {
     this.getFlights.execute(this.getFlightsPresenter);
   }
 
-  updateOdometer(request: UpdateOdometerRequest) {
+  updateOdometer(carId: string, km: string) {
+    const request = new UpdateOdometerRequest(carId, km);
     this.updateOdometerUseCase.execute(request, this.updateOdometerPresenter);
   }
 }

@@ -19,7 +19,7 @@ export class FlightLocalStorageRepository implements FlightRepositoryInterface {
   }
 
   async getAll() {
-    return this.getList();
+    return this.getList().reverse();
   }
 
   async nextIdentity(): Promise<string> {
@@ -33,6 +33,7 @@ export class FlightLocalStorageRepository implements FlightRepositoryInterface {
 
   private getList(): PlaneTravel[] {
     const rawList: JsonOf<PlaneTravel>[] = JSON.parse(this.localstorage.getItem(this.key) || '[]');
-    return rawList.map(raw => new PlaneTravel(raw.id, raw.seat as Seat, raw.km, raw.description, new Date(raw.date)));
+    return rawList
+      .map(raw => new PlaneTravel(raw.id, raw.seat as Seat, raw.km, raw.description, new Date(raw.date)));
   }
 }

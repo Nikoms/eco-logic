@@ -1,19 +1,19 @@
 <template>
     <v-dialog v-model="viewModel.displayed" max-width="600px">
-        <v-form v-if="form.carId"
-                @submit.prevent="$travel.controller.updateOdometer(form)">
+        <v-form v-if="viewModel.displayed"
+                @submit.prevent="updateOdometer(viewModel.selectedCar.id)">
             <v-card>
                 <v-card-title>
                     <v-icon large left>mdi-car</v-icon>
                     <span class="title font-weight-light">{{viewModel.titleText}}</span>
                 </v-card-title>
                 <v-card-text>
-                    <v-text-field v-model="form.km"
+                    <v-text-field v-model="km"
                                   type="number"
-                                  :label="viewModel.carName"
+                                  :label="viewModel.selectedCar.name"
                                   suffix="km"
                                   ref="carField"
-                                  :placeholder="'Previously: '+viewModel.lastKm"
+                                  :placeholder="'Previously: '+viewModel.selectedCar.distance"
                     ></v-text-field>
                 </v-card-text>
 
@@ -31,16 +31,19 @@
 
 <script lang="ts">
   import { Component, Vue, Watch } from 'vue-property-decorator';
-  import { UpdateOdometerRequest } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerRequest';
 
   @Component
   export default class UpdateOdometerView extends Vue {
     viewModel = this.$travel.viewModel.updateOdometerView;
-    form = new UpdateOdometerRequest('', '');
+    km = '';
+
+    updateOdometer(carId: string) {
+      this.$travel.controller.updateOdometer(carId, this.km);
+    }
 
     @Watch('viewModel.displayed') onDisplayChanged(displayed: boolean) {
       if (displayed) {
-        this.form = new UpdateOdometerRequest(this.viewModel.carId, '');
+        this.km = '';
         setImmediate(() => {
           (this.$refs.carField as any).focus();
         });
