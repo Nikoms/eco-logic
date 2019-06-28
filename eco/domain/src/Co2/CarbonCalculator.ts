@@ -1,10 +1,10 @@
 import { PowerUpdated } from '@eco/domain/src/Electricity/Event/PowerUpdated';
 import { OdometerUpdated } from '@eco/domain/src/Traveling/Event/OdometerUpdated';
 import { PlaneTravelAdded } from '@eco/domain/src/Traveling/Event/PlaneTravelAdded';
-import { AddCarbonRequest } from './use-case/AddCarbon';
 import { Seat } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
 import { Engine } from '@eco/domain/src/Traveling/Entity/Car';
 import { FuelOilOrdered } from '@eco/domain/src/HouseHeating/Event/FuelOilOrdered';
+import { AddCarbonRequest } from '@eco/domain/src/Co2/UseCase/AddCarbon/AddCarbonRequest';
 
 export class CarbonCalculator {
 

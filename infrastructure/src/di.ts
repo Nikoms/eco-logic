@@ -1,7 +1,5 @@
 import { EventTargetEventDispatcher } from './event/EventDispatcher';
 import { CarbonLocalStorageRepository } from './local-storage/CarbonLocalStorageRepository';
-import { AddCarbon } from '@eco/core-co2/src/use-case/AddCarbon';
-import { GetCarbons } from '@eco/core-co2/src/use-case/GetCarbons';
 import { SaveElectricMeter } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeter';
 import { ElectricMeterLocalStorageRepository2 } from '@eco/infrastructure/src/local-storage/ElectricMeterLocalStorageRepository2';
 import { GetElectricMeters } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMeters';
@@ -26,6 +24,8 @@ import { WaterMeterLocalStorageRepository2 } from '@eco/infrastructure/src/local
 import { GetWaterMeters } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMeters';
 import { GetCar } from '@eco/domain/src/Traveling/UseCase/GetCar/GetCar';
 import { UpdateCar } from '@eco/domain/src/Traveling/UseCase/UpdateCar/UpdateCar';
+import { AddCarbon } from '@eco/domain/src/Co2/UseCase/AddCarbon/AddCarbon';
+import { GetCarbons } from '@eco/domain/src/Co2/UseCase/GetCarbons/GetCarbons';
 
 export const eventDispatcher = new EventTargetEventDispatcher();
 

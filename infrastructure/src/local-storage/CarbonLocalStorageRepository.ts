@@ -1,6 +1,7 @@
-import { CarbonRepository } from '@eco/core-co2/src/repository/CarbonRepository';
-import { Carbon } from '@eco/core-co2/src/entity/Carbon';
 import { JsonOf } from './type/JsonOf';
+import { CarbonRepository } from '@eco/domain/src/Co2/Repository/CarbonRepository';
+import { Carbon } from '@eco/domain/src/Co2/Entity/Carbon';
+import { v4 } from 'uuid';
 
 export class CarbonLocalStorageRepository implements CarbonRepository {
   private key = 'carbons';
@@ -17,6 +18,14 @@ export class CarbonLocalStorageRepository implements CarbonRepository {
     this.saveList(list);
   }
 
+  async getAll() {
+    return this.getList();
+  }
+
+  async nextIdentity(): Promise<string> {
+    return v4();
+  }
+
   private saveList(list: any[]) {
     const listAsJson = JSON.stringify(list);
     this.localstorage.setItem(this.key, listAsJson);
@@ -25,9 +34,5 @@ export class CarbonLocalStorageRepository implements CarbonRepository {
   private getList(): Carbon[] {
     const rawList: JsonOf<Carbon>[] = JSON.parse(this.localstorage.getItem(this.key) || '[]');
     return rawList.map(raw => new Carbon(raw.id, raw.kg, raw.description, new Date(raw.date)));
-  }
-
-  async getAll() {
-    return this.getList();
   }
 }

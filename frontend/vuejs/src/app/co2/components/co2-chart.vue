@@ -39,6 +39,9 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import { getCarbons } from '@eco/infrastructure/src/di';
+  import { GetCarbonsPresenter } from '@eco/domain/src/Co2/UseCase/GetCarbons/GetCarbonsPresenter';
+  import { GetCarbonsResponse } from '@eco/domain/src/Co2/UseCase/GetCarbons/GetCarbonsResponse';
+  import { Carbon } from '@eco/domain/src/Co2/Entity/Carbon';
 
   const gradients = [
     ['#222'],
@@ -80,7 +83,14 @@
     }
 
     async mounted() {
-      const carbons = await getCarbons.execute();
+      let carbons: Carbon[] = [];
+      const presenter = new (class No implements GetCarbonsPresenter {
+        presentGetCarbons(response: GetCarbonsResponse): void {
+          carbons = response.carbons;
+        }
+
+      })();
+      await getCarbons.execute(presenter);
       if (carbons.length > 0) {
         const rangeOfDates = this.getDatesBetween(carbons[0].date, carbons[carbons.length - 1].date);
         const dates = [];
