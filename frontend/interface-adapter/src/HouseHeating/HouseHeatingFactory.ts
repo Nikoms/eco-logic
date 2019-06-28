@@ -4,13 +4,13 @@ import { GetTotalFuelOilOrder } from '@eco/domain/src/HouseHeating/UseCase/GetTo
 import { HouseHeatingController } from './HouseHeatingController';
 import { HouseHeatingUIPresenter } from './HouseHeatingUIPresenter';
 import { ElectricUI } from '@eco/frontend-interface-adapter/src/HouseHeating/ElectricUI';
-import { EventTargetEventDispatcher } from '@eco/infrastructure/src/event/EventDispatcher';
 import { FuelOilOrderRepositoryInterface } from '@eco/domain/src/HouseHeating/FuelOilOrderRepositoryInterface';
+import { EventDispatcher } from '@eco/shared-kernel/src/event/EventDispatcher';
 
 export class HouseHeatingFactory {
   private instances: any = {};
 
-  constructor(private eventDispatcher: EventTargetEventDispatcher,
+  constructor(private eventDispatcher: EventDispatcher,
               private orderFuelOilRepository: FuelOilOrderRepositoryInterface) {
   }
 

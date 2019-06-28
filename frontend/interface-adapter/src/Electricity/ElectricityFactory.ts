@@ -3,14 +3,14 @@ import { GetElectricMeters } from '@eco/domain/src/Electricity/UseCase/GetElectr
 import { SaveElectricMeter } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeter';
 import { ElectricityController } from './ElectricityController';
 import { ElectricityUIPresenter } from './ElectricityUIPresenter';
-import { EventTargetEventDispatcher } from '@eco/infrastructure/src/event/EventDispatcher';
 import { ElectricUI } from '@eco/frontend-interface-adapter/src/Electricity/ElectricUI';
 import { ElectricityMeterRepositoryInterface } from '@eco/domain/src/Electricity/Repository/ElectricityMeterRepositoryInterface';
+import { EventDispatcher } from '@eco/shared-kernel/src/event/EventDispatcher';
 
 export class ElectricityFactory {
   private instances: any = {};
 
-  constructor(private eventDispatcher: EventTargetEventDispatcher,
+  constructor(private eventDispatcher: EventDispatcher,
               private electricityMeterRepository: ElectricityMeterRepositoryInterface) {
 
   }
