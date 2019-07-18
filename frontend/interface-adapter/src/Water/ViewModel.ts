@@ -22,4 +22,14 @@ export class ViewModel {
   headerM3Label = 'm3';
   headerMeterNameLabel = 'Meter';
   headerDateLabel = 'Date';
+  private observers: ((viewModel: ViewModel, newValues: Partial<ViewModel>) => any)[] = [];
+
+  update(values: Partial<ViewModel>) {
+    Object.assign(this, values);
+    this.observers.forEach(cb => cb(this, values));
+  }
+
+  onChange(callback: (viewModel: ViewModel, newValues: Partial<ViewModel>) => any) {
+    this.observers.push(callback);
+  }
 }

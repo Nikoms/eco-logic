@@ -47,19 +47,19 @@ export class WaterUIPresenter implements GetWaterMetersPresenterInterface,
     if (response.consumption) {
       this._consumptions.unshift(response.consumption);
       this.updateViewConsumptions();
-      this.viewModel.displayed = false;
+      this.viewModel.update({ displayed: false });
     }
   }
 
   showAddWaterConsumption(): void {
-    this.viewModel.displayed = true;
+    this.viewModel.update({ displayed: true });
     if (!this.viewModel.hasMeters) {
-      this.viewModel.errorMessage = 'Please add a water meter before adding (TODO, but in INIT app)';
+      this.viewModel.update({ errorMessage: 'Please add a water meter before adding (TODO, but in INIT app)' });
     }
   }
 
   hideAddWaterConsumption(): void {
-    this.viewModel.displayed = false;
+    this.viewModel.update({ displayed: false });
   }
 
   presentAddWaterMeter(response: AddWaterMeterResponse): void {
@@ -73,14 +73,17 @@ export class WaterUIPresenter implements GetWaterMetersPresenterInterface,
   }
 
   private updateViewConsumptions() {
-    this.viewModel.consumptions = this._consumptions
-      .map(c => new WaterConsumptionViewModel(c.waterMeterId, c.m3 + ' m3', c.date.toLocaleDateString('fr')));
+    this.viewModel.update({
+      consumptions: this._consumptions
+        .map(c => new WaterConsumptionViewModel(c.waterMeterId, c.m3 + ' m3', c.date.toLocaleDateString('fr'))),
+    });
   }
 
   private metersUpdated() {
-    this.viewModel.hasMeter = this.meters.length > 0;
-
-    this.viewModel.meters = this.meters.map(e => new WaterMeterViewModel(e.id, e.name));
-    this.viewModel.hasMeters = this.viewModel.hasMeter;
+    this.viewModel.update({
+      hasMeter: this.meters.length > 0,
+      hasMeters: this.meters.length > 0,
+      meters: this.meters.map(e => new WaterMeterViewModel(e.id, e.name)),
+    });
   }
 }
