@@ -13,8 +13,8 @@ import { WaterFactory } from '@eco/frontend-interface-adapter/src/Water/WaterFac
 const styles = (theme: Theme) => {
   return {
     fab: {
-      position: 'absolute',
-      bottom: theme.spacing(2),
+      position: 'fixed',
+      bottom: theme.spacing(9),
       right: theme.spacing(2),
     },
   };
