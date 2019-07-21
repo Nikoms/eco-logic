@@ -8,4 +8,8 @@ export interface TravelingUI {
   showAddCar(): void;
 
   hideAddCar(): void;
+
+  showAddFlight(): void;
+
+  cancelAddFlight(): void;
 }
