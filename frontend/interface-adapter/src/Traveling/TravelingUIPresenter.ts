@@ -44,13 +44,11 @@ export class TravelingUIPresenter
   }
 
   showUpdateOdometer(selectedCar: CarViewModel) {
-    this.viewModel.updateOdometerView.displayed = true;
-    this.viewModel.updateOdometerView.selectedCar = selectedCar;
+    this.viewModel.doUpdateOdometerView({ displayed: true, selectedCar });
   }
 
   hideUpdateOdometer(): any {
-    this.viewModel.updateOdometerView.displayed = false;
-    this.viewModel.updateOdometerView.selectedCar = undefined;
+    this.viewModel.doUpdateOdometerView({ displayed: false, selectedCar: undefined });
   }
 
   presentUpdateOdometer(response: UpdateOdometerResponse): void {
@@ -70,17 +68,16 @@ export class TravelingUIPresenter
         this.cars[index] = updatedCar;
       }
       this.updateCarViewModel();
-      this.viewModel.updateOdometerView.displayed = false;
-      this.viewModel.updateOdometerView.selectedCar = undefined;
+      this.viewModel.doUpdateOdometerView({ displayed: false, selectedCar: undefined });
     }
   }
 
   hideAddCar(): void {
-    this.viewModel.addCarView.displayed = false;
+    this.viewModel.doUpdateAddCarView({ displayed: false });
   }
 
   showAddCar(): void {
-    this.viewModel.addCarView.displayed = true;
+    this.viewModel.doUpdateAddCarView({ displayed: true });
   }
 
   presentAddCar(response: AddCarResponse): void {
@@ -99,16 +96,16 @@ export class TravelingUIPresenter
     if (response.newCar !== undefined) {
       this.cars.unshift(response.newCar);
       this.updateCarViewModel();
-      this.viewModel.addCarView.displayed = false;
+      this.viewModel.doUpdateAddCarView({ displayed: false });
     }
   }
 
   cancelAddFlight(): void {
-    this.viewModel.addFlightView.displayed = false;
+    this.viewModel.doUpdateAddFlightView({ displayed: false });
   }
 
   showAddFlight(): void {
-    this.viewModel.addFlightView.displayed = true;
+    this.viewModel.doUpdateAddFlightView({ displayed: true });
   }
 
   presentAddFlight(response: AddFlightResponse): void {
@@ -121,23 +118,26 @@ export class TravelingUIPresenter
     if (response.newFlight !== undefined) {
       this.flights.unshift(response.newFlight);
       this.updateFlightViewModel();
-      this.viewModel.addFlightView.displayed = false;
+      this.viewModel.doUpdateAddFlightView({ displayed: false });
     }
   }
 
   private updateCarViewModel() {
-    this.viewModel.cars = this.cars.map(car => {
+    const cars = this.cars.map(car => {
       return new CarViewModel(car.id, car.name, car.km + ' Km');
     });
+
+    this.viewModel.doUpdate({ cars });
   }
 
   private updateFlightViewModel() {
-    this.viewModel.flights = this.flights.map(flight => {
+    const flights = this.flights.map(flight => {
       return new FlightViewModel(
         flight.date.toLocaleDateString('fr'),
         flight.km + ' Km',
         flight.description,
       );
     });
+    this.viewModel.doUpdate({ flights });
   }
 }

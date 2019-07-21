@@ -14,24 +14,43 @@ export class CarViewModel {
   }
 }
 
+type EventCallback = (
+  viewModel: ViewModel,
+  path: 'updateOdometerView' | 'addCarView' | 'addFlightView' | null,
+  newValues: Partial<ViewModel | AddCarViewModel | AddFlightViewModel | UpdateOdometerViewModel>,
+) => any;
+
 export class ViewModel {
   carsTitle = 'Cars';
   cars: CarViewModel[] = [];
   flightTitle = 'Flights';
   flights: FlightViewModel[] = [];
-  private _addCarView = new AddCarViewModel();
-  private _addFlightView = new AddFlightViewModel();
-  private _updateOdometerView = new UpdateOdometerViewModel();
+  addCarView = new AddCarViewModel();
+  addFlightView = new AddFlightViewModel();
+  updateOdometerView = new UpdateOdometerViewModel();
+  private observers: (EventCallback)[] = [];
 
-  get addCarView() {
-    return this._addCarView;
+  doUpdate(values: Partial<ViewModel>) {
+    Object.assign(this, values);
+    this.observers.forEach(cb => cb(this, null, values));
   }
 
-  get addFlightView() {
-    return this._addFlightView;
+  doUpdateOdometerView(values: Partial<UpdateOdometerViewModel>) {
+    Object.assign(this.updateOdometerView, values);
+    this.observers.forEach(cb => cb(this, 'updateOdometerView', values));
   }
 
-  get updateOdometerView() {
-    return this._updateOdometerView;
+  doUpdateAddCarView(values: Partial<AddCarViewModel>) {
+    Object.assign(this.addCarView, values);
+    this.observers.forEach(cb => cb(this, 'addCarView', values));
+  }
+
+  doUpdateAddFlightView(values: Partial<AddFlightViewModel>) {
+    Object.assign(this.addFlightView, values);
+    this.observers.forEach(cb => cb(this, 'addFlightView', values));
+  }
+
+  onChange(callback: EventCallback) {
+    this.observers.push(callback);
   }
 }
