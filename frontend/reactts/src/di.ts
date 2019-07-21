@@ -13,6 +13,7 @@ import { TravelingFactory } from '@eco/frontend-interface-adapter/src/Traveling/
 import { WaterFactory } from '@eco/frontend-interface-adapter/src/Water/WaterFactory';
 import { HouseHeatingFactory } from '@eco/frontend-interface-adapter/src/HouseHeating/HouseHeatingFactory';
 import { ElectricityFactory } from '@eco/frontend-interface-adapter/src/Electricity/ElectricityFactory';
+import { EventTarget } from 'event-target-shim';
 
 export const eventDispatcher = new EventTargetEventDispatcher(new EventTarget());
 const electricityRepository = new ElectricityMeterFakeApiRepository(new ElectricityApi());

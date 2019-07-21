@@ -1,5 +1,6 @@
 import { EventDispatcher } from '@eco/shared-kernel/src/event/EventDispatcher';
 import { Event } from '@eco/shared-kernel/src/event/Event';
+import { EventTarget } from 'event-target-shim';
 
 export class EventTargetEventDispatcher implements EventDispatcher {
   private listeners: Map<string, Map<any, any>> = new Map();
