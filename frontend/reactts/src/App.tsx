@@ -12,7 +12,8 @@ import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Home from './water/views/Home';
 import Box from '@material-ui/core/Box';
-import { BrowserRouter, LinkProps, NavLink, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { AdapterLink } from './shared-kernel/react/AdapterLink';
 
 const styles = (theme: Theme) => {
   return {
@@ -32,11 +33,6 @@ const styles = (theme: Theme) => {
     },
   };
 };
-// The usage of React.forwardRef will no longer be required for react-router-dom v6.
-// see https://github.com/ReactTraining/react-router/issues/6056
-const AdapterLink = React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => (
-  <NavLink innerRef={ref as any} {...props} />
-));
 
 @withStyles(styles)
 class App extends React.Component<{ waterFactory: WaterFactory }> {
@@ -53,10 +49,8 @@ class App extends React.Component<{ waterFactory: WaterFactory }> {
             </Toolbar>
           </AppBar>
           <Box className={this.props.classes.main}>
-            <div>
-              <Route path="/" exact render={(props: any) => (<div>Welcome!</div>)}/>
-              <Route path="/water" exact render={(props: any) => <Home {...props} waterFactory={water}/>}/>
-            </div>
+            <Route path="/" exact render={(props: any) => (<div>Welcome!</div>)}/>
+            <Route path="/water" exact render={(props: any) => <Home {...props} waterFactory={water}/>}/>
           </Box>
           <BottomNavigation
             className={this.props.classes.stickToBottom}
