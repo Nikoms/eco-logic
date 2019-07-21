@@ -53,7 +53,11 @@ export default class Home extends React.Component<HomeProps> {
         />
       </Card>
 
-      {this.state.cars.map((car) => <Card key={car.id}><CardHeader title={car.name}/></Card>)}
+      {this.state.cars.map((car) =>
+        <Card key={car.id}>
+          <CardHeader title={car.name + ' -> ' + car.distance}
+                      onClick={() => this.props.travelingFactory.ui.showUpdateOdometer(car)}/>
+        </Card>)}
 
       <Card>
         <CardHeader
@@ -65,7 +69,7 @@ export default class Home extends React.Component<HomeProps> {
       </Card>
 
       {this.state.flights.map((flight, i) => <Card key={'flight' + i}><CardHeader
-        title={flight.distance + ' - ' + flight.date}/></Card>)}
+        title={flight.distance + ' -> ' + flight.date}/></Card>)}
 
     </div>);
   }
