@@ -72,13 +72,14 @@ export default class AddCarView extends React.Component<AddWaterConsumptionViewP
 
             </Select>
           </FormControl>
-          <TextField name="km" label="Km initial" type="number" fullWidth
+          <TextField name="km" label={this.props.viewModel.addCarView.kmLabel} type="number" fullWidth
                      value={this.state.km}
                      onChange={(e) => this.handleChange(e)}/>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => this.props.presenter.hideAddCar()} color="primary">Cancel</Button>
-          <Button color="primary" type="submit">Save</Button>
+          <Button onClick={() => this.props.presenter.hideAddCar()}
+                  color="primary">{this.props.viewModel.addCarView.cancelLabel}</Button>
+          <Button color="primary" type="submit">{this.props.viewModel.addCarView.saveLabel}</Button>
         </DialogActions>
       </form>
     </Dialog>);
