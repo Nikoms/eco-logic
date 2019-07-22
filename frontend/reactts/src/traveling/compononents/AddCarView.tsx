@@ -32,7 +32,6 @@ export default class AddCarView extends React.Component<AddCarViewProps> {
 
   handleSubmit(event: any) {
     const request = new AddCarRequest(this.state.name, this.state.consumption, this.state.engine, this.state.km);
-    console.log(request);
     this.props.controller.addCar(request);
     event.preventDefault();
   }
@@ -43,7 +42,6 @@ export default class AddCarView extends React.Component<AddCarViewProps> {
       ...oldValues,
       [event.target.name as string]: event.target.value,
     }));
-    console.log(this.state);
   }
 
   render() {
