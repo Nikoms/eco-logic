@@ -29,35 +29,35 @@ import { GetCarbons } from '@eco/domain/src/Co2/UseCase/GetCarbons/GetCarbons';
 
 export const eventDispatcher = new EventTargetEventDispatcher();
 
-const waterConsumptionStore2 = new WaterConsumptionLocalStorageRepository(window.localStorage);
-const electricStore2 = new ElectricMeterLocalStorageRepository(window.localStorage);
-const waterStore2 = new WaterMeterLocalStorageRepository(window.localStorage);
-const carStore2 = new CarLocalStorageRepository(window.localStorage);
+const waterConsumptionStore = new WaterConsumptionLocalStorageRepository(window.localStorage);
+const electricStore = new ElectricMeterLocalStorageRepository(window.localStorage);
+const waterStore = new WaterMeterLocalStorageRepository(window.localStorage);
+const carStore = new CarLocalStorageRepository(window.localStorage);
 const carbonStore = new CarbonLocalStorageRepository(window.localStorage);
-const fuelOilStore2 = new FuelOilOrderLocalStorageRepository(window.localStorage);
+const fuelOilStore = new FuelOilOrderLocalStorageRepository(window.localStorage);
 const flightStore = new FlightLocalStorageRepository(window.localStorage);
 
-export const updatePowerConsumption = new UpdatePowerConsumption(electricStore2, eventDispatcher);
-export const saveElectricMeter = new SaveElectricMeter(electricStore2);
-export const getElectricMeters = new GetElectricMeters(electricStore2);
-export const getElectricMeter = new GetElectricMeter(electricStore2);
+export const updatePowerConsumption = new UpdatePowerConsumption(electricStore, eventDispatcher);
+export const saveElectricMeter = new SaveElectricMeter(electricStore);
+export const getElectricMeters = new GetElectricMeters(electricStore);
+export const getElectricMeter = new GetElectricMeter(electricStore);
 
-export const addCar = new AddCar(carStore2);
-export const updateCar = new UpdateCar(carStore2);
-export const getCars = new GetCars(carStore2);
-export const getCar = new GetCar(carStore2);
+export const addCar = new AddCar(carStore);
+export const updateCar = new UpdateCar(carStore);
+export const getCars = new GetCars(carStore);
+export const getCar = new GetCar(carStore);
 export const addFlight = new AddFlight(flightStore, eventDispatcher);
 export const getFlights = new GetFlights(flightStore);
-export const updateOdometer = new UpdateOdometer(carStore2, eventDispatcher);
+export const updateOdometer = new UpdateOdometer(carStore, eventDispatcher);
 
-export const addWaterConsumption = new AddConsumption(waterConsumptionStore2);
-export const getAllWaterConsumptions = new GetConsumptions(waterConsumptionStore2);
-export const addWaterMeter = new AddWaterMeter(waterStore2);
-export const getWaterMeters = new GetWaterMeters(waterStore2);
+export const addWaterConsumption = new AddConsumption(waterConsumptionStore);
+export const getAllWaterConsumptions = new GetConsumptions(waterConsumptionStore);
+export const addWaterMeter = new AddWaterMeter(waterStore);
+export const getWaterMeters = new GetWaterMeters(waterStore);
 
-export const addFuelOilOrder = new AddFuelOilOrder(fuelOilStore2, eventDispatcher);
-export const getLastFuelOilOrder = new GetLastFuelOilOrders(fuelOilStore2);
-export const getTotalFuelOilOrder = new GetTotalFuelOilOrder(fuelOilStore2);
+export const addFuelOilOrder = new AddFuelOilOrder(fuelOilStore, eventDispatcher);
+export const getLastFuelOilOrder = new GetLastFuelOilOrders(fuelOilStore);
+export const getTotalFuelOilOrder = new GetTotalFuelOilOrder(fuelOilStore);
 
 export const addCarbon = new AddCarbon(carbonStore);
 export const getCarbons = new GetCarbons(carbonStore);
