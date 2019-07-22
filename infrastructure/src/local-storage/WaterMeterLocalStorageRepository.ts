@@ -3,7 +3,7 @@ import { WaterMeter } from '@eco/domain/src/Water/Entity/WaterMeter';
 import { WaterMeterRepositoryInterface } from '@eco/domain/src/Water/UseCase/WaterMeterRepositoryInterface';
 import { v4 } from 'uuid';
 
-export class WaterMeterLocalStorageRepository2 implements WaterMeterRepositoryInterface {
+export class WaterMeterLocalStorageRepository implements WaterMeterRepositoryInterface {
   private key = 'water-meters';
 
   constructor(private localstorage: Storage) {

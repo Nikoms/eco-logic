@@ -11,7 +11,7 @@ interface CarJson {
   _km: number;
 }
 
-export class CarLocalStorageRepository2 implements CarRepositoryInterface {
+export class CarLocalStorageRepository implements CarRepositoryInterface {
   private key = 'cars';
 
   constructor(private localstorage: Storage) {

@@ -9,7 +9,7 @@ interface ElectricMeterJson {
   _lastKWhUpdate: string;
 }
 
-export class ElectricMeterLocalStorageRepository2 implements ElectricityMeterRepositoryInterface {
+export class ElectricMeterLocalStorageRepository implements ElectricityMeterRepositoryInterface {
   private key = 'electric-meters';
 
   constructor(private localstorage: Storage) {

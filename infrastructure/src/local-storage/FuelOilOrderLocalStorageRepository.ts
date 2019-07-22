@@ -2,7 +2,7 @@ import { FuelOilOrderRepositoryInterface } from '@eco/domain/src/HouseHeating/Fu
 import { FuelOilOrder } from '@eco/domain/src/HouseHeating/Entity/FuelOilOrder';
 import { JsonOf } from '@eco/infrastructure/src/local-storage/type/JsonOf';
 
-export class FuelOilOrderLocalStorageRepository2 implements FuelOilOrderRepositoryInterface {
+export class FuelOilOrderLocalStorageRepository implements FuelOilOrderRepositoryInterface {
   private key = 'fuel-oil-command';
 
   constructor(private localstorage: Storage) {

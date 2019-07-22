@@ -3,7 +3,7 @@ import { WaterConsumption } from '@eco/domain/src/Water/Entity/WaterConsumption'
 import { ConsumptionRepositoryInterface } from '@eco/domain/src/Water/UseCase/ConsumptionRepositoryInterface';
 import { v4 } from 'uuid';
 
-export class WaterConsumptionLocalStorageRepository2 implements ConsumptionRepositoryInterface {
+export class WaterConsumptionLocalStorageRepository implements ConsumptionRepositoryInterface {
   private key = 'water-consumptions';
 
   constructor(private localstorage: Storage) {
