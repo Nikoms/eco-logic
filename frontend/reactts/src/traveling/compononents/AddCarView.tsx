@@ -15,13 +15,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { AddCarRequest } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarRequest';
 
-interface AddWaterConsumptionViewProps {
+interface AddCarViewProps {
   controller: TravelingController;
   viewModel: ViewModel;
   presenter: TravelingUI;
 }
 
-export default class AddCarView extends React.Component<AddWaterConsumptionViewProps> {
+export default class AddCarView extends React.Component<AddCarViewProps> {
 
   state = {
     name: '',
