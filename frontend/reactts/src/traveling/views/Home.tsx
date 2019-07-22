@@ -8,6 +8,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import AddIcon from '@material-ui/icons/Add';
 import AddCarView from '../compononents/AddCarView';
 import AddFlightView from '../compononents/AddFlightView';
+import UpdateOdometerView from '../compononents/UpdateOdometerView';
 
 const styles = (theme: Theme) => {
   return {
@@ -49,6 +50,11 @@ export default class Home extends React.Component<HomeProps> {
       <AddFlightView presenter={this.props.travelingFactory.presenter}
                      viewModel={this.props.travelingFactory.viewModel}
                      controller={this.props.travelingFactory.controller}/>
+      <UpdateOdometerView presenter={this.props.travelingFactory.presenter}
+                          viewModel={this.props.travelingFactory.viewModel}
+                          controller={this.props.travelingFactory.controller}
+      />
+
       <Card>
         <CardHeader
           title={this.state.carsTitle}
