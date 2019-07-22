@@ -7,6 +7,7 @@ import { ViewModel } from '@eco/frontend-interface-adapter/src/Traveling/ViewMod
 import CardHeader from '@material-ui/core/CardHeader';
 import AddIcon from '@material-ui/icons/Add';
 import AddCarView from '../compononents/AddCarView';
+import AddFlightView from '../compononents/AddFlightView';
 
 const styles = (theme: Theme) => {
   return {
@@ -28,14 +29,15 @@ export default class Home extends React.Component<HomeProps> {
 
   constructor(props: HomeProps) {
     super(props);
-    this.props.travelingFactory.viewModel.onChange((viewModel, path: 'updateOdometerView' | 'addCarView' | 'addFlightView' | null, newValues) => {
-      if (path === null) {
-        this.setState({ ...newValues });
-      } else {
-        const values = { ...this.state[path], ...newValues };
-        this.setState({ path: values });
-      }
-    });
+    this.props.travelingFactory.viewModel
+      .onChange((viewModel, path: 'updateOdometerView' | 'addCarView' | 'addFlightView' | null, newValues) => {
+        if (path === null) {
+          this.setState({ ...newValues });
+        } else {
+          const values = { ...this.state[path], ...newValues };
+          this.setState({ path: values });
+        }
+      });
     this.props.travelingFactory.controller.refreshSummary();
   }
 
@@ -44,6 +46,9 @@ export default class Home extends React.Component<HomeProps> {
       <AddCarView presenter={this.props.travelingFactory.presenter}
                   viewModel={this.props.travelingFactory.viewModel}
                   controller={this.props.travelingFactory.controller}/>
+      <AddFlightView presenter={this.props.travelingFactory.presenter}
+                     viewModel={this.props.travelingFactory.viewModel}
+                     controller={this.props.travelingFactory.controller}/>
       <Card>
         <CardHeader
           title={this.state.carsTitle}
