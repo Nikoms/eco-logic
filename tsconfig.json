@@ -29,6 +29,7 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
+    "composite": true,
     "paths": {
       "@eco/domain/*": [
         "eco/domain/*"
@@ -45,6 +46,9 @@
       "@eco/frontend-interface-adapter/*": [
         "frontend/interface-adapter/*"
       ],
+      "@eco/backend/*": [
+        "backend/*"
+      ]
     }
   },
   "exclude": [

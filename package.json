@@ -23,7 +23,8 @@
     "core/*",
     "eco/*",
     "infrastructure",
-    "frontend/*"
+    "frontend/*",
+    "backend"
   ],
   "private": true,
   "devDependencies": {

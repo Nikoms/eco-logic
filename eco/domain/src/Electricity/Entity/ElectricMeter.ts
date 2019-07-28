@@ -1,4 +1,6 @@
-export class ElectricMeter {
+import { ElectricMeterInterface } from '@eco/domain/src/Electricity/Entity/ElectricMeterInterface';
+
+export class ElectricMeter implements ElectricMeterInterface {
   constructor(public readonly id: string, public readonly name: string, private _kWh: number, private _lastKWhUpdate: Date) {
   }
 

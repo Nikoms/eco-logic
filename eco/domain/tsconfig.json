@@ -1,3 +1,24 @@
 {
-  "extends": "../../tsconfig"
+  "extends": "../../tsconfig",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "noEmit": false,
+    "outDir": "dist",
+    "target": "es2016",
+    "module": "commonjs",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false
+  },
+  "references": [
+    {
+      "path": "../shared-kernel"
+    }
+  ],
+  "include": [
+    "../shared-kernel/src/**/*.ts"
+  ],
+  "exclude": [
+    "dist"
+  ]
 }
