@@ -1,8 +1,8 @@
-import { AddConsumptionRequest } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionRequest';
-import { AddConsumptionPresenterInterface } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionPresenterInterface';
-import { AddConsumptionResponse } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionResponse';
-import { ConsumptionRepositoryInterface } from '@eco/domain/src/Water/UseCase/ConsumptionRepositoryInterface';
-import { WaterConsumption } from '@eco/domain/src/Water/Entity/WaterConsumption';
+import { AddConsumptionRequest } from './AddConsumptionRequest';
+import { ConsumptionRepositoryInterface } from '../ConsumptionRepositoryInterface';
+import { AddConsumptionPresenterInterface } from './AddConsumptionPresenterInterface';
+import { AddConsumptionResponse } from './AddConsumptionResponse';
+import { WaterConsumption } from '../../Entity/WaterConsumption';
 
 export class AddConsumption {
   constructor(private repository: ConsumptionRepositoryInterface) {

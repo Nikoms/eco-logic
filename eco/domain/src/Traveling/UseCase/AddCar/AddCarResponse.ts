@@ -1,4 +1,4 @@
-import { Car } from '@eco/domain/src/Traveling/Entity/Car';
+import { Car } from '../../Entity/Car';
 
 export class AddCarResponse {
   isNameEmpty: boolean = false;

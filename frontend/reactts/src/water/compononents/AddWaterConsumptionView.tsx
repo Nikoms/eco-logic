@@ -1,6 +1,4 @@
-import { WaterController } from '@eco/frontend-interface-adapter/src/Water/WaterController';
 import * as React from 'react';
-import { ViewModel } from '@eco/frontend-interface-adapter/src/Water/ViewModel';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -8,11 +6,11 @@ import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
-import { WaterUI } from '@eco/frontend-interface-adapter/src/Water/WaterUI';
+import { WaterController, WaterUI, WaterViewModel } from '@eco/frontend-interface-adapter';
 
 interface AddWaterConsumptionViewProps {
   controller: WaterController;
-  viewModel: ViewModel;
+  viewModel: WaterViewModel;
   presenter: WaterUI;
 }
 

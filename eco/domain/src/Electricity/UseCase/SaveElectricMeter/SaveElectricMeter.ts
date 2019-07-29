@@ -1,8 +1,8 @@
-import { SaveElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterPresenterInterface';
-import { SaveElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterResponse';
-import { SaveElectricMeterRequest } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterRequest';
-import { ElectricityMeterRepositoryInterface } from '@eco/domain/src/Electricity/Repository/ElectricityMeterRepositoryInterface';
-import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
+import { ElectricityMeterRepositoryInterface } from '../../Repository/ElectricityMeterRepositoryInterface';
+import { SaveElectricMeterRequest } from './SaveElectricMeterRequest';
+import { SaveElectricMeterPresenterInterface } from './SaveElectricMeterPresenterInterface';
+import { ElectricMeter } from '../../Entity/ElectricMeter';
+import { SaveElectricMeterResponse } from './SaveElectricMeterResponse';
 
 export class SaveElectricMeter {
   constructor(private repository: ElectricityMeterRepositoryInterface) {

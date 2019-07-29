@@ -1,4 +1,4 @@
-import { GetLastFuelOilOrdersResponse } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersResponse';
+import { GetLastFuelOilOrdersResponse } from './GetLastFuelOilOrdersResponse';
 
 export interface GetLastFuelOilOrdersPresenterInterface {
   presentGetLastFuelOilOrders(response: GetLastFuelOilOrdersResponse): void;

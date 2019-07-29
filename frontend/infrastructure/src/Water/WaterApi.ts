@@ -1,21 +1,23 @@
-import { GetWaterMetersPresenterInterface } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersPresenterInterface';
-import { AddConsumptionPresenterInterface } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionPresenterInterface';
-import { GetConsumptionsPresenterInterface } from '@eco/domain/src/Water/UseCase/GetConsumptions/GetConsumptionsPresenterInterface';
-import { AddWaterMeterPresenterInterface } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterPresenterInterface';
-import { AddConsumptionResponse } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionResponse';
-import { AddWaterMeterResponse } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterResponse';
-import { GetWaterMetersResponse } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersResponse';
-import { GetConsumptionsResponse } from '@eco/domain/src/Water/UseCase/GetConsumptions/GetConsumptionsResponse';
-import { WaterConsumption } from '@eco/domain/src/Water/Entity/WaterConsumption';
+import {
+  AddConsumptionPresenterInterface,
+  AddConsumptionRequest,
+  AddConsumptionResponse,
+  AddWaterMeterPresenterInterface,
+  AddWaterMeterRequest,
+  AddWaterMeterResponse,
+  GetConsumptionsPresenterInterface,
+  GetConsumptionsResponse,
+  GetWaterMetersPresenterInterface,
+  GetWaterMetersResponse,
+  WaterConsumption,
+  WaterMeter,
+} from '@eco/domain';
 import {
   addWaterConsumption,
   addWaterMeter,
   getAllWaterConsumptions,
   getWaterMeters,
-} from '@eco/infrastructure/src/di';
-import { AddConsumptionRequest } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionRequest';
-import { WaterMeter } from '@eco/domain/src/Water/Entity/WaterMeter';
-import { AddWaterMeterRequest } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterRequest';
+} from '@eco/infrastructure';
 
 export class WaterApi implements GetWaterMetersPresenterInterface,
   AddConsumptionPresenterInterface,

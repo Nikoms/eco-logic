@@ -1,8 +1,8 @@
-import { Event } from '@eco/shared-kernel/src/event/Event';
-import { FuelOilOrder } from '@eco/domain/src/HouseHeating/Entity/FuelOilOrder';
-import { FuelOilEvents } from '@eco/domain/src/HouseHeating/Event/FuelOilEvents';
+import { EcoEvent } from '@eco/shared-kernel';
+import { FuelOilEvents } from './FuelOilEvents';
+import { FuelOilOrder } from '../Entity/FuelOilOrder';
 
-export class FuelOilOrdered implements Event {
+export class FuelOilOrdered implements EcoEvent {
   public name = FuelOilEvents.fuelOilOrdered;
 
   constructor(public readonly fuelOilOrder: FuelOilOrder) {

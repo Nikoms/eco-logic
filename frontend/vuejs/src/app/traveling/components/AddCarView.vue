@@ -29,7 +29,7 @@
 
 <script lang="ts">
   import { Component, Vue, Watch } from 'vue-property-decorator';
-  import { AddCarRequest } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarRequest';
+  import { AddCarRequest } from '@eco/domain';
 
   @Component
   export default class AddCarView extends Vue {
@@ -39,9 +39,9 @@
     @Watch('viewModel.displayed') onDisplayChanged(displayed: boolean) {
       if (displayed) {
         this.form = new AddCarRequest('', '', this.viewModel.engines[0], '0');
-        setImmediate(() => {
+        setTimeout(() => {
           (this.$refs.name as any).focus();
-        });
+        },0);
       }
     }
 

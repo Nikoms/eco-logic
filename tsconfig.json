@@ -29,23 +29,8 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
-    "paths": {
-      "@eco/domain/*": [
-        "eco/domain/*"
-      ],
-      "@eco/shared-kernel/*": [
-        "eco/shared-kernel/*"
-      ],
-      "@eco/infrastructure/*": [
-        "infrastructure/*"
-      ],
-      "@eco/frontend-infrastructure/*": [
-        "frontend/infrastructure/*"
-      ],
-      "@eco/frontend-interface-adapter/*": [
-        "frontend/interface-adapter/*"
-      ],
-    }
+    "composite": true,
+    "incremental": true
   },
   "exclude": [
     "dist"

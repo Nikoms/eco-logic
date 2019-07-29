@@ -4,8 +4,8 @@ import App from './App.vue';
 import router from './app/router';
 import store from './store';
 import './registerServiceWorker';
-import { initListeners } from '@eco/infrastructure/src/initListeners';
 import factories from './plugins/factories';
+import { initListeners } from '@eco/infrastructure/src/initListeners';
 
 Vue.config.productionTip = false;
 initListeners();

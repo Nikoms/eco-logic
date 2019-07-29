@@ -2,13 +2,12 @@ import * as React from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { Card, Theme } from '@material-ui/core';
 import { NonFunctionProperties } from '../../shared-kernel/type/NonFunctionProperties';
-import { TravelingFactory } from '@eco/frontend-interface-adapter/src/Traveling/TravelingFactory';
-import { ViewModel } from '@eco/frontend-interface-adapter/src/Traveling/ViewModel';
 import CardHeader from '@material-ui/core/CardHeader';
 import AddIcon from '@material-ui/icons/Add';
 import AddCarView from '../compononents/AddCarView';
 import AddFlightView from '../compononents/AddFlightView';
 import UpdateOdometerView from '../compononents/UpdateOdometerView';
+import { TravelingFactory, TravelingViewModel } from '@eco/frontend-interface-adapter';
 
 const styles = (theme: Theme) => {
   return {
@@ -26,7 +25,7 @@ interface HomeProps {
 
 @withStyles(styles)
 export default class Home extends React.Component<HomeProps> {
-  state: NonFunctionProperties<ViewModel> = { ...new ViewModel() };
+  state: NonFunctionProperties<TravelingViewModel> = { ...new TravelingViewModel() };
 
   constructor(props: HomeProps) {
     super(props);

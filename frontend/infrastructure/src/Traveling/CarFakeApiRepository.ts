@@ -1,7 +1,6 @@
-import { CarRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/CarRepositoryInterface';
 import { v4 } from 'uuid';
-import { Car } from '@eco/domain/src/Traveling/Entity/Car';
-import { TravelingApi } from '@eco/frontend-infrastructure/src/Traveling/TravelingApi';
+import { Car, CarRepositoryInterface } from '@eco/domain';
+import { TravelingApi } from './TravelingApi';
 
 export class CarFakeApiRepository implements CarRepositoryInterface {
   constructor(private api: TravelingApi) {

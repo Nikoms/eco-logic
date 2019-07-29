@@ -35,9 +35,9 @@
     @Watch('viewModel.formDisplayed') onDisplayChanged(displayed: boolean) {
       if (displayed) {
         this.quantity = '';
-        setImmediate(() => {
+        setTimeout(() => {
           (this.$refs.liters as any).focus();
-        });
+        }, 0);
       }
     }
   }

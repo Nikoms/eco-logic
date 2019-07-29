@@ -1,4 +1,4 @@
-import { PlaneTravel } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
+import { PlaneTravel } from '../Entity/PlaneTravel';
 
 export interface FlightRepositoryInterface {
   nextIdentity(): Promise<string>;

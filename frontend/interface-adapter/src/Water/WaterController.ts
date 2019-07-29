@@ -1,13 +1,15 @@
-import { AddConsumption } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumption';
-import { AddConsumptionRequest } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionRequest';
-import { AddWaterMeter } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeter';
-import { GetWaterMeters } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMeters';
-import { GetConsumptions } from '@eco/domain/src/Water/UseCase/GetConsumptions/GetConsumptions';
-import { AddConsumptionPresenterInterface } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionPresenterInterface';
-import { GetWaterMetersPresenterInterface } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersPresenterInterface';
-import { GetConsumptionsPresenterInterface } from '@eco/domain/src/Water/UseCase/GetConsumptions/GetConsumptionsPresenterInterface';
-import { AddWaterMeterRequest } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterRequest';
-import { AddWaterMeterPresenterInterface } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterPresenterInterface';
+import {
+  AddConsumption,
+  AddConsumptionPresenterInterface,
+  AddConsumptionRequest,
+  AddWaterMeter,
+  AddWaterMeterPresenterInterface,
+  AddWaterMeterRequest,
+  GetConsumptions,
+  GetConsumptionsPresenterInterface,
+  GetWaterMeters,
+  GetWaterMetersPresenterInterface,
+} from '@eco/domain';
 
 export class WaterController {
   constructor(

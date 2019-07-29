@@ -1,7 +1,4 @@
 import * as React from 'react';
-import { TravelingController } from '@eco/frontend-interface-adapter/src/Traveling/TravelingController';
-import { ViewModel } from '@eco/frontend-interface-adapter/src/Traveling/ViewModel';
-import { TravelingUI } from '@eco/frontend-interface-adapter/src/Traveling/TravelingUI';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -9,19 +6,20 @@ import TextField from '@material-ui/core/TextField';
 import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import { TravelingController, TravelingUI, UpdateOdometerViewModel } from '@eco/frontend-interface-adapter';
 
-interface AddFlightViewProps {
+interface UpdateOdometerViewProps {
   controller: TravelingController;
-  viewModel: ViewModel;
+  viewModel: UpdateOdometerViewModel;
   presenter: TravelingUI;
 }
 
-export default class UpdateOdometerView extends React.Component<AddFlightViewProps> {
+export default class UpdateOdometerView extends React.Component<UpdateOdometerViewProps> {
   state = {
     km: '',
   };
 
-  constructor(props: AddFlightViewProps) {
+  constructor(props: UpdateOdometerViewProps) {
     super(props);
   }
 

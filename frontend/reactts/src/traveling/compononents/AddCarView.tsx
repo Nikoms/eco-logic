@@ -6,18 +6,16 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import { ViewModel } from '@eco/frontend-interface-adapter/src/Traveling/ViewModel';
-import { TravelingController } from '@eco/frontend-interface-adapter/src/Traveling/TravelingController';
-import { TravelingUI } from '@eco/frontend-interface-adapter/src/Traveling/TravelingUI';
 import { FormControl } from '@material-ui/core';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-import { AddCarRequest } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarRequest';
+import { AddCarRequest } from '@eco/domain';
+import { AddCarViewModel, TravelingController, TravelingUI } from '@eco/frontend-interface-adapter';
 
 interface AddCarViewProps {
   controller: TravelingController;
-  viewModel: ViewModel;
+  viewModel: AddCarViewModel;
   presenter: TravelingUI;
 }
 

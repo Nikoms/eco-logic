@@ -1,12 +1,14 @@
-import { UpdatePowerConsumptionPresenterInterface } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionPresenterInterface';
-import { GetElectricMetersPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersPresenterInterface';
-import { SaveElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterPresenterInterface';
-import { GetElectricMetersResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersResponse';
-import { SaveElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterResponse';
-import { UpdatePowerConsumptionResponse } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionResponse';
-import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
-import { ElectricUI } from '@eco/frontend-interface-adapter/src/Electricity/ElectricUI';
-import { ElectricViewModel, ViewModel } from '@eco/frontend-interface-adapter/src/Electricity/ViewModel';
+import { ElectricUI } from './ElectricUI';
+import {
+  ElectricMeter,
+  GetElectricMetersPresenterInterface,
+  GetElectricMetersResponse,
+  SaveElectricMeterPresenterInterface,
+  SaveElectricMeterResponse,
+  UpdatePowerConsumptionPresenterInterface,
+  UpdatePowerConsumptionResponse,
+} from '@eco/domain';
+import { ElectricViewModel, ViewModel } from './ViewModel';
 
 export class ElectricityUIPresenter implements ElectricUI,
   UpdatePowerConsumptionPresenterInterface,

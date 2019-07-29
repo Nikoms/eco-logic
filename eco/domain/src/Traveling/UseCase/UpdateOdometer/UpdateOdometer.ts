@@ -1,9 +1,9 @@
-import { UpdateOdometerPresenterInterface } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerPresenterInterface';
-import { UpdateOdometerRequest } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerRequest';
-import { UpdateOdometerResponse } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerResponse';
-import { EventDispatcher } from '@eco/shared-kernel/src/event/EventDispatcher';
-import { CarRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/CarRepositoryInterface';
-import { OdometerUpdated } from '@eco/domain/src/Traveling/Event/OdometerUpdated';
+import { EventDispatcher } from '@eco/shared-kernel';
+import { CarRepositoryInterface } from '../CarRepositoryInterface';
+import { UpdateOdometerRequest } from './UpdateOdometerRequest';
+import { UpdateOdometerResponse } from './UpdateOdometerResponse';
+import { UpdateOdometerPresenterInterface } from './UpdateOdometerPresenterInterface';
+import { OdometerUpdated } from '../../Event/OdometerUpdated';
 
 export class UpdateOdometer {
   constructor(private cars: CarRepositoryInterface, private eventDispatcher: EventDispatcher) {

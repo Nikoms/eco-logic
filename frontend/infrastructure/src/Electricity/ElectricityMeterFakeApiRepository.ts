@@ -1,7 +1,6 @@
-import { ElectricityMeterRepositoryInterface } from '@eco/domain/src/Electricity/Repository/ElectricityMeterRepositoryInterface';
 import { v4 } from 'uuid';
-import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
-import { ElectricityApi } from '@eco/frontend-infrastructure/src/Electricity/ElectricityApi';
+import { ElectricityMeterRepositoryInterface, ElectricMeter } from '@eco/domain';
+import { ElectricityApi } from './ElectricityApi';
 
 export class ElectricityMeterFakeApiRepository implements ElectricityMeterRepositoryInterface {
   constructor(private api: ElectricityApi) {

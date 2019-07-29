@@ -1,8 +1,8 @@
-import { AddCarRequest } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarRequest';
-import { AddCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarPresenterInterface';
-import { AddCarResponse } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarResponse';
-import { CarRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/CarRepositoryInterface';
-import { Car, Engine } from '@eco/domain/src/Traveling/Entity/Car';
+import { CarRepositoryInterface } from '../CarRepositoryInterface';
+import { AddCarRequest } from './AddCarRequest';
+import { AddCarResponse } from './AddCarResponse';
+import { AddCarPresenterInterface } from './AddCarPresenterInterface';
+import { Car, Engine } from '../../Entity/Car';
 
 export class AddCar {
 

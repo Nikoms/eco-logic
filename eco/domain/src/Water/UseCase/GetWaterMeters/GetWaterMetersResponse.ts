@@ -1,4 +1,4 @@
-import { WaterMeter } from '@eco/domain/src/Water/Entity/WaterMeter';
+import { WaterMeter } from '../../Entity/WaterMeter';
 
 export class GetWaterMetersResponse {
   meters: WaterMeter[] = [];

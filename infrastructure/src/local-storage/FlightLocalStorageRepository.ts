@@ -1,7 +1,6 @@
 import { JsonOf } from './type/JsonOf';
-import { PlaneTravel, Seat } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
-import { FlightRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/FlightRepositoryInterface';
 import { v4 } from 'uuid';
+import { FlightRepositoryInterface, PlaneTravel, Seat } from '@eco/domain';
 
 export class FlightLocalStorageRepository implements FlightRepositoryInterface {
   private key = 'flights';

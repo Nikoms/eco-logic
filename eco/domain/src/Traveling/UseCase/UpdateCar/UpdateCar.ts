@@ -1,7 +1,7 @@
-import { UpdateCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/UpdateCar/UpdateCarPresenterInterface';
-import { UpdateCarResponse } from '@eco/domain/src/Traveling/UseCase/UpdateCar/UpdateCarResponse';
-import { CarRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/CarRepositoryInterface';
-import { UpdateCarRequest } from '@eco/domain/src/Traveling/UseCase/UpdateCar/UpdateCarRequest';
+import { CarRepositoryInterface } from '../CarRepositoryInterface';
+import { UpdateCarRequest } from './UpdateCarRequest';
+import { UpdateCarResponse } from './UpdateCarResponse';
+import { UpdateCarPresenterInterface } from './UpdateCarPresenterInterface';
 
 export class UpdateCar {
   constructor(private repository: CarRepositoryInterface) {

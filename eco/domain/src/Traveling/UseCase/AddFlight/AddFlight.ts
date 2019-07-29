@@ -1,10 +1,10 @@
-import { AddFlightRequest } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightRequest';
-import { AddFlightPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightPresenterInterface';
-import { AddFlightResponse } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightResponse';
-import { FlightRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/FlightRepositoryInterface';
-import { EventDispatcher } from '@eco/shared-kernel/src/event/EventDispatcher';
-import { PlaneTravel, Seat } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
-import { PlaneTravelAdded } from '@eco/domain/src/Traveling/Event/PlaneTravelAdded';
+import { FlightRepositoryInterface } from '../FlightRepositoryInterface';
+import { AddFlightPresenterInterface } from './AddFlightPresenterInterface';
+import { AddFlightRequest } from './AddFlightRequest';
+import { AddFlightResponse } from './AddFlightResponse';
+import { EventDispatcher } from '@eco/shared-kernel';
+import { PlaneTravel, Seat } from '../../Entity/PlaneTravel';
+import { PlaneTravelAdded } from '../../Event/PlaneTravelAdded';
 
 export class AddFlight {
   constructor(private repository: FlightRepositoryInterface, private eventDispatcher: EventDispatcher) {

@@ -1,4 +1,4 @@
-import { CarViewModel } from '@eco/frontend-interface-adapter/src/Traveling/ViewModel';
+import { CarViewModel } from './ViewModel';
 
 export class UpdateOdometerViewModel {
   displayed = false;

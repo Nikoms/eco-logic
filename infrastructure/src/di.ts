@@ -1,31 +1,33 @@
 import { EventTargetEventDispatcher } from './event/EventDispatcher';
 import { CarbonLocalStorageRepository } from './local-storage/CarbonLocalStorageRepository';
-import { SaveElectricMeter } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeter';
-import { ElectricMeterLocalStorageRepository } from '@eco/infrastructure/src/local-storage/ElectricMeterLocalStorageRepository';
-import { GetElectricMeters } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMeters';
-import { UpdatePowerConsumption } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumption';
-import { GetElectricMeter } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeter';
-import { GetLastFuelOilOrders } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrder';
-import { FuelOilOrderLocalStorageRepository } from '@eco/infrastructure/src/local-storage/FuelOilOrderLocalStorageRepository';
-import { GetTotalFuelOilOrder } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrder';
-import { AddFuelOilOrder } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrder';
-import { AddCar } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCar';
-import { CarLocalStorageRepository } from '@eco/infrastructure/src/local-storage/CarLocalStorageRepository';
-import { GetCars } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCars';
-import { AddFlight } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlight';
-import { FlightLocalStorageRepository } from '@eco/infrastructure/src/local-storage/FlightLocalStorageRepository';
-import { GetFlights } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlights';
-import { UpdateOdometer } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometer';
-import { AddConsumption } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumption';
-import { WaterConsumptionLocalStorageRepository } from '@eco/infrastructure/src/local-storage/WaterConsumptionLocalStorageRepository';
-import { GetConsumptions } from '@eco/domain/src/Water/UseCase/GetConsumptions/GetConsumptions';
-import { AddWaterMeter } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeter';
-import { WaterMeterLocalStorageRepository } from '@eco/infrastructure/src/local-storage/WaterMeterLocalStorageRepository';
-import { GetWaterMeters } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMeters';
-import { GetCar } from '@eco/domain/src/Traveling/UseCase/GetCar/GetCar';
-import { UpdateCar } from '@eco/domain/src/Traveling/UseCase/UpdateCar/UpdateCar';
-import { AddCarbon } from '@eco/domain/src/Co2/UseCase/AddCarbon/AddCarbon';
-import { GetCarbons } from '@eco/domain/src/Co2/UseCase/GetCarbons/GetCarbons';
+import { WaterConsumptionLocalStorageRepository } from './local-storage/WaterConsumptionLocalStorageRepository';
+import { ElectricMeterLocalStorageRepository } from './local-storage/ElectricMeterLocalStorageRepository';
+import { WaterMeterLocalStorageRepository } from './local-storage/WaterMeterLocalStorageRepository';
+import { CarLocalStorageRepository } from './local-storage/CarLocalStorageRepository';
+import { FuelOilOrderLocalStorageRepository } from './local-storage/FuelOilOrderLocalStorageRepository';
+import { FlightLocalStorageRepository } from './local-storage/FlightLocalStorageRepository';
+import {
+  AddCar,
+  AddCarbon,
+  AddConsumption,
+  AddFlight,
+  AddFuelOilOrder,
+  AddWaterMeter,
+  GetCar,
+  GetCarbons,
+  GetCars,
+  GetConsumptions,
+  GetElectricMeter,
+  GetElectricMeters,
+  GetFlights,
+  GetLastFuelOilOrders,
+  GetTotalFuelOilOrder,
+  GetWaterMeters,
+  SaveElectricMeter,
+  UpdateCar,
+  UpdateOdometer,
+  UpdatePowerConsumption,
+} from '@eco/domain';
 
 export const eventDispatcher = new EventTargetEventDispatcher();
 

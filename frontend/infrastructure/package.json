@@ -2,16 +2,19 @@
   "name": "@eco/frontend-infrastructure",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "event-target-shim": "^5.0.1",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "@eco/domain": "1.0.0",
+    "@eco/infrastructure": "1.0.0"
   },
   "devDependencies": {
     "@types/uuid": "^3.4.5"

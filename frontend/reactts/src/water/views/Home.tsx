@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { ViewModel } from '@eco/frontend-interface-adapter/src/Water/ViewModel';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import withStyles from '@material-ui/core/styles/withStyles';
@@ -8,7 +7,7 @@ import { NonFunctionProperties } from '../../shared-kernel/type/NonFunctionPrope
 import InitWaterMeterView from '../compononents/InitWaterMeterView';
 import ListWaterMeterView from '../compononents/ListWaterConsumptionView';
 import AddWaterConsumptionView from '../compononents/AddWaterConsumptionView';
-import { WaterFactory } from '@eco/frontend-interface-adapter/src/Water/WaterFactory';
+import { WaterFactory, WaterViewModel } from '@eco/frontend-interface-adapter';
 
 const styles = (theme: Theme) => {
   return {
@@ -26,7 +25,7 @@ interface HomeProps {
 
 @withStyles(styles)
 export default class Home extends React.Component<HomeProps> {
-  state: NonFunctionProperties<ViewModel> = { ...new ViewModel() };
+  state: NonFunctionProperties<WaterViewModel> = { ...new WaterViewModel() };
 
   constructor(props: HomeProps) {
     super(props);

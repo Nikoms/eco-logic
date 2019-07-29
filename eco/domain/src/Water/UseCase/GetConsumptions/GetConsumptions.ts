@@ -1,6 +1,6 @@
-import { GetConsumptionsPresenterInterface } from '@eco/domain/src/Water/UseCase/GetConsumptions/GetConsumptionsPresenterInterface';
-import { GetConsumptionsResponse } from '@eco/domain/src/Water/UseCase/GetConsumptions/GetConsumptionsResponse';
-import { ConsumptionRepositoryInterface } from '@eco/domain/src/Water/UseCase/ConsumptionRepositoryInterface';
+import { ConsumptionRepositoryInterface } from '../ConsumptionRepositoryInterface';
+import { GetConsumptionsPresenterInterface } from './GetConsumptionsPresenterInterface';
+import { GetConsumptionsResponse } from './GetConsumptionsResponse';
 
 export class GetConsumptions {
   constructor(private repository: ConsumptionRepositoryInterface) {

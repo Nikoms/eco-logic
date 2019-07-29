@@ -1,24 +1,26 @@
-import { UpdateOdometerPresenterInterface } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerPresenterInterface';
-import { GetCarsPresenterInterface } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCarsPresenterInterface';
-import { AddCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarPresenterInterface';
-import { AddFlightPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightPresenterInterface';
-import { GetFlightsPresenterInterface } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlightsPresenterInterface';
-import { AddCarResponse } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarResponse';
-import { AddFlightResponse } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightResponse';
-import { GetCarsResponse } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCarsResponse';
-import { UpdateOdometerResponse } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerResponse';
-import { GetFlightsResponse } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlightsResponse';
-import { Car } from '@eco/domain/src/Traveling/Entity/Car';
-import { PlaneTravel } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
-import { addCar, addFlight, getCar, getCars, getFlights, updateCar } from '@eco/infrastructure/src/di';
-import { AddCarRequest } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarRequest';
-import { AddFlightRequest } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightRequest';
-import { GetCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/GetCar/GetCarPresenterInterface';
-import { GetCarResponse } from '@eco/domain/src/Traveling/UseCase/GetCar/GetCarResponse';
-import { GetCarRequest } from '@eco/domain/src/Traveling/UseCase/GetCar/GetCarRequest';
-import { UpdateCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/UpdateCar/UpdateCarPresenterInterface';
-import { UpdateCarResponse } from '@eco/domain/src/Traveling/UseCase/UpdateCar/UpdateCarResponse';
-import { UpdateCarRequest } from '@eco/domain/src/Traveling/UseCase/UpdateCar/UpdateCarRequest';
+import {
+  AddCarPresenterInterface,
+  AddCarRequest,
+  AddCarResponse,
+  AddFlightPresenterInterface,
+  AddFlightRequest,
+  AddFlightResponse,
+  Car,
+  GetCarPresenterInterface,
+  GetCarRequest,
+  GetCarResponse,
+  GetCarsPresenterInterface,
+  GetCarsResponse,
+  GetFlightsPresenterInterface,
+  GetFlightsResponse,
+  PlaneTravel,
+  UpdateCarPresenterInterface,
+  UpdateCarRequest,
+  UpdateCarResponse,
+  UpdateOdometerPresenterInterface,
+  UpdateOdometerResponse,
+} from '@eco/domain';
+import { addCar, addFlight, getCar, getCars, getFlights, updateCar } from '@eco/infrastructure';
 
 export class TravelingApi
   implements UpdateOdometerPresenterInterface,

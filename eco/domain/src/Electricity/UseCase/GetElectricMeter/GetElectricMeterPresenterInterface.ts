@@ -1,4 +1,4 @@
-import { GetElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterResponse';
+import { GetElectricMeterResponse } from './GetElectricMeterResponse';
 
 export interface GetElectricMeterPresenterInterface {
   presentGetElectricMeter(response: GetElectricMeterResponse): void;

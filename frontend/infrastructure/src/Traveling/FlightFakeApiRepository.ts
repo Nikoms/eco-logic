@@ -1,7 +1,6 @@
-import { FlightRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/FlightRepositoryInterface';
 import { v4 } from 'uuid';
-import { PlaneTravel } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
-import { TravelingApi } from '@eco/frontend-infrastructure/src/Traveling/TravelingApi';
+import { FlightRepositoryInterface, PlaneTravel } from '@eco/domain';
+import { TravelingApi } from './TravelingApi';
 
 export class FlightFakeApiRepository implements FlightRepositoryInterface {
   constructor(private api: TravelingApi) {

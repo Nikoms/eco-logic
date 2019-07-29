@@ -1,7 +1,4 @@
 import * as React from 'react';
-import { TravelingController } from '@eco/frontend-interface-adapter/src/Traveling/TravelingController';
-import { ViewModel } from '@eco/frontend-interface-adapter/src/Traveling/ViewModel';
-import { TravelingUI } from '@eco/frontend-interface-adapter/src/Traveling/TravelingUI';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -12,11 +9,12 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
-import { AddFlightRequest } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightRequest';
+import { AddFlightRequest } from '@eco/domain';
+import { AddFlightViewModel, TravelingController, TravelingUI } from '@eco/frontend-interface-adapter';
 
 interface AddFlightViewProps {
   controller: TravelingController;
-  viewModel: ViewModel;
+  viewModel: AddFlightViewModel;
   presenter: TravelingUI;
 }
 

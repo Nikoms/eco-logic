@@ -28,6 +28,17 @@
       "scripthost"
     ]
   },
+  "references": [
+    {
+      "path": "../../eco/domain/tsconfig.json"
+    },
+    {
+      "path": "../interface-adapter/tsconfig.json"
+    },
+    {
+      "path": "../infrastructure/tsconfig.json"
+    }
+  ],
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
@@ -37,7 +48,7 @@
     "../../infrastructure/src/**/*.ts",
     "../infrastructure/src/**/*.ts",
     "../interface-adapter/src/**/*.ts",
-    "../../core/**/src/**/*.ts",
+    "../../eco/**/src/**/*.ts"
   ],
   "exclude": [
     "node_modules"

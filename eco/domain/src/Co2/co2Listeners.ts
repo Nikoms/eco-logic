@@ -1,11 +1,11 @@
 import { AddCarbon } from './UseCase/AddCarbon/AddCarbon';
-import { TravelEvents } from '@eco/domain/src/Traveling/Event/TravelEvents';
-import { ElectricityEvents } from '@eco/domain/src/Electricity/Event/ElectricityEvents';
-import { EventDispatcher } from '@eco/shared-kernel/src/event/EventDispatcher';
 import { CarbonCalculator } from './CarbonCalculator';
-import { FuelOilEvents } from '@eco/domain/src/HouseHeating/Event/FuelOilEvents';
-import { AddCarbonPresenter } from '@eco/domain/src/Co2/UseCase/AddCarbon/AddCarbonPresenter';
-import { AddCarbonResponse } from '@eco/domain/src/Co2/UseCase/AddCarbon/AddCarbonResponse';
+import { AddCarbonPresenter } from './UseCase/AddCarbon/AddCarbonPresenter';
+import { AddCarbonResponse } from './UseCase/AddCarbon/AddCarbonResponse';
+import { TravelEvents } from '../Traveling/Event/TravelEvents';
+import { ElectricityEvents } from '../Electricity/Event/ElectricityEvents';
+import { FuelOilEvents } from '../HouseHeating/Event/FuelOilEvents';
+import { EventDispatcher } from '@eco/shared-kernel';
 
 export const initCo2Listeners = (eventDispatcher: EventDispatcher, addCarbonCommand: AddCarbon) => {
   const on = eventDispatcher.addListener.bind(eventDispatcher);

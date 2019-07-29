@@ -1,4 +1,4 @@
-import { AddFlightResponse } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightResponse';
+import { AddFlightResponse } from './AddFlightResponse';
 
 export interface AddFlightPresenterInterface {
   presentAddFlight(response: AddFlightResponse): void;

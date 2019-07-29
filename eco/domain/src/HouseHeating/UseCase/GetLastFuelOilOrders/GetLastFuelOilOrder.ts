@@ -1,7 +1,7 @@
-import { GetLastFuelOilOrdersResponse } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersResponse';
-import { FuelOilOrderRepositoryInterface } from '@eco/domain/src/HouseHeating/FuelOilOrderRepositoryInterface';
-import { GetLastFuelOilOrdersRequest } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersRequest';
-import { GetLastFuelOilOrdersPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersPresenterInterface';
+import { FuelOilOrderRepositoryInterface } from '../../FuelOilOrderRepositoryInterface';
+import { GetLastFuelOilOrdersPresenterInterface } from './GetLastFuelOilOrdersPresenterInterface';
+import { GetLastFuelOilOrdersRequest } from './GetLastFuelOilOrdersRequest';
+import { GetLastFuelOilOrdersResponse } from './GetLastFuelOilOrdersResponse';
 
 export class GetLastFuelOilOrders {
   constructor(private repository: FuelOilOrderRepositoryInterface) {

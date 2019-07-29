@@ -1,3 +1,13 @@
 {
-  "extends": "../../tsconfig"
+  "extends": "../../tsconfig",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "noEmit": false
+  },
+  "exclude": [
+    "__tests__",
+    "dist"
+  ],
+  "references": []
 }

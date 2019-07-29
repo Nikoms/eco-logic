@@ -1,6 +1,5 @@
-import { CarRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/CarRepositoryInterface';
-import { Car, Engine } from '@eco/domain/src/Traveling/Entity/Car';
 import { v4 } from 'uuid';
+import { Car, CarRepositoryInterface, Engine } from '@eco/domain';
 
 interface CarJson {
   id: string;

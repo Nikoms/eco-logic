@@ -1,6 +1,5 @@
-import { ElectricityMeterRepositoryInterface } from '@eco/domain/src/Electricity/Repository/ElectricityMeterRepositoryInterface';
-import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
 import { v4 } from 'uuid';
+import { ElectricityMeterRepositoryInterface, ElectricMeter } from '@eco/domain';
 
 interface ElectricMeterJson {
   id: string;

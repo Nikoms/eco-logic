@@ -1,6 +1,6 @@
-import { GetWaterMetersPresenterInterface } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersPresenterInterface';
-import { GetWaterMetersResponse } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersResponse';
-import { WaterMeterRepositoryInterface } from '@eco/domain/src/Water/UseCase/WaterMeterRepositoryInterface';
+import { WaterMeterRepositoryInterface } from '../WaterMeterRepositoryInterface';
+import { GetWaterMetersPresenterInterface } from './GetWaterMetersPresenterInterface';
+import { GetWaterMetersResponse } from './GetWaterMetersResponse';
 
 export class GetWaterMeters {
   constructor(private repository: WaterMeterRepositoryInterface) {

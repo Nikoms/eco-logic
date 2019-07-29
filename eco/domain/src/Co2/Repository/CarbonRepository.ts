@@ -1,4 +1,4 @@
-import { Carbon } from '@eco/domain/src/Co2/Entity/Carbon';
+import { Carbon } from '../Entity/Carbon';
 
 export interface CarbonRepository {
   getAll(): Promise<Carbon[]>;

@@ -1,6 +1,6 @@
-import { FlightRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/FlightRepositoryInterface';
-import { GetFlightsPresenterInterface } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlightsPresenterInterface';
-import { GetFlightsResponse } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlightsResponse';
+import { FlightRepositoryInterface } from '../FlightRepositoryInterface';
+import { GetFlightsPresenterInterface } from './GetFlightsPresenterInterface';
+import { GetFlightsResponse } from './GetFlightsResponse';
 
 export class GetFlights {
   constructor(private repository: FlightRepositoryInterface) {

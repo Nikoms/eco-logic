@@ -1,8 +1,9 @@
-import { Event } from '@eco/shared-kernel/src/event/Event';
-import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
-import { ElectricityEvents } from '@eco/domain/src/Electricity/Event/ElectricityEvents';
+import { ElectricityEvents } from './ElectricityEvents';
+import { ElectricMeter } from '../Entity/ElectricMeter';
+import { EcoEvent } from '@eco/shared-kernel';
 
-export class PowerUpdated implements Event {
+
+export class PowerUpdated implements EcoEvent {
   name = ElectricityEvents.powerUpdated;
 
   constructor(

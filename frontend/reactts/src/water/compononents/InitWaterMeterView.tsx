@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { WaterController } from '@eco/frontend-interface-adapter/src/Water/WaterController';
 import { Card } from '@material-ui/core';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
+import { WaterController } from '@eco/frontend-interface-adapter';
 
 export default class InitWaterMeterView extends React.Component<{ controller: WaterController }> {
   render() {

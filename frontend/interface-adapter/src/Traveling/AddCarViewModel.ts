@@ -1,4 +1,4 @@
-import { Engine } from '@eco/domain/src/Traveling/Entity/Car';
+import { Engine } from '@eco/domain';
 
 export class AddCarViewModel {
   displayed = false;

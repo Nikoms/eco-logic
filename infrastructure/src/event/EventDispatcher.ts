@@ -1,6 +1,5 @@
-import { EventDispatcher } from '@eco/shared-kernel/src/event/EventDispatcher';
-import { Event } from '@eco/shared-kernel/src/event/Event';
 import { EventTarget } from 'event-target-shim';
+import { EcoEvent, EventDispatcher } from '@eco/shared-kernel';
 
 export class EventTargetEventDispatcher implements EventDispatcher {
   private listeners: Map<string, Map<any, any>> = new Map();
@@ -25,7 +24,7 @@ export class EventTargetEventDispatcher implements EventDispatcher {
     this.listeners.get(eventName)!.delete(callback);
   }
 
-  emit(event: Event): any {
+  emit(event: EcoEvent): any {
     this.eventTarget.dispatchEvent(new CustomEvent(event.name, { detail: event }));
   }
 }

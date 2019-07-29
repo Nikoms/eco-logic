@@ -1,10 +1,12 @@
-import { AddCarbonPresenter } from '@eco/domain/src/Co2/UseCase/AddCarbon/AddCarbonPresenter';
-import { AddCarbonResponse } from '@eco/domain/src/Co2/UseCase/AddCarbon/AddCarbonResponse';
-import { Carbon } from '@eco/domain/src/Co2/Entity/Carbon';
-import { addCarbon, getCarbons } from '@eco/infrastructure/src/di';
-import { AddCarbonRequest } from '@eco/domain/src/Co2/UseCase/AddCarbon/AddCarbonRequest';
-import { GetCarbonsPresenter } from '@eco/domain/src/Co2/UseCase/GetCarbons/GetCarbonsPresenter';
-import { GetCarbonsResponse } from '@eco/domain/src/Co2/UseCase/GetCarbons/GetCarbonsResponse';
+import {
+  AddCarbonPresenter,
+  AddCarbonRequest,
+  AddCarbonResponse,
+  Carbon,
+  GetCarbonsPresenter,
+  GetCarbonsResponse,
+} from '@eco/domain';
+import { addCarbon, getCarbons } from '@eco/infrastructure';
 
 export class CarbonApi implements AddCarbonPresenter, GetCarbonsPresenter {
   private addCarbonResponse?: AddCarbonResponse;

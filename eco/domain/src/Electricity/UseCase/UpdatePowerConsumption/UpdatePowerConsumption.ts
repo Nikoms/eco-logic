@@ -1,10 +1,10 @@
-import { UpdatePowerConsumptionRequest } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionRequest';
-import { UpdatePowerConsumptionPresenterInterface } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionPresenterInterface';
-import { UpdatePowerConsumptionResponse } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionResponse';
-import { PowerConsumption } from '@eco/domain/src/Electricity/Entity/PowerConsumption';
-import { ElectricityMeterRepositoryInterface } from '@eco/domain/src/Electricity/Repository/ElectricityMeterRepositoryInterface';
-import { PowerUpdated } from '@eco/domain/src/Electricity/Event/PowerUpdated';
-import { EventDispatcher } from '@eco/shared-kernel/src/event/EventDispatcher';
+import { ElectricityMeterRepositoryInterface } from '../../Repository/ElectricityMeterRepositoryInterface';
+import { EventDispatcher } from '@eco/shared-kernel';
+import { UpdatePowerConsumptionPresenterInterface } from './UpdatePowerConsumptionPresenterInterface';
+import { UpdatePowerConsumptionRequest } from './UpdatePowerConsumptionRequest';
+import { UpdatePowerConsumptionResponse } from './UpdatePowerConsumptionResponse';
+import { PowerUpdated } from '../../Event/PowerUpdated';
+import { PowerConsumption } from '../../Entity/PowerConsumption';
 
 export class UpdatePowerConsumption {
   constructor(private meterRepository: ElectricityMeterRepositoryInterface,

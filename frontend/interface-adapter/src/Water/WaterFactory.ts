@@ -1,11 +1,14 @@
-import { AddConsumption } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumption';
-import { AddWaterMeter } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeter';
-import { GetWaterMeters } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMeters';
-import { GetConsumptions } from '@eco/domain/src/Water/UseCase/GetConsumptions/GetConsumptions';
+import {
+  AddConsumption,
+  AddWaterMeter,
+  ConsumptionRepositoryInterface,
+  GetConsumptions,
+  GetWaterMeters,
+  WaterMeterRepositoryInterface,
+} from '@eco/domain';
 import { WaterController } from './WaterController';
-import { WaterUIPresenter } from '@eco/frontend-interface-adapter/src/Water/WaterUIPresenter';
-import { WaterMeterRepositoryInterface } from '@eco/domain/src/Water/UseCase/WaterMeterRepositoryInterface';
-import { ConsumptionRepositoryInterface } from '@eco/domain/src/Water/UseCase/ConsumptionRepositoryInterface';
+import { WaterUIPresenter } from './WaterUIPresenter';
+import { ViewModel } from './ViewModel';
 
 export class WaterFactory {
   private instances: any = {};
@@ -34,7 +37,7 @@ export class WaterFactory {
     return this.reuseOrInstantiate('WaterPresenter', () => new WaterUIPresenter());
   }
 
-  get viewModel() {
+  get viewModel(): ViewModel {
     return this.presenter.viewModel;
   }
 

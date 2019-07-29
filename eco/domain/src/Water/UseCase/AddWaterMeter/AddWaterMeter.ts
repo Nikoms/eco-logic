@@ -1,8 +1,8 @@
-import { AddWaterMeterRequest } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterRequest';
-import { WaterMeterRepositoryInterface } from '@eco/domain/src/Water/UseCase/WaterMeterRepositoryInterface';
-import { AddWaterMeterResponse } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterResponse';
-import { AddWaterMeterPresenterInterface } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterPresenterInterface';
-import { WaterMeter } from '@eco/domain/src/Water/Entity/WaterMeter';
+import { WaterMeterRepositoryInterface } from '../WaterMeterRepositoryInterface';
+import { AddWaterMeterRequest } from './AddWaterMeterRequest';
+import { AddWaterMeterPresenterInterface } from './AddWaterMeterPresenterInterface';
+import { AddWaterMeterResponse } from './AddWaterMeterResponse';
+import { WaterMeter } from '../../Entity/WaterMeter';
 
 export class AddWaterMeter {
   constructor(private repository: WaterMeterRepositoryInterface) {

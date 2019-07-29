@@ -12,7 +12,10 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-router": "^5.0.1",
-    "react-router-dom": "^5.0.1"
+    "react-router-dom": "^5.0.1",
+    "@eco/domain": "1.0.0",
+    "@eco/infrastructure": "1.0.0",
+    "@eco/frontend-infrastructure": "1.0.0"
   },
   "devDependencies": {
     "@types/react": "^16.8.23",

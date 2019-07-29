@@ -1,19 +1,17 @@
-import { AddConsumptionPresenterInterface } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionPresenterInterface';
-import { GetWaterMetersPresenterInterface } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersPresenterInterface';
-import { AddConsumptionResponse } from '@eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionResponse';
-import { GetConsumptionsPresenterInterface } from '@eco/domain/src/Water/UseCase/GetConsumptions/GetConsumptionsPresenterInterface';
-import { GetConsumptionsResponse } from '@eco/domain/src/Water/UseCase/GetConsumptions/GetConsumptionsResponse';
-import { GetWaterMetersResponse } from '@eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersResponse';
-import { AddWaterMeterPresenterInterface } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterPresenterInterface';
-import { AddWaterMeterResponse } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterResponse';
-import { WaterMeter } from '@eco/domain/src/Water/Entity/WaterMeter';
-import { WaterConsumption } from '@eco/domain/src/Water/Entity/WaterConsumption';
-import { WaterUI } from '@eco/frontend-interface-adapter/src/Water/WaterUI';
 import {
-  ViewModel,
-  WaterConsumptionViewModel,
-  WaterMeterViewModel,
-} from '@eco/frontend-interface-adapter/src/Water/ViewModel';
+  AddConsumptionPresenterInterface,
+  AddConsumptionResponse,
+  AddWaterMeterPresenterInterface,
+  AddWaterMeterResponse,
+  GetConsumptionsPresenterInterface,
+  GetConsumptionsResponse,
+  GetWaterMetersPresenterInterface,
+  GetWaterMetersResponse,
+  WaterConsumption,
+  WaterMeter,
+} from '@eco/domain';
+import { WaterUI } from './WaterUI';
+import { ViewModel, WaterConsumptionViewModel, WaterMeterViewModel } from './ViewModel';
 
 export class WaterUIPresenter implements GetWaterMetersPresenterInterface,
   AddConsumptionPresenterInterface,

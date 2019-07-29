@@ -1,11 +1,13 @@
-import { AddFuelOilOrder } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrder';
-import { GetLastFuelOilOrders } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrder';
-import { GetTotalFuelOilOrder } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrder';
 import { HouseHeatingController } from './HouseHeatingController';
 import { HouseHeatingUIPresenter } from './HouseHeatingUIPresenter';
-import { ElectricUI } from '@eco/frontend-interface-adapter/src/HouseHeating/ElectricUI';
-import { FuelOilOrderRepositoryInterface } from '@eco/domain/src/HouseHeating/FuelOilOrderRepositoryInterface';
-import { EventDispatcher } from '@eco/shared-kernel/src/event/EventDispatcher';
+import { EventDispatcher } from '@eco/shared-kernel';
+import {
+  AddFuelOilOrder,
+  FuelOilOrderRepositoryInterface,
+  GetLastFuelOilOrders,
+  GetTotalFuelOilOrder,
+} from '@eco/domain';
+import { ElectricUI } from './ElectricUI';
 
 export class HouseHeatingFactory {
   private instances: any = {};

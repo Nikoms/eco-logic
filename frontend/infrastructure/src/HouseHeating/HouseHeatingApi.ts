@@ -1,12 +1,14 @@
-import { GetTotalFuelOilOrderPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrderPresenterInterface';
-import { GetLastFuelOilOrdersPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersPresenterInterface';
-import { AddFuelOilOrderPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderPresenterInterface';
-import { AddFuelOilOrderResponse } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderResponse';
-import { GetLastFuelOilOrdersResponse } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersResponse';
-import { GetTotalFuelOilOrderResponse } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrderResponse';
-import { addFuelOilOrder, getLastFuelOilOrder, getTotalFuelOilOrder } from '@eco/infrastructure/src/di';
-import { AddFuelOilOrderRequest } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderRequest';
-import { GetLastFuelOilOrdersRequest } from '@eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersRequest';
+import {
+  AddFuelOilOrderPresenterInterface,
+  AddFuelOilOrderRequest,
+  AddFuelOilOrderResponse,
+  GetLastFuelOilOrdersPresenterInterface,
+  GetLastFuelOilOrdersRequest,
+  GetLastFuelOilOrdersResponse,
+  GetTotalFuelOilOrderPresenterInterface,
+  GetTotalFuelOilOrderResponse,
+} from '@eco/domain';
+import { addFuelOilOrder, getLastFuelOilOrder, getTotalFuelOilOrder } from '@eco/infrastructure';
 
 export class HouseHeatingApi implements GetTotalFuelOilOrderPresenterInterface,
   GetLastFuelOilOrdersPresenterInterface,

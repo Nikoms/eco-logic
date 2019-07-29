@@ -31,7 +31,7 @@
 
 <script lang="ts">
   import { Component, Vue, Watch } from 'vue-property-decorator';
-  import { AddFlightRequest } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightRequest';
+  import { AddFlightRequest } from '@eco/domain';
 
   @Component
   export default class AddFlightView extends Vue {
@@ -41,9 +41,9 @@
     @Watch('viewModel.displayed') onDisplayedChanged(newValue: boolean) {
       if (newValue) {
         this.form = new AddFlightRequest(this.viewModel.seats[0], '', '');
-        setImmediate(() => {
+        setTimeout(() => {
           (this.$refs.distance as any).focus();
-        });
+        },0);
       }
     }
   }

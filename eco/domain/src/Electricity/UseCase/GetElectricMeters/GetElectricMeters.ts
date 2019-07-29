@@ -1,6 +1,6 @@
-import { GetElectricMetersPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersPresenterInterface';
-import { GetElectricMetersResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersResponse';
-import { ElectricityMeterRepositoryInterface } from '@eco/domain/src/Electricity/Repository/ElectricityMeterRepositoryInterface';
+import { ElectricityMeterRepositoryInterface } from '../../Repository/ElectricityMeterRepositoryInterface';
+import { GetElectricMetersPresenterInterface } from './GetElectricMetersPresenterInterface';
+import { GetElectricMetersResponse } from './GetElectricMetersResponse';
 
 export class GetElectricMeters {
   constructor(private repository: ElectricityMeterRepositoryInterface) {

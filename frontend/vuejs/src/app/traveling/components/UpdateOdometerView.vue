@@ -44,9 +44,9 @@
     @Watch('viewModel.displayed') onDisplayChanged(displayed: boolean) {
       if (displayed) {
         this.km = '';
-        setImmediate(() => {
+        setTimeout(() => {
           (this.$refs.carField as any).focus();
-        });
+        },0);
       }
     }
   }

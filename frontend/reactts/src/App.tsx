@@ -1,12 +1,10 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import { travel, water } from './di';
 import { BottomNavigation, Theme } from '@material-ui/core';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import LocalDrinkIcon from '@material-ui/icons/LocalDrink';
 import PlaceIcon from '@material-ui/icons/Place';
 import HomeIcon from '@material-ui/icons/Home';
-import { WaterFactory } from '@eco/frontend-interface-adapter/src/Water/WaterFactory';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -16,6 +14,7 @@ import Box from '@material-ui/core/Box';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { AdapterLink } from './shared-kernel/react/AdapterLink';
 import TravelingHome from './traveling/views/Home';
+import { travelFactory, waterFactory, WaterFactory } from '@eco/frontend-interface-adapter';
 
 const styles = (theme: Theme) => {
   return {
@@ -53,8 +52,8 @@ class App extends React.Component<{ waterFactory: WaterFactory }> {
           <Box className={this.props.classes.main}>
             <Route path="/" exact render={(props: any) => (<div>Welcome!</div>)}/>
             <Route path="/travel" exact
-                   render={(props: any) => <TravelingHome {...props} travelingFactory={travel}/>}/>
-            <Route path="/water" exact render={(props: any) => <WaterHome {...props} waterFactory={water}/>}/>
+                   render={(props: any) => <TravelingHome {...props} travelingFactory={travelFactory}/>}/>
+            <Route path="/water" exact render={(props: any) => <WaterHome {...props} waterFactory={waterFactory}/>}/>
           </Box>
           <BottomNavigation
             className={this.props.classes.stickToBottom}
@@ -74,4 +73,4 @@ class App extends React.Component<{ waterFactory: WaterFactory }> {
   }
 }
 
-render(<App waterFactory={water}/>, document.getElementById('main'));
+render(<App waterFactory={waterFactory}/>, document.getElementById('main'));

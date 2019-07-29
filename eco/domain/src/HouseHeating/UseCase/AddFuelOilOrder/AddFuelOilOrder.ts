@@ -1,10 +1,10 @@
-import { AddFuelOilOrderRequest } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderRequest';
-import { AddFuelOilOrderPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderPresenterInterface';
-import { AddFuelOilOrderResponse } from '@eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderResponse';
-import { FuelOilOrderRepositoryInterface } from '@eco/domain/src/HouseHeating/FuelOilOrderRepositoryInterface';
-import { FuelOilOrder } from '@eco/domain/src/HouseHeating/Entity/FuelOilOrder';
-import { FuelOilOrdered } from '@eco/domain/src/HouseHeating/Event/FuelOilOrdered';
-import { EventDispatcher } from '@eco/shared-kernel/src/event/EventDispatcher';
+import { FuelOilOrderRepositoryInterface } from '../../FuelOilOrderRepositoryInterface';
+import { EventDispatcher } from '@eco/shared-kernel';
+import { AddFuelOilOrderPresenterInterface } from './AddFuelOilOrderPresenterInterface';
+import { AddFuelOilOrderRequest } from './AddFuelOilOrderRequest';
+import { AddFuelOilOrderResponse } from './AddFuelOilOrderResponse';
+import { FuelOilOrder } from '../../Entity/FuelOilOrder';
+import { FuelOilOrdered } from '../../Event/FuelOilOrdered';
 
 export class AddFuelOilOrder {
   constructor(private repository: FuelOilOrderRepositoryInterface, private eventDispatcher: EventDispatcher) {

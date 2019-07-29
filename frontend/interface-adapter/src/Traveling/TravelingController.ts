@@ -1,16 +1,18 @@
-import { AddCar } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCar';
-import { AddCarRequest } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarRequest';
-import { AddFlight } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlight';
-import { AddFlightRequest } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightRequest';
-import { GetCars } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCars';
-import { GetFlights } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlights';
-import { UpdateOdometer } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometer';
-import { AddCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarPresenterInterface';
-import { AddFlightPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightPresenterInterface';
-import { UpdateOdometerPresenterInterface } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerPresenterInterface';
-import { GetFlightsPresenterInterface } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlightsPresenterInterface';
-import { GetCarsPresenterInterface } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCarsPresenterInterface';
-import { UpdateOdometerRequest } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerRequest';
+import {
+  AddCar,
+  AddCarPresenterInterface,
+  AddCarRequest,
+  AddFlight,
+  AddFlightPresenterInterface,
+  AddFlightRequest,
+  GetCars,
+  GetCarsPresenterInterface,
+  GetFlights,
+  GetFlightsPresenterInterface,
+  UpdateOdometer,
+  UpdateOdometerPresenterInterface,
+  UpdateOdometerRequest,
+} from '@eco/domain';
 
 export class TravelingController {
   constructor(

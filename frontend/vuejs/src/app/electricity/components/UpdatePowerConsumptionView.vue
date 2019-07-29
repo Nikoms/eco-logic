@@ -39,9 +39,9 @@
     onPropertyChanged(displayed: boolean) {
       if (displayed) {
         this.kWh = '';
-        setImmediate(() => {
+        setTimeout(() => {
           (this.$refs.consumptionField as any).focus();
-        });
+        }, 0);
       }
     }
   }

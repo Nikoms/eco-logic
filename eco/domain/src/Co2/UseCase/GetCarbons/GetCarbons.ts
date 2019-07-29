@@ -1,6 +1,6 @@
-import { CarbonRepository } from '@eco/domain/src/Co2/Repository/CarbonRepository';
-import { GetCarbonsPresenter } from '@eco/domain/src/Co2/UseCase/GetCarbons/GetCarbonsPresenter';
-import { GetCarbonsResponse } from '@eco/domain/src/Co2/UseCase/GetCarbons/GetCarbonsResponse';
+import { CarbonRepository } from '../../Repository/CarbonRepository';
+import { GetCarbonsPresenter } from './GetCarbonsPresenter';
+import { GetCarbonsResponse } from './GetCarbonsResponse';
 
 export class GetCarbons {
   constructor(private store: CarbonRepository) {

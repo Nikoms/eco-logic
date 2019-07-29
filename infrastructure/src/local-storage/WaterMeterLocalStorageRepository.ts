@@ -1,7 +1,7 @@
 import { JsonOf } from './type/JsonOf';
-import { WaterMeter } from '@eco/domain/src/Water/Entity/WaterMeter';
-import { WaterMeterRepositoryInterface } from '@eco/domain/src/Water/UseCase/WaterMeterRepositoryInterface';
 import { v4 } from 'uuid';
+import { WaterMeter, WaterMeterRepositoryInterface } from '@eco/domain';
+
 
 export class WaterMeterLocalStorageRepository implements WaterMeterRepositoryInterface {
   private key = 'water-meters';

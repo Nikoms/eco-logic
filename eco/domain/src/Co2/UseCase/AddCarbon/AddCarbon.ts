@@ -1,8 +1,8 @@
-import { CarbonRepository } from '@eco/domain/src/Co2/Repository/CarbonRepository';
-import { AddCarbonRequest } from '@eco/domain/src/Co2/UseCase/AddCarbon/AddCarbonRequest';
-import { Carbon } from '@eco/domain/src/Co2/Entity/Carbon';
-import { AddCarbonPresenter } from '@eco/domain/src/Co2/UseCase/AddCarbon/AddCarbonPresenter';
-import { AddCarbonResponse } from '@eco/domain/src/Co2/UseCase/AddCarbon/AddCarbonResponse';
+import { CarbonRepository } from '../../Repository/CarbonRepository';
+import { AddCarbonRequest } from './AddCarbonRequest';
+import { AddCarbonPresenter } from './AddCarbonPresenter';
+import { AddCarbonResponse } from './AddCarbonResponse';
+import { Carbon } from '../../Entity/Carbon';
 
 export class AddCarbon {
   constructor(private repository: CarbonRepository) {

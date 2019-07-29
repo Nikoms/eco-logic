@@ -1,7 +1,6 @@
 import { JsonOf } from './type/JsonOf';
-import { CarbonRepository } from '@eco/domain/src/Co2/Repository/CarbonRepository';
-import { Carbon } from '@eco/domain/src/Co2/Entity/Carbon';
 import { v4 } from 'uuid';
+import { CarbonRepository, Carbon } from '@eco/domain';
 
 export class CarbonLocalStorageRepository implements CarbonRepository {
   private key = 'carbons';

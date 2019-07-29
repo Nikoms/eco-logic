@@ -1,4 +1,4 @@
-import { UpdatePowerConsumptionResponse } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionResponse';
+import { UpdatePowerConsumptionResponse } from './UpdatePowerConsumptionResponse';
 
 export interface UpdatePowerConsumptionPresenterInterface {
   presentUpdatePowerConsumption(response: UpdatePowerConsumptionResponse): void;

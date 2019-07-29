@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { WaterController } from '@eco/frontend-interface-adapter/src/Water/WaterController';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import TableBody from '@material-ui/core/TableBody';
-import { ViewModel, WaterConsumptionViewModel } from '@eco/frontend-interface-adapter/src/Water/ViewModel';
+
+import { WaterConsumptionViewModel, WaterController, WaterViewModel } from '@eco/frontend-interface-adapter';
 
 interface ListWaterMeterViewProps {
-  label: Pick<ViewModel, 'noConsumptionsMessage' | 'headerM3Label' | 'headerMeterNameLabel' | 'headerDateLabel'>;
+  label: Pick<WaterViewModel, 'noConsumptionsMessage' | 'headerM3Label' | 'headerMeterNameLabel' | 'headerDateLabel'>;
   consumptions: WaterConsumptionViewModel[];
   controller: WaterController;
 }

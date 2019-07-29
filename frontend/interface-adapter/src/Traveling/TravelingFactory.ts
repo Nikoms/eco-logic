@@ -1,14 +1,16 @@
-import { GetFlights } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlights';
-import { AddCar } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCar';
-import { AddFlight } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlight';
-import { UpdateOdometer } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometer';
-import { GetCars } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCars';
-import { EventDispatcher } from '@eco/shared-kernel/src/event/EventDispatcher';
-import { TravelingUI } from '@eco/frontend-interface-adapter/src/Traveling/TravelingUI';
-import { TravelingUIPresenter } from '@eco/frontend-interface-adapter/src/Traveling/TravelingUIPresenter';
-import { TravelingController } from '@eco/frontend-interface-adapter/src/Traveling/TravelingController';
-import { CarRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/CarRepositoryInterface';
-import { FlightRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/FlightRepositoryInterface';
+import { EventDispatcher } from '@eco/shared-kernel';
+import {
+  AddCar,
+  AddFlight,
+  CarRepositoryInterface,
+  FlightRepositoryInterface,
+  GetCars,
+  GetFlights,
+  UpdateOdometer,
+} from '@eco/domain';
+import { TravelingUI } from './TravelingUI';
+import { TravelingController } from './TravelingController';
+import { TravelingUIPresenter } from './TravelingUIPresenter';
 
 export class TravelingFactory {
   private instances: any = {};

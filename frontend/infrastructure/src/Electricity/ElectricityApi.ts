@@ -1,21 +1,23 @@
-import { UpdatePowerConsumptionPresenterInterface } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionPresenterInterface';
-import { GetElectricMetersPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersPresenterInterface';
-import { GetElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterPresenterInterface';
-import { SaveElectricMeterPresenterInterface } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterPresenterInterface';
-import { SaveElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterResponse';
-import { GetElectricMeterResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterResponse';
-import { GetElectricMetersResponse } from '@eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersResponse';
-import { UpdatePowerConsumptionResponse } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionResponse';
+import {
+  ElectricMeter,
+  GetElectricMeterPresenterInterface,
+  GetElectricMeterRequest,
+  GetElectricMeterResponse,
+  GetElectricMetersPresenterInterface,
+  GetElectricMetersResponse,
+  SaveElectricMeterPresenterInterface,
+  SaveElectricMeterRequest,
+  SaveElectricMeterResponse,
+  UpdatePowerConsumptionPresenterInterface,
+  UpdatePowerConsumptionRequest,
+  UpdatePowerConsumptionResponse,
+} from '@eco/domain';
 import {
   getElectricMeter,
   getElectricMeters,
   saveElectricMeter,
   updatePowerConsumption,
-} from '@eco/infrastructure/src/di';
-import { SaveElectricMeterRequest } from '@eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterRequest';
-import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
-import { GetElectricMeterRequest } from '@eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterRequest';
-import { UpdatePowerConsumptionRequest } from '@eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionRequest';
+} from '@eco/infrastructure';
 
 export class ElectricityApi implements UpdatePowerConsumptionPresenterInterface,
   GetElectricMetersPresenterInterface,

@@ -1,4 +1,4 @@
-import { ElectricMeter } from '@eco/domain/src/Electricity/Entity/ElectricMeter';
+import { ElectricMeter } from '../../Entity/ElectricMeter';
 
 export class GetElectricMeterResponse {
   electricMeter?: ElectricMeter;

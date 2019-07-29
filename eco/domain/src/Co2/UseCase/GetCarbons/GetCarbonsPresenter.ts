@@ -1,4 +1,4 @@
-import { GetCarbonsResponse } from '@eco/domain/src/Co2/UseCase/GetCarbons/GetCarbonsResponse';
+import { GetCarbonsResponse } from './GetCarbonsResponse';
 
 export interface GetCarbonsPresenter {
   presentGetCarbons(response: GetCarbonsResponse): void;

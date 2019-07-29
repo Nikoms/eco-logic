@@ -28,6 +28,7 @@
 
 <script lang="ts">
   import { Component, Vue, Watch } from 'vue-property-decorator';
+  import { WaterMeter } from '@eco/domain';
 
   type WaterForm = { meterId: string, quantity: string, name: string };
   @Component
@@ -37,14 +38,18 @@
 
     @Watch('viewModel.displayed') onDisplayedChanged(newValue: boolean) {
       if (newValue) {
-        this.forms = this.viewModel.meters.map(meter => ({ meterId: meter.id, name: meter.name, quantity: '' }));
+        this.forms = this.viewModel.meters.map((meter: WaterMeter) => ({
+          meterId: meter.id,
+          name: meter.name,
+          quantity: '',
+        }));
 
-        setImmediate(() => {
+        setTimeout(() => {
           const consumptionFields = this.$refs.consumptionField as any[];
           if (consumptionFields.length > 0) {
             consumptionFields[0].focus();
           }
-        });
+        },0);
       }
     }
   }

@@ -1,6 +1,6 @@
-import { AddCarViewModel } from '@eco/frontend-interface-adapter/src/Traveling/AddCarViewModel';
-import { AddFlightViewModel } from '@eco/frontend-interface-adapter/src/Traveling/AddFlightViewModel';
-import { UpdateOdometerViewModel } from '@eco/frontend-interface-adapter/src/Traveling/UpdateOdometerViewModel';
+import { AddCarViewModel } from './AddCarViewModel';
+import { AddFlightViewModel } from './AddFlightViewModel';
+import { UpdateOdometerViewModel } from './UpdateOdometerViewModel';
 
 export class FlightViewModel {
   constructor(public readonly date: string, public readonly distance: string, public readonly description: string) {

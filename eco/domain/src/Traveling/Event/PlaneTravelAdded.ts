@@ -1,8 +1,8 @@
-import { Event } from '@eco/shared-kernel/src/event/Event';
 import { TravelEvents } from './TravelEvents';
-import { PlaneTravel } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
+import { PlaneTravel } from '../Entity/PlaneTravel';
+import { EcoEvent } from '@eco/shared-kernel';
 
-export class PlaneTravelAdded implements Event {
+export class PlaneTravelAdded implements EcoEvent {
   name = TravelEvents.planeTravelAdded;
 
   constructor(public readonly travel: PlaneTravel) {

@@ -1,6 +1,6 @@
-import { GetTotalFuelOilOrderPresenterInterface } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrderPresenterInterface';
-import { GetTotalFuelOilOrderResponse } from '@eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrderResponse';
-import { FuelOilOrderRepositoryInterface } from '@eco/domain/src/HouseHeating/FuelOilOrderRepositoryInterface';
+import { FuelOilOrderRepositoryInterface } from '../../FuelOilOrderRepositoryInterface';
+import { GetTotalFuelOilOrderPresenterInterface } from './GetTotalFuelOilOrderPresenterInterface';
+import { GetTotalFuelOilOrderResponse } from './GetTotalFuelOilOrderResponse';
 
 export class GetTotalFuelOilOrder {
   constructor(private repository: FuelOilOrderRepositoryInterface) {

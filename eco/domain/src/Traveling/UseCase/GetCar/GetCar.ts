@@ -1,7 +1,7 @@
-import { CarRepositoryInterface } from '@eco/domain/src/Traveling/UseCase/CarRepositoryInterface';
-import { GetCarRequest } from '@eco/domain/src/Traveling/UseCase/GetCar/GetCarRequest';
-import { GetCarResponse } from '@eco/domain/src/Traveling/UseCase/GetCar/GetCarResponse';
-import { GetCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/GetCar/GetCarPresenterInterface';
+import { CarRepositoryInterface } from '../CarRepositoryInterface';
+import { GetCarRequest } from './GetCarRequest';
+import { GetCarResponse } from './GetCarResponse';
+import { GetCarPresenterInterface } from './GetCarPresenterInterface';
 
 export class GetCar {
   constructor(private repository: CarRepositoryInterface) {

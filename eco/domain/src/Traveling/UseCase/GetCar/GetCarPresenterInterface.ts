@@ -1,4 +1,4 @@
-import { GetCarResponse } from '@eco/domain/src/Traveling/UseCase/GetCar/GetCarResponse';
+import { GetCarResponse } from './GetCarResponse';
 
 export interface GetCarPresenterInterface {
   presentGetCar(response: GetCarResponse): void;

@@ -1,4 +1,4 @@
-import { AddWaterMeterResponse } from '@eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterResponse';
+import { AddWaterMeterResponse } from './AddWaterMeterResponse';
 
 export interface AddWaterMeterPresenterInterface {
   presentAddWaterMeter(response: AddWaterMeterResponse): void;

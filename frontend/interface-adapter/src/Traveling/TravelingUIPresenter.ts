@@ -1,17 +1,19 @@
-import { UpdateOdometerPresenterInterface } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerPresenterInterface';
-import { AddCarPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarPresenterInterface';
-import { AddFlightPresenterInterface } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightPresenterInterface';
-import { AddFlightResponse } from '@eco/domain/src/Traveling/UseCase/AddFlight/AddFlightResponse';
-import { AddCarResponse } from '@eco/domain/src/Traveling/UseCase/AddCar/AddCarResponse';
-import { GetCarsResponse } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCarsResponse';
-import { UpdateOdometerResponse } from '@eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerResponse';
-import { GetFlightsPresenterInterface } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlightsPresenterInterface';
-import { GetCarsPresenterInterface } from '@eco/domain/src/Traveling/UseCase/GetCars/GetCarsPresenterInterface';
-import { TravelingUI } from '@eco/frontend-interface-adapter/src/Traveling/TravelingUI';
-import { Car } from '@eco/domain/src/Traveling/Entity/Car';
-import { PlaneTravel } from '@eco/domain/src/Traveling/Entity/PlaneTravel';
-import { CarViewModel, FlightViewModel, ViewModel } from '@eco/frontend-interface-adapter/src/Traveling/ViewModel';
-import { GetFlightsResponse } from '@eco/domain/src/Traveling/UseCase/GetFlights/GetFlightsResponse';
+import {
+  AddCarPresenterInterface,
+  AddCarResponse,
+  AddFlightPresenterInterface,
+  AddFlightResponse,
+  Car,
+  GetCarsPresenterInterface,
+  GetCarsResponse,
+  GetFlightsPresenterInterface,
+  GetFlightsResponse,
+  PlaneTravel,
+  UpdateOdometerPresenterInterface,
+  UpdateOdometerResponse,
+} from '@eco/domain';
+import { TravelingUI } from './TravelingUI';
+import { CarViewModel, FlightViewModel, ViewModel } from './ViewModel';
 
 export class TravelingUIPresenter
   implements UpdateOdometerPresenterInterface,
