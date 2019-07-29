@@ -44,11 +44,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx",
-    "../../infrastructure/src/**/*.ts",
-    "../infrastructure/src/**/*.ts",
-    "../interface-adapter/src/**/*.ts",
-    "../../eco/**/src/**/*.ts"
+    "tests/**/*.tsx"
   ],
   "exclude": [
     "node_modules"
