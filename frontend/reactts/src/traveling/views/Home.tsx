@@ -23,6 +23,7 @@ interface HomeProps {
   travelingFactory: TravelingFactory;
 }
 
+// @ts-ignore
 @withStyles(styles)
 export default class Home extends React.Component<HomeProps> {
   state: NonFunctionProperties<TravelingViewModel> = { ...new TravelingViewModel() };

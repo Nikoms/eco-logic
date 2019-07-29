@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 import WaterHome from './water/views/Home';
 import Box from '@material-ui/core/Box';
+// @ts-ignore
 import { BrowserRouter, Route } from 'react-router-dom';
 import { AdapterLink } from './shared-kernel/react/AdapterLink';
 import TravelingHome from './traveling/views/Home';
@@ -35,8 +36,11 @@ const styles = (theme: Theme) => {
   };
 };
 
+type AppProps = { waterFactory: WaterFactory, classes?: any };
+
+// @ts-ignore
 @withStyles(styles)
-class App extends React.Component<{ waterFactory: WaterFactory }> {
+class App extends React.Component<AppProps> {
   state: any = { value: location.pathname };
 
   render() {

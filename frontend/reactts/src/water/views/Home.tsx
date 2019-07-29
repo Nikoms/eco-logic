@@ -21,8 +21,10 @@ const styles = (theme: Theme) => {
 
 interface HomeProps {
   waterFactory: WaterFactory;
+  classes?: any;
 }
 
+// @ts-ignore
 @withStyles(styles)
 export default class Home extends React.Component<HomeProps> {
   state: NonFunctionProperties<WaterViewModel> = { ...new WaterViewModel() };
@@ -40,6 +42,7 @@ export default class Home extends React.Component<HomeProps> {
       return (<InitWaterMeterView controller={this.props.waterFactory.controller}/>);
     }
 
+    // @ts-ignore
     return (<div>
       <ListWaterMeterView label={this.props.waterFactory.viewModel}
                           consumptions={this.props.waterFactory.viewModel.consumptions}
