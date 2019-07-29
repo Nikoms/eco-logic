@@ -11,11 +11,11 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { AddCarRequest } from '@eco/domain';
-import { AddCarViewModel, TravelingController, TravelingUI } from '@eco/frontend-interface-adapter';
+import { TravelingViewModel, TravelingController, TravelingUI } from '@eco/frontend-interface-adapter';
 
 interface AddCarViewProps {
   controller: TravelingController;
-  viewModel: AddCarViewModel;
+  viewModel: TravelingViewModel;
   presenter: TravelingUI;
 }
 

@@ -6,11 +6,11 @@ import TextField from '@material-ui/core/TextField';
 import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import { TravelingController, TravelingUI, UpdateOdometerViewModel } from '@eco/frontend-interface-adapter';
+import { TravelingController, TravelingUI, TravelingViewModel } from '@eco/frontend-interface-adapter';
 
 interface UpdateOdometerViewProps {
   controller: TravelingController;
-  viewModel: UpdateOdometerViewModel;
+  viewModel: TravelingViewModel;
   presenter: TravelingUI;
 }
 

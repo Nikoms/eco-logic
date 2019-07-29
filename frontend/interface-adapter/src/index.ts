@@ -18,9 +18,6 @@ import {
 } from '@eco/frontend-infrastructure';
 import { TravelingController } from './Traveling/TravelingController';
 import { TravelingUI } from './Traveling/TravelingUI';
-import { AddCarViewModel } from './Traveling/AddCarViewModel';
-import { AddFlightViewModel } from './Traveling/AddFlightViewModel';
-import { UpdateOdometerViewModel } from './Traveling/UpdateOdometerViewModel';
 import { WaterUI } from './Water/WaterUI';
 import { ViewModel as WaterViewModel, WaterConsumptionViewModel } from './Water/ViewModel';
 import { WaterController } from './Water/WaterController';
@@ -46,9 +43,6 @@ export {
   WaterFactory,
   TravelingController,
   TravelingUI,
-  AddCarViewModel,
-  AddFlightViewModel,
-  UpdateOdometerViewModel,
   WaterUI,
   WaterViewModel,
   WaterController,

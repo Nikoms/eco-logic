@@ -10,11 +10,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
 import { AddFlightRequest } from '@eco/domain';
-import { AddFlightViewModel, TravelingController, TravelingUI } from '@eco/frontend-interface-adapter';
+import { TravelingViewModel, TravelingController, TravelingUI } from '@eco/frontend-interface-adapter';
 
 interface AddFlightViewProps {
   controller: TravelingController;
-  viewModel: AddFlightViewModel;
+  viewModel: TravelingViewModel;
   presenter: TravelingUI;
 }
 
