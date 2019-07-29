@@ -14,6 +14,8 @@
   "dependencies": {
     "event-target-shim": "^5.0.1",
     "@eco/domain": "1.0.0",
-    "@eco/shared-kernel": "1.0.0"
+    "@eco/shared-kernel": "1.0.0",
+    "@eco/frontend-infrastructure": "1.0.0",
+    "@eco/infrastructure": "1.0.0"
   }
 }
