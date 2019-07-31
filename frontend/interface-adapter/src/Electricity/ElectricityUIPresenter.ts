@@ -63,7 +63,12 @@ export class ElectricityUIPresenter implements ElectricUI,
   }
 
   presentAddElectricMeterResponse(response: SaveElectricMeterResponse): void {
-    this.meters.push(response.meter);
+    if (!response.hasValidName) {
+      console.error('hasValidName');
+    }
+    if (response.meter) {
+      this.meters.push(response.meter);
+    }
     this.updateMetersViewModel();
   }
 
