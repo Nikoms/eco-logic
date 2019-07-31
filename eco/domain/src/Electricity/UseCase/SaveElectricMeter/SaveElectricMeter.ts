@@ -11,7 +11,7 @@ export class SaveElectricMeter {
 
   async execute(request: SaveElectricMeterRequest, presenter: SaveElectricMeterPresenterInterface) {
     const response = new SaveElectricMeterResponse();
-    let isValid = false;
+    let isValid = true;
     if (!request.name) {
       response.hasValidName = false;
       isValid = false;
