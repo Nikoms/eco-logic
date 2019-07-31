@@ -1,7 +1,9 @@
 import { ElectricMeter } from '../../Entity/ElectricMeter';
 
 export class SaveElectricMeterResponse {
-  constructor(public meter: ElectricMeter) {
+  public meter?: ElectricMeter;
+  public hasValidName = true;
 
+  constructor() {
   }
 }
