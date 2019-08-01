@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "outDir": "../../build/server",
+    "outDir": "../../build4server",
     "rootDir": "../..",
     "types": [
       "node"
