@@ -38,8 +38,8 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { Carbon, GetCarbonsPresenter, GetCarbonsResponse } from '@eco/domain';
-  import { getCarbons } from '@eco/infrastructure';
+  import { Carbon, GetCarbonsPresenter, GetCarbonsResponse } from '../../../../../../eco/domain';
+  import { getCarbons } from '../../../../../../infrastructure';
 
   const gradients = [
     ['#222'],

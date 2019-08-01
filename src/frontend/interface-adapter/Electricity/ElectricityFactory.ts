@@ -1,12 +1,12 @@
 import { ElectricityController } from './ElectricityController';
 import { ElectricityUIPresenter } from './ElectricityUIPresenter';
-import { EventDispatcher } from '@eco/shared-kernel';
+import { EventDispatcher } from '../../../eco/shared-kernel';
 import {
   ElectricityMeterRepositoryInterface,
   GetElectricMeters,
   SaveElectricMeter,
   UpdatePowerConsumption,
-} from '@eco/domain';
+} from '../../../eco/domain';
 import { ElectricUI } from './ElectricUI';
 
 export class ElectricityFactory {

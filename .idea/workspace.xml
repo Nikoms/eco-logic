@@ -2,312 +2,140 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0915e9f-baf6-489d-a8fb-af6bd2c4a4da" name="Default Changelist" comment="tmp">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/jslint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/tslint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/.babelrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/.browserslistrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/.nvmrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/assets/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/assets/images/flow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/assets/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/client/App.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/client/client.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/client/components/About.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/client/components/Header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/client/components/Home.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/client/components/Home.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/client/components/User.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/client/components/User.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/client/components/UsersList.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/client/setupEnzyme.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/client/utils/api-facade.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/server/config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/server/db.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/server/db.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/server/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/server/routes/api-router.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/server/routes/manifest-manager.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/server/routes/pages-router.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/server/routes/statics-router.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/server/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/shared/IUserDTO.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/shared/MyUser.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/src/tsconfig-for-tests.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/tsconfig-for-webpack-config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/tslint.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/types.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/views/page.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_/webpack.config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/schema.gql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/reactts/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/reactts/yarn.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/vuejs/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/vuejs/tslint.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/vuejs/vue.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpack.backend.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/reactts/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/reactts/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/reactts/serviceWorker.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/eco-logic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/eco-logic.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/schema.gql" beforeDir="false" afterPath="$PROJECT_DIR$/schema.gql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/infrastructure/GraphQL/CallUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/infrastructure/GraphQL/CallUseCase.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/infrastructure/GraphQL/Electricity/ElectricMeterResolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/infrastructure/GraphQL/Electricity/ElectricMeterResolver.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/infrastructure/GraphQL/Electricity/ElectricMeterSchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/infrastructure/GraphQL/Electricity/ElectricMeterSchema.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/infrastructure/GraphQL/Electricity/ElectricityPresenter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/infrastructure/GraphQL/Electricity/ElectricityPresenter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/infrastructure/api/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/infrastructure/Api/server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/infrastructure/di.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/infrastructure/di.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/infrastructure/persistence/ElectricMeterRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/infrastructure/Persistence/ElectricMeterRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Co2/CarbonCalculator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Co2/CarbonCalculator.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Co2/Entity/Carbon.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Co2/Entity/Carbon.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Co2/Repository/CarbonRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Co2/Repository/CarbonRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Co2/UseCase/AddCarbon/AddCarbon.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Co2/UseCase/AddCarbon/AddCarbon.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Co2/UseCase/AddCarbon/AddCarbonPresenter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Co2/UseCase/AddCarbon/AddCarbonPresenter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Co2/UseCase/AddCarbon/AddCarbonRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Co2/UseCase/AddCarbon/AddCarbonRequest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Co2/UseCase/AddCarbon/AddCarbonResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Co2/UseCase/AddCarbon/AddCarbonResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Co2/UseCase/GetCarbons/GetCarbons.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Co2/UseCase/GetCarbons/GetCarbons.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Co2/UseCase/GetCarbons/GetCarbonsPresenter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Co2/UseCase/GetCarbons/GetCarbonsPresenter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Co2/UseCase/GetCarbons/GetCarbonsResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Co2/UseCase/GetCarbons/GetCarbonsResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Co2/co2Listeners.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Co2/co2Listeners.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/Entity/ElectricMeter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/Entity/ElectricMeter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/Entity/PowerConsumption.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/Entity/PowerConsumption.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/Event/ElectricityEvents.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/Event/ElectricityEvents.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/Event/PowerUpdated.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/Event/PowerUpdated.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/Repository/ElectricityMeterRepositoryInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/Repository/ElectricityMeterRepositoryInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/Repository/PowerConsumptionRepositoryInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/Repository/PowerConsumptionRepositoryInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/GetElectricMeter/GetElectricMeter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterPresenterInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/GetElectricMeter/GetElectricMeterPresenterInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/GetElectricMeter/GetElectricMeterRequest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/UseCase/GetElectricMeter/GetElectricMeterResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/GetElectricMeter/GetElectricMeterResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMeters.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/GetElectricMeters/GetElectricMeters.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersPresenterInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/GetElectricMeters/GetElectricMetersPresenterInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/UseCase/GetElectricMeters/GetElectricMetersResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/GetElectricMeters/GetElectricMetersResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/SaveElectricMeter/SaveElectricMeter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterPresenterInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterPresenterInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterRequest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumption.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumption.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionPresenterInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionPresenterInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionRequest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumptionResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/HouseHeating/Entity/FuelOilOrder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/HouseHeating/Entity/FuelOilOrder.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/HouseHeating/Event/FuelOilEvents.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/HouseHeating/Event/FuelOilEvents.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/HouseHeating/Event/FuelOilOrdered.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/HouseHeating/Event/FuelOilOrdered.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/HouseHeating/FuelOilOrderRepositoryInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/HouseHeating/FuelOilOrderRepositoryInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrder.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderPresenterInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderPresenterInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderRequest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrderResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrder.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersPresenterInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersPresenterInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersRequest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/HouseHeating/UseCase/GetLastFuelOilOrders/GetLastFuelOilOrdersResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrder.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrderPresenterInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrderPresenterInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrderResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/HouseHeating/UseCase/GetTotalFuelOilOrder/GetTotalFuelOilOrderResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/Entity/Car.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/Entity/Car.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/Entity/Flight.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/Entity/Flight.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/Entity/Odometer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/Entity/Odometer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/Entity/PlaneTravel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/Entity/PlaneTravel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/Event/OdometerUpdated.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/Event/OdometerUpdated.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/Event/PlaneTravelAdded.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/Event/PlaneTravelAdded.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/Event/TravelEvents.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/Event/TravelEvents.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/AddCar/AddCar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/AddCar/AddCar.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/AddCar/AddCarPresenterInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/AddCar/AddCarPresenterInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/AddCar/AddCarRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/AddCar/AddCarRequest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/AddCar/AddCarResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/AddCar/AddCarResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/AddFlight/AddFlight.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/AddFlight/AddFlight.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/AddFlight/AddFlightPresenterInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/AddFlight/AddFlightPresenterInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/AddFlight/AddFlightRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/AddFlight/AddFlightRequest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/AddFlight/AddFlightResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/AddFlight/AddFlightResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/CarRepositoryInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/CarRepositoryInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/FlightRepositoryInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/FlightRepositoryInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/GetCar/GetCar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/GetCar/GetCar.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/GetCar/GetCarPresenterInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/GetCar/GetCarPresenterInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/GetCar/GetCarRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/GetCar/GetCarRequest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/GetCar/GetCarResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/GetCar/GetCarResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/GetCars/GetCars.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/GetCars/GetCars.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/GetCars/GetCarsPresenterInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/GetCars/GetCarsPresenterInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/GetCars/GetCarsResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/GetCars/GetCarsResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/GetFlights/GetFlights.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/GetFlights/GetFlights.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/GetFlights/GetFlightsPresenterInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/GetFlights/GetFlightsPresenterInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/GetFlights/GetFlightsResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/GetFlights/GetFlightsResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/UpdateCar/UpdateCar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/UpdateCar/UpdateCar.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/UpdateCar/UpdateCarPresenterInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/UpdateCar/UpdateCarPresenterInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/UpdateCar/UpdateCarRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/UpdateCar/UpdateCarRequest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/UpdateCar/UpdateCarResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/UpdateCar/UpdateCarResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/UpdateOdometer/UpdateOdometer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerPresenterInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/UpdateOdometer/UpdateOdometerPresenterInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/UpdateOdometer/UpdateOdometerRequest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Traveling/UseCase/UpdateOdometer/UpdateOdometerResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/UpdateOdometer/UpdateOdometerResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Water/Entity/WaterConsumption.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Water/Entity/WaterConsumption.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Water/Entity/WaterMeter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Water/Entity/WaterMeter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Water/UseCase/AddConsumption/AddConsumption.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Water/UseCase/AddConsumption/AddConsumption.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionPresenterInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Water/UseCase/AddConsumption/AddConsumptionPresenterInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Water/UseCase/AddConsumption/AddConsumptionRequest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Water/UseCase/AddConsumption/AddConsumptionResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Water/UseCase/AddConsumption/AddConsumptionResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Water/UseCase/AddWaterMeter/AddWaterMeter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterPresenterInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Water/UseCase/AddWaterMeter/AddWaterMeterPresenterInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Water/UseCase/AddWaterMeter/AddWaterMeterRequest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Water/UseCase/AddWaterMeter/AddWaterMeterResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Water/UseCase/AddWaterMeter/AddWaterMeterResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Water/UseCase/ConsumptionRepositoryInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Water/UseCase/ConsumptionRepositoryInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Water/UseCase/GetConsumptions/GetConsumptions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Water/UseCase/GetConsumptions/GetConsumptions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Water/UseCase/GetConsumptions/GetConsumptionsPresenterInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Water/UseCase/GetConsumptions/GetConsumptionsPresenterInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Water/UseCase/GetConsumptions/GetConsumptionsResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Water/UseCase/GetConsumptions/GetConsumptionsResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMeters.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Water/UseCase/GetWaterMeters/GetWaterMeters.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersPresenterInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Water/UseCase/GetWaterMeters/GetWaterMetersPresenterInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Water/UseCase/GetWaterMeters/GetWaterMetersResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Water/UseCase/GetWaterMeters/GetWaterMetersResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/Water/UseCase/WaterMeterRepositoryInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Water/UseCase/WaterMeterRepositoryInterface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/domain/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/shared-kernel/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/shared-kernel/src/event/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/shared-kernel/event/Event.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/shared-kernel/src/event/EventDispatcher.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/shared-kernel/event/EventDispatcher.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/shared-kernel/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/shared-kernel/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eco/shared-kernel/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/infrastructure/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/infrastructure/src/Co2/CarbonApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Co2/CarbonApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/infrastructure/src/Co2/CarbonFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Co2/CarbonFakeApiRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/infrastructure/src/Electricity/ElectricityApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Electricity/ElectricityApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/infrastructure/src/Electricity/ElectricityMeterFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Electricity/ElectricityMeterFakeApiRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/infrastructure/src/HouseHeating/HouseHeatingApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/HouseHeating/HouseHeatingApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/infrastructure/src/HouseHeating/OrderFuelOilFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/HouseHeating/OrderFuelOilFakeApiRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/infrastructure/src/Traveling/CarFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Traveling/CarFakeApiRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/infrastructure/src/Traveling/FlightFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Traveling/FlightFakeApiRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/infrastructure/src/Traveling/TravelingApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Traveling/TravelingApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/infrastructure/src/Water/ConsumptionFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Water/ConsumptionFakeApiRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/infrastructure/src/Water/WaterApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Water/WaterApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/infrastructure/src/Water/WaterMeterFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Water/WaterMeterFakeApiRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/infrastructure/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/infrastructure/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/Electricity/ElectricUI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Electricity/ElectricUI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/Electricity/ElectricityController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Electricity/ElectricityController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/Electricity/ElectricityFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Electricity/ElectricityFactory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/Electricity/ElectricityUIPresenter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Electricity/ElectricityUIPresenter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/Electricity/ViewModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Electricity/ViewModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/HouseHeating/ElectricUI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/HouseHeating/ElectricUI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/HouseHeating/HouseHeatingController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/HouseHeating/HouseHeatingController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/HouseHeating/HouseHeatingFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/HouseHeating/HouseHeatingFactory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/HouseHeating/HouseHeatingUIPresenter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/HouseHeating/HouseHeatingUIPresenter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/HouseHeating/ViewModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/HouseHeating/ViewModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/Traveling/AddCarViewModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/AddCarViewModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/Traveling/AddFlightViewModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/AddFlightViewModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/Traveling/TravelingController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/Traveling/TravelingFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingFactory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/Traveling/TravelingUI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingUI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/Traveling/TravelingUIPresenter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingUIPresenter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/Traveling/UpdateOdometerViewModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/UpdateOdometerViewModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/Traveling/ViewModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/ViewModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/Water/ViewModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Water/ViewModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/Water/WaterController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/Water/WaterFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterFactory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/Water/WaterUI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterUI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/Water/WaterUIPresenter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterUIPresenter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/interface-adapter/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/reactts/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/reactts/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/reactts/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/reactts/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/reactts/src/shared-kernel/react/AdapterLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/src/shared-kernel/react/AdapterLink.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/reactts/src/shared-kernel/type/NonFunctionProperties.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/src/shared-kernel/type/NonFunctionProperties.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/reactts/src/traveling/compononents/AddCarView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/src/traveling/compononents/AddCarView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/reactts/src/traveling/compononents/AddFlightView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/src/traveling/compononents/AddFlightView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/reactts/src/traveling/compononents/UpdateOdometerView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/src/traveling/compononents/UpdateOdometerView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/reactts/src/traveling/views/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/src/traveling/views/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/reactts/src/water/compononents/AddWaterConsumptionView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/src/water/compononents/AddWaterConsumptionView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/reactts/src/water/compononents/InitWaterMeterView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/src/water/compononents/InitWaterMeterView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/reactts/src/water/compononents/ListWaterConsumptionView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/src/water/compononents/ListWaterConsumptionView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/reactts/src/water/views/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/src/water/views/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/reactts/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/.browserslistrc" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/.browserslistrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/babel.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/cypress.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/cypress.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/jest.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/public/_redirects" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/public/_redirects" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/public/img/icons/android-chrome-192x192.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/public/img/icons/android-chrome-192x192.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/public/img/icons/android-chrome-512x512.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/public/img/icons/android-chrome-512x512.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/public/img/icons/apple-touch-icon-120x120.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/public/img/icons/apple-touch-icon-120x120.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/public/img/icons/apple-touch-icon-152x152.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/public/img/icons/apple-touch-icon-152x152.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/public/img/icons/apple-touch-icon-180x180.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/public/img/icons/apple-touch-icon-180x180.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/public/img/icons/apple-touch-icon-60x60.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/public/img/icons/apple-touch-icon-60x60.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/public/img/icons/apple-touch-icon-76x76.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/public/img/icons/apple-touch-icon-76x76.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/public/img/icons/apple-touch-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/public/img/icons/apple-touch-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/public/img/icons/favicon-16x16.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/public/img/icons/favicon-16x16.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/public/img/icons/favicon-32x32.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/public/img/icons/favicon-32x32.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/public/img/icons/msapplication-icon-144x144.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/public/img/icons/msapplication-icon-144x144.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/public/img/icons/mstile-150x150.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/public/img/icons/mstile-150x150.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/public/img/icons/safari-pinned-tab.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/public/img/icons/safari-pinned-tab.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/public/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/public/robots.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/app/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/app/co2/components/co2-chart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/co2/components/co2-chart.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/app/electricity/components/GetElectricMetersView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/electricity/components/GetElectricMetersView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/app/electricity/components/InitElectricMetersView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/electricity/components/InitElectricMetersView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/app/electricity/components/UpdatePowerConsumptionView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/electricity/components/UpdatePowerConsumptionView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/app/electricity/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/electricity/views/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/app/fuel-oil/components/AddFuelOilOrderView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/fuel-oil/components/AddFuelOilOrderView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/app/fuel-oil/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/fuel-oil/views/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/app/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/router.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/app/traveling/components/AddCarView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/components/AddCarView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/app/traveling/components/AddFlightView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/components/AddFlightView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/app/traveling/components/UpdateOdometerView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/components/UpdateOdometerView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/app/traveling/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/views/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/app/water/components/AddWaterConsumptionView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/water/components/AddWaterConsumptionView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/app/water/components/InitWaterMeterView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/water/components/InitWaterMeterView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/app/water/components/ListWaterConsumptionView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/water/components/ListWaterConsumptionView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/app/water/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/water/views/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/assets/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/assets/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/assets/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/assets/logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/plugins/factories.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/plugins/factories.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/plugins/vuetify.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/plugins/vuetify.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/registerServiceWorker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/registerServiceWorker.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/shims-tsx.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/shims-tsx.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/shims-vue.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/shims-vue.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/src/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/tests/e2e/plugins/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/tests/e2e/plugins/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/tests/e2e/specs/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/tests/e2e/specs/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/tests/e2e/support/commands.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/tests/e2e/support/commands.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/tests/e2e/support/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/tests/e2e/support/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/tslint.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vuejs/yarn.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/di.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/di.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/event/EventDispatcher.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/event/EventDispatcher.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/initListeners.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/initListeners.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/local-storage/CarLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/CarLocalStorageRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/local-storage/CarbonLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/CarbonLocalStorageRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/local-storage/ElectricMeterLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/ElectricMeterLocalStorageRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/local-storage/FlightLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/FlightLocalStorageRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/local-storage/FuelOilOrderLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/FuelOilOrderLocalStorageRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/local-storage/WaterConsumptionLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/WaterConsumptionLocalStorageRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/local-storage/WaterMeterLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/WaterMeterLocalStorageRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/local-storage/type/JsonOf.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/type/JsonOf.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/.babelrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/.browserslistrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/.nvmrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/assets/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/assets/images/flow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/assets/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/client/App.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/client/client.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/client/components/About.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/client/components/Header.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/client/components/Home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/client/components/Home.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/client/components/User.test.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/client/components/User.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/client/components/UsersList.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/client/setupEnzyme.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/client/utils/api-facade.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/server/config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/server/db.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/server/db.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/server/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/server/routes/api-router.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/server/routes/manifest-manager.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/server/routes/pages-router.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/server/routes/statics-router.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/server/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/shared/IUserDTO.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/shared/MyUser.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/src/tsconfig-for-tests.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/tsconfig-for-webpack-config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/tslint.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/types.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/views/page.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_/webpack.config.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/infrastructure/GraphQL/Electricity/ElectricMeterResolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/infrastructure/GraphQL/Electricity/ElectricMeterResolver.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/infrastructure/GraphQL/Electricity/ElectricityPresenter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/infrastructure/GraphQL/Electricity/ElectricityPresenter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/infrastructure/Persistence/ElectricMeterRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/infrastructure/Persistence/ElectricMeterRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/infrastructure/di.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/infrastructure/di.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/webpack.backend.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/webpack.backend.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eco/domain/Co2/co2Listeners.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Co2/co2Listeners.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eco/domain/Electricity/Event/PowerUpdated.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/Event/PowerUpdated.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterResponse.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumption.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumption.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eco/domain/HouseHeating/Event/FuelOilOrdered.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/HouseHeating/Event/FuelOilOrdered.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eco/domain/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrder.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eco/domain/Traveling/Entity/Flight.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/Entity/Flight.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eco/domain/Traveling/Event/OdometerUpdated.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/Event/OdometerUpdated.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eco/domain/Traveling/Event/PlaneTravelAdded.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/Event/PlaneTravelAdded.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/AddFlight/AddFlight.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/AddFlight/AddFlight.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/UpdateOdometer/UpdateOdometer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/UpdateOdometer/UpdateOdometer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eco/domain/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eco/shared-kernel/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/shared-kernel/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/Co2/CarbonApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Co2/CarbonApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/Co2/CarbonFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Co2/CarbonFakeApiRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/Electricity/ElectricityApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Electricity/ElectricityApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/Electricity/ElectricityMeterFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Electricity/ElectricityMeterFakeApiRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/HouseHeating/HouseHeatingApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/HouseHeating/HouseHeatingApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/HouseHeating/OrderFuelOilFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/HouseHeating/OrderFuelOilFakeApiRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/Traveling/CarFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Traveling/CarFakeApiRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/Traveling/FlightFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Traveling/FlightFakeApiRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/Traveling/TravelingApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Traveling/TravelingApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/Water/ConsumptionFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Water/ConsumptionFakeApiRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/Water/WaterApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Water/WaterApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/Water/WaterMeterFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Water/WaterMeterFakeApiRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Electricity/ElectricityController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Electricity/ElectricityController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Electricity/ElectricityFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Electricity/ElectricityFactory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Electricity/ElectricityUIPresenter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Electricity/ElectricityUIPresenter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/HouseHeating/HouseHeatingController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/HouseHeating/HouseHeatingController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/HouseHeating/HouseHeatingFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/HouseHeating/HouseHeatingFactory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/HouseHeating/HouseHeatingUIPresenter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/HouseHeating/HouseHeatingUIPresenter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/AddCarViewModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/AddCarViewModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/AddFlightViewModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/AddFlightViewModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingFactory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingUIPresenter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingUIPresenter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterFactory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterUIPresenter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterUIPresenter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/shared-kernel/react/AdapterLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/shared-kernel/react/AdapterLink.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/shared-kernel/type/NonFunctionProperties.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/shared-kernel/type/NonFunctionProperties.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/traveling/compononents/AddCarView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddCarView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/traveling/compononents/AddFlightView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddFlightView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/traveling/compononents/UpdateOdometerView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/UpdateOdometerView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/traveling/views/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/traveling/views/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/water/compononents/AddWaterConsumptionView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/water/compononents/AddWaterConsumptionView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/water/compononents/InitWaterMeterView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/water/compononents/InitWaterMeterView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/water/compononents/ListWaterConsumptionView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/water/compononents/ListWaterConsumptionView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/water/views/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/water/views/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/vuejs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/vuejs/src/app/co2/components/co2-chart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/co2/components/co2-chart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/components/AddCarView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/components/AddCarView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/components/AddFlightView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/components/AddFlightView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/vuejs/src/app/water/components/AddWaterConsumptionView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/water/components/AddWaterConsumptionView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/vuejs/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/vuejs/src/plugins/factories.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/plugins/factories.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/vuejs/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/di.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/di.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/event/EventDispatcher.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/event/EventDispatcher.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/initListeners.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/initListeners.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/local-storage/CarLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/CarLocalStorageRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/local-storage/CarbonLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/CarbonLocalStorageRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/local-storage/ElectricMeterLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/ElectricMeterLocalStorageRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/local-storage/FlightLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/FlightLocalStorageRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/local-storage/FuelOilOrderLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/FuelOilOrderLocalStorageRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/local-storage/WaterConsumptionLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/WaterConsumptionLocalStorageRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/local-storage/WaterMeterLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/WaterMeterLocalStorageRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.default.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.default.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <list id="40dff27f-79ac-49ce-8283-9acd6aec8032" name="Revert &quot;test with a yarn &quot;mono-repo&quot; style + remove postcss because it fails the build and we don't need it right now&quot;" comment="Revert &quot;test with a yarn &quot;mono-repo&quot; style + remove postcss because it fails the build and we don't need it right now&quot;&#10;&#10;This reverts commit 70b1e4d6" />
@@ -332,114 +160,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/frontend/reactts/tsconfig.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/traveling/compononents/AddCarView.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
-              <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/traveling/compononents/AddFlightView.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="692">
-              <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/water/views/Home.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/App.tsx">
+        <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/tsconfig.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-                <element signature="e#678#734#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="462">
+              <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/traveling/compononents/UpdateOdometerView.tsx">
+        <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="510">
+              <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/traveling/views/Home.tsx">
+        <entry file="file://$PROJECT_DIR$/tsconfig.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="946">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/water/compononents/AddWaterConsumptionView.tsx">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="8" column="69" lean-forward="true" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/water/compononents/InitWaterMeterView.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/water/compononents/ListWaterConsumptionView.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-118">
-              <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-468">
+              <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -448,22 +200,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>exec</find>
-      <find>importHelpers</find>
-      <find>priva</find>
-      <find>@eco/frontend-interface-a</find>
-      <find>rontend-interface-adapte</find>
-      <find>eco/domain</find>
-      <find>tslint.</find>
-      <find>@/eco</find>
-      <find>@eco/frontend-interface-adapter</find>
-      <find>initListeners</find>
       <find>@/</find>
       <find>webpack</find>
       <find>incremental</find>
       <find>dist</find>
       <find>tsconfig-paths-webpack-plugin</find>
-      <find>declaration</find>
       <find>babel</find>
       <find>babel-jest</find>
       <find>baseUrl</find>
@@ -477,7 +218,18 @@
       <find>AddFlight</find>
       <find>isol</find>
       <find>frontend-interface-adapter</find>
+      <find>base-</find>
+      <find>tsconfig.default</find>
       <find>@eco/domain</find>
+      <find>@eco/</find>
+      <find>allowSyntheticDefaultImports</find>
+      <find>AddCarbonPresenter</find>
+      <find>CarbonRepository</find>
+      <find>GetCarbonsPresenter</find>
+      <find>declaration</find>
+      <find>locati</find>
+      <find>index.css</find>
+      <find>@vue/cli-plugin-babel</find>
     </findStrings>
     <replaceStrings>
       <replace>eco/domain</replace>
@@ -522,57 +274,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/_/src/server/tsconfig.json" />
-        <option value="$PROJECT_DIR$/_/src/server/main.ts" />
-        <option value="$PROJECT_DIR$/src/backend/infrastructure/Persistence/ElectricMeterRepository.ts" />
-        <option value="$PROJECT_DIR$/src/backend/infrastructure/GraphQL/Electricity/ElectricMeterResolver.ts" />
-        <option value="$PROJECT_DIR$/src/backend/infrastructure/di.ts" />
-        <option value="$PROJECT_DIR$/src/backend/index.ts" />
-        <option value="$PROJECT_DIR$/dist/index.js" />
-        <option value="$PROJECT_DIR$/src/backend/infrastructure/GraphQL/Electricity/ElectricityPresenter.ts" />
-        <option value="$PROJECT_DIR$/src/backend/tsconfig.json" />
-        <option value="$PROJECT_DIR$/webpack.backend.config.js" />
-        <option value="$PROJECT_DIR$/src/backend/infrastructure/Api/server.ts" />
-        <option value="$PROJECT_DIR$/src/frontend/reactts/package.json" />
-        <option value="$PROJECT_DIR$/src/frontend/vuejs/tslint.json" />
-        <option value="$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/components/AddCarView.vue" />
+        <option value="$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterUIPresenter.ts" />
         <option value="$PROJECT_DIR$/src/frontend/vuejs/src/app/co2/components/co2-chart.vue" />
+        <option value="$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/components/AddCarView.vue" />
+        <option value="$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/components/AddFlightView.vue" />
+        <option value="$PROJECT_DIR$/src/frontend/vuejs/src/app/water/components/AddWaterConsumptionView.vue" />
+        <option value="$PROJECT_DIR$/src/infrastructure/di.ts" />
+        <option value="$PROJECT_DIR$/src/infrastructure/initListeners.ts" />
+        <option value="$PROJECT_DIR$/src/infrastructure/local-storage/CarbonLocalStorageRepository.ts" />
+        <option value="$PROJECT_DIR$/src/infrastructure/local-storage/CarLocalStorageRepository.ts" />
+        <option value="$PROJECT_DIR$/src/infrastructure/local-storage/ElectricMeterLocalStorageRepository.ts" />
+        <option value="$PROJECT_DIR$/src/infrastructure/local-storage/FlightLocalStorageRepository.ts" />
+        <option value="$PROJECT_DIR$/src/infrastructure/local-storage/FuelOilOrderLocalStorageRepository.ts" />
+        <option value="$PROJECT_DIR$/src/infrastructure/local-storage/WaterConsumptionLocalStorageRepository.ts" />
+        <option value="$PROJECT_DIR$/src/infrastructure/local-storage/WaterMeterLocalStorageRepository.ts" />
+        <option value="$PROJECT_DIR$/src/eco/domain/Co2/co2Listeners.ts" />
+        <option value="$PROJECT_DIR$/src/eco/domain/Electricity/Event/PowerUpdated.ts" />
+        <option value="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumption.ts" />
+        <option value="$PROJECT_DIR$/src/eco/domain/HouseHeating/Event/FuelOilOrdered.ts" />
+        <option value="$PROJECT_DIR$/src/eco/domain/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrder.ts" />
+        <option value="$PROJECT_DIR$/src/eco/domain/Traveling/Event/OdometerUpdated.ts" />
+        <option value="$PROJECT_DIR$/src/eco/domain/Traveling/Event/PlaneTravelAdded.ts" />
+        <option value="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/AddFlight/AddFlight.ts" />
+        <option value="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/UpdateOdometer/UpdateOdometer.ts" />
         <option value="$PROJECT_DIR$/src/frontend/vuejs/src/main.ts" />
         <option value="$PROJECT_DIR$/src/frontend/vuejs/src/plugins/factories.ts" />
-        <option value="$PROJECT_DIR$/src/frontend/infrastructure/index.ts" />
-        <option value="$PROJECT_DIR$/src/infrastructure/index.ts" />
-        <option value="$PROJECT_DIR$/src/frontend/vuejs/jest.config.js" />
+        <option value="$PROJECT_DIR$/src/infrastructure/event/EventDispatcher.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingUI.ts" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/frontend/interface-adapter/index.ts" />
+        <option value="$PROJECT_DIR$/src/eco/domain/index.ts" />
+        <option value="$PROJECT_DIR$/src/eco/domain/Traveling/Entity/Flight.ts" />
+        <option value="$PROJECT_DIR$/src/eco/shared-kernel/index.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/package.json" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddCarView.tsx" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddFlightView.tsx" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/traveling/views/Home.tsx" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/water/compononents/AddWaterConsumptionView.tsx" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/water/compononents/InitWaterMeterView.tsx" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/water/compononents/ListWaterConsumptionView.tsx" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/water/views/Home.tsx" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/App.tsx" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/UpdateOdometerView.tsx" />
+        <option value="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingUIPresenter.ts" />
+        <option value="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterResponse.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/index.ts" />
+        <option value="$PROJECT_DIR$/src/index.tsx" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/index.tsx" />
         <option value="$PROJECT_DIR$/tsconfig.json" />
         <option value="$PROJECT_DIR$/src/frontend/vuejs/package.json" />
-        <option value="$PROJECT_DIR$/src/frontend/vuejs/tsconfig.json" />
-        <option value="$PROJECT_DIR$/src/frontend/vuejs/vue.config.js" />
-        <option value="$PROJECT_DIR$/src/frontend/vuejs/src/app/Home.vue" />
-        <option value="$PROJECT_DIR$/src/eco/domain/Electricity/Entity/ElectricMeter.ts" />
-        <option value="$PROJECT_DIR$/src/frontend/reactts2/package.json" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/core/src/frontend/reactts/.env" />
-        <option value="$PROJECT_DIR$/core/src/frontend/vuejs/src/app/Home.vue" />
-        <option value="$PROJECT_DIR$/core/src/frontend/reactts/webpack.config.js" />
-        <option value="$PROJECT_DIR$/core/src/frontend/reactts/node_modules/react-dev-utils/ModuleScopePlugin.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/reactts/src/App.tsx" />
-        <option value="$PROJECT_DIR$/reactts/tsconfig.json" />
-        <option value="$PROJECT_DIR$/reactts/.env" />
-        <option value="$PROJECT_DIR$/core/src/frontend/reactts/config-overrides.js" />
-        <option value="$PROJECT_DIR$/core/src/frontend/reactts/config/webpack.config.js" />
-        <option value="$PROJECT_DIR$/core/src/frontend/reactts/package.json" />
-        <option value="$PROJECT_DIR$/core/src/frontend/reactts/tsconfig.json" />
-        <option value="$PROJECT_DIR$/core/src/frontend/reactts/src/App.tsx" />
-        <option value="$PROJECT_DIR$/src/frontend/reactts/tsconfig.json" />
-        <option value="$PROJECT_DIR$/src/frontend/reactts/src/traveling/compononents/AddCarView.tsx" />
-        <option value="$PROJECT_DIR$/src/frontend/reactts/src/traveling/compononents/UpdateOdometerView.tsx" />
-        <option value="$PROJECT_DIR$/src/frontend/reactts/src/traveling/views/Home.tsx" />
-        <option value="$PROJECT_DIR$/src/frontend/reactts/src/water/compononents/AddWaterConsumptionView.tsx" />
-        <option value="$PROJECT_DIR$/src/frontend/reactts/src/water/compononents/InitWaterMeterView.tsx" />
-        <option value="$PROJECT_DIR$/src/frontend/reactts/src/water/compononents/ListWaterConsumptionView.tsx" />
-        <option value="$PROJECT_DIR$/src/frontend/reactts/src/traveling/compononents/AddFlightView.tsx" />
-        <option value="$PROJECT_DIR$/src/frontend/reactts/src/water/views/Home.tsx" />
-        <option value="$PROJECT_DIR$/src/frontend/reactts/src/App.tsx" />
+        <option value="$PROJECT_DIR$/src/frontend/vuejs/tsconfig.json" />
       </list>
     </option>
   </component>
@@ -584,8 +336,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1764" />
-    <option name="height" value="1340" />
+    <option name="width" value="1680" />
+    <option name="height" value="951" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -611,18 +363,6 @@
               <item name="eco-logic" type="b2602c69:ProjectViewProjectNode" />
               <item name="eco-logic" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eco-logic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eco-logic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="eco" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eco-logic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eco-logic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -637,66 +377,7 @@
               <item name="eco-logic" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="reactts" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eco-logic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eco-logic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="reactts" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="traveling" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eco-logic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eco-logic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="reactts" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="traveling" type="462c0819:PsiDirectoryNode" />
-              <item name="compononents" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eco-logic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eco-logic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="reactts" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="traveling" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eco-logic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eco-logic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="reactts" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="water" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eco-logic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eco-logic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="reactts" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="water" type="462c0819:PsiDirectoryNode" />
-              <item name="compononents" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eco-logic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eco-logic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="reactts" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="water" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="vuejs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -708,7 +389,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/frontend/reactts" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -720,19 +401,19 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/core/src/frontend" />
-      <recent name="$PROJECT_DIR$/core" />
-      <recent name="$PROJECT_DIR$/src/frontend" />
-      <recent name="$PROJECT_DIR$/frontend" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/frontend/reactts" />
       <recent name="$PROJECT_DIR$/src/backend" />
       <recent name="$PROJECT_DIR$/_" />
       <recent name="$PROJECT_DIR$/eco/domain" />
       <recent name="$PROJECT_DIR$/backend" />
-      <recent name="$PROJECT_DIR$/eco/domain/src/Water/UseCase/GetWaterMeters" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/frontend/reactts" />
+      <recent name="$PROJECT_DIR$/src/frontend/reactts/src" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/backend" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -783,6 +464,7 @@
       <workItem from="1564608708969" duration="6830000" />
       <workItem from="1564617634417" duration="16710000" />
       <workItem from="1564674831870" duration="626000" />
+      <workItem from="1564697870417" duration="1245000" />
     </task>
     <task id="LOCAL-00001" summary="Use index.ts + use composite + compile + use compiled files + remove di in vue and react (use interface adapter) + fix setImmediate">
       <created>1564358841484</created>
@@ -875,22 +557,36 @@
       <option name="project" value="LOCAL" />
       <updated>1564673144706</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="move files to backend and rename tsconfig.default.json">
+      <created>1564693024068</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1564693024068</updated>
+    </task>
+    <task id="LOCAL-00015" summary="generate dist at root">
+      <created>1564693148886</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1564693148886</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59734000" />
+    <option name="totallyTimeSpent" value="66263000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1764" height="1340" extended-state="0" />
+    <frame x="0" y="23" width="1680" height="951" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22183508" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23565324" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.3012245" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.30023924" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.22122449" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39967373" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -939,281 +635,379 @@
     <MESSAGE value="Backend: Be able to get electric meters and add some" />
     <MESSAGE value="meter can be null" />
     <MESSAGE value="tmp" />
-    <option name="LAST_COMMIT_MESSAGE" value="tmp" />
+    <MESSAGE value="move files to backend and rename tsconfig.default.json" />
+    <MESSAGE value="generate dist at root" />
+    <option name="LAST_COMMIT_MESSAGE" value="generate dist at root" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/babel.config.js">
+    <entry file="file://$PROJECT_DIR$/src/eco/domain/HouseHeating/Event/FuelOilOrdered.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="88">
+          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/cypress.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/jest.config.js">
+    <entry file="file://$PROJECT_DIR$/src/eco/domain/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrder.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+        <state relative-caret-position="176">
+          <caret line="9" column="100" selection-start-line="9" selection-start-column="100" selection-end-line="9" selection-end-column="100" />
+          <folding>
+            <element signature="e#0#88#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/package.json">
+    <entry file="file://$PROJECT_DIR$/src/eco/domain/Traveling/Event/OdometerUpdated.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="53" />
+        <state relative-caret-position="88">
+          <caret line="4" column="43" lean-forward="true" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/vue.config.js">
+    <entry file="file://$PROJECT_DIR$/src/eco/domain/Traveling/Event/PlaneTravelAdded.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="45" lean-forward="true" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/AddFlight/AddFlight.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="9" column="90" selection-start-line="9" selection-start-column="90" selection-end-line="9" selection-end-column="90" />
+          <folding>
+            <element signature="e#0#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/UpdateOdometer/UpdateOdometer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="8" column="86" lean-forward="true" selection-start-line="8" selection-start-column="86" selection-end-line="8" selection-end-column="86" />
+          <folding>
+            <element signature="e#0#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/src/main.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yarn.lock">
+    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/src/plugins/factories.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="44">
+          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/tsconfig.json">
+    <entry file="file://$PROJECT_DIR$/src/infrastructure/event/EventDispatcher.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="21" lean-forward="true" selection-start-line="6" selection-start-column="21" selection-end-line="7" selection-end-column="26" />
+        <state relative-caret-position="412">
+          <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/README.md" />
-    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/src/app/Home.vue">
+    <entry file="file://$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingUI.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+        <state relative-caret-position="66">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/frontend/reactts/webpack.config.js" />
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/node_modules/.bin/react-app-rewired" />
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/node_modules/react-dev-utils/ModuleScopePlugin.js" />
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="882" column="4" selection-start-line="882" selection-start-column="4" selection-end-line="882" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack.backend.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="906">
-          <caret line="59" column="51" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/serviceWorker.ts" />
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/react-app-env.d.ts" />
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/.env" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor />
+          <first_editor relative-caret-position="154">
+            <caret line="7" column="126" selection-start-line="7" selection-start-column="126" selection-end-line="7" selection-end-column="126" />
+          </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/frontend/reactts/config/webpackDevServer.config.js" />
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/node_modules/babel-loader/lib/transform.js" />
-    <entry file="file://$PROJECT_DIR$/core/src/frontend/reactts/config/env.js" />
-    <entry file="file://$PROJECT_DIR$/core/src/frontend/reactts/config/paths.js" />
-    <entry file="file://$PROJECT_DIR$/core/src/frontend/reactts/config/pnpTs.js" />
-    <entry file="file://$PROJECT_DIR$/core/src/frontend/reactts/config/webpack.config.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/tsconfig-paths-webpack-plugin/lib/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/tsconfig-paths-webpack-plugin/lib/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/tsconfig-paths-webpack-plugin/lib/plugin.js">
+    <entry file="file://$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterUIPresenter.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="42" column="47" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="47" />
+        <state relative-caret-position="185">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/config-overrides.js" />
-    <entry file="file://$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/AddFlight/AddFlightResponse.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/AddFlight/AddFlight.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eco/domain/Electricity/Entity/ElectricMeter.ts">
+    <entry file="file://$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterUI.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
+          <caret column="21" selection-start-column="21" selection-end-column="21" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eco/domain/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="47" column="39" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/interface-adapter/index.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="381">
+          <caret line="48" column="27" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
           <folding>
             <element signature="e#0#70#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/yarn.lock">
+    <entry file="file://$PROJECT_DIR$/src/eco/domain/Co2/Repository/CarbonRepository.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eco/domain/index.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="1850" selection-start-line="1850" selection-end-line="1850" />
+        <state relative-caret-position="330">
+          <caret line="175" column="12" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#79#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/yarn-error.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="352">
-          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="71" />
+    <entry file="file://$PROJECT_DIR$/src/eco/domain/Traveling/Entity/Flight.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/package.json">
+    <entry file="file://$PROJECT_DIR$/src/eco/shared-kernel/event/Event.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eco/shared-kernel/index.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        <state relative-caret-position="176">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/tsconfig.json">
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/tsconfig.json" />
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/package.json" />
+    <entry file="file://$PROJECT_DIR$/src/react-app-env.d.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/x/App.test.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/traveling/compononents/AddCarView.tsx">
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/react-app-env.d.ts" />
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/serviceWorker.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/x/App.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/x/react-app-env.d.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/App.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddCarView.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/traveling/compononents/UpdateOdometerView.tsx">
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddFlightView.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
-          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
+          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/traveling/views/Home.tsx">
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/traveling/views/Home.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-1062">
+          <caret line="9" column="63" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/water/compononents/AddWaterConsumptionView.tsx">
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/water/compononents/AddWaterConsumptionView.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/water/compononents/InitWaterMeterView.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/water/compononents/ListWaterConsumptionView.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
-          <caret line="8" column="69" lean-forward="true" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="69" />
+          <caret line="7" column="85" selection-start-line="7" selection-start-column="85" selection-end-line="7" selection-end-column="85" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/water/compononents/InitWaterMeterView.tsx">
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/water/views/Home.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-490">
+          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/App.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="44" column="12" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#642#698#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/UpdateOdometerView.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingUIPresenter.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="39" column="57" selection-start-line="39" selection-start-column="57" selection-end-line="39" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#322#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterResponse.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
-          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="45" />
+          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/water/compononents/ListWaterConsumptionView.tsx">
+    <entry file="file://$PROJECT_DIR$/src/index.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-118">
-          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        <state relative-caret-position="88">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/index.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/traveling/compononents/AddFlightView.tsx">
+    <entry file="file://$PROJECT_DIR$/tsconfig.default.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="692">
-          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+        <state relative-caret-position="258">
+          <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="51" lean-forward="true" selection-start-column="51" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/infrastructure/Api/server.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/water/views/Home.tsx">
+    <entry file="file://$PROJECT_DIR$/src/backend/infrastructure/Persistence/ElectricMeterRepository.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
+        <state relative-caret-position="198">
+          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/src/App.tsx">
+    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-            <element signature="e#678#734#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="510">
+          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="946">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-468">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
         </state>
       </provider>
     </entry>

@@ -7,7 +7,7 @@ import {
   GetLastFuelOilOrdersRequest,
   GetTotalFuelOilOrder,
   GetTotalFuelOilOrderPresenterInterface,
-} from '@eco/domain';
+} from '../../../eco/domain';
 
 export class HouseHeatingController {
   constructor(

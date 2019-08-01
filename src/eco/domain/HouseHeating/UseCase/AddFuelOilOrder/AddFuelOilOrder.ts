@@ -1,10 +1,10 @@
 import { FuelOilOrderRepositoryInterface } from '../../FuelOilOrderRepositoryInterface';
-import { EventDispatcher } from '@eco/shared-kernel';
 import { AddFuelOilOrderPresenterInterface } from './AddFuelOilOrderPresenterInterface';
 import { AddFuelOilOrderRequest } from './AddFuelOilOrderRequest';
 import { AddFuelOilOrderResponse } from './AddFuelOilOrderResponse';
 import { FuelOilOrder } from '../../Entity/FuelOilOrder';
 import { FuelOilOrdered } from '../../Event/FuelOilOrdered';
+import { EventDispatcher } from '../../../../shared-kernel';
 
 export class AddFuelOilOrder {
   constructor(private repository: FuelOilOrderRepositoryInterface, private eventDispatcher: EventDispatcher) {

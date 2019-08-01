@@ -28,7 +28,7 @@
 
 <script lang="ts">
   import { Component, Vue, Watch } from 'vue-property-decorator';
-  import { WaterMeter } from '@eco/domain';
+  import { WaterMeter } from '../../../../../../eco/domain';
 
   type WaterForm = { meterId: string, quantity: string, name: string };
   @Component

@@ -5,6 +5,7 @@
 - Having another front end framework
 
 # TODO
+- Changer les interfaces comme ca: https://github.com/Microsoft/TypeScript/wiki/What's-new-in-TypeScript#strict-function-types
 - Water: revoir la ui et faire comme les autres: Afficher les compteurs + leur dernière valeur de compteur
 - Utiliser https://www.chartjs.org/samples/latest/charts/bar/stacked.html pour les graphes des consommations (un par consommation).
 - Faire une "interaction" get odometers qui fait un mix de car+odometer, plutot que de faire ca dans le fichier vue

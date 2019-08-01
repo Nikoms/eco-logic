@@ -1,4 +1,4 @@
-import { EventDispatcher } from '@eco/shared-kernel';
+import { EventDispatcher } from '../../../eco/shared-kernel';
 import {
   AddCar,
   AddFlight,
@@ -7,7 +7,7 @@ import {
   GetCars,
   GetFlights,
   UpdateOdometer,
-} from '@eco/domain';
+} from '../../../eco/domain';
 import { TravelingUI } from './TravelingUI';
 import { TravelingController } from './TravelingController';
 import { TravelingUIPresenter } from './TravelingUIPresenter';

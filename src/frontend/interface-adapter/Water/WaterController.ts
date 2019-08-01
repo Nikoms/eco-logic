@@ -9,7 +9,7 @@ import {
   GetConsumptionsPresenterInterface,
   GetWaterMeters,
   GetWaterMetersPresenterInterface,
-} from '@eco/domain';
+} from '../../../eco/domain';
 
 export class WaterController {
   constructor(

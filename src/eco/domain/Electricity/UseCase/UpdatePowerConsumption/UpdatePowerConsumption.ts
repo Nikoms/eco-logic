@@ -1,10 +1,10 @@
 import { ElectricityMeterRepositoryInterface } from '../../Repository/ElectricityMeterRepositoryInterface';
-import { EventDispatcher } from '@eco/shared-kernel';
 import { UpdatePowerConsumptionPresenterInterface } from './UpdatePowerConsumptionPresenterInterface';
 import { UpdatePowerConsumptionRequest } from './UpdatePowerConsumptionRequest';
 import { UpdatePowerConsumptionResponse } from './UpdatePowerConsumptionResponse';
 import { PowerUpdated } from '../../Event/PowerUpdated';
 import { PowerConsumption } from '../../Entity/PowerConsumption';
+import { EventDispatcher } from '../../../../shared-kernel';
 
 export class UpdatePowerConsumption {
   constructor(private meterRepository: ElectricityMeterRepositoryInterface,

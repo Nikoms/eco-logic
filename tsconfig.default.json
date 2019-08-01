@@ -29,21 +29,6 @@
     "paths": {
       "@/*": [
         "src/frontend/vuejs/src/*"
-      ],
-      "@eco/domain": [
-        "src/eco/domain"
-      ],
-      "@eco/shared-kernel": [
-        "src/eco/shared-kernel"
-      ],
-      "@eco/infrastructure": [
-        "src/infrastructure"
-      ],
-      "@eco/frontend-infrastructure": [
-        "src/frontend/infrastructure"
-      ],
-      "@eco/frontend-interface-adapter": [
-        "src/frontend/interface-adapter"
       ]
     }
   },

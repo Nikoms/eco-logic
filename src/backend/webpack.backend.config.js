@@ -39,7 +39,7 @@ module.exports = {
     entry: './src/backend/index.ts',
     target: 'node',
     output: {
-        filename: 'index.js',
+        filename: 'index.tsx.js',
         path: path.resolve(__dirname, '../..', 'dist'),
     },
     devtool: 'source-map',

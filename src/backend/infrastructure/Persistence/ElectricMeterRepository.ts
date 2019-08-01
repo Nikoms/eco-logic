@@ -1,5 +1,5 @@
 import { v4 } from 'uuid';
-import { ElectricityMeterRepositoryInterface, ElectricMeter } from '@eco/domain';
+import { ElectricityMeterRepositoryInterface, ElectricMeter } from '../../../eco/domain';
 
 export class ElectricMeterRepository implements ElectricityMeterRepositoryInterface {
   constructor(private list: ElectricMeter[] = []) {

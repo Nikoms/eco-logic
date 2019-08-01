@@ -1,6 +1,6 @@
 import { v4 } from 'uuid';
 import { WaterApi } from './WaterApi';
-import { WaterMeter, WaterMeterRepositoryInterface } from '@eco/domain';
+import { WaterMeter, WaterMeterRepositoryInterface } from '../../../eco/domain';
 
 
 export class WaterMeterFakeApiRepository implements WaterMeterRepositoryInterface {

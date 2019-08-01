@@ -1,6 +1,6 @@
 import { JsonOf } from './type/JsonOf';
 import { v4 } from 'uuid';
-import { ConsumptionRepositoryInterface, WaterConsumption } from '@eco/domain';
+import { ConsumptionRepositoryInterface, WaterConsumption } from '../../eco/domain';
 
 export class WaterConsumptionLocalStorageRepository implements ConsumptionRepositoryInterface {
   private key = 'water-consumptions';

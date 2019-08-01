@@ -1,6 +1,6 @@
-import { EcoEvent } from '@eco/shared-kernel';
 import { FuelOilEvents } from './FuelOilEvents';
 import { FuelOilOrder } from '../Entity/FuelOilOrder';
+import { EcoEvent } from '../../../shared-kernel';
 
 export class FuelOilOrdered implements EcoEvent {
   public name = FuelOilEvents.fuelOilOrdered;

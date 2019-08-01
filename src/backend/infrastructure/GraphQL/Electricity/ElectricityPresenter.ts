@@ -3,7 +3,7 @@ import {
   GetElectricMetersResponse,
   SaveElectricMeterPresenterInterface,
   SaveElectricMeterResponse,
-} from '@eco/domain';
+} from '../../../../eco/domain';
 
 export class ElectricityPresenter implements GetElectricMetersPresenterInterface, SaveElectricMeterPresenterInterface {
   response: any;

@@ -12,7 +12,7 @@ import {
   UpdateOdometer,
   UpdateOdometerPresenterInterface,
   UpdateOdometerRequest,
-} from '@eco/domain';
+} from '../../../eco/domain';
 
 export class TravelingController {
   constructor(

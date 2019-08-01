@@ -5,8 +5,8 @@ import {
   Carbon,
   GetCarbonsPresenter,
   GetCarbonsResponse,
-} from '@eco/domain';
-import { addCarbon, getCarbons } from '@eco/infrastructure';
+} from '../../../eco/domain';
+import { addCarbon, getCarbons } from '../../../infrastructure';
 
 export class CarbonApi implements AddCarbonPresenter, GetCarbonsPresenter {
   private addCarbonResponse?: AddCarbonResponse;

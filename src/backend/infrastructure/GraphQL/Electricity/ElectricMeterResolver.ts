@@ -1,7 +1,7 @@
 import { Arg, Mutation, Query, Resolver } from 'type-graphql';
 import { ElectricMeterSchema, SaveElectricSchemaInput } from './ElectricMeterSchema';
 import { getElectricMeters, saveElectricMeter } from '../../di';
-import { GetElectricMetersResponse, SaveElectricMeterRequest, SaveElectricMeterResponse } from '@eco/domain';
+import { GetElectricMetersResponse, SaveElectricMeterRequest, SaveElectricMeterResponse } from '../../../../eco/domain';
 import { CallUseCase } from '../CallUseCase';
 import { ElectricityPresenter } from './ElectricityPresenter';
 

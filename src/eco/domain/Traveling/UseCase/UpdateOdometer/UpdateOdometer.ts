@@ -1,9 +1,9 @@
-import { EventDispatcher } from '@eco/shared-kernel';
 import { CarRepositoryInterface } from '../CarRepositoryInterface';
 import { UpdateOdometerRequest } from './UpdateOdometerRequest';
 import { UpdateOdometerResponse } from './UpdateOdometerResponse';
 import { UpdateOdometerPresenterInterface } from './UpdateOdometerPresenterInterface';
 import { OdometerUpdated } from '../../Event/OdometerUpdated';
+import { EventDispatcher } from '../../../../shared-kernel';
 
 export class UpdateOdometer {
   constructor(private cars: CarRepositoryInterface, private eventDispatcher: EventDispatcher) {

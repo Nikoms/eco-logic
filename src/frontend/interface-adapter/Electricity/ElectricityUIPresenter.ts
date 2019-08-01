@@ -7,7 +7,7 @@ import {
   SaveElectricMeterResponse,
   UpdatePowerConsumptionPresenterInterface,
   UpdatePowerConsumptionResponse,
-} from '@eco/domain';
+} from '../../../eco/domain';
 import { ElectricViewModel, ViewModel } from './ViewModel';
 
 export class ElectricityUIPresenter implements ElectricUI,

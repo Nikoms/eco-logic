@@ -1,4 +1,4 @@
-import { FuelOilOrder, FuelOilOrderRepositoryInterface } from '@eco/domain';
+import { FuelOilOrder, FuelOilOrderRepositoryInterface } from '../../../eco/domain';
 import { HouseHeatingApi } from './HouseHeatingApi';
 
 export class OrderFuelOilFakeApiRepository implements FuelOilOrderRepositoryInterface {

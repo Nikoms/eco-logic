@@ -1,6 +1,6 @@
 import { ElectricityEvents } from './ElectricityEvents';
 import { ElectricMeter } from '../Entity/ElectricMeter';
-import { EcoEvent } from '@eco/shared-kernel';
+import { EcoEvent } from '../../../shared-kernel';
 
 
 export class PowerUpdated implements EcoEvent {

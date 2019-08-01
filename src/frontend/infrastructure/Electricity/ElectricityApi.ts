@@ -11,13 +11,13 @@ import {
   UpdatePowerConsumptionPresenterInterface,
   UpdatePowerConsumptionRequest,
   UpdatePowerConsumptionResponse,
-} from '@eco/domain';
+} from '../../../eco/domain';
 import {
   getElectricMeter,
   getElectricMeters,
   saveElectricMeter,
   updatePowerConsumption,
-} from '@eco/infrastructure';
+} from '../../../infrastructure';
 
 export class ElectricityApi implements UpdatePowerConsumptionPresenterInterface,
   GetElectricMetersPresenterInterface,

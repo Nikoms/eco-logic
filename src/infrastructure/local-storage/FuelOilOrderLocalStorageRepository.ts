@@ -1,4 +1,4 @@
-import { FuelOilOrder, FuelOilOrderRepositoryInterface } from '@eco/domain';
+import { FuelOilOrder, FuelOilOrderRepositoryInterface } from '../../eco/domain';
 import { JsonOf } from './type/JsonOf';
 
 export class FuelOilOrderLocalStorageRepository implements FuelOilOrderRepositoryInterface {

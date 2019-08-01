@@ -1,6 +1,6 @@
 import { v4 } from 'uuid';
 import { WaterApi } from './WaterApi';
-import { ConsumptionRepositoryInterface, WaterConsumption } from '@eco/domain';
+import { ConsumptionRepositoryInterface, WaterConsumption } from '../../../eco/domain';
 
 
 export class ConsumptionFakeApiRepository implements ConsumptionRepositoryInterface {

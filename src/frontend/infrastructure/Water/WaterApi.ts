@@ -11,13 +11,13 @@ import {
   GetWaterMetersResponse,
   WaterConsumption,
   WaterMeter,
-} from '@eco/domain';
+} from '../../../eco/domain';
 import {
   addWaterConsumption,
   addWaterMeter,
   getAllWaterConsumptions,
   getWaterMeters,
-} from '@eco/infrastructure';
+} from '../../../infrastructure';
 
 export class WaterApi implements GetWaterMetersPresenterInterface,
   AddConsumptionPresenterInterface,

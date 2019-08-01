@@ -2,9 +2,9 @@ import { FlightRepositoryInterface } from '../FlightRepositoryInterface';
 import { AddFlightPresenterInterface } from './AddFlightPresenterInterface';
 import { AddFlightRequest } from './AddFlightRequest';
 import { AddFlightResponse } from './AddFlightResponse';
-import { EventDispatcher } from '@eco/shared-kernel';
 import { PlaneTravel, Seat } from '../../Entity/PlaneTravel';
 import { PlaneTravelAdded } from '../../Event/PlaneTravelAdded';
+import { EventDispatcher } from '../../../../shared-kernel';
 
 export class AddFlight {
   constructor(private repository: FlightRepositoryInterface, private eventDispatcher: EventDispatcher) {

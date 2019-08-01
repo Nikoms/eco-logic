@@ -3,11 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "node_modules/.bin/vue-cli-service serve",
-    "build": "node_modules/.bin/vue-cli-service build",
-    "lint": "node_modules/.bin/vue-cli-service lint",
-    "test:unit": "node_modules/.bin/vue-cli-service test:unit",
-    "test:e2e": "node_modules/.bin/vue-cli-service test:e2e"
   },
   "dependencies": {
     "chart.js": "^2.7.3",
@@ -22,7 +17,6 @@
   },
   "devDependencies": {
     "@mdi/font": "^3.3.92",
-    "@types/jest": "^23.1.4",
     "@vue/cli-plugin-babel": "^3.0.3",
     "@vue/cli-plugin-pwa": "^3.0.3",
     "@vue/cli-plugin-typescript": "^3.0.3",

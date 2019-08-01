@@ -1,5 +1,5 @@
 import { v4 } from 'uuid';
-import { FlightRepositoryInterface, PlaneTravel } from '@eco/domain';
+import { FlightRepositoryInterface, PlaneTravel } from '../../../eco/domain';
 import { TravelingApi } from './TravelingApi';
 
 export class FlightFakeApiRepository implements FlightRepositoryInterface {

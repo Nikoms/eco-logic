@@ -5,7 +5,7 @@ import { AddCarbonResponse } from './UseCase/AddCarbon/AddCarbonResponse';
 import { TravelEvents } from '../Traveling/Event/TravelEvents';
 import { ElectricityEvents } from '../Electricity/Event/ElectricityEvents';
 import { FuelOilEvents } from '../HouseHeating/Event/FuelOilEvents';
-import { EventDispatcher } from '@eco/shared-kernel';
+import { EventDispatcher } from '../../shared-kernel';
 
 export const initCo2Listeners = (eventDispatcher: EventDispatcher, addCarbonCommand: AddCarbon) => {
   const on = eventDispatcher.addListener.bind(eventDispatcher);

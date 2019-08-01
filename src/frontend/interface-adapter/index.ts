@@ -2,7 +2,6 @@ import { ElectricityFactory } from './Electricity/ElectricityFactory';
 import { HouseHeatingFactory } from './HouseHeating/HouseHeatingFactory';
 import { TravelingFactory } from './Traveling/TravelingFactory';
 import { WaterFactory } from './Water/WaterFactory';
-import { EventTargetEventDispatcher } from '@eco/infrastructure';
 import { EventTarget } from 'event-target-shim';
 import {
   CarFakeApiRepository,
@@ -15,13 +14,12 @@ import {
   TravelingApi,
   WaterApi,
   WaterMeterFakeApiRepository,
-} from '@eco/frontend-infrastructure';
+} from '../infrastructure';
 import { TravelingController } from './Traveling/TravelingController';
-import { TravelingUI } from './Traveling/TravelingUI';
-import { WaterUI } from './Water/WaterUI';
 import { ViewModel as WaterViewModel, WaterConsumptionViewModel } from './Water/ViewModel';
 import { WaterController } from './Water/WaterController';
 import { ViewModel as TravelingViewModel } from './Traveling/ViewModel';
+import { EventTargetEventDispatcher } from '../../infrastructure';
 
 export const eventDispatcher = new EventTargetEventDispatcher(new EventTarget());
 export const electricityRepository = new ElectricityMeterFakeApiRepository(new ElectricityApi());
@@ -42,10 +40,10 @@ export {
   TravelingFactory,
   WaterFactory,
   TravelingController,
-  TravelingUI,
-  WaterUI,
   WaterViewModel,
   WaterController,
   WaterConsumptionViewModel,
   TravelingViewModel,
 };
+export * from './Traveling/TravelingUI';
+export * from './Water/WaterUI';

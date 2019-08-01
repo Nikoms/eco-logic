@@ -29,7 +29,7 @@
 
 <script lang="ts">
   import { Component, Vue, Watch } from 'vue-property-decorator';
-  import { AddCarRequest } from '@eco/domain';
+  import { AddCarRequest } from '../../../../../../eco/domain';
 
   @Component
   export default class AddCarView extends Vue {

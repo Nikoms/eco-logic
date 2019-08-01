@@ -1,5 +1,5 @@
-import { GetElectricMeters, SaveElectricMeter } from '@eco/domain';
 import { ElectricMeterRepository } from './Persistence/ElectricMeterRepository';
+import { GetElectricMeters, SaveElectricMeter } from '../../eco/domain';
 
 const electricMeterRepository = new ElectricMeterRepository([]);
 

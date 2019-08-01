@@ -1,4 +1,4 @@
-import { Seat } from '@eco/domain';
+import { Seat } from '../../../eco/domain';
 
 export class AddFlightViewModel {
   displayed = false;

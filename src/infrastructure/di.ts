@@ -27,7 +27,7 @@ import {
   UpdateCar,
   UpdateOdometer,
   UpdatePowerConsumption,
-} from '@eco/domain';
+} from '../eco/domain';
 
 export const eventDispatcher = new EventTargetEventDispatcher();
 

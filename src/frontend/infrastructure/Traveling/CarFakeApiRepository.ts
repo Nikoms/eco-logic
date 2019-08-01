@@ -1,5 +1,5 @@
 import { v4 } from 'uuid';
-import { Car, CarRepositoryInterface } from '@eco/domain';
+import { Car, CarRepositoryInterface } from '../../../eco/domain';
 import { TravelingApi } from './TravelingApi';
 
 export class CarFakeApiRepository implements CarRepositoryInterface {

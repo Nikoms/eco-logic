@@ -31,7 +31,7 @@
 
 <script lang="ts">
   import { Component, Vue, Watch } from 'vue-property-decorator';
-  import { AddFlightRequest } from '@eco/domain';
+  import { AddFlightRequest } from '../../../../../../eco/domain';
 
   @Component
   export default class AddFlightView extends Vue {

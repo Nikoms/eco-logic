@@ -1,4 +1,8 @@
+export * from './event/Event';
+export *  from './event/EventDispatcher';
 import { Event } from './event/Event';
-import { EventDispatcher } from './event/EventDispatcher';
 
-export { Event, Event as EcoEvent, EventDispatcher };
+export interface EcoEvent extends Event {
+
+}
+

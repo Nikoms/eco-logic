@@ -11,7 +11,7 @@ import {
   PlaneTravel,
   UpdateOdometerPresenterInterface,
   UpdateOdometerResponse,
-} from '@eco/domain';
+} from '../../../eco/domain';
 import { TravelingUI } from './TravelingUI';
 import { CarViewModel, FlightViewModel, ViewModel } from './ViewModel';
 
@@ -27,9 +27,6 @@ export class TravelingUIPresenter
   private cars: Car[] = [];
   private _viewModel = new ViewModel();
   private flights: PlaneTravel[] = [];
-
-  constructor() {
-  }
 
   get viewModel() {
     return this._viewModel;

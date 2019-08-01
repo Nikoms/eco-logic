@@ -1,12 +1,12 @@
 import { HouseHeatingController } from './HouseHeatingController';
 import { HouseHeatingUIPresenter } from './HouseHeatingUIPresenter';
-import { EventDispatcher } from '@eco/shared-kernel';
+import { EventDispatcher } from '../../../eco/shared-kernel';
 import {
   AddFuelOilOrder,
   FuelOilOrderRepositoryInterface,
   GetLastFuelOilOrders,
   GetTotalFuelOilOrder,
-} from '@eco/domain';
+} from '../../../eco/domain';
 import { ElectricUI } from './ElectricUI';
 
 export class HouseHeatingFactory {

@@ -9,7 +9,7 @@ import {
   GetWaterMetersResponse,
   WaterConsumption,
   WaterMeter,
-} from '@eco/domain';
+} from '../../../eco/domain';
 import { WaterUI } from './WaterUI';
 import { ViewModel, WaterConsumptionViewModel, WaterMeterViewModel } from './ViewModel';
 

@@ -1,6 +1,6 @@
 import { v4 } from 'uuid';
-import { Carbon, CarbonRepository } from '@eco/domain';
 import { CarbonApi } from './CarbonApi';
+import { Carbon, CarbonRepository } from '../../../eco/domain';
 
 export class CarbonFakeApiRepository implements CarbonRepository {
   constructor(private api: CarbonApi) {

@@ -5,7 +5,7 @@ import {
   GetConsumptions,
   GetWaterMeters,
   WaterMeterRepositoryInterface,
-} from '@eco/domain';
+} from '../../../eco/domain';
 import { WaterController } from './WaterController';
 import { WaterUIPresenter } from './WaterUIPresenter';
 import { ViewModel } from './ViewModel';

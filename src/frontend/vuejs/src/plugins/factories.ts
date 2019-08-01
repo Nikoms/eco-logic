@@ -7,7 +7,7 @@ import {
   TravelingFactory,
   waterFactory,
   WaterFactory,
-} from '@eco/frontend-interface-adapter';
+} from '../../../interface-adapter';
 
 const factories = {
   install: (Vue: any) => {

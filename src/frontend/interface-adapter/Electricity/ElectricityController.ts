@@ -7,7 +7,7 @@ import {
   UpdatePowerConsumption,
   UpdatePowerConsumptionPresenterInterface,
   UpdatePowerConsumptionRequest,
-} from '@eco/domain';
+} from '../../../eco/domain';
 
 export class ElectricityController {
   constructor(

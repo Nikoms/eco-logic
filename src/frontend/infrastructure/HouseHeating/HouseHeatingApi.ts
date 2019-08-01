@@ -7,8 +7,8 @@ import {
   GetLastFuelOilOrdersResponse,
   GetTotalFuelOilOrderPresenterInterface,
   GetTotalFuelOilOrderResponse,
-} from '@eco/domain';
-import { addFuelOilOrder, getLastFuelOilOrder, getTotalFuelOilOrder } from '@eco/infrastructure';
+} from '../../../eco/domain';
+import { addFuelOilOrder, getLastFuelOilOrder, getTotalFuelOilOrder } from '../../../infrastructure';
 
 export class HouseHeatingApi implements GetTotalFuelOilOrderPresenterInterface,
   GetLastFuelOilOrdersPresenterInterface,

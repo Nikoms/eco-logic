@@ -19,8 +19,8 @@ import {
   UpdateCarResponse,
   UpdateOdometerPresenterInterface,
   UpdateOdometerResponse,
-} from '@eco/domain';
-import { addCar, addFlight, getCar, getCars, getFlights, updateCar } from '@eco/infrastructure';
+} from '../../../eco/domain';
+import { addCar, addFlight, getCar, getCars, getFlights, updateCar } from '../../../infrastructure';
 
 export class TravelingApi
   implements UpdateOdometerPresenterInterface,

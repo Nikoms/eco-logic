@@ -1,6 +1,6 @@
 import { TravelEvents } from './TravelEvents';
 import { Car } from '../Entity/Car';
-import { EcoEvent } from '@eco/shared-kernel';
+import { EcoEvent } from '../../../shared-kernel';
 
 export class OdometerUpdated implements EcoEvent {
   name = TravelEvents.odometerUpdated;
