@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/Nikoms/eco-logic/issues"
   },
-  "homepage": "https://github.com/Nikoms/eco-logic#readme",
+  "homepage": "https://unruffled-banach-d9d1c0.netlify.com",
   "private": true,
   "workspaces": [
     "src/frontend/vuejs"
