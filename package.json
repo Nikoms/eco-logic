@@ -9,7 +9,7 @@
     "build-react": "cd frontend/reactts && tsc --build && parcel build src/index.html",
     "build-server": "tsc -p ./src/backend",
     "webpack": "webpack",
-    "backend:dev": "NODE_ENV=development webpack --watch --config webpack.backend.config.js",
+    "backend:dev": "NODE_ENV=development webpack --watch --config src/backend/webpack.backend.config.js",
     "backend:run:dev": "NODE_ENV=development nodemon dist/index.js --watch dist"
   },
   "repository": {
