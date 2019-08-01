@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig",
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "../../build/server",
+    "rootDir": "../..",
+    "types": [
+      "node"
+    ]
+  },
+  "files": [
+    "./index.ts"
+  ]
+}

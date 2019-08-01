@@ -5,8 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd frontend/vuejs && tsc --build && vue-cli-service build",
-    "build-react": "cd frontend/reactts && tsc --build && parcel build src/index.html"
+    "build": "cd src/frontend/vuejs && vue-cli-service build",
+    "build-react": "cd frontend/reactts && tsc --build && parcel build src/index.html",
+    "build-server": "tsc -p ./src/backend",
+    "webpack": "webpack",
+    "backend:dev": "NODE_ENV=development webpack --watch --config webpack.backend.config.js",
+    "backend:run:dev": "NODE_ENV=development nodemon dist/index.js --watch dist"
   },
   "repository": {
     "type": "git",
@@ -19,17 +23,37 @@
     "url": "https://github.com/Nikoms/eco-logic/issues"
   },
   "homepage": "https://github.com/Nikoms/eco-logic#readme",
-  "workspaces": [
-    "core/*",
-    "eco/*",
-    "infrastructure",
-    "frontend/*",
-    "backend"
-  ],
   "private": true,
+  "workspaces": [
+    "src/eco/*",
+    "src/infrastructure",
+    "src/frontend/infrastructure",
+    "src/frontend/interface-adapter",
+    "src/frontend/vuejs",
+    "src/backend"
+  ],
   "devDependencies": {
+    "@types/graphql": "^14.2.3",
+    "@types/node": "^12.6.8",
+    "@types/restify": "^7.2.12",
     "@types/typescript": "^2.0.0",
+    "@types/uuid": "^3.4.5",
+    "ts-loader": "^6.0.4",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
     "tslint": "^5.14.0",
-    "typescript": "^3.3.4000"
+    "type-graphql": "^0.17.4",
+    "typescript": "^3.3.4000",
+    "webpack-cli": "^3.3.6",
+    "webpack-node-externals": "^1.7.2",
+    "webpack": "^4.38.0"
+  },
+  "dependencies": {
+    "apollo-server-restify": "^1.3.6",
+    "event-target-shim": "^5.0.1",
+    "graphql": "^14.4.2",
+    "nodemon": "^1.19.1",
+    "reflect-metadata": "^0.1.13",
+    "restify": "^8.4.0",
+    "uuid": "^3.3.2"
   }
 }

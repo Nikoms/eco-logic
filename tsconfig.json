@@ -1,18 +1,14 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
-    "outDir": "dist",
-    "lib": [
-      "esnext"
-    ],
-    "target": "es2017",
-    "module": "commonjs",
+    "outDir": "root-dist",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "importHelpers": true,
+    "removeComments": true,
     "declaration": true,
     "sourceMap": true,
-    "noEmit": true,
     "strict": true,
     "noImplicitAny": false,
     "strictNullChecks": true,
@@ -29,10 +25,32 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
-    "composite": true,
-    "incremental": true
+    "rootDir": ".",
+    "paths": {
+      "@/*": [
+        "src/frontend/vuejs/src/*"
+      ],
+      "@eco/domain": [
+        "src/eco/domain"
+      ],
+      "@eco/shared-kernel": [
+        "src/eco/shared-kernel"
+      ],
+      "@eco/infrastructure": [
+        "src/infrastructure"
+      ],
+      "@eco/frontend-infrastructure": [
+        "src/frontend/infrastructure"
+      ],
+      "@eco/frontend-interface-adapter": [
+        "src/frontend/interface-adapter"
+      ]
+    }
   },
   "exclude": [
-    "dist"
+    "build",
+    "dist",
+    "node_modules",
+    "_"
   ]
 }
