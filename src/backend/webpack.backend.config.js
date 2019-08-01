@@ -40,7 +40,7 @@ module.exports = {
     target: 'node',
     output: {
         filename: 'index.js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, '../..', 'dist'),
     },
     devtool: 'source-map',
     resolve: {
