@@ -43,11 +43,13 @@ export class TravelingUIPresenter
   }
 
   showUpdateOdometer(selectedCar: CarViewModel) {
-    this.viewModel.doUpdateOdometerView({ displayed: true, selectedCar });
+    this.viewModel.setSelectedCar(selectedCar);
+    this.viewModel.setDisplayUpdateOdometer(true);
   }
 
   hideUpdateOdometer(): any {
-    this.viewModel.doUpdateOdometerView({ displayed: false, selectedCar: undefined });
+    this.viewModel.setDisplayUpdateOdometer(false);
+    this.viewModel.setSelectedCar(undefined);
   }
 
   presentUpdateOdometer(response: UpdateOdometerResponse): void {
@@ -67,16 +69,16 @@ export class TravelingUIPresenter
         this.cars[index] = updatedCar;
       }
       this.updateCarViewModel();
-      this.viewModel.doUpdateOdometerView({ displayed: false, selectedCar: undefined });
+      this.hideUpdateOdometer();
     }
   }
 
   hideAddCar(): void {
-    this.viewModel.doUpdateAddCarView({ displayed: false });
+    this.viewModel.setDisplayAddCar(false);
   }
 
   showAddCar(): void {
-    this.viewModel.doUpdateAddCarView({ displayed: true });
+    this.viewModel.setDisplayAddCar(true);
   }
 
   presentAddCar(response: AddCarResponse): void {
@@ -95,16 +97,16 @@ export class TravelingUIPresenter
     if (response.newCar !== undefined) {
       this.cars.unshift(response.newCar);
       this.updateCarViewModel();
-      this.viewModel.doUpdateAddCarView({ displayed: false });
+      this.hideAddCar();
     }
   }
 
   cancelAddFlight(): void {
-    this.viewModel.doUpdateAddFlightView({ displayed: false });
+    this.viewModel.setDisplayAddFlight(false);
   }
 
   showAddFlight(): void {
-    this.viewModel.doUpdateAddFlightView({ displayed: true });
+    this.viewModel.setDisplayAddFlight(true);
   }
 
   presentAddFlight(response: AddFlightResponse): void {
@@ -117,26 +119,23 @@ export class TravelingUIPresenter
     if (response.newFlight !== undefined) {
       this.flights.unshift(response.newFlight);
       this.updateFlightViewModel();
-      this.viewModel.doUpdateAddFlightView({ displayed: false });
+      this.viewModel.setDisplayAddFlight(false);
     }
   }
 
   private updateCarViewModel() {
-    const cars = this.cars.map(car => {
+    this.viewModel.updateCars(this.cars.map(car => {
       return new CarViewModel(car.id, car.name, car.km + ' Km');
-    });
-
-    this.viewModel.doUpdate({ cars });
+    }));
   }
 
   private updateFlightViewModel() {
-    const flights = this.flights.map(flight => {
+    this.viewModel.updateFlights(this.flights.map(flight => {
       return new FlightViewModel(
         flight.date.toLocaleDateString('fr'),
         flight.km + ' Km',
         flight.description,
       );
-    });
-    this.viewModel.doUpdate({ flights });
+    }));
   }
 }

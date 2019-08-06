@@ -1,13 +1,15 @@
 import * as React from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { Card, Theme } from '@material-ui/core';
-import { NonFunctionProperties } from '../../shared-kernel/type/NonFunctionProperties';
 import CardHeader from '@material-ui/core/CardHeader';
 import AddIcon from '@material-ui/icons/Add';
 import AddCarView from '../compononents/AddCarView';
 import AddFlightView from '../compononents/AddFlightView';
 import UpdateOdometerView from '../compononents/UpdateOdometerView';
-import { TravelingFactory, TravelingViewModel } from '../../../interface-adapter';
+import { TravelingFactory } from '../../../interface-adapter';
+import { connect } from 'react-redux';
+import { AppState } from '../../rootReducer';
+import { TravelState } from '../store/traveling/TravelState';
 
 const styles = (theme: Theme) => {
   return {
@@ -21,24 +23,13 @@ const styles = (theme: Theme) => {
 
 interface HomeProps {
   travelingFactory: TravelingFactory;
+  travel: TravelState;
 }
 
 // @ts-ignore
 @withStyles(styles)
-export default class Home extends React.Component<HomeProps> {
-  state: NonFunctionProperties<TravelingViewModel> = { ...new TravelingViewModel() };
-
-  constructor(props: HomeProps) {
-    super(props);
-    this.props.travelingFactory.viewModel
-      .onChange((_viewModel, path: 'updateOdometerView' | 'addCarView' | 'addFlightView' | null, newValues) => {
-        if (path === null) {
-          this.setState({ ...newValues });
-        } else {
-          const values = { ...this.state[path], ...newValues };
-          this.setState({ path: values });
-        }
-      });
+class Home extends React.Component<HomeProps> {
+  componentDidMount() {
     this.props.travelingFactory.controller.refreshSummary();
   }
 
@@ -57,14 +48,14 @@ export default class Home extends React.Component<HomeProps> {
 
       <Card>
         <CardHeader
-          title={this.state.carsTitle}
+          title={this.props.travelingFactory.viewModel.carsTitle}
           titleTypographyProps={{ align: 'center' }}
           subheaderTypographyProps={{ align: 'center' }}
           action={<AddIcon onClick={() => this.props.travelingFactory.ui.showAddCar()}/>}
         />
       </Card>
 
-      {this.state.cars.map((car) =>
+      {this.props.travel.cars.map((car) =>
         <Card key={car.id}>
           <CardHeader title={car.name + ' -> ' + car.distance}
                       onClick={() => this.props.travelingFactory.ui.showUpdateOdometer(car)}/>
@@ -72,16 +63,24 @@ export default class Home extends React.Component<HomeProps> {
 
       <Card>
         <CardHeader
-          title={this.state.flightTitle}
+          title={this.props.travelingFactory.viewModel.flightTitle}
           titleTypographyProps={{ align: 'center' }}
           subheaderTypographyProps={{ align: 'center' }}
           action={<AddIcon onClick={() => this.props.travelingFactory.ui.showAddFlight()}/>}
         />
       </Card>
 
-      {this.state.flights.map((flight, i) => <Card key={'flight' + i}><CardHeader
-        title={flight.distance + ' -> ' + flight.date}/></Card>)}
+      {this.props.travel.flights.map((flight, i) => <Card key={'flight' + i}><CardHeader
+        title={flight.distance + ' -> ' + flight.date + ' : ' + flight.description}/></Card>)}
 
     </div>);
   }
 }
+
+const mapStateToProps = (state: AppState) => ({
+  travel: state.travel,
+});
+
+export default connect(mapStateToProps)(Home);
+
+
