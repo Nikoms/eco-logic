@@ -1,5 +1,6 @@
-import { TravelActionTypes, UPDATE_CARS, UPDATE_FLIGHTS } from './TravelActionTypes';
+import { TravelActionTypes } from './TravelActionTypes';
 import { TravelState } from './TravelState';
+import { ViewModel } from '../../../../interface-adapter/Traveling/ViewModel';
 
 const initialState: TravelState = {
   cars: [],
@@ -8,16 +9,11 @@ const initialState: TravelState = {
 
 export function travelReducer(state = initialState, action: TravelActionTypes): TravelState {
   switch (action.type) {
-    case UPDATE_CARS:
-      return {
-        ...state,
-        cars: action.payload.cars,
-      };
-    case UPDATE_FLIGHTS:
-      return {
-        ...state,
-        flights: action.payload.flights,
-      };
+    case ViewModel.events.carsUpdated:
+      return { ...state, cars: action.payload.cars };
+
+    case ViewModel.events.flightsUpdated:
+      return { ...state, flights: action.payload.flights };
   }
 
   return state;

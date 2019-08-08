@@ -12,6 +12,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { TravelingController, TravelingUI, TravelingViewModel } from '../../../interface-adapter';
 import { AddCarRequest } from '../../../../eco/domain';
+import { ViewModel } from '../../../interface-adapter/Traveling/ViewModel';
 
 interface AddCarViewProps {
   controller: TravelingController;
@@ -26,13 +27,19 @@ export default class AddCarView extends React.Component<AddCarViewProps> {
     engine: '',
     consumption: '',
     km: '0',
+    displayed: false,
   };
+
+  componentDidMount() {
+    this.props.viewModel.on(ViewModel.events.addCarDisplayChanged, ({ displayed }) => this.setState({ displayed }));
+  }
 
   handleSubmit(event: any) {
     const request = new AddCarRequest(this.state.name, this.state.consumption, this.state.engine, this.state.km);
     this.props.controller.addCar(request);
     event.preventDefault();
   }
+
 
   handleChange(event: React.ChangeEvent<{ name?: string; value: unknown }>) {
     event.persist();
@@ -43,7 +50,7 @@ export default class AddCarView extends React.Component<AddCarViewProps> {
   }
 
   render() {
-    return (<Dialog open={this.props.viewModel.addCarView.displayed}
+    return (<Dialog open={this.state.displayed}
                     onClose={() => this.props.presenter.hideAddCar()}
                     aria-labelledby="form-dialog-title">
       <form onSubmit={(event) => this.handleSubmit(event)}>

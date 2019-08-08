@@ -7,6 +7,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { TravelingController, TravelingUI, TravelingViewModel } from '../../../interface-adapter';
+import { ViewModel } from '../../../interface-adapter/Traveling/ViewModel';
 
 interface UpdateOdometerViewProps {
   controller: TravelingController;
@@ -17,14 +18,25 @@ interface UpdateOdometerViewProps {
 export default class UpdateOdometerView extends React.Component<UpdateOdometerViewProps> {
   state = {
     km: '',
+    displayed: false,
+    previouslyPlaceHolder: '',
+    carName: '',
+    carId: '',
   };
 
-  handleSubmit(event: any) {
-    const carId = this.props.viewModel.updateOdometerView.selectedCar
-      ? this.props.viewModel.updateOdometerView.selectedCar.id
-      : '';
-    this.props.controller.updateOdometer(carId, this.state.km);
+  componentDidMount() {
+    this.props.viewModel.on(ViewModel.events.updateOdometerDisplayChanged, ({ displayed }) => this.setState({ displayed }));
+    this.props.viewModel.on(ViewModel.events.selectedCarChanged, (payload: any) => {
+      this.setState({
+        previouslyPlaceHolder: payload.previouslyPlaceHolder,
+        carName: payload.selectedCar ? payload.selectedCar.name : '',
+        carId: payload.selectedCar ? payload.selectedCar.id : '',
+      });
+    });
+  }
 
+  handleSubmit(event: any) {
+    this.props.controller.updateOdometer(this.state.carId, this.state.km);
     event.preventDefault();
   }
 
@@ -37,34 +49,26 @@ export default class UpdateOdometerView extends React.Component<UpdateOdometerVi
   }
 
   render() {
-    const carName = this.props.viewModel.updateOdometerView.selectedCar
-      ? this.props.viewModel.updateOdometerView.selectedCar.name
-      : '';
-    const previously = this.props.viewModel.updateOdometerView.selectedCar
-      ? this.props.viewModel.updateOdometerView.selectedCar.distance
-      : '0';
-
-    return (<Dialog open={this.props.viewModel.updateOdometerView.displayed}
+    const vm = this.props.viewModel.updateOdometerView;
+    return (<Dialog open={this.state.displayed}
                     onClose={() => this.props.presenter.hideUpdateOdometer()}
                     aria-labelledby="form-dialog-title">
       <form onSubmit={(event) => this.handleSubmit(event)}>
-        <DialogTitle id="form-dialog-title">{this.props.viewModel.updateOdometerView.titleText}</DialogTitle>
+        <DialogTitle id="form-dialog-title">{vm.titleText}</DialogTitle>
         <DialogContent>
-          <TextField name="km" label={carName} fullWidth
+          <TextField name="km" label={this.state.carName}
                      type="number"
+                     autoFocus
+                     fullWidth
                      onChange={(e) => this.handleChange(e)}
-                     placeholder={'Previously: ' + previously}
-                     InputProps={{
-                       endAdornment: <InputAdornment
-                         position="end">km</InputAdornment>,
-                     }}
+                     placeholder={this.state.previouslyPlaceHolder}
+                     InputProps={{ endAdornment: <InputAdornment position="end">km</InputAdornment> }}
 
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => this.props.presenter.hideUpdateOdometer()}
-                  color="primary">{this.props.viewModel.updateOdometerView.cancelText}</Button>
-          <Button color="primary" type="submit">{this.props.viewModel.updateOdometerView.saveText}</Button>
+          <Button onClick={() => this.props.presenter.hideUpdateOdometer()} color="primary">{vm.cancelText}</Button>
+          <Button color="primary" type="submit">{vm.saveText}</Button>
         </DialogActions>
       </form>
     </Dialog>);

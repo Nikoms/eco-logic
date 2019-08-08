@@ -6,4 +6,5 @@ export class UpdateOdometerViewModel {
   cancelText = 'Cancel';
   saveText = 'Save';
   selectedCar?: CarViewModel;
+  previouslyPlaceHolder = '';
 }

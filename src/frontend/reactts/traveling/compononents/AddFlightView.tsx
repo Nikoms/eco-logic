@@ -11,6 +11,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
 import { TravelingController, TravelingUI, TravelingViewModel } from '../../../interface-adapter';
 import { AddFlightRequest } from '../../../../eco/domain';
+import { ViewModel } from '../../../interface-adapter/Traveling/ViewModel';
 
 interface AddFlightViewProps {
   controller: TravelingController;
@@ -24,6 +25,7 @@ export default class AddFlightView extends React.Component<AddFlightViewProps> {
     km: string,
     seat: string,
     description: string,
+    displayed: boolean,
   };
 
   constructor(props: AddFlightViewProps) {
@@ -32,7 +34,12 @@ export default class AddFlightView extends React.Component<AddFlightViewProps> {
       km: '',
       seat: props.viewModel.addFlightView.seats[0],
       description: '',
+      displayed: false,
     };
+  }
+
+  componentDidMount() {
+    this.props.viewModel.on(ViewModel.events.addFlightDisplayChanged, ({ displayed }) => this.setState({ displayed }));
   }
 
   handleSubmit(event: any) {
@@ -51,7 +58,7 @@ export default class AddFlightView extends React.Component<AddFlightViewProps> {
   }
 
   render() {
-    return (<Dialog open={this.props.viewModel.addFlightView.displayed}
+    return (<Dialog open={this.state.displayed}
                     onClose={() => this.props.presenter.cancelAddFlight()}
                     aria-labelledby="form-dialog-title">
       <form onSubmit={(event) => this.handleSubmit(event)}>

@@ -1,16 +1,14 @@
-import { CarViewModel, FlightViewModel } from '../../../../interface-adapter/Traveling/ViewModel';
-
-export const UPDATE_CARS = 'travel.updateCars';
-export const UPDATE_FLIGHTS = 'travel.updateFlights';
+import { CarViewModel, FlightViewModel, ViewModel } from '../../../../interface-adapter/Traveling/ViewModel';
 
 interface UpdateCarsAction {
-  type: typeof UPDATE_CARS;
+  type: typeof ViewModel.events.carsUpdated;
   payload: { cars: CarViewModel[] };
 }
 
 interface UpdateFlightsAction {
-  type: typeof UPDATE_FLIGHTS;
+  type: typeof ViewModel.events.flightsUpdated;
   payload: { flights: FlightViewModel[] };
 }
+
 
 export type TravelActionTypes = UpdateCarsAction | UpdateFlightsAction;

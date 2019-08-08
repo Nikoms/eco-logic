@@ -14,14 +14,20 @@ export class CarViewModel {
   }
 }
 
-type EventCallback = (
-  viewModel: ViewModel,
-  path: 'updateOdometerView' | 'addCarView' | 'addFlightView' | null,
-  newValues: Partial<ViewModel | AddCarViewModel | AddFlightViewModel | UpdateOdometerViewModel>,
-  methodName: string,
-) => any;
+type EventCallback = (payload: any, eventName: string) => any;
+type SpecificEventCallback = (payload: any) => any;
 
 export class ViewModel {
+  // Don't use enum with react...
+  public static events = Object.freeze({
+    carsUpdated: 'travel.carsUpdated' as 'travel.carsUpdated',
+    flightsUpdated: 'travel.flightsUpdated' as 'travel.flightsUpdated',
+    selectedCarChanged: 'travel.selectedCarChanged' as 'travel.selectedCarChanged',
+    updateOdometerDisplayChanged: 'travel.updateOdometerDisplayChanged' as 'travel.updateOdometerDisplayChanged',
+    addCarDisplayChanged: 'travel.addCarDisplayChanged' as 'travel.addCarDisplayChanged',
+    addFlightDisplayChanged: 'travel.addFlightDisplayChanged' as 'travel.addFlightDisplayChanged',
+  });
+
   carsTitle = 'Cars';
   cars: CarViewModel[] = [];
   flightTitle = 'Flights';
@@ -35,33 +41,43 @@ export class ViewModel {
     this.observers.push(callback);
   }
 
+  on(type: string, callback: SpecificEventCallback) {
+    this.observers.push((payload, eventName) => {
+      if (eventName === type) {
+        callback(payload);
+      }
+    });
+  }
+
   updateCars(cars: CarViewModel[]) {
     this.cars = cars;
-    this.observers.forEach(cb => cb(this, null, { cars }, 'travel.updateCars'));
+    this.observers.forEach(cb => cb({ cars }, ViewModel.events.carsUpdated));
   }
 
   updateFlights(flights: FlightViewModel[]) {
     this.flights = flights;
-    this.observers.forEach(cb => cb(this, null, { flights }, 'travel.updateFlights'));
+    this.observers.forEach(cb => cb({ flights }, ViewModel.events.flightsUpdated));
   }
 
   setSelectedCar(selectedCar?: CarViewModel) {
     this.updateOdometerView.selectedCar = selectedCar;
-    this.observers.forEach(cb => cb(this, 'updateOdometerView', { selectedCar }, 'travel.setSelectedCar'));
+    const previouslyPlaceHolder = selectedCar ? 'Previously: ' + selectedCar.distance : '';
+    this.updateOdometerView.previouslyPlaceHolder = previouslyPlaceHolder;
+    this.observers.forEach(cb => cb({ selectedCar, previouslyPlaceHolder }, ViewModel.events.selectedCarChanged));
   }
 
   setDisplayUpdateOdometer(displayed: boolean) {
     this.updateOdometerView.displayed = displayed;
-    this.observers.forEach(cb => cb(this, 'updateOdometerView', { displayed }, 'travel.setDisplayUpdateOdometer'));
+    this.observers.forEach(cb => cb({ displayed }, ViewModel.events.updateOdometerDisplayChanged));
   }
 
   setDisplayAddCar(displayed: boolean) {
     this.addCarView.displayed = displayed;
-    this.observers.forEach(cb => cb(this, 'addCarView', { displayed }, 'travel.setDisplayAddCar'));
+    this.observers.forEach(cb => cb({ displayed }, ViewModel.events.addCarDisplayChanged));
   }
 
   setDisplayAddFlight(displayed: boolean) {
     this.addFlightView.displayed = displayed;
-    this.observers.forEach(cb => cb(this, 'addFlightView', { displayed }, 'travel.setDisplayAddFlight'));
+    this.observers.forEach(cb => cb({ displayed }, ViewModel.events.addFlightDisplayChanged));
   }
 }

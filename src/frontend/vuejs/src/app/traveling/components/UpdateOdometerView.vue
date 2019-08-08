@@ -13,7 +13,7 @@
                                   :label="viewModel.selectedCar.name"
                                   suffix="km"
                                   ref="carField"
-                                  :placeholder="'Previously: '+viewModel.selectedCar.distance"
+                                  :placeholder="viewModel.previouslyPlaceHolder"
                     ></v-text-field>
                 </v-card-text>
 
@@ -46,7 +46,7 @@
         this.km = '';
         setTimeout(() => {
           (this.$refs.carField as any).focus();
-        },0);
+        }, 0);
       }
     }
   }
