@@ -1,6 +1,6 @@
 import { AddCarViewModel } from './AddCarViewModel';
 import { AddFlightViewModel } from './AddFlightViewModel';
-import { UpdateOdometerViewModel } from './UpdateOdometerViewModel';
+import { OdometerForm, UpdateOdometerViewModel } from './UpdateOdometerViewModel';
 
 export class FlightViewModel {
   constructor(public readonly date: string, public readonly distance: string, public readonly description: string) {
@@ -22,8 +22,7 @@ export class ViewModel {
   public static events = Object.freeze({
     carsUpdated: 'travel.carsUpdated' as 'travel.carsUpdated',
     flightsUpdated: 'travel.flightsUpdated' as 'travel.flightsUpdated',
-    selectedCarChanged: 'travel.selectedCarChanged' as 'travel.selectedCarChanged',
-    updateOdometerDisplayChanged: 'travel.updateOdometerDisplayChanged' as 'travel.updateOdometerDisplayChanged',
+    formChanged: 'travel.formChanged' as 'travel.formChanged',
     addCarDisplayChanged: 'travel.addCarDisplayChanged' as 'travel.addCarDisplayChanged',
     addFlightDisplayChanged: 'travel.addFlightDisplayChanged' as 'travel.addFlightDisplayChanged',
   });
@@ -59,16 +58,9 @@ export class ViewModel {
     this.observers.forEach(cb => cb({ flights }, ViewModel.events.flightsUpdated));
   }
 
-  setSelectedCar(selectedCar?: CarViewModel) {
-    this.updateOdometerView.selectedCar = selectedCar;
-    const previouslyPlaceHolder = selectedCar ? 'Previously: ' + selectedCar.distance : '';
-    this.updateOdometerView.previouslyPlaceHolder = previouslyPlaceHolder;
-    this.observers.forEach(cb => cb({ selectedCar, previouslyPlaceHolder }, ViewModel.events.selectedCarChanged));
-  }
-
-  setDisplayUpdateOdometer(displayed: boolean) {
-    this.updateOdometerView.displayed = displayed;
-    this.observers.forEach(cb => cb({ displayed }, ViewModel.events.updateOdometerDisplayChanged));
+  setUpdateOdometerForm(form: OdometerForm) {
+    this.updateOdometerView.form = form;
+    this.observers.forEach(cb => cb(form, ViewModel.events.formChanged));
   }
 
   setDisplayAddCar(displayed: boolean) {

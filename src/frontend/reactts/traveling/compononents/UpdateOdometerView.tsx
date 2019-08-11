@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { TravelingController, TravelingUI, TravelingViewModel } from '../../../interface-adapter';
 import { ViewModel } from '../../../interface-adapter/Traveling/ViewModel';
+import { OdometerForm } from '../../../interface-adapter/Traveling/UpdateOdometerViewModel';
 
 interface UpdateOdometerViewProps {
   controller: TravelingController;
@@ -25,12 +26,13 @@ export default class UpdateOdometerView extends React.Component<UpdateOdometerVi
   };
 
   componentDidMount() {
-    this.props.viewModel.on(ViewModel.events.updateOdometerDisplayChanged, ({ displayed }) => this.setState({ displayed }));
-    this.props.viewModel.on(ViewModel.events.selectedCarChanged, (payload: any) => {
+    this.props.viewModel.on(ViewModel.events.formChanged, (payload: OdometerForm) => {
       this.setState({
+        ...this.state,
+        displayed: payload.displayed,
         previouslyPlaceHolder: payload.previouslyPlaceHolder,
-        carName: payload.selectedCar ? payload.selectedCar.name : '',
-        carId: payload.selectedCar ? payload.selectedCar.id : '',
+        carName: payload.carName,
+        carId: payload.carId,
       });
     });
   }

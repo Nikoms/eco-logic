@@ -1,10 +1,19 @@
-import { CarViewModel } from './ViewModel';
+export type OdometerForm = {
+  previouslyPlaceHolder: string,
+  carName: string,
+  carId: string,
+  displayed: boolean,
+};
 
 export class UpdateOdometerViewModel {
-  displayed = false;
   titleText = 'Save your current odometer';
   cancelText = 'Cancel';
   saveText = 'Save';
-  selectedCar?: CarViewModel;
   previouslyPlaceHolder = '';
+  form: OdometerForm = {
+    previouslyPlaceHolder: '',
+    carName: '',
+    carId: '',
+    displayed: false,
+  };
 }

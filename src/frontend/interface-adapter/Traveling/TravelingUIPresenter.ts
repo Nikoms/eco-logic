@@ -43,13 +43,21 @@ export class TravelingUIPresenter
   }
 
   showUpdateOdometer(selectedCar: CarViewModel) {
-    this.viewModel.setSelectedCar(selectedCar);
-    this.viewModel.setDisplayUpdateOdometer(true);
+    this.viewModel.setUpdateOdometerForm({
+      displayed: true,
+      previouslyPlaceHolder: 'Previously: ' + selectedCar.distance,
+      carName: selectedCar.name,
+      carId: selectedCar.id,
+    });
   }
 
   hideUpdateOdometer(): any {
-    this.viewModel.setDisplayUpdateOdometer(false);
-    this.viewModel.setSelectedCar(undefined);
+    this.viewModel.setUpdateOdometerForm({
+      displayed: false,
+      previouslyPlaceHolder: '',
+      carName: '',
+      carId: '',
+    });
   }
 
   presentUpdateOdometer(response: UpdateOdometerResponse): void {
