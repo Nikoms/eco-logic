@@ -1,144 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0915e9f-baf6-489d-a8fb-af6bd2c4a4da" name="Default Changelist" comment="tmp">
-      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/reactts/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/reactts/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/reactts/serviceWorker.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/eco-logic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/eco-logic.iml" afterDir="false" />
+    <list default="true" id="efee6cb9-bce4-4604-a61e-d3e69be527e4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/frontend/__tests__utils__/wrapper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddCarView.spec.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/.babelrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/.browserslistrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/.nvmrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/assets/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/assets/images/flow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/assets/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/client/App.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/client/client.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/client/components/About.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/client/components/Header.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/client/components/Home.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/client/components/Home.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/client/components/User.test.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/client/components/User.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/client/components/UsersList.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/client/setupEnzyme.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/client/utils/api-facade.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/server/config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/server/db.test.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/server/db.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/server/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/server/routes/api-router.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/server/routes/manifest-manager.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/server/routes/pages-router.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/server/routes/statics-router.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/server/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/shared/IUserDTO.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/shared/MyUser.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/src/tsconfig-for-tests.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/tsconfig-for-webpack-config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/tslint.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/types.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/views/page.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_/webpack.config.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/infrastructure/GraphQL/Electricity/ElectricMeterResolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/infrastructure/GraphQL/Electricity/ElectricMeterResolver.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/infrastructure/GraphQL/Electricity/ElectricityPresenter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/infrastructure/GraphQL/Electricity/ElectricityPresenter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/infrastructure/Persistence/ElectricMeterRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/infrastructure/Persistence/ElectricMeterRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/infrastructure/di.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/infrastructure/di.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/webpack.backend.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/webpack.backend.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eco/domain/Co2/co2Listeners.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Co2/co2Listeners.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eco/domain/Electricity/Event/PowerUpdated.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/Event/PowerUpdated.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumption.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumption.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eco/domain/HouseHeating/Event/FuelOilOrdered.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/HouseHeating/Event/FuelOilOrdered.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eco/domain/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrder.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eco/domain/Traveling/Entity/Flight.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/Entity/Flight.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eco/domain/Traveling/Event/OdometerUpdated.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/Event/OdometerUpdated.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eco/domain/Traveling/Event/PlaneTravelAdded.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/Event/PlaneTravelAdded.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/AddFlight/AddFlight.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/AddFlight/AddFlight.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/UpdateOdometer/UpdateOdometer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/UpdateOdometer/UpdateOdometer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eco/domain/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/domain/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eco/shared-kernel/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/eco/shared-kernel/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/Co2/CarbonApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Co2/CarbonApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/Co2/CarbonFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Co2/CarbonFakeApiRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/Electricity/ElectricityApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Electricity/ElectricityApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/Electricity/ElectricityMeterFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Electricity/ElectricityMeterFakeApiRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/HouseHeating/HouseHeatingApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/HouseHeating/HouseHeatingApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/HouseHeating/OrderFuelOilFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/HouseHeating/OrderFuelOilFakeApiRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/Traveling/CarFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Traveling/CarFakeApiRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/Traveling/FlightFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Traveling/FlightFakeApiRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/Traveling/TravelingApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Traveling/TravelingApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/Water/ConsumptionFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Water/ConsumptionFakeApiRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/Water/WaterApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Water/WaterApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/infrastructure/Water/WaterMeterFakeApiRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/infrastructure/Water/WaterMeterFakeApiRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Electricity/ElectricityController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Electricity/ElectricityController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Electricity/ElectricityFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Electricity/ElectricityFactory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Electricity/ElectricityUIPresenter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Electricity/ElectricityUIPresenter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/HouseHeating/HouseHeatingController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/HouseHeating/HouseHeatingController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/HouseHeating/HouseHeatingFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/HouseHeating/HouseHeatingFactory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/HouseHeating/HouseHeatingUIPresenter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/HouseHeating/HouseHeatingUIPresenter.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/AddCarViewModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/AddCarViewModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/AddFlightViewModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/AddFlightViewModel.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingFactory.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingUIPresenter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingUIPresenter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterFactory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterUIPresenter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterUIPresenter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/shared-kernel/react/AdapterLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/shared-kernel/react/AdapterLink.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/shared-kernel/type/NonFunctionProperties.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/shared-kernel/type/NonFunctionProperties.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/traveling/compononents/AddCarView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddCarView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/traveling/compononents/AddFlightView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddFlightView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/traveling/compononents/UpdateOdometerView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/UpdateOdometerView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/traveling/views/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/traveling/views/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/water/compononents/AddWaterConsumptionView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/water/compononents/AddWaterConsumptionView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/water/compononents/InitWaterMeterView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/water/compononents/InitWaterMeterView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/water/compononents/ListWaterConsumptionView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/water/compononents/ListWaterConsumptionView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/src/water/views/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/water/views/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/yarn.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/vuejs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/vuejs/src/app/co2/components/co2-chart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/co2/components/co2-chart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/ViewModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/ViewModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddCarView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddCarView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/reactts/traveling/views/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/reactts/traveling/views/Home.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/components/AddCarView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/components/AddCarView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/components/AddFlightView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/components/AddFlightView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/vuejs/src/app/water/components/AddWaterConsumptionView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/app/water/components/AddWaterConsumptionView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/vuejs/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/vuejs/src/plugins/factories.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/src/plugins/factories.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/vuejs/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/vuejs/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/di.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/di.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/event/EventDispatcher.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/event/EventDispatcher.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/initListeners.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/initListeners.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/local-storage/CarLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/CarLocalStorageRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/local-storage/CarbonLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/CarbonLocalStorageRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/local-storage/ElectricMeterLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/ElectricMeterLocalStorageRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/local-storage/FlightLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/FlightLocalStorageRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/local-storage/FuelOilOrderLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/FuelOilOrderLocalStorageRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/local-storage/WaterConsumptionLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/WaterConsumptionLocalStorageRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/local-storage/WaterMeterLocalStorageRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/local-storage/WaterMeterLocalStorageRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.default.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.default.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
-    <list id="40dff27f-79ac-49ce-8283-9acd6aec8032" name="Revert &quot;test with a yarn &quot;mono-repo&quot; style + remove postcss because it fails the build and we don't need it right now&quot;" comment="Revert &quot;test with a yarn &quot;mono-repo&quot; style + remove postcss because it fails the build and we don't need it right now&quot;&#10;&#10;This reverts commit 70b1e4d6" />
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/eco/domain/node_modules/" />
     <ignored path="$PROJECT_DIR$/frontend/infrastructure/node_modules/" />
@@ -158,31 +34,42 @@
       <executable />
     </execution>
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddCarView.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="582">
+              <caret line="73" column="47" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/tsconfig.json">
+        <entry file="file://$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddCarView.spec.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tsconfig.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="946">
-              <caret line="43" selection-start-line="43" selection-end-line="43" />
+            <state relative-caret-position="559">
+              <caret line="61" column="39" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -190,8 +77,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-468">
-              <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+            <state relative-caret-position="648">
+              <caret line="38" column="34" lean-forward="true" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/frontend/__tests__utils__/wrapper.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="110" column="8" lean-forward="true" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/ViewModel.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="24" column="62" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
+              <folding>
+                <element signature="e#0#52#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/AddCarViewModel.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -200,36 +117,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>@/</find>
-      <find>webpack</find>
-      <find>incremental</find>
-      <find>dist</find>
-      <find>tsconfig-paths-webpack-plugin</find>
-      <find>babel</find>
-      <find>babel-jest</find>
-      <find>baseUrl</find>
-      <find>src/</find>
-      <find>typescript</find>
-      <find>src</find>
-      <find>appSrc</find>
-      <find>react-scripts</find>
-      <find>base</find>
-      <find>paths</find>
-      <find>AddFlight</find>
-      <find>isol</find>
-      <find>frontend-interface-adapter</find>
-      <find>base-</find>
-      <find>tsconfig.default</find>
-      <find>@eco/domain</find>
-      <find>@eco/</find>
-      <find>allowSyntheticDefaultImports</find>
-      <find>AddCarbonPresenter</find>
-      <find>CarbonRepository</find>
-      <find>GetCarbonsPresenter</find>
-      <find>declaration</find>
-      <find>locati</find>
-      <find>index.css</find>
-      <find>@vue/cli-plugin-babel</find>
+      <find>SpecificEventCallback</find>
+      <find>EventCallback</find>
+      <find>this.props.viewModel</find>
+      <find>setState</find>
+      <find>state.displ</find>
+      <find>gasoline</find>
+      <find>state</find>
+      <find>fakeEvent</find>
+      <find>travelingFactory</find>
+      <find>AddCarViewModel</find>
+      <find>setDispl</find>
+      <find>hide</find>
+      <find>iciii</find>
+      <find>viewModel</find>
+      <find>ReactDOM.render</find>
+      <find>react-dom-test-utils</find>
+      <find>IsSomeRendererActing</find>
+      <find>react-dom</find>
+      <find>rerender</find>
+      <find>wrapUiIfNeeded</find>
+      <find>menu-engine</find>
+      <find>observers</find>
+      <find>fireEvent</find>
+      <find>queryByRole</find>
+      <find>basicEvent</find>
+      <find>__test</find>
+      <find>engine</find>
+      <find>enzyme</find>
+      <find>enzy</find>
+      <find>makeChangeValueEvent</find>
     </findStrings>
     <replaceStrings>
       <replace>eco/domain</replace>
@@ -261,6 +178,8 @@
       <dir>$PROJECT_DIR$/src/frontend/vuejs</dir>
       <dir>$PROJECT_DIR$/core/src/frontend/reactts</dir>
       <dir>$PROJECT_DIR$/src/frontend/reactts</dir>
+      <dir>$PROJECT_DIR$/node_modules</dir>
+      <dir>$PROJECT_DIR$/node_modules/@testing-library</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -274,31 +193,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterUIPresenter.ts" />
-        <option value="$PROJECT_DIR$/src/frontend/vuejs/src/app/co2/components/co2-chart.vue" />
-        <option value="$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/components/AddCarView.vue" />
-        <option value="$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/components/AddFlightView.vue" />
-        <option value="$PROJECT_DIR$/src/frontend/vuejs/src/app/water/components/AddWaterConsumptionView.vue" />
-        <option value="$PROJECT_DIR$/src/infrastructure/di.ts" />
-        <option value="$PROJECT_DIR$/src/infrastructure/initListeners.ts" />
-        <option value="$PROJECT_DIR$/src/infrastructure/local-storage/CarbonLocalStorageRepository.ts" />
-        <option value="$PROJECT_DIR$/src/infrastructure/local-storage/CarLocalStorageRepository.ts" />
-        <option value="$PROJECT_DIR$/src/infrastructure/local-storage/ElectricMeterLocalStorageRepository.ts" />
-        <option value="$PROJECT_DIR$/src/infrastructure/local-storage/FlightLocalStorageRepository.ts" />
-        <option value="$PROJECT_DIR$/src/infrastructure/local-storage/FuelOilOrderLocalStorageRepository.ts" />
-        <option value="$PROJECT_DIR$/src/infrastructure/local-storage/WaterConsumptionLocalStorageRepository.ts" />
-        <option value="$PROJECT_DIR$/src/infrastructure/local-storage/WaterMeterLocalStorageRepository.ts" />
-        <option value="$PROJECT_DIR$/src/eco/domain/Co2/co2Listeners.ts" />
-        <option value="$PROJECT_DIR$/src/eco/domain/Electricity/Event/PowerUpdated.ts" />
-        <option value="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/UpdatePowerConsumption/UpdatePowerConsumption.ts" />
-        <option value="$PROJECT_DIR$/src/eco/domain/HouseHeating/Event/FuelOilOrdered.ts" />
-        <option value="$PROJECT_DIR$/src/eco/domain/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrder.ts" />
-        <option value="$PROJECT_DIR$/src/eco/domain/Traveling/Event/OdometerUpdated.ts" />
-        <option value="$PROJECT_DIR$/src/eco/domain/Traveling/Event/PlaneTravelAdded.ts" />
-        <option value="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/AddFlight/AddFlight.ts" />
-        <option value="$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/UpdateOdometer/UpdateOdometer.ts" />
-        <option value="$PROJECT_DIR$/src/frontend/vuejs/src/main.ts" />
-        <option value="$PROJECT_DIR$/src/frontend/vuejs/src/plugins/factories.ts" />
         <option value="$PROJECT_DIR$/src/infrastructure/event/EventDispatcher.ts" />
         <option value="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingUI.ts" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -307,24 +201,49 @@
         <option value="$PROJECT_DIR$/src/eco/domain/Traveling/Entity/Flight.ts" />
         <option value="$PROJECT_DIR$/src/eco/shared-kernel/index.ts" />
         <option value="$PROJECT_DIR$/src/frontend/reactts/package.json" />
-        <option value="$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddCarView.tsx" />
-        <option value="$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddFlightView.tsx" />
-        <option value="$PROJECT_DIR$/src/frontend/reactts/traveling/views/Home.tsx" />
         <option value="$PROJECT_DIR$/src/frontend/reactts/water/compononents/AddWaterConsumptionView.tsx" />
         <option value="$PROJECT_DIR$/src/frontend/reactts/water/compononents/InitWaterMeterView.tsx" />
         <option value="$PROJECT_DIR$/src/frontend/reactts/water/compononents/ListWaterConsumptionView.tsx" />
-        <option value="$PROJECT_DIR$/src/frontend/reactts/water/views/Home.tsx" />
-        <option value="$PROJECT_DIR$/src/frontend/reactts/App.tsx" />
-        <option value="$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/UpdateOdometerView.tsx" />
-        <option value="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingUIPresenter.ts" />
         <option value="$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterResponse.ts" />
         <option value="$PROJECT_DIR$/src/frontend/reactts/index.ts" />
         <option value="$PROJECT_DIR$/src/index.tsx" />
-        <option value="$PROJECT_DIR$/src/frontend/reactts/index.tsx" />
         <option value="$PROJECT_DIR$/tsconfig.json" />
         <option value="$PROJECT_DIR$/src/frontend/vuejs/package.json" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/frontend/vuejs/tsconfig.json" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/src/eco/domain/Co2/UseCase/GetCarbons/GetCarbonsResponse.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/infrastructure/redux.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/water/views/Home.tsx" />
+        <option value="$PROJECT_DIR$/src/frontend/interface-adapter/Water/ViewModel.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/index.tsx" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/traveling/store/reducers.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/traveling/store/travelReducer.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/traveling/store/redux.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/traveling/store/traveling/TravelState.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/traveling/store/traveling/redux.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/App.tsx" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/traveling/store/traveling/TravelActionTypes.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/rootReducer.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddFlightView.tsx" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/traveling/store/traveling/travelReducer.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/components/UpdateOdometerView.vue" />
+        <option value="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/UpdateOdometerViewModel.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/UpdateOdometerView.tsx" />
+        <option value="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingController.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/components/AddCarView.vue" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/setupTests.ts" />
+        <option value="$PROJECT_DIR$/src/setupTests.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingUIPresenter.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/ViewModel.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/traveling/views/Home.tsx" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/AddCarViewModel.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddCarView.tsx" />
+        <option value="$PROJECT_DIR$/src/frontend/__tests__/wrapper.ts" />
+        <option value="$PROJECT_DIR$/__mocks__/react.js" />
+        <option value="$PROJECT_DIR$/src/frontend/__tests__utils__/wrapper.ts" />
+        <option value="$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddCarView.spec.tsx" />
       </list>
     </option>
   </component>
@@ -347,6 +266,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -370,6 +290,13 @@
               <item name="eco-logic" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="__tests__utils__" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eco-logic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="eco-logic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="reactts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -377,18 +304,34 @@
               <item name="eco-logic" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="vuejs" type="462c0819:PsiDirectoryNode" />
+              <item name="reactts" type="462c0819:PsiDirectoryNode" />
+              <item name="traveling" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eco-logic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="eco-logic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="reactts" type="462c0819:PsiDirectoryNode" />
+              <item name="traveling" type="462c0819:PsiDirectoryNode" />
+              <item name="compononents" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eco-logic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="eco-logic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="infrastructure" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="js.last.introduce.type" value="CONST" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/frontend/reactts" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -409,11 +352,11 @@
       <recent name="$PROJECT_DIR$/backend" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/frontend/reactts/traveling/store/traveling" />
       <recent name="$PROJECT_DIR$/src/frontend/reactts" />
       <recent name="$PROJECT_DIR$/src/frontend/reactts/src" />
-      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/backend" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -441,8 +384,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="JavaScript Debug.ListWaterConsumptionView.vue" />
+        <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="JavaScript Debug.ListWaterConsumptionView.vue" />
       </list>
@@ -453,7 +396,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e0915e9f-baf6-489d-a8fb-af6bd2c4a4da" name="Default Changelist" comment="" />
+      <changelist id="efee6cb9-bce4-4604-a61e-d3e69be527e4" name="Default Changelist" comment="" />
       <created>1564324003908</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -465,6 +408,14 @@
       <workItem from="1564617634417" duration="16710000" />
       <workItem from="1564674831870" duration="626000" />
       <workItem from="1564697870417" duration="1245000" />
+      <workItem from="1564699810203" duration="276000" />
+      <workItem from="1564700251567" duration="299000" />
+      <workItem from="1564735328584" duration="739000" />
+      <workItem from="1564741870995" duration="11000" />
+      <workItem from="1564750541404" duration="1129000" />
+      <workItem from="1564957145115" duration="2060000" />
+      <workItem from="1565104939238" duration="10575000" />
+      <workItem from="1565179988900" duration="42370000" />
     </task>
     <task id="LOCAL-00001" summary="Use index.ts + use composite + compile + use compiled files + remove di in vue and react (use interface adapter) + fix setImmediate">
       <created>1564358841484</created>
@@ -571,17 +522,59 @@
       <option name="project" value="LOCAL" />
       <updated>1564693148886</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Temporary fix because react and vuejs use different version of &quot;babel-jest&quot; and netlify need a .env to skip the check">
+      <created>1564700046770</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1564700046770</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Set a public url for react">
+      <created>1564700521395</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1564700521396</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Use redux in react... For the fun (part 1)">
+      <created>1565134163420</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1565134163420</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Finish with redux for travel">
+      <created>1565302692274</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1565302692274</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Error with npmrc">
+      <created>1565304010244</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1565304010244</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Move logic of &quot;previously xx km&quot; in presenter to keep view model dumb">
+      <created>1565561799219</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1565561799219</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66263000" />
+    <option name="totallyTimeSpent" value="123816000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="951" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="951" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23565324" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18192919" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -603,7 +596,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.16971917" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.32900137" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32844934" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -637,183 +630,201 @@
     <MESSAGE value="tmp" />
     <MESSAGE value="move files to backend and rename tsconfig.default.json" />
     <MESSAGE value="generate dist at root" />
-    <option name="LAST_COMMIT_MESSAGE" value="generate dist at root" />
+    <MESSAGE value="Temporary fix because react and vuejs use different version of &quot;babel-jest&quot; and netlify need a .env to skip the check" />
+    <MESSAGE value="Set a public url for react" />
+    <MESSAGE value="Use redux in react... For the fun (part 1)" />
+    <MESSAGE value="Finish with redux for travel" />
+    <MESSAGE value="Error with npmrc" />
+    <MESSAGE value="Move logic of &quot;previously xx km&quot; in presenter to keep view model dumb" />
+    <option name="LAST_COMMIT_MESSAGE" value="Move logic of &quot;previously xx km&quot; in presenter to keep view model dumb" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/eco/domain/HouseHeating/Event/FuelOilOrdered.ts">
+    <entry file="file://$PROJECT_DIR$/src/backend/schema.gql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eco/domain/Co2/UseCase/GetCarbons/GetCarbonsResponse.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
+        <state>
+          <caret column="9" selection-start-column="9" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/eco/domain/HouseHeating/UseCase/AddFuelOilOrder/AddFuelOilOrder.ts">
+    <entry file="file://$PROJECT_DIR$/src/eco/domain/Co2/Entity/Carbon.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="9" column="100" selection-start-line="9" selection-start-column="100" selection-end-line="9" selection-end-column="100" />
-          <folding>
-            <element signature="e#0#88#0" expanded="true" />
-          </folding>
+        <state>
+          <caret column="15" lean-forward="true" selection-start-column="15" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/eco/domain/Traveling/Event/OdometerUpdated.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="43" lean-forward="true" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eco/domain/Traveling/Event/PlaneTravelAdded.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="45" lean-forward="true" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/AddFlight/AddFlight.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="9" column="90" selection-start-line="9" selection-start-column="90" selection-end-line="9" selection-end-column="90" />
-          <folding>
-            <element signature="e#0#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/UpdateOdometer/UpdateOdometer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="8" column="86" lean-forward="true" selection-start-line="8" selection-start-column="86" selection-end-line="8" selection-end-column="86" />
-          <folding>
-            <element signature="e#0#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/src/main.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/src/plugins/factories.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/infrastructure/event/EventDispatcher.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingUI.ts">
+    <entry file="file://$PROJECT_DIR$/src/index.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
-          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="154">
-            <caret line="7" column="126" selection-start-line="7" selection-start-column="126" selection-end-line="7" selection-end-column="126" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/src/frontend/infrastructure/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/interface-adapter/Electricity/ViewModel.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/interface-adapter/HouseHeating/ViewModel.ts">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterUIPresenter.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/interface-adapter/Water/WaterUI.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" selection-start-column="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/interface-adapter/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="48" column="27" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
+        <state relative-caret-position="294">
+          <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
           <folding>
-            <element signature="e#0#70#0" expanded="true" />
+            <element signature="e#0#320#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/eco/domain/Co2/Repository/CarbonRepository.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eco/domain/index.ts">
+    <entry file="file://$PROJECT_DIR$/src/frontend/infrastructure/redux.ts" />
+    <entry file="file://$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/AddCar/AddCar.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="175" column="12" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="12" />
+        <state relative-caret-position="44">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/water/views/Home.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
           <folding>
-            <element signature="e#0#79#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/eco/domain/Traveling/Entity/Flight.ts">
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/react-redux/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="269">
+          <caret line="455" column="13" selection-start-line="455" selection-start-column="13" selection-end-line="455" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/eco/shared-kernel/event/Event.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eco/shared-kernel/index.ts">
+    <entry file="file://$PROJECT_DIR$/src/frontend/interface-adapter/Water/ViewModel.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="403">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/tsconfig.json" />
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/package.json" />
-    <entry file="file://$PROJECT_DIR$/src/react-app-env.d.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/x/App.test.tsx">
+    <entry file="file://$PROJECT_DIR$/node_modules/redux/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="178">
+          <caret line="92" column="32" lean-forward="true" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/App.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="40" column="15" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="15" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#642#698#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/react-app-env.d.ts" />
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/serviceWorker.ts">
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/traveling/store/traveling/TravelState.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/traveling/store/traveling/travelReducer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddFlightView.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="41" column="42" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/traveling/store/traveling/TravelActionTypes.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yarn.lock">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="10317" selection-start-line="10317" selection-end-line="10317" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/rootReducer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/components/UpdateOdometerView.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/UpdateOdometerView.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="871">
+          <caret line="47" column="15" selection-start-line="47" selection-start-column="15" selection-end-line="47" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/UpdateOdometerViewModel.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eco/domain/Traveling/UseCase/AddCar/AddCarRequest.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="31" selection-start-line="1" selection-start-column="14" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/enzyme-adapter-react-16/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
@@ -822,192 +833,205 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/x/App.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/x/react-app-env.d.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/App.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddCarView.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddFlightView.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/traveling/views/Home.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1062">
-          <caret line="9" column="63" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/water/compononents/AddWaterConsumptionView.tsx">
+    <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/core/test-utils/createShallow.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
-          <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+          <caret line="8" column="84" selection-start-line="8" selection-start-column="84" selection-end-line="8" selection-end-column="84" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/water/compononents/InitWaterMeterView.tsx">
+    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/components/AddCarView.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+        <state relative-caret-position="383">
+          <caret line="42" column="72" lean-forward="true" selection-start-line="42" selection-start-column="72" selection-end-line="42" selection-end-column="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/water/compononents/ListWaterConsumptionView.tsx">
+    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/src/app/traveling/views/Home.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="85" selection-start-line="7" selection-start-column="85" selection-end-line="7" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/water/views/Home.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-490">
-          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/App.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="44" column="12" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-            <element signature="e#642#698#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/UpdateOdometerView.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="370">
+          <caret line="48" column="15" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingUIPresenter.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="39" column="57" selection-start-line="39" selection-start-column="57" selection-end-line="39" selection-end-column="57" />
+        <state relative-caret-position="168">
+          <caret line="30" column="6" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
           <folding>
             <element signature="e#0#322#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/eco/domain/Electricity/UseCase/SaveElectricMeter/SaveElectricMeterResponse.ts">
+    <entry file="file://$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/TravelingController.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+        <state relative-caret-position="269">
+          <caret line="30" column="70" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#322#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.tsx">
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/traveling/views/Home.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="262">
+          <caret line="37" column="14" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/enzyme/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="248" column="4" selection-start-line="248" selection-start-column="4" selection-end-line="248" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/react-dom/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/reactts/index.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="220">
+          <caret line="10" column="42" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="48" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tsconfig.default.json">
+    <entry file="file://$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom-test-utils.development.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+        <state relative-caret-position="233">
+          <caret line="982" column="33" selection-start-line="982" selection-start-column="33" selection-end-line="982" selection-end-column="61" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/index.ts">
+    <entry file="file://$PROJECT_DIR$/node_modules/react-dom/test-utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@testing-library/react/dist/@testing-library/react.cjs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="210" column="27" selection-start-line="210" selection-start-column="11" selection-end-line="210" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/jest/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="51" column="4" selection-start-line="51" selection-start-column="4" selection-end-line="51" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@testing-library/dom/typings/wait-for-dom-change.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="51" lean-forward="true" selection-start-column="51" selection-end-column="51" />
+          <caret column="16" selection-start-column="16" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/infrastructure/Api/server.ts">
+    <entry file="file://$PROJECT_DIR$/node_modules/@testing-library/react/typings/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/ViewModel.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="24" column="62" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/react-dom/test-utils/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="566">
+          <caret line="298" column="17" selection-start-line="298" selection-start-column="17" selection-end-line="298" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@testing-library/dom/typings/queries.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="104" column="13" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/interface-adapter/Traveling/AddCarViewModel.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddCarView.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="73" column="47" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/__mocks__/react.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/setupTests.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/infrastructure/Persistence/ElectricMeterRepository.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="946">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-468">
-          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        <state relative-caret-position="648">
+          <caret line="38" column="34" lean-forward="true" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/vuejs/tsconfig.json">
+    <entry file="file://$PROJECT_DIR$/src/frontend/__tests__utils__/wrapper.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+        <state relative-caret-position="170">
+          <caret line="110" column="8" lean-forward="true" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/reactts/traveling/compononents/AddCarView.spec.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="559">
+          <caret line="61" column="39" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

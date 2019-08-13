@@ -23,7 +23,6 @@ export class ViewModel {
     carsUpdated: 'travel.carsUpdated' as 'travel.carsUpdated',
     flightsUpdated: 'travel.flightsUpdated' as 'travel.flightsUpdated',
     formChanged: 'travel.formChanged' as 'travel.formChanged',
-    addCarDisplayChanged: 'travel.addCarDisplayChanged' as 'travel.addCarDisplayChanged',
     addFlightDisplayChanged: 'travel.addFlightDisplayChanged' as 'travel.addFlightDisplayChanged',
   });
 
@@ -61,11 +60,6 @@ export class ViewModel {
   setUpdateOdometerForm(form: OdometerForm) {
     this.updateOdometerView.form = form;
     this.observers.forEach(cb => cb(form, ViewModel.events.formChanged));
-  }
-
-  setDisplayAddCar(displayed: boolean) {
-    this.addCarView.displayed = displayed;
-    this.observers.forEach(cb => cb({ displayed }, ViewModel.events.addCarDisplayChanged));
   }
 
   setDisplayAddFlight(displayed: boolean) {

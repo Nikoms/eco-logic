@@ -28,7 +28,8 @@ export class TravelingController {
     private updateOdometerUseCase: UpdateOdometer) {
   }
 
-  addCar(request: AddCarRequest) {
+  addCar(name: string, consumption: string, engine: string, km: string) {
+    const request = new AddCarRequest(name, consumption, engine, km);
     this.addCarUseCase.execute(request, this.addCarPresenter);
   }
 

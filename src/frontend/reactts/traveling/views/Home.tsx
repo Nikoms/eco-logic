@@ -35,9 +35,7 @@ class Home extends React.Component<HomeProps> {
 
   render() {
     return (<div>
-      <AddCarView presenter={this.props.travelingFactory.presenter}
-                  viewModel={this.props.travelingFactory.viewModel}
-                  controller={this.props.travelingFactory.controller}/>
+      <AddCarView/>
       <AddFlightView presenter={this.props.travelingFactory.presenter}
                      viewModel={this.props.travelingFactory.viewModel}
                      controller={this.props.travelingFactory.controller}/>

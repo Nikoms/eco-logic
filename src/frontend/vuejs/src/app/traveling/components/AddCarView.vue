@@ -1,6 +1,6 @@
 <template>
     <v-dialog v-model="viewModel.displayed" max-width="600px">
-        <v-form @submit.prevent="$travel.controller.addCar(form)">
+        <v-form @submit.prevent="$travel.controller.addCar(form.name, form.consumption, form.engine, form.km)">
             <v-card>
                 <v-card-title>
                     <v-icon large left>mdi-car</v-icon>
@@ -29,19 +29,28 @@
 
 <script lang="ts">
   import { Component, Vue, Watch } from 'vue-property-decorator';
-  import { AddCarRequest } from '../../../../../../eco/domain';
 
   @Component
   export default class AddCarView extends Vue {
-    form = new AddCarRequest('', '', '', '');
+    form = {
+      name: '',
+      consumption: '',
+      engine: '',
+      km: '',
+    };
     viewModel = this.$travel.viewModel.addCarView;
 
     @Watch('viewModel.displayed') onDisplayChanged(displayed: boolean) {
       if (displayed) {
-        this.form = new AddCarRequest('', '', this.viewModel.engines[0], '0');
+        this.form = {
+          name: '',
+          consumption: '',
+          engine: this.viewModel.engines[0],
+          km: '0',
+        };
         setTimeout(() => {
           (this.$refs.name as any).focus();
-        },0);
+        }, 0);
       }
     }
 

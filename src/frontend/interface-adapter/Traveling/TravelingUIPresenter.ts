@@ -82,11 +82,11 @@ export class TravelingUIPresenter
   }
 
   hideAddCar(): void {
-    this.viewModel.setDisplayAddCar(false);
+    this.viewModel.addCarView.setDisplayed(false);
   }
 
   showAddCar(): void {
-    this.viewModel.setDisplayAddCar(true);
+    this.viewModel.addCarView.setDisplayed(true);
   }
 
   presentAddCar(response: AddCarResponse): void {
